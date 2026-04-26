@@ -74,7 +74,7 @@ export const t = {
       tag: "About Blumaa",
       heroH1: "You know you're better than your brand makes you look.",
       heroBody:
-        "Tu marca es como una persona: tiene personalidad y tiene voz, tiene una manera especial de moverse por el mundo.\nMi trabajo es encontrarla contigo.\nY cuando la encontramos, todo fluye.",
+        "Your brand is like a person: it has a personality, a voice and a special way to move through the world. My goal is to find it together, and when we do, everything falls into place.",
       founderTag1: "hi, I'm Cata",
       founderTag2: "Who's behind this",
       founderName: "Founded by Catalina Mejia",
