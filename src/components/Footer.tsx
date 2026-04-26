@@ -16,7 +16,6 @@ const Footer = () => (
             {[
               { label: "About", path: "/about" },
               { label: "Services", path: "/services" },
-              { label: "Portfolio", path: "/portfolio" },
               { label: "Contact", path: "/contact" },
             ].map((link) => (
               <Link key={link.path} to={link.path} className="block text-sm text-white-chocolate/80 hover:text-white-chocolate transition-all">

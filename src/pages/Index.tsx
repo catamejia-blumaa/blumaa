@@ -35,9 +35,6 @@ const Index = () => (
             <Button asChild size="lg" className="bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-10 py-6 text-base shadow-lg hover:shadow-xl transition-all font-semibold hover:scale-105">
               <Link to="/contact">Start Your Project <ArrowRight className="ml-2" size={18} /></Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-10 py-6 text-base border-2 border-blue-dark text-blue-dark hover:bg-blue-dark hover:text-white-chocolate hover:scale-105 transition-all shadow-md hover:shadow-lg">
-              <Link to="/portfolio">See the Work</Link>
-            </Button>
           </motion.div>
         </motion.div>
       </div>
@@ -160,49 +157,6 @@ const Index = () => (
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
-
-    {/* Featured Projects */}
-    <section className="py-24 md:py-32 lg:py-40 bg-white-chocolate text-night">
-      <div className="container max-w-7xl relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-          <p className="text-blue font-mono font-semibold text-xs uppercase tracking-[0.3em] mb-4">Featured Work</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-[0.85] text-night uppercase max-w-4xl">Projects that <span className="italic font-bold text-blue">made an impact.</span></h2>
-        </motion.div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {[
-            { name: "Luxe Botanicals", image: "Project 1" },
-            { name: "Urban Nest", image: "Project 2" },
-            { name: "Peak Performance", image: "Project 3" },
-            { name: "Maven & Co", image: "Project 4" }
-          ].map((project, i) => (
-            <motion.div
-              key={project.name}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              variants={fadeUp}
-              className="group cursor-pointer"
-            >
-              <div className="aspect-[3/4] bg-white rounded-xl flex items-center justify-center border-2 border-blue/20 shadow-lg mb-4 group-hover:border-blue group-hover:shadow-xl transition-all">
-                <span className="text-blue/50 text-sm">{project.image}</span>
-              </div>
-              <h3 className="text-xl font-serif font-bold text-night text-center group-hover:text-blue transition-colors">{project.name}</h3>
-            </motion.div>
-          ))}
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <Button asChild variant="outline" className="rounded-full border-2 border-blue-dark text-blue-dark hover:bg-blue-dark hover:text-white-chocolate px-10 py-6 font-semibold hover:scale-105 transition-all shadow-md hover:shadow-lg text-base">
-            <Link to="/portfolio">My Favorite Projects <ArrowRight className="ml-2" size={18} /></Link>
-          </Button>
-        </motion.div>
       </div>
     </section>
 
