@@ -6,13 +6,13 @@
 A premium, multi-page website for Blumaa — a solo female-led branding and growth agency. The design will be editorial, conversion-focused, and confident. No fluff, all strategy.
 
 ## Color Palette
-- **Blumaa Blue** (HSL: 233 100% 54%) — Primary brand color, authority, energy
-- **Light Yellow** (HSL: 46 100% 83%) — Action, energy, CTAs, Secondary accent, growth, freshness
-- **Pink** (HSL: 301 85% 88%) — Warm accent, optimism, highlights
-- **White Chocolate** (HSL: 33 100% 97%) — Warm backgrounds, breathing room
-- **Night** (HSL: 240 8% 12%) — Deep neutral for text and dark backgrounds
-- **Cobalt** (#ff5757 / HSL: 0 100% 67%) — Only used in special occasions where a very specific highlight is needed
-- **Green** (HSL: 70 75% 55%) — Only used in special occasions where a very specific highlight is needed
+- **Blumaa Blue** (HSL: 232 100% 57%) — Primary brand color, authority, energy
+- **Butter** (HSL: 48 100% 88%) — Action, energy, CTAs, Secondary accent, growth, freshness
+- **Pink** (HSL: 336 100% 69%) — Warm accent, optimism, highlights
+- **Citrus Orange** (HSL: 24 100% 60%) — Warm accent, optimism, highlights
+- **Crema** (HSL: 33 100% 97%) — Warm backgrounds, breathing room
+- **Night** (HSL: 345 6% 13%) — Deep neutral for text and dark backgrounds
+- **Pool Blue** (#ff5757 / HSL: 0 100% 67%) — Only used in special occasions where a very specific highlight is needed
 
 ## Typography & Style
 - **Headlines**: Instrument Serif — elegant, editorial serif for all headings (h1-h6)
