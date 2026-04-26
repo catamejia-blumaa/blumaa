@@ -40,8 +40,8 @@ const About = () => {
               viewport={{ once: true }}
               className="flex flex-col gap-6"
             >
-              <div className="aspect-square bg-blue-dark rounded-2xl flex items-center justify-center shadow-xl">
-                <span className="text-white-chocolate/50 text-sm">Photo</span>
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
+                <img src="/Photo_Cata.jpg" alt={tr.founderName} className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="text-light-yellow font-mono text-xs uppercase tracking-[0.2em] mb-1">
