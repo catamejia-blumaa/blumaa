@@ -24,8 +24,8 @@ const Index = () => (
           transition={{ delay: 1.2, duration: 0.6 }}
           className="absolute top-16 right-8 md:right-20 lg:right-32 hidden md:block pointer-events-none"
         >
-          <p className="font-biro text-white-chocolate/70 text-2xl md:text-3xl leading-snug text-center" style={{ transform: "rotate(-6deg)" }}>
-            La magia del<br />branding
+          <p className="font-biro text-white-chocolate text-2xl md:text-3xl leading-snug text-center" style={{ transform: "rotate(-6deg)" }}>
+            Branding magic
           </p>
         </motion.div>
         <motion.div
@@ -150,10 +150,10 @@ const Index = () => (
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="absolute top-0 right-0 font-biro text-white-chocolate/60 text-xl md:text-2xl leading-snug hidden md:block pointer-events-none"
+            className="absolute top-0 right-0 font-biro text-white-chocolate text-xl md:text-2xl leading-snug hidden md:block pointer-events-none"
             style={{ transform: "rotate(3deg)" }}
           >
-            Lo que más importa es<br />que disfrutemos el<br />proceso
+            Enjoying the process is<br />what really really matters
           </motion.p>
         </motion.div>
         <div className="grid md:grid-cols-4 gap-8">
