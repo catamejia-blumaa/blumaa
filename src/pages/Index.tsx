@@ -17,7 +17,7 @@ const Index = () => {
     <Layout>
       {/* Hero */}
       <section className="min-h-screen flex items-center relative overflow-hidden bg-blue text-white-chocolate">
-        <div className="container relative z-10 py-16 md:py-20">
+        <div className="container relative z-10 pt-10 pb-16 md:py-20">
           {/* Handwritten annotation — desktop only */}
           <motion.div
             initial={{ opacity: 0, rotate: -6, y: 10 }}
