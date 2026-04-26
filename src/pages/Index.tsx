@@ -29,25 +29,21 @@ const Index = () => {
               {tr.biroHero}
             </p>
           </motion.div>
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            className="max-w-4xl"
-          >
+          <motion.div initial="hidden" animate="visible" className="max-w-4xl">
             <motion.p variants={fadeUp} custom={0} className="text-light-yellow font-mono font-semibold text-xs uppercase tracking-[0.3em] mb-6 md:mb-8 drop-shadow-sm">
               {tr.agencyTag}
             </motion.p>
-            <motion.h1 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.9] md:leading-[0.85] mb-8 md:mb-10 text-white-chocolate uppercase max-w-5xl drop-shadow-sm">
+            <motion.h1 variants={fadeUp} custom={1} className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.95] sm:leading-[0.9] md:leading-[0.85] mb-7 md:mb-10 text-white-chocolate uppercase max-w-5xl drop-shadow-sm">
               {tr.heroH1a} <span className="italic font-bold">{tr.heroH1b}</span> {tr.heroH1c} <span className="italic font-bold">{tr.heroH1d}</span>
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-base sm:text-lg md:text-xl lg:text-2xl text-white-chocolate max-w-2xl mb-10 md:mb-12 leading-relaxed">
+            <motion.p variants={fadeUp} custom={2} className="text-sm sm:text-base md:text-xl lg:text-2xl text-white-chocolate max-w-2xl mb-8 md:mb-12 leading-relaxed">
               {tr.heroBody.split(" , ").map((part, i, arr) => (
                 i === 1 ? <span key={i}><span className="italic font-bold text-light-yellow drop-shadow-sm"> , {part}</span>{arr[2] ? "" : ""}</span> : (i === 0 ? part : "")
               ))}
             </motion.p>
             <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4 md:gap-6">
-              <Button asChild size="lg" className="w-full sm:w-auto bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-8 md:px-10 py-5 md:py-6 text-base shadow-lg hover:shadow-xl transition-all font-semibold hover:scale-105">
-                <Link to="/contact">{tr.heroCta} <ArrowRight className="ml-2" size={18} /></Link>
+              <Button asChild size="lg" className="w-full sm:w-auto bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-6 sm:px-8 md:px-10 py-5 md:py-6 text-sm sm:text-base shadow-lg hover:shadow-xl transition-all font-semibold hover:scale-105">
+                <Link to="/contact">{tr.heroCta} <ArrowRight className="ml-2" size={16} /></Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -55,19 +51,19 @@ const Index = () => {
       </section>
 
       {/* Pain Points Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white-chocolate text-night">
+      <section className="py-12 md:py-24 lg:py-32 bg-white-chocolate text-night">
         <div className="container max-w-6xl relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-10 md:mb-16"
+            className="text-center mb-8 md:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-night max-w-3xl mx-auto leading-tight mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-serif font-normal text-night max-w-3xl mx-auto leading-tight mb-4">
               {tr.painTitle}
             </h2>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-3 gap-5 md:gap-8 lg:gap-12">
             {tr.pains.map((pain, i) => (
               <motion.div
                 key={i}
@@ -77,8 +73,8 @@ const Index = () => {
                 transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <h3 className="text-lg md:text-xl lg:text-2xl font-serif font-bold text-night mb-3 md:mb-4 leading-tight">{pain.title}</h3>
-                <p className="text-night/75 leading-relaxed text-sm md:text-base">{pain.desc}</p>
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif font-bold text-night mb-2 md:mb-4 leading-tight">{pain.title}</h3>
+                <p className="text-night/75 leading-relaxed text-sm">{pain.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -86,15 +82,15 @@ const Index = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white-chocolate text-night">
+      <section className="py-12 md:py-24 lg:py-32 bg-white-chocolate text-night">
         <div className="container max-w-7xl relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10 md:mb-16 lg:mb-20">
-            <p className="text-blue font-mono font-semibold text-xs uppercase tracking-[0.3em] mb-4">{tr.servicesTag}</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.9] md:leading-[0.85] text-night uppercase max-w-4xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 md:mb-16 lg:mb-20">
+            <p className="text-blue font-mono font-semibold text-xs uppercase tracking-[0.3em] mb-3 md:mb-4">{tr.servicesTag}</p>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.95] md:leading-[0.85] text-night uppercase max-w-4xl">
               {tr.servicesH2a} <span className="italic font-bold text-blue">{tr.servicesH2b}</span>
             </h2>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
             {tr.services.map((s, i) => {
               const Icon = serviceIcons[i];
               return (
@@ -108,11 +104,11 @@ const Index = () => {
                 >
                   <Link
                     to="/services"
-                    className="block bg-white border-2 border-blue/10 rounded-xl p-6 md:p-8 lg:p-10 hover:border-blue hover:shadow-xl transition-all group h-full hover:scale-105"
+                    className="block bg-white border-2 border-blue/10 rounded-xl p-4 sm:p-6 md:p-8 lg:p-10 hover:border-blue hover:shadow-xl transition-all group h-full hover:scale-105"
                   >
-                    <Icon className="text-blue mb-5 md:mb-6 group-hover:text-light-yellow transition-colors drop-shadow-sm" size={28} />
-                    <h3 className="text-lg md:text-xl lg:text-2xl font-serif font-bold text-night mb-2 md:mb-3 group-hover:text-blue transition-colors uppercase">{s.title}</h3>
-                    <p className="text-night/75 text-sm md:text-base leading-relaxed">{s.desc}</p>
+                    <Icon className="text-blue mb-4 md:mb-6 group-hover:text-light-yellow transition-colors drop-shadow-sm" size={24} />
+                    <h3 className="text-base md:text-xl lg:text-2xl font-serif font-bold text-night mb-2 md:mb-3 group-hover:text-blue transition-colors uppercase">{s.title}</h3>
+                    <p className="text-night/75 text-xs md:text-sm lg:text-base leading-relaxed">{s.desc}</p>
                   </Link>
                 </motion.div>
               );
@@ -122,21 +118,21 @@ const Index = () => {
       </section>
 
       {/* The Method */}
-      <section className="py-16 md:py-24 lg:py-32 bg-blue text-white-chocolate">
+      <section className="py-12 md:py-24 lg:py-32 bg-blue text-white-chocolate">
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-10 md:mb-16 relative"
+            className="mb-8 md:mb-16 relative"
           >
-            <p className="text-light-yellow font-semibold text-xs md:text-sm uppercase tracking-[0.2em] mb-3 drop-shadow-sm">
+            <p className="text-light-yellow font-semibold text-xs uppercase tracking-[0.2em] mb-2 md:mb-3 drop-shadow-sm">
               {tr.methodTag}
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif drop-shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif drop-shadow-sm">
               {tr.methodH2}
               <br />
-              <span className="text-white-chocolate/70 text-xl md:text-2xl font-sans font-normal">
+              <span className="text-white-chocolate/70 text-base sm:text-xl md:text-2xl font-sans font-normal">
                 {tr.methodSub}
               </span>
             </h2>
@@ -153,7 +149,7 @@ const Index = () => {
               ))}
             </motion.p>
           </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {tr.methodSteps.map((step, i) => (
               <motion.div
                 key={step.num}
@@ -164,8 +160,8 @@ const Index = () => {
                 variants={fadeUp}
                 className="relative rounded-lg p-3 md:p-4 transition-all"
               >
-                <span className="text-4xl md:text-5xl font-serif text-light-yellow/50">{step.num}</span>
-                <h3 className="text-base md:text-xl font-serif mt-2 mb-2 md:mb-3">{step.title}</h3>
+                <span className="text-3xl sm:text-4xl md:text-5xl font-serif text-light-yellow/50">{step.num}</span>
+                <h3 className="text-sm sm:text-base md:text-xl font-serif mt-1 md:mt-2 mb-1 md:mb-3">{step.title}</h3>
                 <p className="text-white-chocolate/85 text-xs md:text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
@@ -174,17 +170,17 @@ const Index = () => {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-16 md:py-24 lg:py-32 bg-blue text-white-chocolate">
+      <section className="py-12 md:py-24 lg:py-32 bg-blue text-white-chocolate">
         <div className="container text-center max-w-5xl relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.9] md:leading-[0.85] mb-6 md:mb-8 text-white-chocolate uppercase drop-shadow-sm">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.95] md:leading-[0.85] mb-5 md:mb-8 text-white-chocolate uppercase drop-shadow-sm">
               {tr.ctaH2a} <span className="italic font-bold">{tr.ctaH2b}</span>
             </h2>
-            <p className="text-white-chocolate text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white-chocolate text-sm sm:text-base md:text-lg lg:text-xl mb-7 md:mb-10 max-w-2xl mx-auto leading-relaxed">
               {tr.ctaBody}
             </p>
-            <Button asChild size="lg" className="w-full sm:w-auto bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-8 md:px-10 py-5 md:py-6 text-base shadow-lg hover:shadow-xl transition-all font-semibold hover:scale-105">
-              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={18} /></Link>
+            <Button asChild size="lg" className="w-full sm:w-auto bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-6 sm:px-8 md:px-10 py-5 md:py-6 text-sm sm:text-base shadow-lg hover:shadow-xl transition-all font-semibold hover:scale-105">
+              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
             </Button>
           </motion.div>
         </div>
