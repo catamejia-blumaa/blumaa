@@ -17,8 +17,8 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white-chocolate border-b border-white-chocolate/10 shadow-lg">
       <div className="container flex items-center justify-between h-20">
-        <Link to="/" className="font-serif text-2xl tracking-tight text-blue hover:text-light-yellow transition-colors drop-shadow-sm">
-          Blumaa
+        <Link to="/" className="flex items-center">
+          <img src="/Asset_6@4x.png" alt="Blumaa" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop nav */}

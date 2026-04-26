@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="container relative z-10">
       <div className="grid md:grid-cols-3 gap-12 mb-12">
         <div>
-          <h3 className="font-serif text-2xl mb-4 text-white-chocolate">Blumaa</h3>
+          <img src="/Asset_6@4x.png" alt="Blumaa" className="h-10 w-auto mb-4 brightness-0 invert" />
           <p className="text-white-chocolate/80 text-sm leading-relaxed max-w-xs">
             Strategic branding for founders who refuse to blend in.
           </p>
