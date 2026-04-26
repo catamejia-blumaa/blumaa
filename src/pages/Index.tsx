@@ -31,7 +31,7 @@ const Index = () => {
               <Button asChild size="lg" className="bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-10 py-6 text-base shadow-lg hover:shadow-xl transition-all font-semibold hover:scale-105">
                 <Link to="/contact">{ix.cta1} <ArrowRight className="ml-2" size={18} /></Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full px-10 py-6 text-base border-2 border-white-chocolate text-white-chocolate hover:bg-white-chocolate hover:text-night hover:scale-105 transition-all shadow-md hover:shadow-lg">
+              <Button asChild size="lg" className="bg-blue-dark text-white-chocolate hover:bg-blue-dark/90 rounded-full px-10 py-6 text-base border-2 border-blue-dark hover:scale-105 transition-all shadow-md hover:shadow-lg font-semibold">
                 <Link to="/portfolio">{ix.cta2}</Link>
               </Button>
             </motion.div>
