@@ -245,7 +245,7 @@ export const t = {
   },
   es: {
     nav: {
-      about: "Nosotros",
+      about: "Sobre mi",
       services: "Servicios",
       contact: "Contacto",
       apply: "Aplicar",
