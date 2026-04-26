@@ -23,7 +23,7 @@ const About = () => {
             <motion.h1 variants={fadeUp} custom={1} className="text-4xl md:text-5xl lg:text-6xl font-serif text-night leading-tight mb-8">
               {tr.heroH1}
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="font-biro text-blue text-2xl md:text-3xl leading-relaxed">
+            <motion.p variants={fadeUp} custom={2} className="font-biro text-blue text-2xl md:text-3xl leading-relaxed text-center">
               {tr.heroBody.split("\n").map((line, i) => (
                 <span key={i}>{line}{i < tr.heroBody.split("\n").length - 1 && <br />}</span>
               ))}
@@ -42,7 +42,7 @@ const About = () => {
               viewport={{ once: true }}
               className="flex flex-col gap-6"
             >
-              <div className="aspect-square overflow-hidden shadow-xl" style={{ transform: "rotate(-15deg)" }}>
+              <div className="aspect-square overflow-hidden shadow-xl" style={{ transform: "rotate(-10deg)" }}>
                 <img src="/Photo_Cata.jpg" alt={tr.founderName} className="w-full h-full object-cover" />
               </div>
               <div>
