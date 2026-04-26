@@ -89,7 +89,7 @@ const About = () => (
     {/* Founder Story */}
     <section className="py-24 md:py-32 bg-blue text-white-chocolate">
       <div className="container max-w-6xl relative z-10">
-        <div className="grid md:grid-cols-[300px_1fr] gap-12 items-start">
+        <div className="grid md:grid-cols-[300px_1fr] gap-12 items-start relative">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -143,10 +143,20 @@ const About = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl lg:text-5xl font-serif text-night leading-tight"
+          className="text-3xl md:text-4xl lg:text-5xl font-serif text-night leading-tight mb-10"
         >
           The gap between the quality of your work and the strength of your brand? <span className="italic font-bold">That's what I close.</span>
         </motion.blockquote>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="font-biro text-blue text-2xl md:text-3xl leading-relaxed pointer-events-none"
+          style={{ transform: "rotate(-1deg)" }}
+        >
+          "El lugar seguro que te oye y<br />entiende, pero que está construyendo<br />tu marca al mismo tiempo."
+        </motion.p>
       </div>
     </section>
 

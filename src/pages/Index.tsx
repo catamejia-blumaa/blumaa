@@ -17,6 +17,17 @@ const Index = () => (
     {/* Hero */}
     <section className="min-h-screen flex items-center relative overflow-hidden bg-blue text-white-chocolate">
       <div className="container relative z-10 py-20">
+        {/* Handwritten annotation */}
+        <motion.div
+          initial={{ opacity: 0, rotate: -6, y: 10 }}
+          animate={{ opacity: 1, rotate: -6, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="absolute top-16 right-8 md:right-20 lg:right-32 hidden md:block pointer-events-none"
+        >
+          <p className="font-biro text-white-chocolate/70 text-2xl md:text-3xl leading-snug text-center" style={{ transform: "rotate(-6deg)" }}>
+            La magia del<br />branding
+          </p>
+        </motion.div>
         <motion.div
           initial="hidden"
           animate="visible"
@@ -122,7 +133,7 @@ const Index = () => (
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-16 relative"
         >
           <p className="text-light-yellow font-semibold text-sm uppercase tracking-[0.2em] mb-3 drop-shadow-sm">
             The Method
@@ -134,6 +145,16 @@ const Index = () => (
               (Spoiler: it's not magic. It's method.)
             </span>
           </h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="absolute top-0 right-0 font-biro text-white-chocolate/60 text-xl md:text-2xl leading-snug hidden md:block pointer-events-none"
+            style={{ transform: "rotate(3deg)" }}
+          >
+            Lo que más importa es<br />que disfrutemos el<br />proceso
+          </motion.p>
         </motion.div>
         <div className="grid md:grid-cols-4 gap-8">
           {[

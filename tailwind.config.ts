@@ -17,6 +17,7 @@ export default {
         serif: ["'Instrument Serif'", "serif"],
         sans: ["'DM Sans'", "sans-serif"],
         mono: ["'Roboto Mono'", "monospace"],
+        biro: ["'Caveat'", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",
