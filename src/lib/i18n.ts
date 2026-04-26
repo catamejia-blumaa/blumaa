@@ -248,7 +248,7 @@ export const translations = {
   },
   es: {
     nav: {
-      about: "Nosotros",
+      about: "Sobre Mí",
       services: "Servicios",
       portfolio: "Portafolio",
       contact: "Contacto",
