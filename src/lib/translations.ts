@@ -74,7 +74,7 @@ export const t = {
       tag: "About Blumaa",
       heroH1: "You know you're better than your brand makes you look.",
       heroBody:
-        "You've tried the cheap logo. The DIY tools. The freelancer who didn't quite understand your business. What you actually need is someone who takes the time to understand what you do, who you serve, and what makes you different , before designing a single thing. That someone is me.",
+        "Tu marca es como una persona: tiene personalidad y tiene voz, tiene una manera especial de moverse por el mundo.\nMi trabajo es encontrarla contigo.\nY cuando la encontramos, todo lo demás fluye.",
       founderTag1: "hi, I'm Cata",
       founderTag2: "Who's behind this",
       founderName: "Founded by Catalina Mejia",
@@ -318,7 +318,7 @@ export const t = {
       tag: "Sobre Blumaa",
       heroH1: "Sabes que eres mejor de lo que tu marca hace ver.",
       heroBody:
-        "Ya probaste el logo barato. Las herramientas DIY. El freelancer que no entendió tu negocio del todo. Lo que realmente necesitas es alguien que se tome el tiempo de entender qué haces, a quién sirves y qué te hace diferente , antes de diseñar una sola cosa. Esa persona soy yo.",
+        "Tu marca es como una persona: tiene personalidad y tiene voz, tiene una manera especial de moverse por el mundo.\nMi trabajo es encontrarla contigo.\nY cuando la encontramos, todo lo demás fluye.",
       founderTag1: "hola, soy Cata",
       founderTag2: "Quién está detrás",
       founderName: "Fundada por Catalina Mejia",
