@@ -19,9 +19,9 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white-chocolate border-b border-white-chocolate/10 shadow-lg">
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center">
-          <img src="/Asset_6@4x.png" alt="Blumaa" className="h-10 w-auto" />
+          <img src="/Asset_6@4x.png" alt="Blumaa" className="h-8 md:h-10 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -54,36 +54,42 @@ const Header = () => {
           </Button>
         </nav>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden text-night hover:text-light-yellow transition-colors" onClick={() => setMobileOpen(!mobileOpen)}>
+        {/* Mobile toggle — min 44×44 touch target */}
+        <button
+          className="md:hidden p-2 -mr-2 text-night hover:text-light-yellow transition-colors"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <nav className="md:hidden bg-white-chocolate border-t border-white-chocolate/10 px-6 pb-6 space-y-4">
+        <nav className="md:hidden bg-white-chocolate border-t border-white-chocolate/10 px-4 pb-6 pt-2 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               onClick={() => setMobileOpen(false)}
-              className={`block text-base font-medium hover:text-light-yellow py-2 transition-colors ${
-                location.pathname === link.path ? "text-blue" : "text-blue/75"
+              className={`block text-base font-medium hover:text-blue py-3 px-2 transition-colors border-b border-night/5 ${
+                location.pathname === link.path ? "text-blue" : "text-night/75"
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <button
-            onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="block text-sm font-mono font-semibold tracking-widest text-night/60 hover:text-night transition-colors border border-night/20 rounded-full px-4 py-2 hover:border-night/50"
-          >
-            {lang === "en" ? "Ver en Español" : "View in English"}
-          </button>
-          <Button asChild className="w-full bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full shadow-md font-semibold">
-            <Link to="/contact" onClick={() => setMobileOpen(false)}>{tr.apply}</Link>
-          </Button>
+          <div className="pt-4 space-y-3">
+            <button
+              onClick={() => setLang(lang === "en" ? "es" : "en")}
+              className="block w-full text-center text-sm font-mono font-semibold tracking-widest text-night/60 hover:text-night transition-colors border border-night/20 rounded-full px-4 py-2.5 hover:border-night/50"
+            >
+              {lang === "en" ? "Ver en Español" : "View in English"}
+            </button>
+            <Button asChild className="w-full bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full shadow-md font-semibold py-3">
+              <Link to="/contact" onClick={() => setMobileOpen(false)}>{tr.apply}</Link>
+            </Button>
+          </div>
         </nav>
       )}
     </header>
