@@ -18,6 +18,17 @@ const Index = () => {
       {/* Hero */}
       <section className="min-h-screen flex items-center relative overflow-hidden bg-blue text-white-chocolate">
         <div className="container relative z-10 py-20">
+          {/* Handwritten annotation */}
+          <motion.div
+            initial={{ opacity: 0, rotate: -6, y: 10 }}
+            animate={{ opacity: 1, rotate: -6, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            className="absolute top-16 right-8 md:right-20 lg:right-32 hidden md:block pointer-events-none"
+          >
+            <p className="font-biro text-white-chocolate text-2xl md:text-3xl leading-snug text-center" style={{ transform: "rotate(-6deg)" }}>
+              {tr.biroHero}
+            </p>
+          </motion.div>
           <motion.div
             initial="hidden"
             animate="visible"
@@ -27,22 +38,8 @@ const Index = () => {
               {tr.agencyTag}
             </motion.p>
             <motion.h1 variants={fadeUp} custom={1} className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.85] mb-10 text-white-chocolate uppercase max-w-5xl drop-shadow-sm">
-                {tr.heroH1a} <span className="italic font-bold">{tr.heroH1b}</span>
-                <br />
-                <span className="relative inline-block">
-                  {/* Biro above this line */}
-                  <motion.span
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.2, duration: 0.6 }}
-                    className="font-biro not-italic font-normal text-white-chocolate text-lg md:text-2xl lg:text-3xl leading-none pointer-events-none absolute -top-8 md:-top-10 lg:-top-12 left-0"
-                    style={{ transform: "rotate(-4deg)", whiteSpace: "nowrap" }}
-                  >
-                    {tr.biroHero}
-                  </motion.span>
-                  {tr.heroH1c}
-                </span>{" "}<span className="italic font-bold">{tr.heroH1d}</span>
-              </motion.h1>
+              {tr.heroH1a} <span className="italic font-bold">{tr.heroH1b}</span> {tr.heroH1c} <span className="italic font-bold">{tr.heroH1d}</span>
+            </motion.h1>
             <motion.p variants={fadeUp} custom={2} className="text-lg md:text-xl lg:text-2xl text-white-chocolate max-w-2xl mb-12 leading-relaxed">
               {tr.heroBody.split(" , ").map((part, i, arr) => (
                 i === 1 ? <span key={i}><span className="italic font-bold text-light-yellow drop-shadow-sm"> , {part}</span>{arr[2] ? "" : ""}</span> : (i === 0 ? part : "")
