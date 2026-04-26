@@ -43,9 +43,13 @@ const Header = () => {
           {/* Language toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="text-xs font-mono font-semibold tracking-widest border border-night/20 rounded-full px-3 py-1 text-night/70 hover:border-blue hover:text-blue transition-all"
+            className="text-xs font-mono font-semibold tracking-widest border border-night/20 rounded-full px-3 py-1 text-night/70 hover:border-blue hover:text-blue transition-all flex items-center gap-1.5"
           >
-            {lang === "en" ? "ES" : "EN"}
+            {lang === "en" ? (
+              <><span className="text-sm">🇨🇴</span> ES</>
+            ) : (
+              <><span className="text-sm">🇺🇸</span> EN</>
+            )}
           </button>
 
           <Button asChild className="bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-6 shadow-md hover:shadow-xl transition-all font-semibold hover:scale-105">
@@ -57,9 +61,13 @@ const Header = () => {
         <div className="md:hidden flex items-center gap-3">
           <button
             onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="text-xs font-mono font-semibold tracking-widest border border-night/20 rounded-full px-3 py-1 text-night/70"
+            className="text-xs font-mono font-semibold tracking-widest border border-night/20 rounded-full px-3 py-1 text-night/70 flex items-center gap-1.5"
           >
-            {lang === "en" ? "ES" : "EN"}
+            {lang === "en" ? (
+              <><span className="text-sm">🇨🇴</span> ES</>
+            ) : (
+              <><span className="text-sm">🇺🇸</span> EN</>
+            )}
           </button>
           <button className="text-night hover:text-blue transition-colors" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
