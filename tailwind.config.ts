@@ -80,6 +80,10 @@ export default {
           DEFAULT: "hsl(var(--green))",
           foreground: "hsl(var(--green-foreground))",
         },
+        "citrus-orange": {
+          DEFAULT: "hsl(var(--citrus-orange))",
+          foreground: "hsl(var(--citrus-orange-foreground))",
+        },
         pink: {
           DEFAULT: "hsl(var(--pink))",
           foreground: "hsl(var(--pink-foreground))",
