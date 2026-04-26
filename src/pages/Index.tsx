@@ -33,7 +33,7 @@ const Index = () => {
             <motion.p variants={fadeUp} custom={0} className="text-light-yellow font-mono font-semibold text-xs uppercase tracking-[0.3em] mb-6 md:mb-8 drop-shadow-sm">
               {tr.agencyTag}
             </motion.p>
-            <motion.h1 variants={fadeUp} custom={1} className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.95] sm:leading-[0.9] md:leading-[0.85] mb-7 md:mb-10 text-white-chocolate uppercase max-w-5xl drop-shadow-sm">
+            <motion.h1 variants={fadeUp} custom={1} className="text-[2.25rem] sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.95] sm:leading-[0.9] md:leading-[0.85] mb-7 md:mb-10 text-white-chocolate uppercase max-w-5xl drop-shadow-sm">
               {tr.heroH1a} <span className="italic font-bold">{tr.heroH1b}</span> {tr.heroH1c} <span className="italic font-bold">{tr.heroH1d}</span>
             </motion.h1>
             <motion.p variants={fadeUp} custom={2} className="text-sm sm:text-base md:text-xl lg:text-2xl text-white-chocolate max-w-2xl mb-8 md:mb-12 leading-relaxed">
