@@ -155,7 +155,7 @@ const About = () => (
           className="font-biro text-blue text-2xl md:text-3xl leading-relaxed pointer-events-none"
           style={{ transform: "rotate(-1deg)" }}
         >
-          "El lugar seguro que te oye y<br />entiende, pero que está construyendo<br />tu marca al mismo tiempo."
+          We work together to build a brand with strategy<br />that actually represents your business.
         </motion.p>
       </div>
     </section>
