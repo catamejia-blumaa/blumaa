@@ -26,11 +26,11 @@ export const t = {
       pains: [
         {
           title: "Your brand doesn't match your work",
-          desc: "You're serving clients, doing great work, making money , but your visual presence makes you look smaller than you are. And you know it's costing you opportunities.",
+          desc: "You're serving clients, doing great work, making money, but your visual presence makes you look smaller than you are. And you know it's costing you opportunities.",
         },
         {
           title: "You can't find the words",
-          desc: "You know what you do. But explaining it clearly , on your website, in your bio, at a networking event , feels impossible. The brand is in your head. It just won't come out.",
+          desc: "You know what you do. But explaining it clearly, on your website, in your bio, at a networking event, feels impossible. The brand is in your head. It just won't come out.",
         },
         {
           title: "You've tried cheap and felt worse",
@@ -43,11 +43,11 @@ export const t = {
       services: [
         {
           title: "Branding",
-          desc: "I start by understanding your business, your market, and what makes you different. Then I build a visual identity that actually communicates it , not just decoration.",
+          desc: "I start by understanding your business, your market, and what makes you different. Then I build a visual identity that actually communicates it, not just decoration.",
         },
         {
           title: "Rebranding",
-          desc: "Your business evolved but your brand is stuck in the past. I'll rebuild everything to match the company you've become , and where you're headed.",
+          desc: "Your business evolved but your brand is stuck in the past. I'll rebuild everything to match the company you've become, and where you're headed.",
         },
         {
           title: "Brand & Growth Strategy",
@@ -59,7 +59,7 @@ export const t = {
       methodSub: "(Spoiler: it's not magic. It's method.)",
       biroMethod: "Enjoying the process is\nwhat really really matters",
       methodSteps: [
-        { num: "01", title: "Discover", desc: "Deep dive into your business, audience, and competitors. No fluff research , actionable insights." },
+        { num: "01", title: "Discover", desc: "Deep dive into your business, audience, and competitors. No fluff research, actionable insights." },
         { num: "02", title: "Define", desc: "Crystallize your positioning, messaging, and brand architecture. This is where clarity happens." },
         { num: "03", title: "Design", desc: "Bring the strategy to life with identity, visuals, and brand assets that command attention." },
         { num: "04", title: "Grow", desc: "Launch strategy, growth playbook, and ongoing support to make sure your brand actually moves the needle." },
@@ -67,7 +67,7 @@ export const t = {
       ctaH2a: "Ready for a brand that",
       ctaH2b: "finally matches your work?",
       ctaBody:
-        "No sales pitch. No cookie-cutter packages. Just an honest conversation about your business , what makes it different, where you're going, and how I can build a brand that gets you there.",
+        "No sales pitch. No cookie-cutter packages. Just an honest conversation about your business, what makes it different, where you're going, and how I can build a brand that gets you there.",
       ctaBtn: "Let's Talk",
     },
     about: {
@@ -82,11 +82,11 @@ export const t = {
       founderP1:
         "Great businesses. Talented founders. Real results for their clients. But their branding? It made them look smaller, less credible, harder to understand.",
       founderP2:
-        "They'd tried the cheap options , a logo from Fiverr, a DIY website, a freelancer who missed the mark. And they felt worse after because they'd spent money and time and still didn't have a brand they were proud of.",
+        "They'd tried the cheap options, a logo from Fiverr, a DIY website, a freelancer who missed the mark. And they felt worse after because they'd spent money and time and still didn't have a brand they were proud of.",
       founderP3:
         "Here's what I learned: the problem wasn't the design. It was that nobody took the time to understand their business first. Nobody asked the hard questions. Nobody did the strategy work that makes great design possible.",
       founderP4:
-        "That's what I do at Blumaa. I start with understanding , your market, your positioning, what makes you different. Then I build a brand that communicates all of that. The result is a brand that doesn't just look professional. It positions you as the obvious choice in your market.",
+        "That's what I do at Blumaa. I start with understanding, your market, your positioning, what makes you different. Then I build a brand that communicates all of that. The result is a brand that doesn't just look professional. It positions you as the obvious choice in your market.",
       quoteMain: "The gap between the quality of your work and the strength of your brand?",
       quoteEmphasis: "That's what I close.",
       biro: "We work together to build a brand with strategy\nthat actually represents your business.",
@@ -94,7 +94,7 @@ export const t = {
       methodH2: "How the magic happens.",
       methodSub: "(Spoiler: it's not magic. It's method.)",
       methodSteps: [
-        { num: "01", title: "Discover", desc: "Deep dive into your business, audience, and competitors. No fluff research , actionable insights." },
+        { num: "01", title: "Discover", desc: "Deep dive into your business, audience, and competitors. No fluff research, actionable insights." },
         { num: "02", title: "Define", desc: "Crystallize your positioning, messaging, and brand architecture. This is where clarity happens." },
         { num: "03", title: "Design", desc: "Bring the strategy to life with identity, visuals, and brand assets that command attention." },
         { num: "04", title: "Grow", desc: "Launch strategy, growth playbook, and ongoing support to make sure your brand actually moves the needle." },
@@ -106,34 +106,34 @@ export const t = {
       wayItems1: ["Audience research", "Positioning", "Messaging", "Creative direction"],
       wayItems2: ["Visual identity", "Logo & marks", "Color & typography", "Brand assets"],
       wayBody:
-        "Here's the truth: jumping straight to design is like building a house without a foundation. It looks fine on the surface, but it won't last. At Blumaa, I do the hard work first , understanding your market, clarifying your positioning, and defining what makes you different. <strong>Then I build a brand that communicates all of that.</strong> The result? A brand that doesn't just look good. It drives real business results.",
+        "Here's the truth: jumping straight to design is like building a house without a foundation. It looks fine on the surface, but it won't last. At Blumaa, I do the hard work first, understanding your market, clarifying your positioning, and defining what makes you different. <strong>Then I build a brand that communicates all of that.</strong> The result? A brand that doesn't just look good. It drives real business results.",
       timelineTag: "Start to Finish",
       timelineH2: "Here's exactly what working together looks like",
       timelineBody: "No surprises, no mystery. Just a clear path from where you are to a brand you're proud of.",
       timelineSteps: [
         {
           num: "01", tag: "First things first", title: "We see if we're a fit",
-          body: "Fill out the application and I'll reach out to schedule a call. This isn't a sales call , it's an honest conversation about your brand, your goals, and whether we're the right match. <strong>I only take on clients I'm fully committed to.</strong> Once we're aligned, a deposit locks in your spot and we get started.",
+          body: "Fill out the application and I'll reach out to schedule a call. This isn't a sales call, it's an honest conversation about your brand, your goals, and whether we're the right match. <strong>I only take on clients I'm fully committed to.</strong> Once we're aligned, a deposit locks in your spot and we get started.",
         },
         {
           num: "02", tag: "Strategy", title: "I get inside your world",
-          body: "You'll fill out a deep-dive questionnaire , think of it as a brain dump about everything your business is and wants to be. Then we get on a call to go deeper. <strong>This is where I start seeing things you might not have put into words yet.</strong> And that's exactly the point.",
+          body: "You'll fill out a deep-dive questionnaire, think of it as a brain dump about everything your business is and wants to be. Then we get on a call to go deeper. <strong>This is where I start seeing things you might not have put into words yet.</strong> And that's exactly the point.",
         },
         {
           num: "03", tag: "Strategy", title: "Your brand gets a north star",
-          body: "Everything I uncover becomes a clear strategy document , your positioning, your audience, your edge, and the creative direction that will speak to the right people. This is the brief that makes every design decision <strong>intentional, not accidental.</strong>",
+          body: "Everything I uncover becomes a clear strategy document, your positioning, your audience, your edge, and the creative direction that will speak to the right people. This is the brief that makes every design decision <strong>intentional, not accidental.</strong>",
         },
         {
           num: "04", tag: "Design", title: "Your brand finds its look",
-          body: "Using the strategy as my guide, I develop two creative directions , mood, palette, typography, and tone. This is the moment things start to feel real. You pick the direction that clicks, and we move forward with full clarity and zero second-guessing.",
+          body: "Using the strategy as my guide, I develop two creative directions, mood, palette, typography, and tone. This is the moment things start to feel real. You pick the direction that clicks, and we move forward with full clarity and zero second-guessing.",
         },
         {
           num: "05", tag: "Design", title: "I bring it all to life",
-          body: "This is where the magic happens. Logo, secondary marks, colour system, typography, visual language, patterns, photography direction , built into one cohesive identity. Delivered with a full presentation so you understand <strong>not just what it looks like, but why every choice was made.</strong>",
+          body: "This is where the magic happens. Logo, secondary marks, colour system, typography, visual language, patterns, photography direction, built into one cohesive identity. Delivered with a full presentation so you understand <strong>not just what it looks like, but why every choice was made.</strong>",
         },
         {
           num: "06", tag: "You're ready", title: "The stage is set",
-          body: "You walk away with everything , final files across web, print, and social, plus a custom brand guide so your brand stays consistent no matter who's using it. <strong>You don't just get assets. You get a system, and the confidence to use it.</strong>",
+          body: "You walk away with everything, final files across web, print, and social, plus a custom brand guide so your brand stays consistent no matter who's using it. <strong>You don't just get assets. You get a system, and the confidence to use it.</strong>",
         },
       ],
       ctaH2: "Ready to build something that actually works?",
@@ -155,28 +155,28 @@ export const t = {
         {
           title: "Branding",
           tagline: "For businesses that need a brand from scratch.",
-          desc: "Starting fresh? I'll build a brand that makes you look as credible as you are. Not a cheap logo that you'll outgrow in six months. A complete brand system built on real strategy , positioning, messaging, and visual identity that positions you as a leader from day one.",
+          desc: "Starting fresh? I'll build a brand that makes you look as credible as you are. Not a cheap logo that you'll outgrow in six months. A complete brand system built on real strategy, positioning, messaging, and visual identity that positions you as a leader from day one.",
           includes: ["Brand Strategy & Positioning", "Visual Identity Design", "Brand Voice & Messaging", "Brand Guidelines & Asset Library"],
           forWho: "New businesses that refuse to look like amateurs. You want to compete with established players, not look like you're still figuring it out.",
         },
         {
           title: "Rebranding",
           tagline: "For businesses that outgrew their brand.",
-          desc: "Your business evolved but your brand didn't keep up. It's making you look smaller, less credible, harder to explain. I'll rebuild everything , strategy, positioning, messaging, visual identity , so your brand finally matches the quality of your work.",
+          desc: "Your business evolved but your brand didn't keep up. It's making you look smaller, less credible, harder to explain. I'll rebuild everything, strategy, positioning, messaging, visual identity, so your brand finally matches the quality of your work.",
           includes: ["Brand Audit & Analysis", "Repositioning Strategy", "Updated Visual Identity", "Migration & Launch Plan"],
           forWho: "Established businesses tired of looking less impressive than they actually are. Your work is excellent. Your brand doesn't show it.",
         },
         {
           title: "Naming",
           tagline: "For businesses that need the right name.",
-          desc: "The wrong name makes everything harder , harder to explain, harder to remember, harder to scale. I don't just brainstorm words. I build names rooted in strategy, tested for memorability, and cleared for trademark availability.",
+          desc: "The wrong name makes everything harder, harder to explain, harder to remember, harder to scale. I don't just brainstorm words. I build names rooted in strategy, tested for memorability, and cleared for trademark availability.",
           includes: ["Naming Strategy & Direction", "Name Generation & Shortlisting", "Linguistic & Cultural Screening", "Trademark Availability Check"],
-          forWho: "New ventures or businesses ready for a name that actually means something , not just something that was available on Instagram.",
+          forWho: "New ventures or businesses ready for a name that actually means something, not just something that was available on Instagram.",
         },
         {
           title: "Brand & Growth Strategy",
           tagline: "For businesses that can't explain what they do.",
-          desc: "You know what you do. But when you try to explain it , on your website, at a networking event, in your elevator pitch , it just doesn't land. I'll find the words, clarify your positioning, and build messaging that makes people finally get it.",
+          desc: "You know what you do. But when you try to explain it, on your website, at a networking event, in your elevator pitch, it just doesn't land. I'll find the words, clarify your positioning, and build messaging that makes people finally get it.",
           includes: ["Market & Competitor Analysis", "Audience Personas & Journey Mapping", "Positioning & Messaging Framework", "Growth Roadmap & Launch Strategy"],
           forWho: "Businesses that are tired of people not understanding what they do. The brand is in your head. I'll get it out.",
         },
@@ -270,11 +270,11 @@ export const t = {
       pains: [
         {
           title: "Tu marca no refleja tu trabajo",
-          desc: "Sirves bien a tus clientes, haces un gran trabajo, generas dinero , pero tu presencia visual te hace ver más pequeño de lo que eres. Y sabes que eso te está costando oportunidades.",
+          desc: "Sirves bien a tus clientes, haces un gran trabajo, generas dinero, pero tu presencia visual te hace ver más pequeño de lo que eres. Y sabes que eso te está costando oportunidades.",
         },
         {
           title: "No encuentras las palabras",
-          desc: "Sabes lo que haces. Pero explicarlo con claridad , en tu web, en tu bio, en un evento de networking , se siente imposible. La marca está en tu cabeza. Solo que no logra salir.",
+          desc: "Sabes lo que haces. Pero explicarlo con claridad, en tu web, en tu bio, en un evento de networking, se siente imposible. La marca está en tu cabeza. Solo que no logra salir.",
         },
         {
           title: "Probaste lo barato y te fue peor",
@@ -287,11 +287,11 @@ export const t = {
       services: [
         {
           title: "Branding",
-          desc: "Empiezo por entender tu negocio, tu mercado y lo que te hace diferente. Luego construyo una identidad visual que realmente lo comunica , no solo decoración.",
+          desc: "Empiezo por entender tu negocio, tu mercado y lo que te hace diferente. Luego construyo una identidad visual que realmente lo comunica, no solo decoración.",
         },
         {
           title: "Rebranding",
-          desc: "Tu negocio evolucionó pero tu marca sigue en el pasado. Reconstruyo todo para que coincida con la empresa en la que te has convertido , y hacia donde vas.",
+          desc: "Tu negocio evolucionó pero tu marca sigue en el pasado. Reconstruyo todo para que coincida con la empresa en la que te has convertido, y hacia donde vas.",
         },
         {
           title: "Estrategia de Marca & Crecimiento",
@@ -303,7 +303,7 @@ export const t = {
       methodSub: "(Spoiler: no es magia. Es método.)",
       biroMethod: "Lo que de verdad importa es\nque disfrutemos el proceso",
       methodSteps: [
-        { num: "01", title: "Descubrir", desc: "Inmersión profunda en tu negocio, audiencia y competencia. Sin relleno , solo insights accionables." },
+        { num: "01", title: "Descubrir", desc: "Inmersión profunda en tu negocio, audiencia y competencia. Sin relleno, solo insights accionables." },
         { num: "02", title: "Definir", desc: "Cristalizar tu posicionamiento, mensajes y arquitectura de marca. Aquí es donde ocurre la claridad." },
         { num: "03", title: "Diseñar", desc: "Dar vida a la estrategia con identidad, visuales y activos de marca que llaman la atención." },
         { num: "04", title: "Crecer", desc: "Estrategia de lanzamiento, playbook de crecimiento y soporte continuo para que tu marca mueva la aguja." },
@@ -311,7 +311,7 @@ export const t = {
       ctaH2a: "¿Lista para una marca que",
       ctaH2b: "finalmente esté a tu altura?",
       ctaBody:
-        "Sin discurso de ventas. Sin paquetes genéricos. Solo una conversación honesta sobre tu negocio , qué lo hace diferente, hacia dónde vas y cómo puedo construir una marca que te lleve ahí.",
+        "Sin discurso de ventas. Sin paquetes genéricos. Solo una conversación honesta sobre tu negocio, qué lo hace diferente, hacia dónde vas y cómo puedo construir una marca que te lleve ahí.",
       ctaBtn: "Hablemos",
     },
     about: {
@@ -326,11 +326,11 @@ export const t = {
       founderP1:
         "Grandes negocios. Fundadores talentosos. Resultados reales para sus clientes. Pero su branding, los hacía ver más pequeños, menos creíbles, más difíciles de entender.",
       founderP2:
-        "Habían probado las opciones baratas , un logo de Fiverr, un sitio DIY, un freelancer que no dio en el clavo. Y se sentían peor después, porque habían gastado dinero y tiempo y aún no tenían una marca de la que estar orgullosos.",
+        "Habían probado las opciones baratas, un logo de Fiverr, un sitio DIY, un freelancer que no dio en el clavo. Y se sentían peor después, porque habían gastado dinero y tiempo y aún no tenían una marca de la que estar orgullosos.",
       founderP3:
         "Lo que aprendí: el problema no era el diseño. Era que nadie se había tomado el tiempo de entender su negocio primero. Nadie hacía las preguntas difíciles. Nadie hacía el trabajo de estrategia que hace posible el gran diseño.",
       founderP4:
-        "Eso es lo que hago en Blumaa. Comienzo con la comprensión , tu mercado, tu posicionamiento, lo que te hace diferente. Luego construyo una marca que comunica todo eso. El resultado es una marca que no solo se ve profesional. Te posiciona como la elección obvia en tu mercado.",
+        "Eso es lo que hago en Blumaa. Comienzo con la comprensión, tu mercado, tu posicionamiento, lo que te hace diferente. Luego construyo una marca que comunica todo eso. El resultado es una marca que no solo se ve profesional. Te posiciona como la elección obvia en tu mercado.",
       quoteMain: "¿La brecha entre la calidad de tu trabajo y la fuerza de tu marca?",
       quoteEmphasis: "Eso es lo que cierro.",
       biro: "Trabajamos en construir una marca con estrategia\nque de verdad refleje a tu negocio.",
@@ -338,7 +338,7 @@ export const t = {
       methodH2: "Así es como ocurre la magia.",
       methodSub: "(Spoiler: no es magia. Es método.)",
       methodSteps: [
-        { num: "01", title: "Descubrir", desc: "Inmersión profunda en tu negocio, audiencia y competencia. Sin relleno , solo insights accionables." },
+        { num: "01", title: "Descubrir", desc: "Inmersión profunda en tu negocio, audiencia y competencia. Sin relleno, solo insights accionables." },
         { num: "02", title: "Definir", desc: "Cristalizar tu posicionamiento, mensajes y arquitectura de marca. Aquí es donde ocurre la claridad." },
         { num: "03", title: "Diseñar", desc: "Dar vida a la estrategia con identidad, visuales y activos de marca que llaman la atención." },
         { num: "04", title: "Crecer", desc: "Estrategia de lanzamiento, playbook de crecimiento y soporte continuo para que tu marca mueva la aguja." },
@@ -350,34 +350,34 @@ export const t = {
       wayItems1: ["Investigación de audiencia", "Posicionamiento", "Mensajes", "Dirección creativa"],
       wayItems2: ["Identidad visual", "Logo & marcas", "Color & tipografía", "Activos de marca"],
       wayBody:
-        "La verdad: lanzarse directo al diseño es como construir una casa sin cimientos. Se ve bien en la superficie, pero no dura. En Blumaa, hago primero el trabajo difícil , entender tu mercado, clarificar tu posicionamiento y definir qué te hace diferente. <strong>Luego construyo una marca que comunica todo eso.</strong> ¿El resultado? Una marca que no solo se ve bien. Genera resultados reales de negocio.",
+        "La verdad: lanzarse directo al diseño es como construir una casa sin cimientos. Se ve bien en la superficie, pero no dura. En Blumaa, hago primero el trabajo difícil, entender tu mercado, clarificar tu posicionamiento y definir qué te hace diferente. <strong>Luego construyo una marca que comunica todo eso.</strong> ¿El resultado? Una marca que no solo se ve bien. Genera resultados reales de negocio.",
       timelineTag: "De inicio a fin",
       timelineH2: "Así es exactamente cómo es trabajar juntos",
       timelineBody: "Sin sorpresas ni misterios. Solo un camino claro desde donde estás hasta una marca de la que estés orgulloso.",
       timelineSteps: [
         {
           num: "01", tag: "Primero lo primero", title: "Vemos si somos un buen match",
-          body: "Rellena la solicitud y me pondré en contacto para agendar una llamada. No es una llamada de ventas , es una conversación honesta sobre tu marca, tus objetivos y si somos el match correcto. <strong>Solo acepto clientes con los que estoy plenamente comprometida.</strong> Una vez alineados, un depósito asegura tu lugar y comenzamos.",
+          body: "Rellena la solicitud y me pondré en contacto para agendar una llamada. No es una llamada de ventas, es una conversación honesta sobre tu marca, tus objetivos y si somos el match correcto. <strong>Solo acepto clientes con los que estoy plenamente comprometida.</strong> Una vez alineados, un depósito asegura tu lugar y comenzamos.",
         },
         {
           num: "02", tag: "Estrategia", title: "Me sumerjo en tu mundo",
-          body: "Rellenarás un cuestionario exhaustivo , piénsalo como un volcado cerebral de todo lo que tu negocio es y quiere ser. Luego hacemos una llamada para profundizar más. <strong>Aquí es donde empiezo a ver cosas que quizás todavía no has podido poner en palabras.</strong> Y eso es exactamente el punto.",
+          body: "Rellenarás un cuestionario exhaustivo, piénsalo como un volcado cerebral de todo lo que tu negocio es y quiere ser. Luego hacemos una llamada para profundizar más. <strong>Aquí es donde empiezo a ver cosas que quizás todavía no has podido poner en palabras.</strong> Y eso es exactamente el punto.",
         },
         {
           num: "03", tag: "Estrategia", title: "Tu marca encuentra su norte",
-          body: "Todo lo que descubro se convierte en un documento de estrategia claro , tu posicionamiento, tu audiencia, tu ventaja y la dirección creativa que hablará a las personas correctas. Este es el brief que hace que cada decisión de diseño sea <strong>intencional, no accidental.</strong>",
+          body: "Todo lo que descubro se convierte en un documento de estrategia claro, tu posicionamiento, tu audiencia, tu ventaja y la dirección creativa que hablará a las personas correctas. Este es el brief que hace que cada decisión de diseño sea <strong>intencional, no accidental.</strong>",
         },
         {
           num: "04", tag: "Diseño", title: "Tu marca encuentra su look",
-          body: "Usando la estrategia como guía, desarrollo dos direcciones creativas , mood, paleta, tipografía y tono. Este es el momento en que las cosas empiezan a sentirse reales. Eliges la dirección que encaja y avanzamos con total claridad y sin segundas dudas.",
+          body: "Usando la estrategia como guía, desarrollo dos direcciones creativas, mood, paleta, tipografía y tono. Este es el momento en que las cosas empiezan a sentirse reales. Eliges la dirección que encaja y avanzamos con total claridad y sin segundas dudas.",
         },
         {
           num: "05", tag: "Diseño", title: "Lo traigo todo a la vida",
-          body: "Aquí es donde ocurre la magia. Logo, marcas secundarias, sistema de color, tipografía, lenguaje visual, patrones, dirección fotográfica , todo construido en una identidad cohesiva. Entregado con una presentación completa para que entiendas <strong>no solo cómo se ve, sino por qué se tomó cada decisión.</strong>",
+          body: "Aquí es donde ocurre la magia. Logo, marcas secundarias, sistema de color, tipografía, lenguaje visual, patrones, dirección fotográfica, todo construido en una identidad cohesiva. Entregado con una presentación completa para que entiendas <strong>no solo cómo se ve, sino por qué se tomó cada decisión.</strong>",
         },
         {
           num: "06", tag: "Estás lista", title: "El escenario está listo",
-          body: "Te vas con todo , archivos finales para web, impresión y redes, más una guía de marca personalizada para que tu marca se mantenga consistente sin importar quién la use. <strong>No solo obtienes activos. Obtienes un sistema y la confianza para usarlo.</strong>",
+          body: "Te vas con todo, archivos finales para web, impresión y redes, más una guía de marca personalizada para que tu marca se mantenga consistente sin importar quién la use. <strong>No solo obtienes activos. Obtienes un sistema y la confianza para usarlo.</strong>",
         },
       ],
       ctaH2: "¿Lista para construir algo que realmente funcione?",
@@ -399,28 +399,28 @@ export const t = {
         {
           title: "Branding",
           tagline: "Para negocios que necesitan una marca desde cero.",
-          desc: "¿Empezando de nuevo? Construiré una marca que te haga ver tan creíble como lo eres. No un logo barato que superarás en seis meses. Un sistema de marca completo basado en estrategia real , posicionamiento, mensajes e identidad visual que te posiciona como líder desde el primer día.",
+          desc: "¿Empezando de nuevo? Construiré una marca que te haga ver tan creíble como lo eres. No un logo barato que superarás en seis meses. Un sistema de marca completo basado en estrategia real, posicionamiento, mensajes e identidad visual que te posiciona como líder desde el primer día.",
           includes: ["Estrategia de Marca & Posicionamiento", "Diseño de Identidad Visual", "Voz de Marca & Mensajes", "Guías de Marca & Librería de Activos"],
           forWho: "Negocios nuevos que se niegan a parecer amateurs. Quieres competir con los jugadores establecidos, no parecer que todavía estás averiguando las cosas.",
         },
         {
           title: "Rebranding",
           tagline: "Para negocios que superaron su marca.",
-          desc: "Tu negocio evolucionó pero tu marca no siguió el ritmo. Te hace ver más pequeño, menos creíble, más difícil de explicar. Reconstruiré todo , estrategia, posicionamiento, mensajes, identidad visual , para que tu marca finalmente esté a la altura de tu trabajo.",
+          desc: "Tu negocio evolucionó pero tu marca no siguió el ritmo. Te hace ver más pequeño, menos creíble, más difícil de explicar. Reconstruiré todo, estrategia, posicionamiento, mensajes, identidad visual, para que tu marca finalmente esté a la altura de tu trabajo.",
           includes: ["Auditoría & Análisis de Marca", "Estrategia de Reposicionamiento", "Identidad Visual Actualizada", "Plan de Migración & Lanzamiento"],
           forWho: "Negocios establecidos cansados de verse menos impresionantes de lo que realmente son. Tu trabajo es excelente. Tu marca no lo demuestra.",
         },
         {
           title: "Naming",
           tagline: "Para negocios que necesitan el nombre correcto.",
-          desc: "El nombre equivocado lo hace todo más difícil , más difícil de explicar, de recordar, de escalar. No solo hago lluvia de ideas con palabras. Construyo nombres arraigados en la estrategia, probados por memorabilidad y verificados para disponibilidad de marca registrada.",
+          desc: "El nombre equivocado lo hace todo más difícil, más difícil de explicar, de recordar, de escalar. No solo hago lluvia de ideas con palabras. Construyo nombres arraigados en la estrategia, probados por memorabilidad y verificados para disponibilidad de marca registrada.",
           includes: ["Estrategia & Dirección de Naming", "Generación & Preselección de Nombres", "Revisión Lingüística & Cultural", "Verificación de Disponibilidad de Marca"],
-          forWho: "Nuevas empresas o negocios listos para un nombre que realmente signifique algo , no solo algo que estaba disponible en Instagram.",
+          forWho: "Nuevas empresas o negocios listos para un nombre que realmente signifique algo, no solo algo que estaba disponible en Instagram.",
         },
         {
           title: "Estrategia de Marca & Crecimiento",
           tagline: "Para negocios que no pueden explicar lo que hacen.",
-          desc: "Sabes lo que haces. Pero cuando tratas de explicarlo , en tu web, en un evento de networking, en tu elevator pitch , simplemente no conecta. Encontraré las palabras, clarificaré tu posicionamiento y construiré mensajes que hagan que la gente finalmente te entienda.",
+          desc: "Sabes lo que haces. Pero cuando tratas de explicarlo, en tu web, en un evento de networking, en tu elevator pitch, simplemente no conecta. Encontraré las palabras, clarificaré tu posicionamiento y construiré mensajes que hagan que la gente finalmente te entienda.",
           includes: ["Análisis de Mercado & Competencia", "Personas de Audiencia & Mapeo del Viaje", "Marco de Posicionamiento & Mensajes", "Hoja de Ruta de Crecimiento & Estrategia de Lanzamiento"],
           forWho: "Negocios cansados de que la gente no entienda lo que hacen. La marca está en tu cabeza. Yo la sacaré.",
         },
