@@ -74,7 +74,7 @@ export const t = {
       tag: "About Blumaa",
       heroH1: "You know you're better than your brand makes you look.",
       heroBody:
-        "Your brand is like a person: it has a personality, a voice and a special way to move in the world.\nMy goal is to find it and when we do, everything else falls into place.",
+        "Tu marca es como una persona: tiene personalidad y tiene voz, tiene una manera especial de moverse por el mundo.\nMi trabajo es encontrarla contigo.\nY cuando la encontramos, todo fluye.",
       founderTag1: "hi, I'm Cata",
       founderTag2: "Who's behind this",
       founderName: "Founded by Catalina Mejia",
@@ -490,6 +490,3 @@ export const t = {
 };
 
 export type Lang = keyof typeof t;
-
-
-export { t }
