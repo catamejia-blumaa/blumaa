@@ -54,14 +54,22 @@ const Header = () => {
           </Button>
         </nav>
 
-        {/* Mobile toggle — min 44×44 touch target */}
-        <button
-          className="md:hidden p-2 -mr-2 text-night hover:text-light-yellow transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile right controls */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={() => setLang(lang === "en" ? "es" : "en")}
+            className="text-xs font-mono font-semibold tracking-widest text-night/60 hover:text-night transition-colors border border-night/20 rounded-full px-3 py-1 hover:border-night/50"
+          >
+            {lang === "en" ? "ES" : "EN"}
+          </button>
+          <button
+            className="p-2 -mr-2 text-night hover:text-light-yellow transition-colors"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile nav */}
