@@ -19,7 +19,7 @@ export const t = {
       heroH1c: "Your brand",
       heroH1d: "doesn't show it.",
       heroBody:
-        "You've tried the cheap logo. The DIY tools. The freelancer who didn't quite get it. What you need is someone who understands your business first , then builds a brand that finally matches the quality of your work.",
+        "You've tried the cheap logo. The DIY tools. The freelancer who didn't quite get it. What you need is someone who understands your business first, then builds a brand that finally matches the quality of your work.",
       heroCta: "Start Your Project",
       biroHero: "Branding magic",
       painTitle: "Sound familiar?",
@@ -143,7 +143,7 @@ export const t = {
       tag: "Services",
       heroH1: "The difference? I understand your business first.",
       heroBody:
-        "No cookie-cutter templates. No generic packages that work for everyone and no one. Every engagement starts with understanding your business, your market, and what makes you different , then I build a brand that communicates all of that.",
+        "No cookie-cutter templates. No generic packages that work for everyone and no one. Every engagement starts with understanding your business, your market, and what makes you different, then I build a brand that communicates all of that.",
       included: "What's Included",
       forWho: "Who It's For",
       getStarted: "Get Started",
@@ -263,7 +263,7 @@ export const t = {
       heroH1c: "Tu marca",
       heroH1d: "no lo demuestra.",
       heroBody:
-        "Ya probaste el logo barato. Las herramientas DIY. El freelancer que no te entendió. Lo que necesitas es alguien que entienda tu negocio primero , y luego construya una marca que esté a la altura de tu trabajo.",
+        "Ya probaste el logo barato. Las herramientas DIY. El freelancer que no te entendió. Lo que necesitas es alguien que entienda tu negocio primero, y luego construya una marca que esté a la altura de tu trabajo.",
       heroCta: "Empieza tu proyecto",
       biroHero: "La magia del branding",
       painTitle: "¿Te suena familiar?",
@@ -387,7 +387,7 @@ export const t = {
       tag: "Servicios",
       heroH1: "¿La diferencia? Entiendo tu negocio primero.",
       heroBody:
-        "Sin plantillas genéricas. Sin paquetes que sirven para todos y para nadie. Cada proyecto comienza por entender tu negocio, tu mercado y lo que te hace diferente , luego construyo una marca que comunica todo eso.",
+        "Sin plantillas genéricas. Sin paquetes que sirven para todos y para nadie. Cada proyecto comienza por entender tu negocio, tu mercado y lo que te hace diferente, luego construyo una marca que comunica todo eso.",
       included: "Qué incluye",
       forWho: "Para quién es",
       getStarted: "Empezar",
