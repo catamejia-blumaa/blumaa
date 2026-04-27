@@ -11,9 +11,9 @@ const LANGUAGES = [
     label: "Español",
     flag: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14" className="w-5 h-3.5 rounded-sm" aria-hidden="true">
-        <rect width="20" height="14" fill="#FCD116"/>
-        <rect width="20" height="4" fill="#003087"/>
-        <rect width="20" height="4" y="10" fill="#CE1126"/>
+        <rect width="20" height="7" fill="#FCD116"/>
+        <rect width="20" height="3.5" y="7" fill="#003580"/>
+        <rect width="20" height="3.5" y="10.5" fill="#CE1126"/>
       </svg>
     ),
   },
