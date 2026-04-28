@@ -37,7 +37,7 @@ const Footer = () => {
           <div>
             <h4 className="font-sans font-semibold text-xs uppercase tracking-widest mb-3 md:mb-4 text-white-chocolate">{ft.connect}</h4>
             <div className="space-y-1 text-xs md:text-sm text-white-chocolate/80">
-              <a href="#" className="block hover:text-white-chocolate transition-all py-1.5">Instagram</a>
+              <a href="https://www.instagram.com/blumaa_branding/" target="_blank" rel="noopener noreferrer" className="block hover:text-white-chocolate transition-all py-1.5">Instagram</a>
               <a href="#" className="block hover:text-white-chocolate transition-all py-1.5">LinkedIn</a>
               <a href="#" className="block hover:text-white-chocolate transition-all py-1.5">hello@blumaa.com</a>
             </div>
