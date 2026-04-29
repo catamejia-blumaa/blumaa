@@ -109,7 +109,7 @@ export const t = {
         "Here's the truth: jumping straight to design is like building a house without a foundation. It looks fine on the surface, but it won't last. At Blumaa, I do the hard work first, understanding your market, clarifying your positioning, and defining what makes you different. <strong>Then I build a brand that communicates all of that.</strong> The result? A brand that doesn't just look good. It drives real business results.",
       timelineTag: "Start to Finish",
       timelineH2: "Here's exactly what working together looks like",
-      timelineBody: "No surprises, no mystery. Just a clear path from where you are to a brand you're proud of.",
+      timelineBody: "The Blumaa Method is a clear, intentional process designed to get you to a brand you're genuinely proud of.",
       timelineSteps: [
         {
           num: "01", tag: "First things first", title: "We see if we're a fit",
@@ -350,10 +350,10 @@ export const t = {
       wayItems1: ["Investigación de audiencia", "Posicionamiento", "Mensajes", "Dirección creativa"],
       wayItems2: ["Identidad visual", "Logo & marcas", "Color & tipografía", "Activos de marca"],
       wayBody:
-        "La verdad: lanzarse directo al diseño es como construir una casa sin cimientos. Se ve bien en la superficie, pero no dura. En Blumaa, hago primero el trabajo difícil, entender tu mercado, clarificar tu posicionamiento y definir qué te hace diferente. <strong>Luego construyo una marca que comunica todo eso.</strong> ¿El resultado? Una marca que no solo se ve bien. Genera resultados reales de negocio.",
+        "La verdad es esta: ir directo al diseño es como construir una casa sin cimientos. Se ve bien por fuera, pero no tiene con qué sostenerse.<br /><br />Por eso en Blumaa empiezo por lo que realmente importa. Entiendo tu mercado, clarfico dónde te posicionas y encuentro lo que te hace diferente de verdad, no diferente porque sí. Con eso claro, construyo una marca que lo comunica todo de forma coherente y con propósito.<br /><br />El resultado es una marca que no solo se ve bien sino que trabaja por ti y genera resultados reales para tu negocio.",
       timelineTag: "De inicio a fin",
       timelineH2: "Así es exactamente cómo es trabajar juntos",
-      timelineBody: "Sin sorpresas ni misterios. Solo un camino claro desde donde estás hasta una marca de la que estés orgulloso.",
+      timelineBody: "Sin vueltas ni procesos vacíos. Solo un camino claro hasta una marca de la que te sientas orgullosa.",
       timelineSteps: [
         {
           num: "01", tag: "Primero lo primero", title: "Vemos si somos un buen match",
