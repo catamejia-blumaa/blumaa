@@ -13,7 +13,7 @@ export const t = {
       rights: "All rights reserved. Strategy over aesthetics, always.",
     },
     index: {
-      agencyTag: "Branding & Growth Agency",
+      agencyTag: "Strategic Branding & Growth",
       heroH1a: "Your work is",
       heroH1b: "excellent.",
       heroH1c: "Your brand",
@@ -78,15 +78,15 @@ export const t = {
       founderTag1: "hi, I'm Cata",
       founderTag2: "Who's behind this",
       founderName: "Founded by Catalina Mejia",
-      founderH2: "I started Blumaa because I kept seeing the same problem.",
+      founderH2: "I created Blumaa because I kept seeing the same problem.",
       founderP1:
-        "Great businesses. Talented founders. Real results for their clients. But their branding? It made them look smaller, less credible, harder to understand.",
+        "Talented founders, businesses with real potential, clients who were genuinely happy with their results, but branding that was nowhere near representing what they actually did. And without realizing it, that was making them look less professional and less credible than they really were.",
       founderP2:
-        "They'd tried the cheap options, a logo from Fiverr, a DIY website, a freelancer who missed the mark. And they felt worse after because they'd spent money and time and still didn't have a brand they were proud of.",
+        "They had tried cheap logos, attempted to do it themselves, hired freelancers who never quite got it and left them with nothing to show for it. They had spent time, money and energy, and still didn't have a brand that represented them.",
       founderP3:
-        "Here's what I learned: the problem wasn't the design. It was that nobody took the time to understand their business first. Nobody asked the hard questions. Nobody did the strategy work that makes great design possible.",
+        "What I learned is that the problem was never the design. It was the disconnect between what they offered and how their brand communicated it. Nobody had taken the time to ask the right questions, truly understand their business and build from there.",
       founderP4:
-        "That's what I do at Blumaa. I start with understanding, your market, your positioning, what makes you different. Then I build a brand that communicates all of that. The result is a brand that doesn't just look professional. It positions you as the obvious choice in your market.",
+        "That's exactly what I do at Blumaa. I start by understanding your business, your competition, your positioning and what makes you different. Once that's clear, we build a brand that genuinely represents you. The result is a brand that doesn't just look professional, it positions you as the obvious choice in your market.",
       quoteMain: "The gap between the quality of your work and the strength of your brand?",
       quoteEmphasis: "That's what I close.",
       biro: "We work together to build a brand with strategy\nthat actually represents your business.",
@@ -257,28 +257,28 @@ export const t = {
       rights: "Todos los derechos reservados. Estrategia antes que estética, siempre.",
     },
     index: {
-      agencyTag: "Agencia de Branding & Crecimiento",
+      agencyTag: "Branding Estratégico & Growth",
       heroH1a: "Tu trabajo es",
       heroH1b: "excelente.",
       heroH1c: "Tu marca",
       heroH1d: "no lo demuestra.",
       heroBody:
-        "Ya probaste el logo barato. Las herramientas DIY. El freelancer que no te entendió. Lo que necesitas es alguien que entienda tu negocio primero, y luego construya una marca que esté a la altura de tu trabajo.",
+        "Ya has probado todo, el logo barato, hasta el freelancer que nunca te entendió del todo, hasta intentaste hacerlo tú mismo. Lo que necesitas es alguien que primero entienda tu negocio, y luego construya una marca que finalmente esté a la altura de lo que ya estás haciendo.",
       heroCta: "Empieza tu proyecto",
       biroHero: "La magia del branding",
-      painTitle: "¿Te suena familiar?",
+      painTitle: "¿Esto te suena familiar?",
       pains: [
         {
-          title: "Tu marca no refleja tu trabajo",
-          desc: "Sirves bien a tus clientes, haces un gran trabajo, generas dinero, pero tu presencia visual te hace ver más pequeño de lo que eres. Y sabes que eso te está costando oportunidades.",
+          title: "Tu marca no está a la altura de tu trabajo",
+          desc: "Estás trabajando con clientes, haciendo un trabajo increíble, generando resultados, pero tu presencia visual te hace ver más pequeño de lo que eres. Y eres consciente  de que esto te está costando oportunidades.",
         },
         {
           title: "No encuentras las palabras",
-          desc: "Sabes lo que haces. Pero explicarlo con claridad, en tu web, en tu bio, en un evento de networking, se siente imposible. La marca está en tu cabeza. Solo que no logra salir.",
+          desc: "Sabes exactamente lo que haces. Pero explicarlo en un evento de networking, en tu página web y hasta en tus redes se siente confuso y poco claro. Tu marca la tienes clara en tu cabeza pero no logras comunicarla o hacerla tangible.",
         },
         {
-          title: "Probaste lo barato y te fue peor",
-          desc: "El logo de freelancer que nadie recuerda. La marca DIY que te tomó semanas y todavía se siente mal. No necesitas más diseño. Necesitas a alguien que te entienda primero.",
+          title: "Probaste lo barato y te salió caro",
+          desc: "El logo que nadie recuerda. La marca DIY que duraste semanas creando y todavía se siente que no encaja. No necesitas más diseño, necesitas a alguien que primero entienda 100%  lo que haces y pueda transformarlo en tu identidad.",
         },
       ],
       servicesTag: "Cómo lo soluciono",
@@ -322,15 +322,15 @@ export const t = {
       founderTag1: "hola, soy Cata",
       founderTag2: "Quién está detrás",
       founderName: "Fundada por Catalina Mejia",
-      founderH2: "Empecé Blumaa porque seguía viendo el mismo problema.",
+      founderH2: "Creé Blumaa porque seguía viendo el mismo problema.",
       founderP1:
-        "Grandes negocios. Fundadores talentosos. Resultados reales para sus clientes. Pero su branding, los hacía ver más pequeños, menos creíbles, más difíciles de entender.",
+        "Emprendimientos con muchísimo potencial, fundadores talentosos que traían resultados reales para sus clientes, pero con un branding que estaba años luz de representar lo que hacían. Y sin darse cuenta, eso los hacía ver menos profesionales y poco creíbles.",
       founderP2:
-        "Habían probado las opciones baratas, un logo de Fiverr, un sitio DIY, un freelancer que no dio en el clavo. Y se sentían peor después, porque habían gastado dinero y tiempo y aún no tenían una marca de la que estar orgullosos.",
+        "Habían probado logos baratos, intentado hacerlo solos, contratado freelancers que nunca captaron la idea y los dejaron en el limbo. Habían gastado tiempo, dinero y energía, y seguían sin tener una marca que los representara.",
       founderP3:
-        "Lo que aprendí: el problema no era el diseño. Era que nadie se había tomado el tiempo de entender su negocio primero. Nadie hacía las preguntas difíciles. Nadie hacía el trabajo de estrategia que hace posible el gran diseño.",
+        "Lo que aprendí es que el problema nunca estaba en el diseño. Estaba en la falta de conexión entre su oferta y su marca. Nadie se había tomado el tiempo de hacer las preguntas correctas, entender su negocio de verdad y construir desde ahí.",
       founderP4:
-        "Eso es lo que hago en Blumaa. Comienzo con la comprensión, tu mercado, tu posicionamiento, lo que te hace diferente. Luego construyo una marca que comunica todo eso. El resultado es una marca que no solo se ve profesional. Te posiciona como la elección obvia en tu mercado.",
+        "Eso es lo que hago en Blumaa. Empiezo entendiendo tu negocio, tu competencia, tu posicionamiento y lo que te hace diferente. Una vez eso está claro, construimos una marca que de verdad te representa. El resultado es una marca que no solo se ve profesional, te posiciona como la opción obvia en tu mercado.",
       quoteMain: "¿La brecha entre la calidad de tu trabajo y la fuerza de tu marca?",
       quoteEmphasis: "Eso es lo que cierro.",
       biro: "Trabajamos en construir una marca con estrategia\nque de verdad refleje a tu negocio.",
