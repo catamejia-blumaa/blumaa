@@ -71,7 +71,7 @@ const Index = () => {
                 transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif font-bold text-night mb-2 md:mb-4 leading-tight">{pain.title}</h3>
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif font-bold text-night mb-2 md:mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: pain.title }} />
                 <p className="text-night/75 leading-relaxed text-sm">{pain.desc}</p>
               </motion.div>
             ))}
