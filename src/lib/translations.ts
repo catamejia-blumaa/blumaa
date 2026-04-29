@@ -4,7 +4,7 @@ export const t = {
       about: "About",
       services: "Services",
       contact: "Contact",
-      apply: "Apply Now",
+      apply: "Let's work together",
     },
     footer: {
       tagline: "Strategic branding for founders who refuse to blend in.",
@@ -248,7 +248,7 @@ export const t = {
       about: "Sobre mi",
       services: "Servicios",
       contact: "Contacto",
-      apply: "Aplicar",
+      apply: "Trabajemos juntos",
     },
     footer: {
       tagline: "Branding estratégico para fundadores que se niegan a pasar desapercibidos.",
