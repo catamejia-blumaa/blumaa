@@ -25,15 +25,15 @@ export const t = {
       painTitle: "Sound familiar?",
       pains: [
         {
-          title: "Your brand <span class=\"text-blue\">doesn't match your work</span>",
+          title: "Your brand doesn't match your work",
           desc: "You're serving clients, doing great work, making money, but your visual presence makes you look smaller than you are. And you know it's costing you opportunities.",
         },
         {
-          title: "You <span class=\"text-blue\">can't find the words</span>",
+          title: "You can't find the words",
           desc: "You know what you do. But explaining it clearly, on your website, in your bio, at a networking event, feels impossible. The brand is in your head. It just won't come out.",
         },
         {
-          title: "You've tried cheap and <span class=\"text-blue\">felt worse</span>",
+          title: "You've tried cheap and felt worse",
           desc: "The freelance logo that's forgettable. The DIY brand that took weeks and still feels off. You don't need more design. You need someone who understands you first.",
         },
       ],
@@ -215,12 +215,10 @@ export const t = {
         { value: "pivoting", label: "Pivoting / reinventing" },
       ],
       budgetOptions: [
-        { value: "500-1k", label: "USD $500 – $1,000" },
-        { value: "1-5k", label: "USD $1,000 – $5,000" },
-        { value: "5-10k", label: "USD $5,000 – $10,000" },
-        { value: "10-20k", label: "USD $10,000 – $20,000" },
-        { value: "20-50k", label: "USD $20,000 – $50,000" },
-        { value: "50k+", label: "USD $50,000+" },
+        { value: "5-10k", label: "$5,000 – $10,000" },
+        { value: "10-20k", label: "$10,000 – $20,000" },
+        { value: "20-50k", label: "$20,000 – $50,000" },
+        { value: "50k+", label: "$50,000+" },
       ],
       submit: "Submit Application",
       submitting: "Submitting...",
@@ -271,15 +269,15 @@ export const t = {
       painTitle: "¿Esto te suena familiar?",
       pains: [
         {
-          title: "Tu marca <span class=\"text-blue\">no está a la altura de tu trabajo</span>",
+          title: "Tu marca no está a la altura de tu trabajo",
           desc: "Estás trabajando con clientes, haciendo un trabajo increíble, generando resultados, pero tu presencia visual te hace ver más pequeño de lo que eres. Y eres consciente  de que esto te está costando oportunidades.",
         },
         {
-          title: "No <span class=\"text-blue\">encuentras las palabras</span>",
+          title: "No encuentras las palabras",
           desc: "Sabes exactamente lo que haces. Pero explicarlo en un evento de networking, en tu página web y hasta en tus redes se siente confuso y poco claro. Tu marca la tienes clara en tu cabeza pero no logras comunicarla o hacerla tangible.",
         },
         {
-          title: "Probaste lo barato y <span class=\"text-blue\">te salió caro</span>",
+          title: "Probaste lo barato y te salió caro",
           desc: "El logo que nadie recuerda. La marca DIY que duraste semanas creando y todavía se siente que no encaja. No necesitas más diseño, necesitas a alguien que primero entienda 100%  lo que haces y pueda transformarlo en tu identidad.",
         },
       ],
@@ -461,12 +459,10 @@ export const t = {
         { value: "pivoting", label: "Pivotando / reinventando" },
       ],
       budgetOptions: [
-        { value: "500-1k", label: "USD $500 – $1,000" },
-        { value: "1-5k", label: "USD $1,000 – $5,000" },
-        { value: "5-10k", label: "USD $5,000 – $10,000" },
-        { value: "10-20k", label: "USD $10,000 – $20,000" },
-        { value: "20-50k", label: "USD $20,000 – $50,000" },
-        { value: "50k+", label: "USD $50,000+" },
+        { value: "5-10k", label: "$5,000 – $10,000" },
+        { value: "10-20k", label: "$10,000 – $20,000" },
+        { value: "20-50k", label: "$20,000 – $50,000" },
+        { value: "50k+", label: "$50,000+" },
       ],
       submit: "Enviar Solicitud",
       submitting: "Enviando...",

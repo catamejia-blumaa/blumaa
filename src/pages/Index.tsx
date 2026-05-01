@@ -29,17 +29,17 @@ const Index = () => {
               {tr.biroHero}
             </p>
           </motion.div>
-          <motion.div initial="hidden" animate="visible" className="max-w-4xl mx-auto text-center px-2 sm:px-0">
-            <motion.p variants={fadeUp} custom={0} className="text-light-yellow font-mono font-semibold text-xs uppercase tracking-[0.3em] mb-4 md:mb-8 drop-shadow-sm">
+          <motion.div initial="hidden" animate="visible" className="max-w-4xl">
+            <motion.p variants={fadeUp} custom={0} className="text-light-yellow font-mono font-semibold text-xs uppercase tracking-[0.3em] mb-6 md:mb-8 drop-shadow-sm">
               {tr.agencyTag}
             </motion.p>
-            <motion.h1 variants={fadeUp} custom={1} className="text-[2rem] sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold leading-[1.05] sm:leading-[0.9] md:leading-[0.85] mb-5 md:mb-10 text-white-chocolate uppercase max-w-5xl mx-auto drop-shadow-sm">
+            <motion.h1 variants={fadeUp} custom={1} className="text-[2.25rem] sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[0.95] sm:leading-[0.9] md:leading-[0.85] mb-7 md:mb-10 text-white-chocolate uppercase max-w-5xl drop-shadow-sm">
               {tr.heroH1a} <span className="italic font-bold">{tr.heroH1b}</span> {tr.heroH1c} <span className="italic font-bold">{tr.heroH1d}</span>
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-sm sm:text-base md:text-xl lg:text-2xl text-white-chocolate/90 max-w-2xl mx-auto mb-7 md:mb-12 leading-relaxed">
+            <motion.p variants={fadeUp} custom={2} className="text-sm sm:text-base md:text-xl lg:text-2xl text-white-chocolate max-w-2xl mb-8 md:mb-12 leading-relaxed">
               {tr.heroBody}
             </motion.p>
-            <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4 md:gap-6 justify-center">
+            <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4 md:gap-6">
               <Button asChild size="lg" className="w-full sm:w-auto bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-6 sm:px-8 md:px-10 py-5 md:py-6 text-sm sm:text-base shadow-lg hover:shadow-xl transition-all font-semibold hover:scale-105">
                 <Link to="/contact">{tr.heroCta} <ArrowRight className="ml-2" size={16} /></Link>
               </Button>
@@ -71,7 +71,7 @@ const Index = () => {
                 transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif font-bold text-night mb-2 md:mb-4 leading-tight" dangerouslySetInnerHTML={{ __html: pain.title }} />
+                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif font-bold text-night mb-2 md:mb-4 leading-tight">{pain.title}</h3>
                 <p className="text-night/75 leading-relaxed text-sm">{pain.desc}</p>
               </motion.div>
             ))}
