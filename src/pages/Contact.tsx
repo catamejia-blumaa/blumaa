@@ -78,13 +78,11 @@ const Contact = () => {
         <div className="container">
           {/* Header */}
           <motion.div initial="hidden" animate="visible" className="max-w-2xl mb-12 md:mb-16">
-            <motion.p
-              variants={fadeUp}
-              custom={0}
-              className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4"
-            >
-              {tr.tag}
-            </motion.p>
+            <motion.div variants={fadeUp} custom={0} className="mb-4 flex">
+              <span className="inline-flex items-center font-mono font-medium text-xs uppercase tracking-[0.3em] text-night bg-pool-blue rounded-pill px-4 py-1.5">
+                {tr.tag}
+              </span>
+            </motion.div>
             <motion.h1
               variants={fadeUp}
               custom={1}

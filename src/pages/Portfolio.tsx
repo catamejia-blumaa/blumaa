@@ -40,12 +40,14 @@ const Portfolio = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white-chocolate">
+      <section className="py-16 md:py-24 lg:py-32 bg-crema">
         <div className="container">
           <motion.div initial="hidden" animate="visible" className="max-w-2xl mb-10 md:mb-16">
-            <motion.p variants={fadeUp} custom={0} className="text-blue font-semibold text-xs md:text-sm uppercase tracking-[0.2em] mb-4">
-              {tr.tag}
-            </motion.p>
+            <motion.div variants={fadeUp} custom={0} className="mb-4 flex">
+              <span className="inline-flex items-center font-mono font-medium text-xs uppercase tracking-[0.3em] text-night bg-pool-blue rounded-pill px-4 py-1.5">
+                {tr.tag}
+              </span>
+            </motion.div>
             <motion.h1 variants={fadeUp} custom={1} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-night leading-tight mb-4 md:mb-6">
               {tr.heroH1}
             </motion.h1>
@@ -129,7 +131,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-blue text-white-chocolate">
+      <section className="py-16 md:py-24 bg-blue">
         <div className="container text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -140,10 +142,10 @@ const Portfolio = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-4 md:mb-6">
               {tr.ctaH2}
             </h2>
-            <p className="text-white-chocolate/80 text-base md:text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+            <p className="text-crema/80 text-base md:text-lg mb-8 max-w-xl mx-auto leading-relaxed">
               {tr.ctaBody}
             </p>
-            <Button asChild size="lg" className="w-full sm:w-auto bg-light-yellow text-night hover:bg-light-yellow/90 rounded-full px-8 md:px-10 font-semibold hover:scale-105 transition-all shadow-lg hover:shadow-xl">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-butter text-blue hover:opacity-85 hover:-translate-y-px rounded-pill px-8 md:px-10 font-medium transition-all duration-200">
               <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={18} /></Link>
             </Button>
           </motion.div>
