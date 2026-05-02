@@ -14,60 +14,99 @@
 
 @layer base {
   :root {
-    /* Blumaa Blue   #2642FF → hsl(233 100% 57%) */
-    /* Butter Yellow #FFF3C4 → hsl(46  100% 88%) */
-    /* Pink          #FF62A1 → hsl(335 100% 69%) */
-    /* Crema         #FFF7EE → hsl(33  100% 97%) */
-    /* Night         #231F20 → hsl(348   5% 13%) */
-    /* Citrus Orange #FF8231 → hsl(26  100% 60%) */
-    /* Pool Blue     #B6ECFF → hsl(199 100% 86%) */
+    /* ─── Blumaa Brand Colors ───────────────────────────── */
+    /* Blue    #2642FF → hsl(233 100% 57%) */
+    /* Butter  #FFF3C4 → hsl(46  100% 88%) */
+    /* Pink    #FF62A1 → hsl(335 100% 69%) */
+    /* Crema   #FFF7EE → hsl(33  100% 97%) */
+    /* Café    #452925 → hsl(11   28% 21%) */
+    /* Night   #231F20 → hsl(348   5% 13%) */
+    /* Orange  #FF8231 → hsl(26  100% 60%) */
+    /* Pool    #B6ECFF → hsl(199 100% 86%) */
 
-    --background: 33 100% 97%;
-    --foreground: 348 5% 13%;
+    --color-blue:   #2642FF;
+    --color-butter: #FFF3C4;
+    --color-pink:   #FF62A1;
+    --color-crema:  #FFF7EE;
+    --color-cafe:   #452925;
+    --color-night:  #231F20;
+    --color-orange: #FF8231;
+    --color-pool:   #B6ECFF;
 
-    --card: 0 0% 100%;
+    /* ─── shadcn/Radix semantic tokens ─────────────────── */
+    --background: 33 100% 97%;       /* Crema */
+    --foreground: 348 5% 13%;        /* Night */
+
+    --card: 33 100% 97%;
     --card-foreground: 348 5% 13%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 348 5% 13%;
 
-    --primary: 233 100% 57%;
+    --primary: 233 100% 57%;         /* Blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 46 100% 88%;
+    --secondary: 46 100% 88%;        /* Butter */
     --secondary-foreground: 348 5% 13%;
 
-    --muted: 33 40% 94%;
+    --muted: 33 40% 93%;
     --muted-foreground: 348 5% 45%;
 
-    --accent: 335 100% 69%;
+    --accent: 335 100% 69%;          /* Pink */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 335 100% 69%;     /* Pink as error */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 33 30% 88%;
+    --border: 33 30% 87%;
     --input: 33 30% 90%;
     --ring: 233 100% 57%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Brand colors */
-    --blue: 233 100% 57%;
-    --blue-foreground: 0 0% 100%;
-    --light-yellow: 46 100% 88%;
+    /* ─── Brand color utilities ────────────────────────── */
+    --blue:             233 100% 57%;
+    --blue-foreground:  0 0% 100%;
+    --butter:           46 100% 88%;
+    --butter-foreground: 348 5% 13%;
+    --light-yellow:     46 100% 88%;   /* alias kept for backwards compat */
     --light-yellow-foreground: 348 5% 13%;
-    --night: 348 5% 13%;
+    --night:            348 5% 13%;
     --night-foreground: 33 100% 97%;
-    --pink: 335 100% 69%;
-    --pink-foreground: 0 0% 100%;
-    --white-chocolate: 33 100% 97%;
+    --pink:             335 100% 69%;
+    --pink-foreground:  0 0% 100%;
+    --white-chocolate:  33 100% 97%;   /* alias → Crema */
     --white-chocolate-foreground: 348 5% 13%;
-    --citrus-orange: 26 100% 60%;
+    --crema:            33 100% 97%;
+    --crema-foreground: 348 5% 13%;
+    --cafe:             11 28% 21%;
+    --cafe-foreground:  33 100% 97%;
+    --citrus-orange:    26 100% 60%;
     --citrus-orange-foreground: 0 0% 100%;
-    --pool-blue: 199 100% 86%;
+    --pool-blue:        199 100% 86%;
     --pool-blue-foreground: 348 5% 13%;
 
+    /* ─── Spacing scale (8px base) ─────────────────────── */
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-4:  16px;
+    --space-6:  24px;
+    --space-10: 40px;
+    --space-16: 64px;
+    --space-24: 96px;
+
+    /* ─── Border radius ─────────────────────────────────── */
+    --r-none: 0px;
+    --r-xs:   4px;
+    --r-md:   8px;
+    --r-lg:   16px;
+    --r-pill: 99px;
+
+    /* ─── Grid ──────────────────────────────────────────── */
+    --grid-max:    1280px;
+    --grid-gutter: 24px;
+
+    /* ─── Sidebar tokens (for shadcn sidebar component) ─── */
     --sidebar-background: 233 100% 57%;
     --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 46 100% 88%;
@@ -115,11 +154,26 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Instrument Serif', serif;
-    line-height: 1.45;
+    font-family: 'Instrument Serif', Georgia, serif;
+    line-height: 1.1;
+  }
+}
+
+@layer utilities {
+  /* Pill shape utility */
+  .btn-pill {
+    border-radius: var(--r-pill);
+  }
+
+  /* Card border radius per DS */
+  .card-radius {
+    border-radius: var(--r-md);
   }
 }
