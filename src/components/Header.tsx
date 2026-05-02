@@ -130,7 +130,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-crema border-b border-night/8 shadow-sm">
       <div className="container flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center flex-shrink-0">
-          <img src="/Asset_6@4x.png" alt="Blumaa" className="h-8 md:h-10 w-auto" />
+          <img src="/Main_loco_blue_pink.png" alt="Blumaa" className="h-8 md:h-10 w-auto" />
         </Link>
 
         {/* Desktop nav */}
