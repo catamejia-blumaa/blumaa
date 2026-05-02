@@ -329,7 +329,7 @@ export const t = {
     },
     about: {
       tag: "Sobre Blumaa",
-      heroH1: "Sabes que eres mejor de lo que tu marca hace ver.",
+      heroH1: "sabes que eres mejor de lo que tu marca hace ver.",
       heroBody:
         "Tu marca es como una persona: tiene personalidad y tiene voz, tiene una manera especial de moverse por el mundo.\nMi trabajo es encontrarla contigo.\nY cuando la encontramos, todo fluye.",
       founderTag1: "hola, soy Cata",
@@ -452,7 +452,7 @@ export const t = {
     },
     contact: {
       tag: "Aplicar",
-      heroH1: "Veamos si somos un buen match.",
+      heroH1: "veamos si somos un buen match.",
       heroBody:
         "Esto no es un formulario de contacto genérico, es el inicio de una conversación. Cuanto más compartas, mejor podré entender si (y cómo) puedo ayudarte.",
       labelName: "Tu Nombre *",

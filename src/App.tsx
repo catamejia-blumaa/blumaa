@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 // import Portfolio from "./pages/Portfolio";
 // import CaseStudy from "./pages/CaseStudy";
+
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 

@@ -27,7 +27,7 @@ const About = () => {
             <motion.h1
               variants={fadeUp}
               custom={1}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-night uppercase leading-tight mb-8 md:mb-10"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-night leading-tight mb-8 md:mb-10"
             >
               {tr.heroH1}
             </motion.h1>

@@ -88,7 +88,7 @@ const Contact = () => {
             <motion.h1
               variants={fadeUp}
               custom={1}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-night uppercase leading-tight mb-4 md:mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-night leading-tight mb-4 md:mb-6"
             >
               {tr.heroH1}
             </motion.h1>
