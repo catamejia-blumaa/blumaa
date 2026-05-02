@@ -23,10 +23,9 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <img
-              src="/Asset_6@4x.png"
+              src="/Main_logo_cream_pink.png"
               alt="Blumaa"
               className="h-8 md:h-10 w-auto mb-4"
-              style={{ filter: "brightness(0) saturate(100%) invert(96%) sepia(9%) saturate(500%) hue-rotate(324deg) brightness(106%) contrast(98%)" }}
             />
             <p className="text-crema/75 text-xs md:text-sm leading-relaxed max-w-xs">
               {ft.tagline}
