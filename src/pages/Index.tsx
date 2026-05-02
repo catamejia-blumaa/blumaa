@@ -86,21 +86,28 @@ const Index = () => {
             {tr.painTitle}
           </motion.h2>
 
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-crema border-[1.5px] border-blue rounded-lg divide-y divide-blue/20"
+          >
             {tr.pains.map((pain, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="bg-butter border-[1.5px] border-blue rounded-lg p-6 md:p-8"
-              >
-                <h3 className="text-lg md:text-xl font-serif text-night mb-3 leading-snug">{pain.title}</h3>
-                <p className="text-night/70 text-sm leading-relaxed">{pain.desc}</p>
-              </motion.div>
+              <div key={i} className="flex gap-5 p-6 md:p-8">
+                <img
+                  src="/Favicon_blue.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="w-7 h-7 flex-shrink-0 mt-0.5"
+                />
+                <div>
+                  <h3 className="text-lg md:text-xl font-serif text-blue mb-2 leading-snug">{pain.title}</h3>
+                  <p className="text-night/70 text-sm leading-relaxed">{pain.desc}</p>
+                </div>
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
