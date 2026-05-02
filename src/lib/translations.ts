@@ -3,6 +3,7 @@ export const t = {
     nav: {
       about: "About",
       services: "Services",
+      portfolio: "Portfolio",
       contact: "Contact",
       apply: "Let's work together",
     },
@@ -182,6 +183,17 @@ export const t = {
         },
       ],
     },
+    portfolio: {
+      tag: "Portfolio",
+      heroH1: "Work that speaks louder than words.",
+      heroBody: "Every project starts with strategy and ends with results. Here's the proof.",
+      ctaH2: "Want your brand on this page?",
+      ctaBody: "The next success story could be yours. Let's make it happen.",
+      ctaBtn: "Start Your Project",
+      loading: "Loading projects...",
+      error: "Couldn't load projects. Please try again.",
+      empty: "No projects yet. Check back soon.",
+    },
     contact: {
       tag: "Apply",
       heroH1: "Let's see if we're a fit.",
@@ -247,6 +259,7 @@ export const t = {
     nav: {
       about: "Sobre mi",
       services: "Servicios",
+      portfolio: "Portafolio",
       contact: "Contacto",
       apply: "Trabajemos juntos",
     },
@@ -425,6 +438,17 @@ export const t = {
           forWho: "Negocios cansados de que la gente no entienda lo que hacen. La marca está en tu cabeza. Yo la sacaré.",
         },
       ],
+    },
+    portfolio: {
+      tag: "Portafolio",
+      heroH1: "Trabajo que habla más fuerte que las palabras.",
+      heroBody: "Cada proyecto empieza con estrategia y termina con resultados. Aquí está la prueba.",
+      ctaH2: "¿Quieres tu marca en esta página?",
+      ctaBody: "La próxima historia de éxito podría ser la tuya. Hagámoslo realidad.",
+      ctaBtn: "Empieza tu proyecto",
+      loading: "Cargando proyectos...",
+      error: "No se pudieron cargar los proyectos. Por favor intenta de nuevo.",
+      empty: "Sin proyectos por ahora. Vuelve pronto.",
     },
     contact: {
       tag: "Aplicar",
