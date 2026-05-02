@@ -123,7 +123,7 @@ const Header = () => {
   const navLinks = [
     { label: tr.about,     path: "/about" },
     { label: tr.services,  path: "/services" },
-    { label: tr.portfolio, path: "/portfolio" },
+    // { label: tr.portfolio, path: "/portfolio" }, // hidden
   ];
 
   return (

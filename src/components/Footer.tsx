@@ -11,7 +11,7 @@ const Footer = () => {
   const navLinks = [
     { label: nav.about,     path: "/about" },
     { label: nav.services,  path: "/services" },
-    { label: nav.portfolio, path: "/portfolio" },
+    // { label: nav.portfolio, path: "/portfolio" }, // hidden
     { label: nav.contact,   path: "/contact" },
   ];
 

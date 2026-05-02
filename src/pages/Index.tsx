@@ -60,15 +60,15 @@ const Index = () => {
               >
                 <Link to="/contact">{tr.heroCta} <ArrowRight className="ml-2" size={16} /></Link>
               </Button>
-              {/* Ghost CTA: transparent + Crema border */}
-              <Button
+              {/* Portfolio CTA hidden — uncomment to re-enable */}
+              {/* <Button
                 asChild
                 size="lg"
                 variant="outline"
                 className="w-full sm:w-auto bg-transparent text-crema border-[1.5px] border-crema hover:bg-crema/10 hover:-translate-y-px rounded-pill px-8 md:px-10 py-6 text-sm font-medium transition-all duration-200"
               >
                 <Link to="/portfolio">{lang === "es" ? "Ver portafolio" : "See portfolio"}</Link>
-              </Button>
+              </Button> */}
             </motion.div>
           </motion.div>
         </div>
