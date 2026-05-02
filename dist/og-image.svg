@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,700;1,700&amp;family=Funnel+Sans:wght@400;600&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0B2D6B"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.08"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Logo area top left -->
+  <text x="80" y="90" font-family="'Instrument Serif', Georgia, serif" font-size="36" font-weight="700" fill="#F5F0E8" letter-spacing="2">blumaa</text>
+  <rect x="80" y="100" width="80" height="2" fill="#F2C94C"/>
+
+  <!-- Tag line -->
+  <text x="80" y="175" font-family="'Funnel Sans', Arial, sans-serif" font-size="16" font-weight="600" fill="#F2C94C" letter-spacing="5" text-transform="uppercase">BRANDING &amp; GROWTH AGENCY</text>
+
+  <!-- Main headline line 1 -->
+  <text x="80" y="285" font-family="'Instrument Serif', Georgia, serif" font-size="96" font-weight="700" fill="#F5F0E8">Your work is</text>
+
+  <!-- Main headline line 2 - italic accent -->
+  <text x="80" y="385" font-family="'Instrument Serif', Georgia, serif" font-size="96" font-weight="700" font-style="italic" fill="#F2C94C">excellent.</text>
+
+  <!-- Sub headline -->
+  <text x="80" y="465" font-family="'Instrument Serif', Georgia, serif" font-size="72" font-weight="700" fill="#F5F0E8">Your brand</text>
+  <text x="80" y="545" font-family="'Instrument Serif', Georgia, serif" font-size="72" font-weight="700" font-style="italic" fill="#F5F0E8/70">doesn't show it.</text>
+
+  <!-- Right side decorative element -->
+  <circle cx="1050" cy="315" r="180" fill="#F2C94C" opacity="0.06"/>
+  <circle cx="1050" cy="315" r="120" fill="#F2C94C" opacity="0.06"/>
+  <circle cx="1050" cy="315" r="60" fill="#F2C94C" opacity="0.08"/>
+
+  <!-- URL bottom right -->
+  <text x="1120" y="590" font-family="'Funnel Sans', Arial, sans-serif" font-size="18" fill="#F5F0E8" opacity="0.5" text-anchor="end">blumaa.com</text>
+</svg>
