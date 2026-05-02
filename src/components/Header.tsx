@@ -157,7 +157,7 @@ const Header = () => {
           {/* CTA: Dark button — Blue bg + Crema text */}
           <Button
             asChild
-            className="bg-blue text-crema hover:opacity-85 hover:-translate-y-px rounded-pill px-6 text-sm font-medium transition-all duration-200 h-9"
+            className="bg-butter text-blue hover:opacity-85 hover:-translate-y-px rounded-pill px-6 text-sm font-medium transition-all duration-200 h-9"
           >
             <Link to="/contact">{tr.apply}</Link>
           </Button>
