@@ -7,9 +7,6 @@ import { fadeUp } from "@/lib/animations";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
-const METHOD_ACCENTS = ["#FF62A1", "#FFF3C4", "#B6ECFF", "#FF8231"] as const;
-const TIMELINE_ACCENTS = ["#FF62A1", "#FF8231", "#B6ECFF", "#FF62A1", "#FF8231", "#B6ECFF"] as const;
-
 const About = () => {
   const { lang } = useLang();
   const tr = t[lang].about;
@@ -20,11 +17,13 @@ const About = () => {
       <section className="py-16 md:py-24 lg:py-32 bg-crema">
         <div className="container max-w-4xl">
           <motion.div initial="hidden" animate="visible">
-            <motion.div variants={fadeUp} custom={0} className="mb-4 flex">
-              <span className="inline-flex items-center font-mono font-medium text-xs uppercase tracking-[0.3em] text-night bg-pool-blue rounded-pill px-4 py-1.5">
-                {tr.tag}
-              </span>
-            </motion.div>
+            <motion.p
+              variants={fadeUp}
+              custom={0}
+              className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4"
+            >
+              {tr.tag}
+            </motion.p>
             <motion.h1
               variants={fadeUp}
               custom={1}
@@ -57,7 +56,7 @@ const About = () => {
             >
               <div
                 className="overflow-hidden shadow-xl mx-auto w-40 sm:w-52 md:w-full aspect-square"
-                style={{ transform: "rotate(-8deg)", borderRadius: "var(--r-md)", outline: "4px solid #B6ECFF", outlineOffset: "4px" }}
+                style={{ transform: "rotate(-8deg)", borderRadius: "var(--r-md)" }}
               >
                 <img src="/Photo_Cata.jpg" alt={tr.founderName} className="w-full h-full object-cover" />
               </div>
@@ -87,14 +86,14 @@ const About = () => {
         </div>
       </section>
 
-      {/* ── Pull Quote ── Pink bg — single accent section ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-pink">
+      {/* ── Pull Quote ── Crema bg ── */}
+      <section className="py-16 md:py-24 lg:py-32 bg-crema">
         <div className="container max-w-4xl text-center">
           <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-crema leading-tight mb-8"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-night leading-tight mb-8"
           >
             {tr.quoteMain} <em className="text-blue">{tr.quoteEmphasis}</em>
           </motion.blockquote>
@@ -103,7 +102,7 @@ const About = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="font-biro text-crema text-xl sm:text-2xl md:text-3xl leading-relaxed pointer-events-none select-none"
+            className="font-biro text-blue text-xl sm:text-2xl md:text-3xl leading-relaxed pointer-events-none select-none"
             style={{ transform: "rotate(-1deg)", display: "inline-block" }}
           >
             {tr.biro.split("\n").map((line, i, arr) => (
@@ -139,14 +138,11 @@ const About = () => {
                 viewport={{ once: true }}
                 custom={i}
                 variants={fadeUp}
-                className="bg-blue rounded-lg overflow-hidden"
+                className="bg-blue rounded-lg p-6 md:p-8"
               >
-                <div className="h-1" style={{ background: METHOD_ACCENTS[i] }} />
-                <div className="p-6 md:p-8">
-                  <span className="text-4xl md:text-5xl font-serif" style={{ color: METHOD_ACCENTS[i] }}>{step.num}</span>
-                  <h3 className="text-lg md:text-xl font-serif text-crema mt-3 mb-2">{step.title}</h3>
-                  <p className="text-crema/75 text-sm leading-relaxed">{step.desc}</p>
-                </div>
+                <span className="text-4xl md:text-5xl font-serif text-butter/60">{step.num}</span>
+                <h3 className="text-lg md:text-xl font-serif text-crema mt-3 mb-2">{step.title}</h3>
+                <p className="text-crema/75 text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -244,18 +240,12 @@ const About = () => {
                   className="relative md:pl-20 pl-8 border-l-2 border-blue/20 md:border-0"
                 >
                   {/* Circle — desktop */}
-                  <div
-                    className="absolute left-0 top-0 w-12 h-12 rounded-full flex items-center justify-center font-serif text-night text-base shadow-md hidden md:flex"
-                    style={{ background: TIMELINE_ACCENTS[i] }}
-                  >
+                  <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-blue flex items-center justify-center font-serif text-crema text-base shadow-md hidden md:flex">
                     {step.num}
                   </div>
                   {/* Dot — mobile */}
-                  <div
-                    className="absolute -left-[9px] top-1 w-4 h-4 rounded-full md:hidden"
-                    style={{ background: TIMELINE_ACCENTS[i] }}
-                  />
-                  <p className="font-mono text-xs uppercase tracking-widest mb-1" style={{ color: TIMELINE_ACCENTS[i] === "#B6ECFF" ? "#2642FF" : TIMELINE_ACCENTS[i] }}>{step.tag}</p>
+                  <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue md:hidden" />
+                  <p className="text-blue font-mono text-xs uppercase tracking-widest mb-1">{step.tag}</p>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-night mb-3 leading-tight">{step.title}</h3>
                   <div
                     className="text-night/75 text-sm md:text-base leading-relaxed"

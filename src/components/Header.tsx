@@ -4,7 +4,6 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
-import BlumaaLogo from "@/components/BlumaaLogo";
 
 const LANGUAGES = [
   {
@@ -65,7 +64,6 @@ const LANGUAGES = [
 
 type LangCode = "es" | "en";
 
-/* Language switcher — Butter bg + Blue text per DS */
 const LangDropdown = ({ lang, setLang }: { lang: LangCode; setLang: (l: LangCode) => void }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -81,10 +79,9 @@ const LangDropdown = ({ lang, setLang }: { lang: LangCode; setLang: (l: LangCode
 
   return (
     <div ref={ref} className="relative">
-      {/* Butter bg + Blue text button */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 text-xs font-mono font-semibold tracking-widest bg-butter text-blue hover:opacity-85 transition-all duration-200 rounded-pill px-3 py-1.5 border-none"
+        className="flex items-center gap-1.5 text-xs font-mono font-medium tracking-widest text-night/60 hover:text-night transition-colors border-[1.5px] border-night/20 rounded-pill px-3 py-1.5 hover:border-night/50"
         aria-haspopup="listbox"
         aria-expanded={open}
       >
@@ -95,7 +92,7 @@ const LangDropdown = ({ lang, setLang }: { lang: LangCode; setLang: (l: LangCode
 
       {open && (
         <div
-          className="absolute right-0 top-full mt-2 w-36 bg-butter rounded-lg shadow-xl border border-blue/20 overflow-hidden z-50"
+          className="absolute right-0 top-full mt-2 w-36 bg-crema rounded-lg shadow-xl border border-night/10 overflow-hidden z-50"
           role="listbox"
         >
           {LANGUAGES.map((l) => (
@@ -104,9 +101,7 @@ const LangDropdown = ({ lang, setLang }: { lang: LangCode; setLang: (l: LangCode
               role="option"
               aria-selected={lang === l.code}
               onClick={() => { setLang(l.code); setOpen(false); }}
-              className={`flex items-center gap-2.5 w-full px-3 py-2.5 text-sm transition-colors hover:bg-blue/8 ${
-                lang === l.code ? "text-blue font-semibold" : "text-blue/70"
-              }`}
+              className={`flex items-center gap-2.5 w-full px-3 py-2.5 text-sm transition-colors hover:bg-blue/5 ${lang === l.code ? "text-night font-semibold" : "text-night/70"}`}
             >
               {l.flag}
               <span>{l.label}</span>
@@ -134,8 +129,8 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-crema border-b border-night/8 shadow-sm">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center flex-shrink-0" aria-label="Blumaa home">
-          <BlumaaLogo variant="blue-star-pink" height={36} className="md:h-[44px]" />
+        <Link to="/" className="flex items-center flex-shrink-0">
+          <img src="/Asset_6@4x.png" alt="Blumaa" className="h-8 md:h-10 w-auto" />
         </Link>
 
         {/* Desktop nav */}
@@ -152,13 +147,14 @@ const Header = () => {
             >
               {link.label}
               {location.pathname === link.path && (
-                <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-pink rounded-full" />
+                <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-blue rounded-full" />
               )}
             </Link>
           ))}
 
           <LangDropdown lang={lang as LangCode} setLang={setLang} />
 
+          {/* CTA: Dark button — Blue bg + Crema text */}
           <Button
             asChild
             className="bg-blue text-crema hover:opacity-85 hover:-translate-y-px rounded-pill px-6 text-sm font-medium transition-all duration-200 h-9"

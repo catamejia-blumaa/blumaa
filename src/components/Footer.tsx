@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
-import BlumaaLogo from "@/components/BlumaaLogo";
 
 const Footer = () => {
   const { lang } = useLang();
@@ -23,7 +22,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-12">
           {/* Brand */}
           <div>
-            <BlumaaLogo variant="crema-star-pink" height={36} className="mb-4" />
+            <img
+              src="/Asset_6@4x.png"
+              alt="Blumaa"
+              className="h-8 md:h-10 w-auto mb-4"
+              style={{ filter: "brightness(0) saturate(100%) invert(96%) sepia(9%) saturate(500%) hue-rotate(324deg) brightness(106%) contrast(98%)" }}
+            />
             <p className="text-crema/75 text-xs md:text-sm leading-relaxed max-w-xs">
               {ft.tagline}
             </p>
