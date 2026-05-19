@@ -44,11 +44,11 @@ A premium, multi-page website for Blumaa — a solo female-led branding and grow
 |-------|------|------|--------|------|
 | H1 / Display | Instrument Serif | 48–72px | Regular | ALL CAPS |
 | H2 / Heading | Instrument Serif | 28–40px | Regular | Flexible |
-| H3 / Subheading | DM Sans | 18–20px | 500 | Flexible |
+| H3 / Subheading | Arsenal (DM Sans fallback) | 18–20px | 500 | Flexible |
 | Eyebrow / Label | Roboto Mono | 10–12px | 500 | UPPERCASE + spaced |
-| Body | DM Sans | 14–17px | 400 | Sentence case |
+| Body | Arsenal (DM Sans fallback) | 14–17px | 400 | Sentence case |
 | Handwritten | Biro Script | 18–24px | Regular | As-is, never CAPS |
-| Button | DM Sans | 12–16px | 500 | Sentence case |
+| Button | Arsenal (DM Sans fallback) | 12–16px | 500 | Sentence case |
 
 **Rules:**
 - Max 2 font families per layout piece
@@ -68,7 +68,7 @@ A premium, multi-page website for Blumaa — a solo female-led branding and grow
 Hover: opacity 0.85 + translateY(-1px) · Transition: 200ms ease-in-out
 
 ### Form Inputs
-- Input/Select: border-radius 99px · border 1.5px Blue · DM Sans 14px
+- Input/Select: border-radius 99px · border 1.5px Blue · Arsenal (DM Sans fallback) 14px
 - Textarea: border-radius 16px · same color rules
 - Focus: box-shadow 0 0 0 3px rgba(38,66,255,0.12)
 - Error: border-color Pink #FF62A1
