@@ -56,7 +56,7 @@ const Index = () => {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto bg-butter text-blue hover:opacity-85 hover:-translate-y-px rounded-pill px-8 md:px-10 py-6 text-sm font-medium transition-all duration-200 shadow-none border-none"
+                className="w-full sm:w-auto bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-8 md:px-10 py-6 text-sm font-medium transition-all duration-200 shadow-none border-none"
               >
                 <Link to="/contact">{tr.heroCta} <ArrowRight className="ml-2" size={16} /></Link>
               </Button>
@@ -195,11 +195,11 @@ const Index = () => {
                 viewport={{ once: true }}
                 custom={i}
                 variants={fadeUp}
-                className="bg-blue rounded-lg p-6 md:p-8"
+                className="bg-[#FF8231] rounded-lg p-6 md:p-8"
               >
-                <span className="text-4xl md:text-5xl font-serif text-butter/60">{step.num}</span>
-                <h3 className="text-lg md:text-xl font-serif text-crema mt-3 mb-2">{step.title}</h3>
-                <p className="text-crema/75 text-sm leading-relaxed">{step.desc}</p>
+                <span className="text-4xl md:text-5xl font-serif text-butter">{step.num}</span>
+                <h3 className="text-lg md:text-xl font-serif text-white mt-3 mb-2">{step.title}</h3>
+                <p className="text-white/85 text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -223,7 +223,7 @@ const Index = () => {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto bg-butter text-blue hover:opacity-85 hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
+              className="w-full sm:w-auto bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
             >
               <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
             </Button>

@@ -62,7 +62,7 @@ const Services = () => {
                   {/* Dark button: Blue bg + Crema text — on light section */}
                   <Button
                     asChild
-                    className="w-full sm:w-auto bg-blue text-crema hover:opacity-85 hover:-translate-y-px rounded-pill px-8 py-5 text-sm font-medium transition-all duration-200"
+                    className="w-full sm:w-auto bg-blue text-crema hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-8 py-5 text-sm font-medium transition-all duration-200"
                   >
                     <Link to="/contact">{tr.getStarted} <ArrowRight className="ml-2" size={14} /></Link>
                   </Button>
@@ -108,7 +108,7 @@ const Services = () => {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto bg-butter text-blue hover:opacity-85 hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
+              className="w-full sm:w-auto bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
             >
               <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
             </Button>

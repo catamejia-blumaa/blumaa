@@ -41,6 +41,22 @@ const About = () => {
               ))}
             </motion.p>
           </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            custom={3}
+            initial="hidden"
+            animate="visible"
+            className="flex justify-center mt-10 md:mt-14"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue text-crema hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
+            >
+              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -83,6 +99,22 @@ const About = () => {
               </div>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex justify-center mt-12 md:mt-16"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
+            >
+              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -138,14 +170,30 @@ const About = () => {
                 viewport={{ once: true }}
                 custom={i}
                 variants={fadeUp}
-                className="bg-blue rounded-lg p-6 md:p-8"
+                className="bg-[#FF8231] rounded-lg p-6 md:p-8"
               >
-                <span className="text-4xl md:text-5xl font-serif text-butter/60">{step.num}</span>
-                <h3 className="text-lg md:text-xl font-serif text-crema mt-3 mb-2">{step.title}</h3>
-                <p className="text-crema/75 text-sm leading-relaxed">{step.desc}</p>
+                <span className="text-4xl md:text-5xl font-serif text-butter">{step.num}</span>
+                <h3 className="text-lg md:text-xl font-serif text-white mt-3 mb-2">{step.title}</h3>
+                <p className="text-white/85 text-sm leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex justify-center mt-10 md:mt-14"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-blue text-crema hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
+            >
+              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -240,11 +288,19 @@ const About = () => {
                   className="relative md:pl-20 pl-8 border-l-2 border-blue/20 md:border-0"
                 >
                   {/* Circle — desktop */}
-                  <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-blue flex items-center justify-center font-serif text-crema text-base shadow-md hidden md:flex">
+                  <div className={`absolute left-0 top-0 w-12 h-12 rounded-full flex items-center justify-center font-serif text-base shadow-md hidden md:flex ${
+                    i <= 2 ? "bg-butter text-blue" :
+                    i <= 4 ? "bg-[#FF8231] text-white" :
+                    "bg-blue text-crema"
+                  }`}>
                     {step.num}
                   </div>
                   {/* Dot — mobile */}
-                  <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue md:hidden" />
+                  <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full md:hidden ${
+                    i <= 2 ? "bg-butter" :
+                    i <= 4 ? "bg-[#FF8231]" :
+                    "bg-blue"
+                  }`} />
                   <p className="text-blue font-mono text-xs uppercase tracking-widest mb-1">{step.tag}</p>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-night mb-3 leading-tight">{step.title}</h3>
                   <div
@@ -272,7 +328,7 @@ const About = () => {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto bg-butter text-blue hover:opacity-85 hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
+              className="w-full sm:w-auto bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
             >
               <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
             </Button>

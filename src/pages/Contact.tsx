@@ -183,7 +183,7 @@ const Contact = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto bg-blue text-crema hover:opacity-85 hover:-translate-y-px disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
+                className="w-full sm:w-auto bg-blue text-crema hover:bg-orange hover:text-blue hover:-translate-y-px disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
               >
                 {isSubmitting ? tr.submitting : tr.submit}
               </Button>

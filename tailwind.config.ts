@@ -108,6 +108,10 @@ export default {
           DEFAULT:    "hsl(var(--citrus-orange))",
           foreground: "hsl(var(--citrus-orange-foreground))",
         },
+        orange: {
+          DEFAULT:    "hsl(var(--citrus-orange))",
+          foreground: "hsl(var(--citrus-orange-foreground))",
+        },
         "pool-blue": {
           DEFAULT:    "hsl(var(--pool-blue))",
           foreground: "hsl(var(--pool-blue-foreground))",
