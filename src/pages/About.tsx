@@ -27,14 +27,14 @@ const About = () => {
             <motion.h1
               variants={fadeUp}
               custom={1}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-night leading-tight mb-8 md:mb-10"
+              className="text-h1-mob md:text-h1 font-serif text-night leading-tight mb-8 md:mb-10"
             >
               {tr.heroH1}
             </motion.h1>
             <motion.p
               variants={fadeUp}
               custom={2}
-              className="font-biro text-blue text-xl sm:text-2xl md:text-3xl leading-relaxed text-center select-none"
+              className="font-biro text-blue text-p2 md:text-p3 leading-relaxed text-center select-none"
             >
               {tr.heroBody.split("\n").map((line, i, arr) => (
                 <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
@@ -88,10 +88,10 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-crema mb-6 md:mb-8 leading-tight">
+              <h2 className="text-h2-mob md:text-h2 font-serif text-crema mb-6 md:mb-8 leading-tight">
                 {tr.founderH2}
               </h2>
-              <div className="space-y-4 md:space-y-6 text-crema/80 text-sm md:text-base lg:text-lg leading-relaxed">
+              <div className="space-y-4 md:space-y-6 text-crema/80 text-p1 md:text-p2 leading-relaxed">
                 <p>{tr.founderP1}</p>
                 <p>{tr.founderP2}</p>
                 <p>{tr.founderP3}</p>
@@ -125,7 +125,7 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-night leading-tight mb-8"
+            className="text-h2-mob md:text-h2 font-serif text-night leading-tight mb-8"
           >
             {tr.quoteMain} <em className="text-blue">{tr.quoteEmphasis}</em>
           </motion.blockquote>
@@ -134,7 +134,7 @@ const About = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="font-biro text-blue text-xl sm:text-2xl md:text-3xl leading-relaxed pointer-events-none select-none"
+            className="font-biro text-blue text-p2 md:text-p3 leading-relaxed pointer-events-none select-none"
             style={{ transform: "rotate(-1deg)", display: "inline-block" }}
           >
             {tr.biro.split("\n").map((line, i, arr) => (
@@ -154,10 +154,10 @@ const About = () => {
             className="mb-12 md:mb-16"
           >
             <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4">{tr.methodTag}</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-night">
+            <h2 className="text-h2-mob md:text-h2 font-serif text-night">
               {tr.methodH2}
               <br />
-              <span className="text-night/50 text-base sm:text-xl md:text-2xl font-sans font-normal">{tr.methodSub}</span>
+              <span className="text-night/50 text-p2 md:text-p3 font-sans font-normal">{tr.methodSub}</span>
             </h2>
           </motion.div>
 
@@ -172,9 +172,9 @@ const About = () => {
                 variants={fadeUp}
                 className="bg-[#FF8231] rounded-lg p-6 md:p-8"
               >
-                <span className="text-4xl md:text-5xl font-serif text-butter">{step.num}</span>
-                <h3 className="text-lg md:text-xl font-serif text-white mt-3 mb-2">{step.title}</h3>
-                <p className="text-white/85 text-sm leading-relaxed">{step.desc}</p>
+                <span className="text-h2 font-serif text-butter">{step.num}</span>
+                <h3 className="text-h3-mob md:text-h3 font-serif text-white mt-3 mb-2">{step.title}</h3>
+                <p className="text-white/85 text-p1 md:text-p2 leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -207,7 +207,7 @@ const About = () => {
             className="mb-12 md:mb-16 text-center"
           >
             <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4">{tr.wayTag}</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-night leading-tight">{tr.wayH2}</h2>
+            <h2 className="text-h2-mob md:text-h2 font-serif text-night leading-tight">{tr.wayH2}</h2>
           </motion.div>
 
           {/* Two-column diagram */}
@@ -220,8 +220,8 @@ const About = () => {
             {/* Strategy — Butter card with blue border (Butter on Crema → add border) */}
             <div className="bg-butter border-[1.5px] border-blue rounded-lg p-6 md:p-8">
               <p className="text-night/60 font-mono text-xs uppercase tracking-[0.2em] mb-2">{tr.wayThink}</p>
-              <h3 className="text-3xl md:text-4xl font-serif text-blue mb-6">Strategy</h3>
-              <div className="space-y-2.5 text-sm text-night/70">
+              <h3 className="text-h3-mob md:text-h3 font-serif text-blue mb-6">Strategy</h3>
+              <div className="space-y-2.5 text-p1 md:text-p2 text-night/70">
                 {tr.wayItems1.map((item) => (
                   <div key={item} className="flex items-center gap-2.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue flex-shrink-0" />
@@ -234,8 +234,8 @@ const About = () => {
             {/* Brand — Blue card */}
             <div className="bg-blue rounded-lg p-6 md:p-8">
               <p className="text-butter font-mono text-xs uppercase tracking-[0.2em] mb-2">{tr.wayBuild}</p>
-              <h3 className="text-3xl md:text-4xl font-serif text-crema mb-6">Brand</h3>
-              <div className="space-y-2.5 text-sm text-crema/75">
+              <h3 className="text-h3-mob md:text-h3 font-serif text-crema mb-6">Brand</h3>
+              <div className="space-y-2.5 text-p1 md:text-p2 text-crema/75">
                 {tr.wayItems2.map((item) => (
                   <div key={item} className="flex items-center gap-2.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-butter flex-shrink-0" />
@@ -253,7 +253,7 @@ const About = () => {
             className="max-w-3xl mx-auto"
           >
             <p
-              className="text-night/80 text-sm md:text-base lg:text-lg leading-relaxed text-center"
+              className="text-night/80 text-p1 md:text-p2 leading-relaxed text-center"
               dangerouslySetInnerHTML={{ __html: tr.wayBody }}
             />
           </motion.div>
@@ -270,8 +270,8 @@ const About = () => {
             className="mb-12 md:mb-16"
           >
             <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4">{tr.timelineTag}</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-night mb-4 leading-tight">{tr.timelineH2}</h2>
-            <p className="text-night/70 text-sm md:text-base leading-relaxed">{tr.timelineBody}</p>
+            <h2 className="text-h2-mob md:text-h2 font-serif text-night mb-4 leading-tight">{tr.timelineH2}</h2>
+            <p className="text-night/70 text-p1 md:text-p2 leading-relaxed">{tr.timelineBody}</p>
           </motion.div>
 
           <div className="relative">
@@ -302,9 +302,9 @@ const About = () => {
                     "bg-blue"
                   }`} />
                   <p className="text-blue font-mono text-xs uppercase tracking-widest mb-1">{step.tag}</p>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-serif text-night mb-3 leading-tight">{step.title}</h3>
+                  <h3 className="text-h3-mob md:text-h3 font-serif text-night mb-3 leading-tight">{step.title}</h3>
                   <div
-                    className="text-night/75 text-sm md:text-base leading-relaxed"
+                    className="text-night/75 text-p1 md:text-p2 leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: step.body }}
                   />
                 </motion.div>
@@ -322,7 +322,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-crema mb-8 leading-tight">
+            <h2 className="text-h2-mob md:text-h2 font-serif text-crema mb-8 leading-tight">
               {tr.ctaH2}
             </h2>
             <Button

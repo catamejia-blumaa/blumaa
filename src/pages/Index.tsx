@@ -21,7 +21,7 @@ const Index = () => {
             initial={{ opacity: 0, rotate: -5 }}
             animate={{ opacity: 1, rotate: -5 }}
             transition={{ delay: 1.2, duration: 0.6 }}
-            className="absolute top-20 right-8 md:right-24 lg:right-36 hidden md:block pointer-events-none font-biro text-crema text-2xl md:text-3xl leading-snug text-center select-none"
+            className="absolute top-20 right-8 md:right-24 lg:right-36 hidden md:block pointer-events-none font-biro text-crema text-p3 leading-snug text-center select-none"
           >
             {tr.biroHero}
           </motion.p>
@@ -46,7 +46,7 @@ const Index = () => {
             <motion.p
               variants={fadeUp}
               custom={2}
-              className="text-crema/80 text-base md:text-xl lg:text-2xl max-w-2xl mb-10 md:mb-12 leading-relaxed"
+              className="text-crema/80 text-p2 md:text-p3 max-w-2xl mb-10 md:mb-12 leading-relaxed"
             >
               {tr.heroBody}
             </motion.p>
@@ -81,7 +81,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-5xl font-serif text-night text-center mb-12 md:mb-16 leading-tight"
+            className="text-h2-mob md:text-h2 font-serif text-night text-center mb-12 md:mb-16 leading-tight"
           >
             {tr.painTitle}
           </motion.h2>
@@ -102,8 +102,8 @@ const Index = () => {
                   className="w-7 h-7 flex-shrink-0 mt-0.5"
                 />
                 <div>
-                  <h3 className="text-lg md:text-xl font-serif text-blue mb-2 leading-snug">{pain.title}</h3>
-                  <p className="text-night/70 text-sm leading-relaxed">{pain.desc}</p>
+                  <h3 className="text-h3-mob md:text-h3 font-serif text-blue mb-2 leading-snug">{pain.title}</h3>
+                  <p className="text-night/70 text-p1 md:text-p2 leading-relaxed">{pain.desc}</p>
                 </div>
               </div>
             ))}
@@ -121,7 +121,7 @@ const Index = () => {
             className="mb-12 md:mb-16"
           >
             <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4">{tr.servicesTag}</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-night uppercase leading-tight max-w-4xl">
+            <h2 className="text-h2-mob md:text-h2 font-serif text-night uppercase leading-tight max-w-4xl">
               {tr.servicesH2a} <em className="text-blue">{tr.servicesH2b}</em>
             </h2>
           </motion.div>
@@ -141,9 +141,9 @@ const Index = () => {
                   className="group flex flex-col bg-blue rounded-lg p-6 md:p-8 h-full hover:opacity-90 transition-all duration-200 hover:-translate-y-1"
                 >
                   <p className="text-butter font-mono text-xs uppercase tracking-[0.2em] mb-4">0{i + 1}</p>
-                  <h3 className="text-xl md:text-2xl font-serif text-crema uppercase mb-3">{s.title}</h3>
-                  <p className="text-crema/75 text-sm leading-relaxed flex-1">{s.desc}</p>
-                  <div className="mt-6 flex items-center gap-1 text-butter text-sm font-medium">
+                  <h3 className="text-h3-mob md:text-h3 font-serif text-crema uppercase mb-3">{s.title}</h3>
+                  <p className="text-crema/75 text-p1 md:text-p2 leading-relaxed flex-1">{s.desc}</p>
+                  <div className="mt-6 flex items-center gap-1 text-butter text-p1 md:text-p2 font-medium">
                     {lang === "es" ? "Saber más" : "Learn more"} <ArrowRight size={14} className="mt-0.5" />
                   </div>
                 </Link>
@@ -165,10 +165,10 @@ const Index = () => {
             <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4">
               {tr.methodTag}
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-night">
+            <h2 className="text-h2-mob md:text-h2 font-serif text-night">
               {tr.methodH2}
               <br />
-              <span className="text-night/50 text-base sm:text-xl md:text-2xl font-sans font-normal">
+              <span className="text-night/50 text-p2 md:text-p3 font-sans font-normal">
                 {tr.methodSub}
               </span>
             </h2>
@@ -177,7 +177,7 @@ const Index = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="absolute top-0 right-0 font-biro text-blue text-xl md:text-2xl leading-snug hidden md:block pointer-events-none select-none"
+              className="absolute top-0 right-0 font-biro text-blue text-p3 leading-snug hidden md:block pointer-events-none select-none"
               style={{ transform: "rotate(3deg)" }}
             >
               {tr.biroMethod.split("\n").map((line, i) => (
@@ -197,9 +197,9 @@ const Index = () => {
                 variants={fadeUp}
                 className="bg-[#FF8231] rounded-lg p-6 md:p-8"
               >
-                <span className="text-4xl md:text-5xl font-serif text-butter">{step.num}</span>
-                <h3 className="text-lg md:text-xl font-serif text-white mt-3 mb-2">{step.title}</h3>
-                <p className="text-white/85 text-sm leading-relaxed">{step.desc}</p>
+                <span className="text-h2 font-serif text-butter">{step.num}</span>
+                <h3 className="text-h3-mob md:text-h3 font-serif text-white mt-3 mb-2">{step.title}</h3>
+                <p className="text-white/85 text-p1 md:text-p2 leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -214,10 +214,10 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-crema uppercase leading-tight mb-6 md:mb-8">
+            <h2 className="text-h2-mob md:text-h2 font-serif text-crema uppercase leading-tight mb-6 md:mb-8">
               {tr.ctaH2a} <em>{tr.ctaH2b}</em>
             </h2>
-            <p className="text-crema/75 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-crema/75 text-p2 mb-10 max-w-2xl mx-auto leading-relaxed">
               {tr.ctaBody}
             </p>
             <Button

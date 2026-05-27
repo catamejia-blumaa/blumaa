@@ -27,11 +27,11 @@ const Services = () => {
             <motion.h1
               variants={fadeUp}
               custom={1}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-crema uppercase leading-tight mb-5 md:mb-6"
+              className="text-h1-mob md:text-h1 font-serif text-crema uppercase leading-tight mb-5 md:mb-6"
             >
               {tr.heroH1}
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-crema/75 text-sm md:text-lg leading-relaxed">
+            <motion.p variants={fadeUp} custom={2} className="text-crema/75 text-p1 md:text-p2 leading-relaxed">
               {tr.heroBody}
             </motion.p>
           </motion.div>
@@ -54,11 +54,11 @@ const Services = () => {
                 {/* Text side */}
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
                   <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-3">0{i + 1}</p>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-night mt-1 mb-2 uppercase leading-tight">
+                  <h2 className="text-h2-mob md:text-h2 font-serif text-night mt-1 mb-2 uppercase leading-tight">
                     {s.title}
                   </h2>
-                  <p className="text-base md:text-lg font-serif text-blue italic mb-5 md:mb-6">{s.tagline}</p>
-                  <p className="text-night/80 leading-relaxed mb-7 md:mb-8 text-sm md:text-base">{s.desc}</p>
+                  <p className="text-p2 md:text-p3 font-serif text-blue italic mb-5 md:mb-6">{s.tagline}</p>
+                  <p className="text-night/80 leading-relaxed mb-7 md:mb-8 text-p1 md:text-p2">{s.desc}</p>
                   {/* Dark button: Blue bg + Crema text — on light section */}
                   <Button
                     asChild
@@ -75,7 +75,7 @@ const Services = () => {
                     <h4 className="text-butter font-mono font-medium text-xs uppercase tracking-[0.2em] mb-4">{tr.included}</h4>
                     <ul className="space-y-2.5">
                       {s.includes.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm text-crema/90">
+                        <li key={item} className="flex items-start gap-3 text-p1 md:text-p2 text-crema/90">
                           <span className="text-butter mt-0.5 flex-shrink-0 leading-none">✦</span>
                           {item}
                         </li>
@@ -86,7 +86,7 @@ const Services = () => {
                   {/* For who — Butter card with blue border (Butter on Butter → need border) */}
                   <div className={`rounded-lg p-6 md:p-8 border-[1.5px] border-blue ${isEven ? "bg-butter" : "bg-crema"}`}>
                     <h4 className="text-blue font-mono font-medium text-xs uppercase tracking-[0.2em] mb-3">{tr.forWho}</h4>
-                    <p className="text-sm text-night/80 leading-relaxed">{s.forWho}</p>
+                    <p className="text-p1 md:text-p2 text-night/80 leading-relaxed">{s.forWho}</p>
                   </div>
                 </div>
               </motion.div>
@@ -103,8 +103,8 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-crema mb-4 md:mb-6">{tr.ctaH2}</h2>
-            <p className="text-crema/75 text-sm md:text-base mb-8 max-w-xl mx-auto leading-relaxed">{tr.ctaBody}</p>
+            <h2 className="text-h2-mob md:text-h2 font-serif text-crema mb-4 md:mb-6">{tr.ctaH2}</h2>
+            <p className="text-crema/75 text-p1 md:text-p2 mb-8 max-w-xl mx-auto leading-relaxed">{tr.ctaBody}</p>
             <Button
               asChild
               size="lg"

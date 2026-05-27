@@ -88,11 +88,11 @@ const Contact = () => {
             <motion.h1
               variants={fadeUp}
               custom={1}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-night leading-tight mb-4 md:mb-6"
+              className="text-h1-mob md:text-h1 font-serif text-night leading-tight mb-4 md:mb-6"
             >
               {tr.heroH1}
             </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-night/70 text-sm md:text-lg leading-relaxed">
+            <motion.p variants={fadeUp} custom={2} className="text-night/70 text-p1 md:text-p2 leading-relaxed">
               {tr.heroBody}
             </motion.p>
           </motion.div>
@@ -198,8 +198,8 @@ const Contact = () => {
             >
               {/* What to expect — Blue card */}
               <div className="bg-blue rounded-lg p-6 md:p-8">
-                <h3 className="font-serif text-crema text-lg md:text-xl mb-5">{tr.sidebarTitle}</h3>
-                <ol className="space-y-3 text-sm text-crema/80">
+                <h3 className="font-serif text-crema text-h3-mob md:text-h3 mb-5">{tr.sidebarTitle}</h3>
+                <ol className="space-y-3 text-p1 md:text-p2 text-crema/80">
                   {tr.sidebarSteps.map((step, i) => (
                     <li key={i} className="flex gap-3">
                       <span className="text-butter font-mono font-medium flex-shrink-0 leading-relaxed">{i + 1}.</span>
@@ -211,11 +211,11 @@ const Contact = () => {
 
               {/* FAQ — Butter card with blue border */}
               <div className="bg-butter border-[1.5px] border-blue rounded-lg p-6 md:p-8 space-y-5">
-                <h3 className="font-serif text-night text-lg md:text-xl">{tr.faqTitle}</h3>
+                <h3 className="font-serif text-night text-h3-mob md:text-h3">{tr.faqTitle}</h3>
                 {tr.faqs.map((faq, i) => (
                   <div key={i}>
-                    <h4 className="font-sans font-semibold text-xs text-night mb-1 leading-snug">{faq.q}</h4>
-                    <p className="text-night/70 text-xs md:text-sm leading-relaxed">{faq.a}</p>
+                    <h4 className="font-sans font-semibold text-p1 text-night mb-1 leading-snug">{faq.q}</h4>
+                    <p className="text-night/70 text-p1 leading-relaxed">{faq.a}</p>
                   </div>
                 ))}
               </div>
