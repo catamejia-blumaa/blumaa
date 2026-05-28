@@ -75,7 +75,7 @@ const Contact = () => {
     <Layout>
       {/* ── Hero + Form ── Crema bg ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container">
+        <div className="container max-w-6xl">
           {/* Header */}
           <motion.div initial="hidden" animate="visible" className="max-w-2xl mb-12 md:mb-16">
             <motion.p

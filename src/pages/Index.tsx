@@ -113,7 +113,7 @@ const Index = () => {
 
       {/* ── Services Preview ── Crema bg, Blue cards ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-7xl">
+        <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ const Index = () => {
 
       {/* ── The Method ── Butter bg + Blue text (hero swap) ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-butter">
-        <div className="container">
+        <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -208,11 +208,12 @@ const Index = () => {
 
       {/* ── CTA Banner ── Blue bg + Butter btn ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-blue">
-        <div className="container text-center max-w-4xl">
+        <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center"
           >
             <h2 className="text-h2-mob md:text-h2 font-serif text-crema uppercase leading-tight mb-6 md:mb-8">
               {tr.ctaH2a} <em>{tr.ctaH2b}</em>

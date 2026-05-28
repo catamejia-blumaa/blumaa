@@ -15,7 +15,7 @@ const About = () => {
     <Layout>
       {/* ── Hero ── Crema bg + Night text ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-4xl">
+        <div className="container max-w-6xl">
           <motion.div initial="hidden" animate="visible">
             <motion.p
               variants={fadeUp}
@@ -120,7 +120,7 @@ const About = () => {
 
       {/* ── Pull Quote ── Crema bg ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-4xl text-center">
+        <div className="container max-w-6xl text-center">
           <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +146,7 @@ const About = () => {
 
       {/* ── The Method ── Butter bg + Blue/Night text ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-butter">
-        <div className="container">
+        <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -199,7 +199,7 @@ const About = () => {
 
       {/* ── The Way It Works ── Crema bg ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-5xl">
+        <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -262,7 +262,7 @@ const About = () => {
 
       {/* ── Timeline ── Crema bg ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-4xl">
+        <div className="container max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -316,7 +316,7 @@ const About = () => {
 
       {/* ── CTA ── Blue bg + Butter btn ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-blue">
-        <div className="container text-center max-w-3xl">
+        <div className="container max-w-6xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

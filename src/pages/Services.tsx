@@ -15,7 +15,7 @@ const Services = () => {
     <Layout>
       {/* ── Hero ── Blue bg + Crema text ── */}
       <section className="py-16 md:py-24 lg:py-32 bg-blue">
-        <div className="container max-w-3xl">
+        <div className="container max-w-6xl">
           <motion.div initial="hidden" animate="visible">
             <motion.p
               variants={fadeUp}
@@ -43,7 +43,7 @@ const Services = () => {
         const isEven = i % 2 === 0;
         return (
           <section key={i} className={`py-12 md:py-20 lg:py-24 ${isEven ? "bg-crema" : "bg-butter"}`}>
-            <div className="container">
+            <div className="container max-w-6xl">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ const Services = () => {
 
       {/* ── CTA ── Blue bg + Butter btn ── */}
       <section className="py-16 md:py-24 bg-blue">
-        <div className="container text-center">
+        <div className="container max-w-6xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
