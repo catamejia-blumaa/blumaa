@@ -122,17 +122,17 @@ export default {
            Desktop: H1=42 H2=36 H3=28 H4=22 P3=20 P2=16 P1=12
            Mobile:  H1=28 H2=22 H3=20            P2=16 P1=12
         ── */
-        "h1":    ["2.625rem",  { lineHeight: "1.1" }],   /* 42pt desktop */
-        "h2":    ["2.25rem",   { lineHeight: "1.15" }],  /* 36pt desktop */
-        "h3":    ["1.75rem",   { lineHeight: "1.2" }],   /* 28pt desktop */
-        "h4":    ["1.375rem",  { lineHeight: "1.25" }],  /* 22pt desktop */
-        "p3":    ["1.25rem",   { lineHeight: "1.5" }],   /* 20pt */
-        "p2":    ["1rem",      { lineHeight: "1.6" }],   /* 16pt */
-        "p1":    ["0.75rem",   { lineHeight: "1.6" }],   /* 12pt */
+        "h1":    ["2.625rem",  { lineHeight: "0.95" }],   /* 42pt desktop */
+        "h2":    ["2.25rem",   { lineHeight: "1.0" }],   /* 36pt desktop */
+        "h3":    ["1.75rem",   { lineHeight: "1.05" }],   /* 28pt desktop */
+        "h4":    ["1.375rem",  { lineHeight: "1.1" }],   /* 22pt desktop */
+        "p3":    ["1.25rem",   { lineHeight: "1.35" }],   /* 20pt */
+        "p2":    ["1rem",      { lineHeight: "1.45" }],   /* 16pt */
+        "p1":    ["0.75rem",   { lineHeight: "1.45" }],   /* 12pt */
         /* mobile variants */
-        "h1-mob": ["1.75rem",  { lineHeight: "1.1" }],   /* 28pt */
-        "h2-mob": ["1.375rem", { lineHeight: "1.15" }],  /* 22pt */
-        "h3-mob": ["1.25rem",  { lineHeight: "1.2" }],   /* 20pt */
+        "h1-mob": ["1.75rem",  { lineHeight: "0.95" }],   /* 28pt */
+        "h2-mob": ["1.375rem", { lineHeight: "1.0" }],   /* 22pt */
+        "h3-mob": ["1.25rem",  { lineHeight: "1.05" }],   /* 20pt */
       },
       borderRadius: {
         lg:   "var(--radius)",
