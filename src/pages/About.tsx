@@ -215,10 +215,10 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto mb-12 md:mb-16"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto mb-12 md:mb-16 items-start"
           >
             {/* Strategy — Butter card with blue border (Butter on Crema → add border) */}
-            <div className="bg-butter border-[1.5px] border-blue rounded-lg p-6 md:p-8">
+            <div className="bg-butter border-[1.5px] border-blue rounded-lg p-6 md:p-8 flex flex-col justify-start">
               <p className="text-night/60 font-mono text-xs uppercase tracking-[0.2em] mb-2">{tr.wayThink}</p>
               <h3 className="text-h3-mob md:text-h3 font-serif text-blue mb-6">Strategy</h3>
               <div className="space-y-2.5 text-p1 md:text-p2 text-night/70">
@@ -232,7 +232,7 @@ const About = () => {
             </div>
 
             {/* Brand — Blue card */}
-            <div className="bg-blue rounded-lg p-6 md:p-8">
+            <div className="bg-blue rounded-lg p-6 md:p-8 flex flex-col justify-start">
               <p className="text-butter font-mono text-xs uppercase tracking-[0.2em] mb-2">{tr.wayBuild}</p>
               <h3 className="text-h3-mob md:text-h3 font-serif text-crema mb-6">Brand</h3>
               <div className="space-y-2.5 text-p1 md:text-p2 text-crema/75">
