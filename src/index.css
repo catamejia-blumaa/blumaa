@@ -158,11 +158,19 @@
     font-family: 'Arsenal', 'DM Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Oversized type + floating stickers bleed past the viewport on purpose */
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: hsl(var(--butter));
+    color: hsl(var(--blue));
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Instrument Serif', Georgia, serif;
     line-height: 0.95;
+    text-wrap: balance;   /* no orphan words in the oversized headlines */
   }
 }
 

@@ -1,118 +1,119 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
-import { fadeUp } from "@/lib/animations";
+import Marquee from "@/components/Marquee";
+import { CtaLink, Eyebrow, Reveal, Script, StarBullet } from "@/components/design";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
+/**
+ * Services — Tuesday Co "services" layout, Blumaa identity.
+ * Hero (Blue) → one section per service, alternating Butter / Crema
+ * (title + pitch on one side, script "what's included" list on the other) → CTA (Blue)
+ */
 const Services = () => {
   const { lang } = useLang();
   const tr = t[lang].services;
+  const marquee = t[lang].index.marquee;
 
   return (
     <Layout>
       {/* ── Hero ── Blue bg + Crema text ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-blue">
-        <div className="container max-w-6xl">
-          <motion.div initial="hidden" animate="visible">
-            <motion.p
-              variants={fadeUp}
-              custom={0}
-              className="text-butter font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4"
-            >
-              {tr.tag}
-            </motion.p>
-            <motion.h1
-              variants={fadeUp}
-              custom={1}
-              className="text-h1-mob md:text-h1 font-serif text-crema uppercase leading-tight mb-5 md:mb-6"
-            >
-              {tr.heroH1}
-            </motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-crema/75 text-p1 md:text-p2 leading-relaxed">
-              {tr.heroBody}
-            </motion.p>
+      <section className="relative overflow-hidden bg-blue py-16 text-crema md:py-28">
+        <img
+          src="/Favicon_Crema.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[6%] top-8 w-12 animate-float motion-reduce:animate-none md:top-16 md:w-20"
+        />
+        <div className="mx-auto max-w-[1100px] px-5 text-center md:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <Eyebrow className="text-butter">{tr.tag}</Eyebrow>
+            <h1 className="mt-5 font-serif text-headline uppercase">{tr.heroH1}</h1>
           </motion.div>
+          <Reveal delay={0.15} className="mx-auto mt-6 max-w-2xl md:mt-8">
+            <p className="text-p2 leading-relaxed text-crema/80 md:text-p3">{tr.heroBody}</p>
+          </Reveal>
+
+          {/* Quick jump to each service */}
+          <Reveal delay={0.25} className="mt-10 flex flex-wrap justify-center gap-3 md:mt-12">
+            {tr.services.map((s, i) => (
+              <a
+                key={s.title}
+                href={`#service-${i + 1}`}
+                className="inline-flex h-11 items-center gap-3 rounded-pill border-[1.5px] border-crema px-5 text-sm text-crema transition-colors hover:bg-crema hover:text-blue"
+              >
+                <span className="font-mono text-xs tracking-[0.2em] text-butter">0{i + 1}</span>
+                {s.title}
+              </a>
+            ))}
+          </Reveal>
         </div>
       </section>
 
-      {/* ── Service blocks ── alternating Crema / Butter ── */}
+      {/* ── Service blocks ── alternating Butter / Crema ── */}
       {tr.services.map((s, i) => {
-        const isEven = i % 2 === 0;
+        const onButter = i % 2 === 0;
+        const flip = i % 2 === 1;
         return (
-          <section key={i} className={`py-12 md:py-20 lg:py-24 ${isEven ? "bg-crema" : "bg-butter"}`}>
-            <div className="container max-w-6xl">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start"
-              >
-                {/* Text side */}
-                <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-3">0{i + 1}</p>
-                  <h2 className="text-h2-mob md:text-h2 font-serif text-night mt-1 mb-2 uppercase leading-tight">
-                    {s.title}
-                  </h2>
-                  <p className="text-p2 md:text-p3 font-serif text-blue italic mb-5 md:mb-6">{s.tagline}</p>
-                  <p className="text-night/80 leading-relaxed mb-7 md:mb-8 text-p1 md:text-p2">{s.desc}</p>
-                  {/* Dark button: Blue bg + Crema text — on light section */}
-                  <Button
-                    asChild
-                    className="w-full sm:w-auto bg-blue text-crema hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-8 py-5 text-sm font-medium transition-all duration-200"
-                  >
-                    <Link to="/contact">{tr.getStarted} <ArrowRight className="ml-2" size={14} /></Link>
-                  </Button>
+          <section
+            key={s.title}
+            id={`service-${i + 1}`}
+            className={`scroll-mt-16 py-20 md:py-32 ${onButter ? "bg-butter" : "bg-crema"}`}
+          >
+            <div className="mx-auto grid max-w-[1200px] items-start gap-12 px-5 md:grid-cols-2 md:gap-16 md:px-8 lg:gap-24">
+              {/* Pitch */}
+              <Reveal className={flip ? "md:order-2" : ""}>
+                <p className="font-mono text-xs uppercase tracking-[0.3em] text-blue">0{i + 1}</p>
+                <h2 className="mt-3 font-serif text-headline leading-[0.95] text-blue">{s.title}</h2>
+                <p className="mt-4 font-serif text-[clamp(1.25rem,2vw,1.75rem)] italic leading-snug text-blue">{s.tagline}</p>
+                <p className="mt-6 max-w-lg text-p2 leading-relaxed text-night/80 md:text-p3">{s.desc}</p>
+                <div className="mt-8">
+                  <CtaLink to="/contact" variant="dark" size="lg">
+                    {tr.getStarted}
+                  </CtaLink>
                 </div>
+              </Reveal>
 
-                {/* Cards side */}
-                <div className={`space-y-4 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                  {/* Included — Blue card */}
-                  <div className="bg-blue rounded-lg p-6 md:p-8">
-                    <h4 className="text-butter font-mono font-medium text-xs uppercase tracking-[0.2em] mb-4">{tr.included}</h4>
-                    <ul className="space-y-2.5">
-                      {s.includes.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-p1 md:text-p2 text-crema/90">
-                          <span className="text-butter mt-0.5 flex-shrink-0 leading-none">✦</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* For who — Butter card with blue border (Butter on Butter → need border) */}
-                  <div className={`rounded-lg p-6 md:p-8 border-[1.5px] border-blue ${isEven ? "bg-butter" : "bg-crema"}`}>
-                    <h4 className="text-blue font-mono font-medium text-xs uppercase tracking-[0.2em] mb-3">{tr.forWho}</h4>
-                    <p className="text-p1 md:text-p2 text-night/80 leading-relaxed">{s.forWho}</p>
-                  </div>
+              {/* What's included + who it's for */}
+              <Reveal delay={0.12} className={flip ? "md:order-1" : ""}>
+                <Script as="p" className={`-rotate-2 text-script-lg ${onButter ? "text-orange" : "text-pink"}`}>
+                  {tr.included}
+                </Script>
+                <ul className="mt-6 border-t-[1.5px] border-blue">
+                  {s.includes.map((item) => (
+                    <li key={item} className="flex items-center gap-4 border-b-[1.5px] border-blue py-4 md:py-5">
+                      <StarBullet className="h-7 w-7" />
+                      <span className="text-p2 text-night md:text-p3">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                {/* Blue card on both Butter and Crema sections (DS card-contrast rule) */}
+                <div className="mt-8 rounded-lg bg-blue p-6 text-crema md:p-8">
+                  <p className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-butter">{tr.forWho}</p>
+                  <p className="text-p1 leading-relaxed text-crema/85 md:text-p2">{s.forWho}</p>
                 </div>
-              </motion.div>
+              </Reveal>
             </div>
           </section>
         );
       })}
 
-      {/* ── CTA ── Blue bg + Butter btn ── */}
-      <section className="py-16 md:py-24 bg-blue">
-        <div className="container max-w-6xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-h2-mob md:text-h2 font-serif text-crema mb-4 md:mb-6">{tr.ctaH2}</h2>
-            <p className="text-crema/75 text-p1 md:text-p2 mb-8 max-w-xl mx-auto leading-relaxed">{tr.ctaBody}</p>
-            <Button
-              asChild
-              size="lg"
-              className="w-full sm:w-auto bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
-            >
-              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
-            </Button>
-          </motion.div>
+      {/* ── CTA ── Blue bg · ticker + Butter button ── */}
+      <section className="overflow-hidden bg-blue text-crema">
+        <Marquee
+          items={marquee}
+          className="border-b-[1.5px] border-crema/25 py-4 font-mono text-sm uppercase tracking-[0.15em] text-butter md:text-base"
+        />
+        <div className="mx-auto max-w-[900px] px-5 py-20 text-center md:px-8 md:py-32">
+          <Reveal>
+            <h2 className="font-serif text-statement uppercase">{tr.ctaH2}</h2>
+            <p className="mx-auto mt-6 max-w-xl text-p2 leading-relaxed text-crema/80 md:text-p3">{tr.ctaBody}</p>
+            <div className="mt-10">
+              <CtaLink to="/contact" variant="primary" size="lg">
+                {tr.ctaBtn}
+              </CtaLink>
+            </div>
+          </Reveal>
         </div>
       </section>
     </Layout>

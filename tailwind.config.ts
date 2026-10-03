@@ -133,6 +133,16 @@ export default {
         "h1-mob": ["1.75rem",  { lineHeight: "0.95" }],   /* 28pt */
         "h2-mob": ["1.375rem", { lineHeight: "1.0" }],   /* 22pt */
         "h3-mob": ["1.25rem",  { lineHeight: "1.05" }],   /* 20pt */
+        /* ── Editorial display scale (fluid) ───────────────
+           Used for the oversized headlines of the redesign.
+           Instrument Serif · ALL CAPS for H1 / key highlights */
+        "display":    ["clamp(3.25rem, 12vw, 10.5rem)",  { lineHeight: "0.84", letterSpacing: "-0.01em" }],
+        "statement":  ["clamp(2.25rem, 7.2vw, 6rem)",    { lineHeight: "0.94", letterSpacing: "-0.005em" }],
+        "headline":   ["clamp(2.25rem, 6vw, 5.25rem)",   { lineHeight: "0.95" }],
+        "row":        ["clamp(2rem, 5.6vw, 5rem)",       { lineHeight: "1" }],
+        "script-xl":  ["clamp(5rem, 15vw, 13rem)",       { lineHeight: "1" }],
+        "script-lg":  ["clamp(2.5rem, 8vw, 6.5rem)",     { lineHeight: "0.9" }],
+        "script-md":  ["clamp(1.5rem, 3.4vw, 2.5rem)",   { lineHeight: "1" }],
       },
       borderRadius: {
         lg:   "var(--radius)",
@@ -149,10 +159,22 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to:   { height: "0" },
         },
+        /* Ticker strip — content is rendered twice, so -50% loops seamlessly */
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to:   { transform: "translateX(-50%)" },
+        },
+        /* Gentle bob for floating stickers (no rotation — the logo never rotates) */
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%":      { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up":   "accordion-up 0.2s ease-out",
+        marquee: "marquee 40s linear infinite",
+        float:   "float 5s ease-in-out infinite",
       },
     },
   },
