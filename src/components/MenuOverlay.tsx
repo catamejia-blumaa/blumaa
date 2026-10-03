@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Instagram, Linkedin, Mail, X } from "lucide-react";
 import { Eyebrow, CtaLink, Polaroid } from "@/components/design";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -16,6 +17,10 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
   const tr = t[lang];
   const location = useLocation();
   const closeRef = useRef<HTMLButtonElement>(null);
+  const isMobile = useIsMobile();
+  const reduceMotion = useReducedMotion();
+  /* Tuesday Co: full menu fades (0.5s) on desktop, the mobile menu slides in from the left (0.5s) */
+  const offscreen = isMobile && !reduceMotion ? { x: "-100%" } : { opacity: 0 };
 
   const links = [
     { label: tr.nav.home, path: "/" },
@@ -46,10 +51,10 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
           aria-modal="true"
           aria-label={tr.nav.menu}
           className="fixed inset-0 z-[60] overflow-y-auto bg-butter text-blue"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          initial={offscreen}
+          animate={{ opacity: 1, x: 0 }}
+          exit={offscreen}
+          transition={{ duration: reduceMotion ? 0 : 0.5 }}
         >
           <div className="mx-auto flex min-h-full max-w-[1280px] flex-col px-5 md:px-8">
             {/* Top bar */}
@@ -97,7 +102,7 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
                           to={link.path}
                           onClick={onClose}
                           aria-current={active ? "page" : undefined}
-                          className="group flex items-baseline gap-4 py-2 font-serif text-[clamp(2.75rem,8vw,5.5rem)] uppercase leading-none transition-all duration-200 hover:translate-x-2 md:py-3"
+                          className="group flex items-baseline gap-4 py-2 font-serif text-[clamp(2.75rem,8vw,5.5rem)] uppercase leading-none transition-all duration-500 hover:translate-x-2 md:py-3"
                         >
                           <span className="w-8 flex-shrink-0 font-mono text-xs tracking-[0.2em]">0{i + 1}</span>
                           <span className={active ? "italic" : ""}>{link.label}</span>
@@ -118,7 +123,7 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
                         href="https://www.instagram.com/blumaa_branding/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 transition-opacity hover:opacity-70"
+                        className="inline-flex items-center gap-3 transition-opacity duration-500 hover:opacity-70"
                       >
                         <Instagram size={18} /> Instagram
                       </a>
@@ -128,7 +133,7 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
                         href="https://www.linkedin.com/company/blumaa-growth"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 transition-opacity hover:opacity-70"
+                        className="inline-flex items-center gap-3 transition-opacity duration-500 hover:opacity-70"
                       >
                         <Linkedin size={18} /> LinkedIn
                       </a>
@@ -136,7 +141,7 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
                     <li>
                       <a
                         href="mailto:catalina@blumaagrowth.com"
-                        className="inline-flex items-center gap-3 break-all transition-opacity hover:opacity-70"
+                        className="inline-flex items-center gap-3 break-all transition-opacity duration-500 hover:opacity-70"
                       >
                         <Mail size={18} /> catalina@blumaagrowth.com
                       </a>

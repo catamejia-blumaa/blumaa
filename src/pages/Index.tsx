@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Marquee from "@/components/Marquee";
 import { CtaLink, Eyebrow, Polaroid, Reveal, Script } from "@/components/design";
+import { stagger } from "@/lib/animations";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -28,7 +29,7 @@ const Index = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="mx-auto w-[88%] max-w-[800px] sm:w-[72%] md:w-[64%]"
           >
             <img src="/Main_logo_cream_pink.png" alt="Blumaa" className="h-auto w-full" />
@@ -55,7 +56,7 @@ const Index = () => {
               alt="Catalina Mejia, founder of Blumaa"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.5, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
               className="aspect-[4/3] w-full rounded-lg object-cover sm:w-[56%]"
               style={{ objectPosition: "50% 30%" }}
             />
@@ -117,7 +118,7 @@ const Index = () => {
           {tr.helloScript}
         </Script>
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[5fr_6fr] md:gap-16 md:px-8">
-          <Reveal>
+          <Reveal y={40}>
             <img
               src="/Cata_portrait.jpg"
               alt={about.founderName}
@@ -125,7 +126,7 @@ const Index = () => {
               className="aspect-[4/5] w-full max-w-md rounded-lg object-cover md:max-w-none"
             />
           </Reveal>
-          <Reveal delay={0.12}>
+          <Reveal delay={0.25}>
             <Eyebrow className="mb-4 text-blue">{about.founderTag1}</Eyebrow>
             <h2 className="font-serif text-[clamp(2rem,3.8vw,3.4rem)] leading-[1.02] text-night">{tr.aboutTeaserH2}</h2>
             <p className="mt-6 max-w-lg text-p2 leading-relaxed text-night/80 md:text-p3">{tr.aboutTeaserBody}</p>
@@ -151,14 +152,14 @@ const Index = () => {
               <li key={s.title} className="border-b-[1.5px] border-blue">
                 <Link
                   to={`/services#service-${i + 1}`}
-                  className="group flex items-center gap-4 py-6 text-blue transition-colors duration-300 hover:bg-blue hover:text-butter md:-mx-4 md:gap-8 md:px-4 md:py-9"
+                  className="group flex items-center gap-4 py-6 text-blue transition-colors duration-500 hover:bg-blue hover:text-butter md:-mx-4 md:gap-8 md:px-4 md:py-9"
                 >
                   <span className="w-9 flex-shrink-0 font-mono text-xs tracking-[0.2em] md:w-12 md:text-sm">0{i + 1}.</span>
                   <span className="flex-1 font-serif text-row">{s.title}</span>
                   <span className="hidden max-w-[260px] text-right text-sm leading-snug lg:block">{s.tagline}</span>
                   <ArrowUpRight
                     size={28}
-                    className="flex-shrink-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                    className="flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1"
                   />
                 </Link>
               </li>
@@ -198,7 +199,7 @@ const Index = () => {
 
           <div className="mt-20 grid gap-x-6 gap-y-20 md:mt-28 md:grid-cols-3">
             {tr.pains.map((pain, i) => (
-              <Reveal key={pain.title} delay={i * 0.1} className="h-full">
+              <Reveal key={pain.title} delay={stagger(i, tr.pains.length)} className="h-full">
                 <div className="relative h-full rounded-lg bg-blue px-6 pb-8 pt-16 text-crema md:px-8 md:pb-10 md:pt-20">
                   <div className="absolute left-1/2 top-0 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-butter md:h-28 md:w-28">
                     <img src="/Favicon_blue.png" alt="" aria-hidden="true" className="h-12 w-12 object-contain md:h-14 md:w-14" />
@@ -245,7 +246,7 @@ const Index = () => {
         <div className="mx-auto max-w-[1280px] px-5 pb-20 pt-14 md:px-8 md:pb-32 md:pt-20">
           <div className="grid gap-12 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
             {tr.methodSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 0.08}>
+              <Reveal key={step.num} delay={stagger(i, tr.methodSteps.length)}>
                 <p className="font-mono text-xs uppercase tracking-[0.3em] text-blue">{step.num}</p>
                 <h3 className="mt-3 font-serif text-[2rem] leading-none text-blue md:text-[2.25rem]">{step.title}</h3>
                 <div className="my-5 h-[1.5px] w-full bg-blue" />
@@ -278,7 +279,7 @@ const Index = () => {
               </CtaLink>
             </div>
           </Reveal>
-          <Reveal delay={0.15} className="flex justify-center">
+          <Reveal y={40} delay={0.25} className="flex justify-center">
             <img
               src="/Secondary_cream_pink.png"
               alt="Blumaa"

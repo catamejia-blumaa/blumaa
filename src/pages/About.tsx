@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
 import { CtaLink, Eyebrow, Polaroid, Reveal, Script } from "@/components/design";
+import { stagger } from "@/lib/animations";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -25,11 +26,11 @@ const About = () => {
       {/* ── Hero ── Blue bg + Crema text · photo trio ── */}
       <section className="relative overflow-hidden bg-blue pt-14 text-crema md:pt-24">
         <div className="mx-auto max-w-[1100px] px-5 text-center md:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Eyebrow className="text-butter">{tr.tag}</Eyebrow>
             <h1 className="mt-5 font-serif text-headline uppercase">{tr.heroH1}</h1>
           </motion.div>
-          <Reveal delay={0.15} className="mx-auto mt-8 max-w-xl md:mt-10">
+          <Reveal delay={0.25} className="mx-auto mt-8 max-w-xl md:mt-10">
             <p className="text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroBody}</p>
             <div className="mt-8">
               <CtaLink to="/contact" variant="primary" size="lg">
@@ -55,7 +56,7 @@ const About = () => {
               alt="Catalina Mejia"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
               className="aspect-[4/3] w-full rounded-lg object-cover sm:w-[50%]"
               style={{ objectPosition: "50% 30%" }}
             />
@@ -80,7 +81,7 @@ const About = () => {
           </Reveal>
 
           <div className="mt-12 grid items-start gap-10 md:mt-16 md:grid-cols-[5fr_6fr] md:gap-16">
-            <Reveal className="md:sticky md:top-24">
+            <Reveal y={40} className="md:sticky md:top-24">
               <img
                 src="/Cata_portrait.jpg"
                 alt={tr.founderName}
@@ -88,7 +89,7 @@ const About = () => {
                 className="aspect-[4/5] w-full max-w-md rounded-lg object-cover md:max-w-none"
               />
             </Reveal>
-            <Reveal delay={0.12}>
+            <Reveal delay={0.25}>
               <h2 className="font-serif text-[clamp(2rem,3.8vw,3.4rem)] leading-[1.02] text-night">{tr.founderH2}</h2>
               <div className="mt-6 space-y-4 text-p2 leading-relaxed text-night/80 md:space-y-5 md:text-p3">
                 <p>{tr.founderP1}</p>
@@ -148,7 +149,7 @@ const About = () => {
 
           <div className="mt-14 grid gap-12 sm:grid-cols-2 md:mt-20 md:gap-10 lg:grid-cols-4">
             {tr.methodSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 0.08}>
+              <Reveal key={step.num} delay={stagger(i, tr.methodSteps.length)}>
                 <p className="font-serif text-[3.5rem] leading-none text-butter md:text-[4.5rem]">{step.num}</p>
                 <div className="my-5 h-[1.5px] w-full bg-butter" />
                 <h3 className="font-serif text-[2rem] leading-none md:text-[2.25rem]">{step.title}</h3>
@@ -223,7 +224,6 @@ const About = () => {
             {tr.timelineSteps.map((step, i) => (
               <li key={step.num} className="border-b-[1.5px] border-blue">
                 <Reveal
-                  delay={i * 0.04}
                   className="grid gap-4 py-8 md:grid-cols-[110px_minmax(0,1fr)_minmax(0,1.4fr)] md:gap-10 md:py-12"
                 >
                   <p className="font-serif text-[3rem] leading-none text-blue md:text-[4.5rem]">{step.num}</p>

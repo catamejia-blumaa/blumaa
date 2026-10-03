@@ -157,7 +157,7 @@ const Header = () => {
                   key={link.path}
                   to={link.path}
                   aria-current={active ? "page" : undefined}
-                  className={`relative font-mono text-xs font-medium uppercase tracking-[0.18em] transition-colors ${
+                  className={`relative font-mono text-xs font-medium uppercase tracking-[0.18em] transition-colors duration-500 ${
                     active ? "text-butter" : "text-crema/80 hover:text-crema"
                   }`}
                 >

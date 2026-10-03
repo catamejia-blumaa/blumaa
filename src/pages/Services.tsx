@@ -26,16 +26,16 @@ const Services = () => {
           className="absolute right-[6%] top-8 w-12 animate-float motion-reduce:animate-none md:top-16 md:w-20"
         />
         <div className="mx-auto max-w-[1100px] px-5 text-center md:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Eyebrow className="text-butter">{tr.tag}</Eyebrow>
             <h1 className="mt-5 font-serif text-headline uppercase">{tr.heroH1}</h1>
           </motion.div>
-          <Reveal delay={0.15} className="mx-auto mt-6 max-w-2xl md:mt-8">
+          <Reveal delay={0.25} className="mx-auto mt-6 max-w-2xl md:mt-8">
             <p className="text-p2 leading-relaxed text-crema/80 md:text-p3">{tr.heroBody}</p>
           </Reveal>
 
           {/* Quick jump to each service */}
-          <Reveal delay={0.25} className="mt-10 flex flex-wrap justify-center gap-3 md:mt-12">
+          <Reveal delay={0.5} className="mt-10 flex flex-wrap justify-center gap-3 md:mt-12">
             {tr.services.map((s, i) => (
               <a
                 key={s.title}
@@ -75,7 +75,7 @@ const Services = () => {
               </Reveal>
 
               {/* What's included + who it's for */}
-              <Reveal delay={0.12} className={flip ? "md:order-1" : ""}>
+              <Reveal delay={0.25} className={flip ? "md:order-1" : ""}>
                 <Script as="p" className={`-rotate-2 text-script-lg ${onButter ? "text-orange" : "text-pink"}`}>
                   {tr.included}
                 </Script>

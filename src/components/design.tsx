@@ -47,12 +47,15 @@ export const Multiline = ({ text }: { text: string }) => {
   );
 };
 
-/** Fade-up on scroll. Renders static content when the user prefers reduced motion. */
+/**
+ * Entrance on scroll — Tuesday Co's `fadeIn`, 0.5s. Pass `y={40}` for the `slideInUp` variant used on photos.
+ * Renders static content when the user prefers reduced motion.
+ */
 export const Reveal = ({
   children,
   className,
   delay = 0,
-  y = 28,
+  y = 0,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -67,7 +70,7 @@ export const Reveal = ({
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -60px 0px" }}
-      transition={{ duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {children}
     </motion.div>
@@ -124,7 +127,10 @@ export const CtaLink = ({ children, variant = "dark", size = "md", arrow = true,
 
 /* ── Photo frame ─────────────────────────────────────────── */
 
-/** Crema photo frame. No shadow (DS). Pass `ring` on Butter sections so Crema never melts into the bg. */
+/**
+ * Crema photo frame. No shadow (DS). Pass `ring` on Butter sections so Crema never melts into the bg.
+ * Slides up into place when it enters the screen (Tuesday Co `slideInUp`, 0.5s).
+ */
 export const Polaroid = ({
   src,
   alt,
@@ -135,6 +141,7 @@ export const Polaroid = ({
   ring = false,
   caption,
   priority = false,
+  delay = 0,
 }: {
   src: string;
   alt: string;
@@ -145,22 +152,46 @@ export const Polaroid = ({
   ring?: boolean;
   caption?: React.ReactNode;
   priority?: boolean;
-}) => (
-  <figure
-    className={cn("bg-crema p-2 md:p-3 rounded-lg", ring && "ring-[1.5px] ring-blue", className)}
-    style={rotate ? { transform: `rotate(${rotate}deg)` } : undefined}
-  >
-    <img
-      src={src}
-      alt={alt}
-      loading={priority ? "eager" : "lazy"}
-      decoding="async"
-      className="block w-full h-full object-cover rounded-[4px]"
-      style={{ aspectRatio: aspect, objectPosition }}
-    />
-    {caption && <figcaption className="mt-2 text-center font-script text-blue text-lg md:text-xl leading-tight">{caption}</figcaption>}
-  </figure>
-);
+  delay?: number;
+}) => {
+  const reduce = useReducedMotion();
+  const classes = cn("bg-crema p-2 md:p-3 rounded-lg", ring && "ring-[1.5px] ring-blue", className);
+  const content = (
+    <>
+      <img
+        src={src}
+        alt={alt}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        className="block w-full h-full object-cover rounded-[4px]"
+        style={{ aspectRatio: aspect, objectPosition }}
+      />
+      {caption && (
+        <figcaption className="mt-2 text-center font-script text-blue text-lg md:text-xl leading-tight">{caption}</figcaption>
+      )}
+    </>
+  );
+
+  if (reduce) {
+    return (
+      <figure className={classes} style={rotate ? { transform: `rotate(${rotate}deg)` } : undefined}>
+        {content}
+      </figure>
+    );
+  }
+  /* `rotate` lives in the animation target so framer composes it with the slide */
+  return (
+    <motion.figure
+      className={classes}
+      initial={{ opacity: 0, y: 40, rotate }}
+      whileInView={{ opacity: 1, y: 0, rotate }}
+      viewport={{ once: true, margin: "0px 0px -60px 0px" }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      {content}
+    </motion.figure>
+  );
+};
 
 /* ── Star bullet ─────────────────────────────────────────── */
 
