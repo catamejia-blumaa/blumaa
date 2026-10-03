@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
+import MenuOverlay from "@/components/MenuOverlay";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -81,7 +81,7 @@ const LangDropdown = ({ lang, setLang }: { lang: LangCode; setLang: (l: LangCode
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 text-xs font-mono font-medium tracking-widest text-night/60 hover:text-night transition-colors border-[1.5px] border-night/20 rounded-pill px-3 py-1.5 hover:border-night/50"
+        className="flex items-center gap-1.5 text-xs font-mono font-medium tracking-widest text-crema/80 hover:text-crema transition-colors border-[1.5px] border-crema/30 rounded-pill px-3 py-1.5 hover:border-crema/70"
         aria-haspopup="listbox"
         aria-expanded={open}
       >
@@ -92,7 +92,7 @@ const LangDropdown = ({ lang, setLang }: { lang: LangCode; setLang: (l: LangCode
 
       {open && (
         <div
-          className="absolute right-0 top-full mt-2 w-36 bg-crema rounded-lg shadow-xl border border-night/10 overflow-hidden z-50"
+          className="absolute right-0 top-full mt-2 w-36 bg-crema text-night rounded-lg border-[1.5px] border-blue/20 overflow-hidden z-50"
           role="listbox"
         >
           {LANGUAGES.map((l) => (
@@ -114,94 +114,83 @@ const LangDropdown = ({ lang, setLang }: { lang: LangCode; setLang: (l: LangCode
   );
 };
 
+/* 3×3 grid of rounded squares — the menu trigger (same gesture as Tuesday Co) */
+const GridIcon = () => (
+  <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
+    {[2, 9.5, 17].flatMap((y) =>
+      [2, 9.5, 17].map((x) => <rect key={`${x}-${y}`} x={x} y={y} width="5" height="5" rx="1.4" />),
+    )}
+  </svg>
+);
+
 const Header = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const { lang, setLang } = useLang();
   const tr = t[lang].nav;
 
   const navLinks = [
-    { label: tr.about,     path: "/about" },
-    { label: tr.services,  path: "/services" },
+    { label: tr.services, path: "/services" },
+    { label: tr.about,    path: "/about" },
+    { label: tr.contact,  path: "/contact" },
     // { label: tr.portfolio, path: "/portfolio" }, // hidden
   ];
 
+  /* Close the overlay whenever the route changes */
+  useEffect(() => setMenuOpen(false), [location.pathname]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-crema border-b border-night/8 shadow-sm">
-      <div className="container flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center flex-shrink-0">
-          <img src="/Main_loco_blue_pink.png" alt="Blumaa" className="h-8 md:h-10 w-auto" />
-        </Link>
+    <>
+      {/* Blue bar + Crema/Butter content — approved pairing */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-blue">
+        <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-5 md:px-8">
+          <Link to="/" className="flex flex-shrink-0 items-center" aria-label="Blumaa">
+            <img src="/Main_logo_cream_pink.png" alt="Blumaa" className="h-7 md:h-8 w-auto" />
+          </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-10" aria-label="Main">
+            {navLinks.map((link) => {
+              const active = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative font-mono text-xs font-medium uppercase tracking-[0.18em] transition-colors ${
+                    active ? "text-butter" : "text-crema/80 hover:text-crema"
+                  }`}
+                >
+                  {link.label}
+                  {active && <span className="absolute -bottom-1.5 left-0 h-[1.5px] w-full rounded-full bg-butter" />}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="flex items-center gap-2.5 md:gap-3">
+            <LangDropdown lang={lang as LangCode} setLang={setLang} />
             <Link
-              key={link.path}
-              to={link.path}
-              className={`text-sm font-medium tracking-wide transition-colors relative ${
-                location.pathname === link.path
-                  ? "text-blue"
-                  : "text-night/70 hover:text-night"
-              }`}
+              to="/contact"
+              className="hidden md:inline-flex h-10 items-center rounded-pill bg-butter px-6 text-sm font-medium text-blue transition-all duration-200 hover:-translate-y-px hover:bg-orange"
             >
-              {link.label}
-              {location.pathname === link.path && (
-                <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-blue rounded-full" />
-              )}
+              {tr.apply}
             </Link>
-          ))}
-
-          <LangDropdown lang={lang as LangCode} setLang={setLang} />
-
-          {/* CTA: Dark button — Blue bg + Crema text */}
-          <Button
-            asChild
-            className="bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-6 text-sm font-medium transition-all duration-200 h-9"
-          >
-            <Link to="/contact">{tr.apply}</Link>
-          </Button>
-        </nav>
-
-        {/* Mobile right controls */}
-        <div className="md:hidden flex items-center gap-2">
-          <LangDropdown lang={lang as LangCode} setLang={setLang} />
-          <button
-            className="p-2 -mr-1 text-night hover:text-blue transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile nav */}
-      {mobileOpen && (
-        <nav className="md:hidden bg-crema border-t border-night/8 px-4 pb-6 pt-2">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setMobileOpen(false)}
-              className={`flex items-center py-3 px-2 text-base font-medium border-b border-night/6 transition-colors ${
-                location.pathname === link.path ? "text-blue" : "text-night/75 active:text-blue"
-              }`}
+            <button
+              onClick={() => setMenuOpen(true)}
+              aria-label={tr.menu}
+              aria-haspopup="dialog"
+              aria-expanded={menuOpen}
+              className="grid h-10 w-10 place-items-center text-crema transition-colors hover:text-butter"
             >
-              {link.label}
-            </Link>
-          ))}
-          <div className="pt-5">
-            <Button
-              asChild
-              className="w-full bg-blue text-crema hover:bg-orange hover:text-blue rounded-pill text-sm font-medium h-11 transition-all duration-200"
-            >
-              <Link to="/contact" onClick={() => setMobileOpen(false)}>{tr.apply}</Link>
-            </Button>
+              <GridIcon />
+            </button>
           </div>
-        </nav>
-      )}
-    </header>
+        </div>
+      </header>
+
+      <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   );
 };
 

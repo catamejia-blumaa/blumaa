@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { Instagram, Linkedin, Mail } from "lucide-react";
+import { CtaLink } from "@/components/design";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
+
+const socials = [
+  { label: "Instagram", href: "https://www.instagram.com/blumaa_branding/", Icon: Instagram, external: true },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/blumaa-growth", Icon: Linkedin, external: true },
+  { label: "Email", href: "mailto:catalina@blumaagrowth.com", Icon: Mail, external: false },
+];
 
 const Footer = () => {
   const { lang } = useLang();
@@ -9,60 +17,62 @@ const Footer = () => {
   const ft = tr.footer;
 
   const navLinks = [
-    { label: nav.about,     path: "/about" },
-    { label: nav.services,  path: "/services" },
+    { label: nav.home,     path: "/" },
+    { label: nav.services, path: "/services" },
+    { label: nav.about,    path: "/about" },
     // { label: nav.portfolio, path: "/portfolio" }, // hidden
-    { label: nav.contact,   path: "/contact" },
+    { label: nav.contact,  path: "/contact" },
   ];
 
   return (
-    /* Blue bg + Crema text — approved pairing */
-    <footer className="bg-blue py-12 md:py-16">
-      <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-12">
-          {/* Brand */}
-          <div>
-            <img
-              src="/Main_logo_cream_pink.png"
-              alt="Blumaa"
-              className="h-8 md:h-10 w-auto mb-4"
-            />
-            <p className="text-crema/75 text-xs md:text-sm leading-relaxed max-w-xs">
-              {ft.tagline}
-            </p>
-          </div>
+    /* Crema bg + Blue text — the oversized logo closes the page like Tuesday Co's wordmark */
+    <footer className="bg-crema text-blue">
+      <div className="mx-auto max-w-[1280px] px-5 pb-8 pt-12 md:px-8 md:pt-16">
+        <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:justify-between md:px-10">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className="font-mono text-xs font-medium uppercase tracking-[0.2em] underline-offset-4 transition-opacity hover:underline"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
-          {/* Navigate */}
-          <div>
-            <h4 className="font-mono font-medium text-xs uppercase tracking-[0.2em] mb-4 text-butter">{ft.navigate}</h4>
-            <div className="space-y-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="block text-xs md:text-sm text-crema/70 hover:text-crema transition-colors py-1"
+        <div className="mt-14 flex flex-col items-center text-center md:mt-20">
+          <Link to="/" aria-label="Blumaa">
+            <img src="/Main_loco_blue_pink.png" alt="Blumaa" className="h-auto w-[78vw] max-w-[540px]" />
+          </Link>
+          <p className="mt-6 max-w-md text-base leading-relaxed text-night/75">{ft.tagline}</p>
+
+          <div className="mt-8 flex flex-col items-center gap-6 sm:flex-row">
+            <div className="flex gap-3">
+              {socials.map(({ label, href, Icon, external }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="grid h-11 w-11 place-items-center rounded-full border-[1.5px] border-blue text-blue transition-colors hover:bg-blue hover:text-crema"
                 >
-                  {link.label}
-                </Link>
+                  <Icon size={18} />
+                </a>
               ))}
             </div>
-          </div>
-
-          {/* Connect */}
-          <div>
-            <h4 className="font-mono font-medium text-xs uppercase tracking-[0.2em] mb-4 text-butter">{ft.connect}</h4>
-            <div className="space-y-1 text-xs md:text-sm text-crema/70">
-              <a href="https://www.instagram.com/blumaa_branding/" target="_blank" rel="noopener noreferrer" className="block hover:text-crema transition-colors py-1">Instagram</a>
-              <a href="https://www.linkedin.com/company/blumaa-growth" target="_blank" rel="noopener noreferrer" className="block hover:text-crema transition-colors py-1">LinkedIn</a>
-              <a href="mailto:catalina@blumaagrowth.com" className="block hover:text-crema transition-colors py-1">catalina@blumaagrowth.com</a>
-            </div>
+            <CtaLink to="/contact" variant="dark">
+              {nav.apply}
+            </CtaLink>
           </div>
         </div>
 
-        <div className="border-t border-crema/15 pt-6 text-center">
-          <p className="font-mono text-xs text-crema/50 uppercase tracking-[0.15em]">
+        <div className="mt-14 flex flex-col items-center justify-between gap-2 border-t-[1.5px] border-blue/20 pt-6 text-center font-mono text-[11px] uppercase tracking-[0.15em] text-night/60 md:mt-20 md:flex-row md:text-left">
+          <p>
             © {new Date().getFullYear()} Blumaa · {ft.rights}
           </p>
+          <a href="mailto:catalina@blumaagrowth.com" className="normal-case tracking-normal hover:text-blue">
+            catalina@blumaagrowth.com
+          </a>
         </div>
       </div>
     </footer>

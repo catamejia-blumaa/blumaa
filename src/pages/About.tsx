@@ -1,338 +1,259 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
-import { fadeUp } from "@/lib/animations";
+import { CtaLink, Eyebrow, Polaroid, Reveal, Script } from "@/components/design";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
+const socials = [
+  { label: "Instagram", href: "https://www.instagram.com/blumaa_branding/", Icon: Instagram, external: true },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/blumaa-growth", Icon: Linkedin, external: true },
+  { label: "Email", href: "mailto:catalina@blumaagrowth.com", Icon: Mail, external: false },
+];
+
+/**
+ * About — Tuesday Co "about" + "team" layout, Blumaa identity.
+ * Hero (Blue) → Meet Cata (Crema) → Quote (Butter) → Method (Blue)
+ * → Way it works (Crema) → Timeline (Butter) → CTA (Blue)
+ */
 const About = () => {
   const { lang } = useLang();
   const tr = t[lang].about;
 
   return (
     <Layout>
-      {/* ── Hero ── Crema bg + Night text ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-6xl">
-          <motion.div initial="hidden" animate="visible">
-            <motion.p
-              variants={fadeUp}
-              custom={0}
-              className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4"
-            >
-              {tr.tag}
-            </motion.p>
-            <motion.h1
-              variants={fadeUp}
-              custom={1}
-              className="text-h1-mob md:text-h1 font-serif text-night leading-tight mb-8 md:mb-10"
-            >
-              {tr.heroH1}
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              custom={2}
-              className="font-biro text-blue text-p2 md:text-p3 leading-relaxed text-center select-none"
-            >
-              {tr.heroBody.split("\n").map((line, i, arr) => (
-                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
-              ))}
-            </motion.p>
+      {/* ── Hero ── Blue bg + Crema text · photo trio ── */}
+      <section className="relative overflow-hidden bg-blue pt-14 text-crema md:pt-24">
+        <div className="mx-auto max-w-[1100px] px-5 text-center md:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <Eyebrow className="text-butter">{tr.tag}</Eyebrow>
+            <h1 className="mt-5 font-serif text-headline uppercase">{tr.heroH1}</h1>
           </motion.div>
+          <Reveal delay={0.15} className="mx-auto mt-8 max-w-xl md:mt-10">
+            <p className="text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroBody}</p>
+            <div className="mt-8">
+              <CtaLink to="/contact" variant="primary" size="lg">
+                {tr.ctaBtn}
+              </CtaLink>
+            </div>
+          </Reveal>
+        </div>
 
-          <motion.div
-            variants={fadeUp}
-            custom={3}
-            initial="hidden"
-            animate="visible"
-            className="flex justify-center mt-10 md:mt-14"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-blue text-crema hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
-            >
-              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
-            </Button>
-          </motion.div>
+        {/* Photo trio — straddles into the Crema section below */}
+        <div className="relative mt-14 md:mt-20">
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-crema" aria-hidden="true" />
+          <div className="relative mx-auto flex max-w-[1000px] items-end justify-center gap-3 px-5 md:gap-6 md:px-8">
+            <Polaroid
+              src="/Cata_skyline.jpg"
+              alt=""
+              rotate={-5}
+              aspect="1 / 1"
+              className="mb-6 hidden w-[26%] flex-shrink-0 sm:block md:mb-10"
+            />
+            <motion.img
+              src="/Cata_landscape.jpg"
+              alt="Catalina Mejia"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="aspect-[4/3] w-full rounded-lg object-cover sm:w-[50%]"
+              style={{ objectPosition: "50% 30%" }}
+            />
+            <img
+              src="/Favicon_Blumaa_.png"
+              alt=""
+              aria-hidden="true"
+              className="mb-8 hidden w-[16%] max-w-[150px] flex-shrink-0 animate-float motion-reduce:animate-none sm:block md:mb-14"
+            />
+          </div>
         </div>
       </section>
 
-      {/* ── Founder Story ── Blue bg + Crema text ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-blue">
-        <div className="container max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] lg:grid-cols-[280px_1fr] gap-10 md:gap-12 lg:gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex flex-col gap-6"
-            >
-              <div
-                className="overflow-hidden shadow-xl mx-auto w-40 sm:w-52 md:w-full aspect-square"
-                style={{ transform: "rotate(-8deg)", borderRadius: "var(--r-md)" }}
-              >
-                <img src="/Photo_Cata.jpg" alt={tr.founderName} className="w-full h-full object-cover" />
-              </div>
-              <div className="text-center md:text-left">
-                <p className="text-butter font-mono text-xs uppercase tracking-[0.2em] mb-1">{tr.founderTag1}</p>
-                <p className="text-butter font-mono text-xs uppercase tracking-[0.2em] mb-2">{tr.founderTag2}</p>
-                <p className="text-crema text-base font-serif">{tr.founderName}</p>
-              </div>
-            </motion.div>
+      {/* ── Meet Cata ── Crema bg ── */}
+      <section className="relative overflow-hidden bg-crema py-20 md:py-32">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+          <Reveal className="text-center">
+            <Script as="p" className="-rotate-2 text-script-lg text-pink">
+              {tr.founderTag1}
+            </Script>
+            <Eyebrow className="mt-4 text-blue">{tr.founderTag2}</Eyebrow>
+          </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-h2-mob md:text-h2 font-serif text-crema mb-6 md:mb-8 leading-tight">
-                {tr.founderH2}
-              </h2>
-              <div className="space-y-4 md:space-y-6 text-crema/80 text-p1 md:text-p2 leading-relaxed">
+          <div className="mt-12 grid items-start gap-10 md:mt-16 md:grid-cols-[5fr_6fr] md:gap-16">
+            <Reveal className="md:sticky md:top-24">
+              <img
+                src="/Cata_portrait.jpg"
+                alt={tr.founderName}
+                loading="lazy"
+                className="aspect-[4/5] w-full max-w-md rounded-lg object-cover md:max-w-none"
+              />
+            </Reveal>
+            <Reveal delay={0.12}>
+              <h2 className="font-serif text-[clamp(2rem,3.8vw,3.4rem)] leading-[1.02] text-night">{tr.founderH2}</h2>
+              <div className="mt-6 space-y-4 text-p2 leading-relaxed text-night/80 md:space-y-5 md:text-p3">
                 <p>{tr.founderP1}</p>
                 <p>{tr.founderP2}</p>
                 <p>{tr.founderP3}</p>
                 <p>{tr.founderP4}</p>
               </div>
-            </motion.div>
+
+              <div className="mt-10 flex flex-wrap items-center justify-between gap-5 border-y-[1.5px] border-blue py-5">
+                <p className="font-serif text-[clamp(1.5rem,2.6vw,2.25rem)] leading-none text-blue">{tr.founderName}</p>
+                <div className="flex gap-3">
+                  {socials.map(({ label, href, Icon, external }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      aria-label={label}
+                      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="grid h-11 w-11 place-items-center rounded-full border-[1.5px] border-blue text-blue transition-colors hover:bg-blue hover:text-crema"
+                    >
+                      <Icon size={18} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="flex justify-center mt-12 md:mt-16"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
-            >
-              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
-            </Button>
-          </motion.div>
         </div>
       </section>
 
-      {/* ── Pull Quote ── Crema bg ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-6xl text-center">
-          <motion.blockquote
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-h2-mob md:text-h2 font-serif text-night leading-tight mb-8"
-          >
-            {tr.quoteMain} <em className="text-blue">{tr.quoteEmphasis}</em>
-          </motion.blockquote>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="font-biro text-blue text-p2 md:text-p3 leading-relaxed pointer-events-none select-none"
-            style={{ transform: "rotate(-1deg)", display: "inline-block" }}
-          >
-            {tr.biro.split("\n").map((line, i, arr) => (
-              <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
-            ))}
-          </motion.p>
+      {/* ── Quote ── Butter bg + Blue text ── */}
+      <section className="relative overflow-hidden bg-butter py-20 md:py-32">
+        <div className="mx-auto max-w-[1100px] px-5 text-center md:px-8">
+          <Reveal>
+            <blockquote className="font-serif text-[clamp(2rem,5vw,4.5rem)] leading-[1.02] text-blue">
+              {tr.quoteMain} <em>{tr.quoteEmphasis}</em>
+            </blockquote>
+            <Script as="p" className="mt-8 inline-block -rotate-1 text-script-md leading-snug text-orange">
+              {tr.biro.split("\n").map((line, i, arr) => (
+                <span key={i}>
+                  {line}
+                  {i < arr.length - 1 && <br />}
+                </span>
+              ))}
+            </Script>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── The Method ── Butter bg + Blue/Night text ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-butter">
-        <div className="container max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12 md:mb-16"
-          >
-            <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4">{tr.methodTag}</p>
-            <h2 className="text-h2-mob md:text-h2 font-serif text-night">
-              {tr.methodH2}
-              <br />
-              <span className="text-night/50 text-p2 md:text-p3 font-sans font-normal">{tr.methodSub}</span>
-            </h2>
-          </motion.div>
+      {/* ── The Method ── Blue bg + Crema text ── */}
+      <section className="bg-blue py-20 text-crema md:py-32">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+          <Reveal className="text-center">
+            <Eyebrow className="text-butter">{tr.methodTag}</Eyebrow>
+            <h2 className="mt-4 font-serif text-headline uppercase">{tr.methodH2}</h2>
+            <p className="mx-auto mt-5 max-w-xl text-p2 leading-relaxed text-crema/75 md:text-p3">{tr.methodSub}</p>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="mt-14 grid gap-12 sm:grid-cols-2 md:mt-20 md:gap-10 lg:grid-cols-4">
             {tr.methodSteps.map((step, i) => (
-              <motion.div
-                key={step.num}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i}
-                variants={fadeUp}
-                className="bg-[#FF8231] rounded-lg p-6 md:p-8"
-              >
-                <span className="text-h2 font-serif text-butter">{step.num}</span>
-                <h3 className="text-h3-mob md:text-h3 font-serif text-white mt-3 mb-2">{step.title}</h3>
-                <p className="text-white/85 text-p1 md:text-p2 leading-relaxed">{step.desc}</p>
-              </motion.div>
+              <Reveal key={step.num} delay={i * 0.08}>
+                <p className="font-serif text-[3.5rem] leading-none text-butter md:text-[4.5rem]">{step.num}</p>
+                <div className="my-5 h-[1.5px] w-full bg-butter" />
+                <h3 className="font-serif text-[2rem] leading-none md:text-[2.25rem]">{step.title}</h3>
+                <p className="mt-4 text-p1 leading-relaxed text-crema/80 md:text-p2">{step.desc}</p>
+              </Reveal>
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="flex justify-center mt-10 md:mt-14"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="bg-blue text-crema hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
-            >
-              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
-            </Button>
-          </motion.div>
+          <Reveal className="mt-14 text-center md:mt-20">
+            <CtaLink to="/contact" variant="primary">
+              {tr.ctaBtn}
+            </CtaLink>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── The Way It Works ── Crema bg ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12 md:mb-16 text-center"
-          >
-            <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4">{tr.wayTag}</p>
-            <h2 className="text-h2-mob md:text-h2 font-serif text-night leading-tight">{tr.wayH2}</h2>
-          </motion.div>
+      {/* ── The way it works ── Crema bg ── */}
+      <section className="bg-crema py-20 md:py-32">
+        <div className="mx-auto max-w-[1100px] px-5 md:px-8">
+          <Reveal className="text-center">
+            <Eyebrow className="text-blue">{tr.wayTag}</Eyebrow>
+            <h2 className="mt-4 font-serif text-headline text-night">{tr.wayH2}</h2>
+          </Reveal>
 
-          {/* Two-column diagram */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto mb-12 md:mb-16 items-start"
-          >
-            {/* Strategy — Butter card with blue border (Butter on Crema → add border) */}
-            <div className="bg-butter border-[1.5px] border-blue rounded-lg p-6 md:p-8 flex flex-col justify-start">
-              <p className="text-night/60 font-mono text-xs uppercase tracking-[0.2em] mb-2">{tr.wayThink}</p>
-              <h3 className="text-h3-mob md:text-h3 font-serif text-blue mb-6">Strategy</h3>
-              <div className="space-y-2.5 text-p1 md:text-p2 text-night/70">
+          {/* Strategy (Butter + Blue border on Crema) · Brand (Blue) */}
+          <Reveal className="mx-auto mt-12 grid max-w-3xl items-start gap-4 sm:grid-cols-2 md:mt-16 md:gap-6">
+            <div className="rounded-lg border-[1.5px] border-blue bg-butter p-6 md:p-8">
+              <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-night/60">{tr.wayThink}</p>
+              <h3 className="mb-6 font-serif text-h3-mob text-blue md:text-h3">Strategy</h3>
+              <ul className="space-y-2.5 text-p1 text-night/75 md:text-p2">
                 {tr.wayItems1.map((item) => (
-                  <div key={item} className="flex items-center gap-2.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue flex-shrink-0" />
-                    <span>{item}</span>
-                  </div>
+                  <li key={item} className="flex items-center gap-2.5">
+                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue" />
+                    {item}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-
-            {/* Brand — Blue card */}
-            <div className="bg-blue rounded-lg p-6 md:p-8 flex flex-col justify-start">
-              <p className="text-butter font-mono text-xs uppercase tracking-[0.2em] mb-2">{tr.wayBuild}</p>
-              <h3 className="text-h3-mob md:text-h3 font-serif text-crema mb-6">Brand</h3>
-              <div className="space-y-2.5 text-p1 md:text-p2 text-crema/75">
+            <div className="rounded-lg bg-blue p-6 md:p-8">
+              <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-butter">{tr.wayBuild}</p>
+              <h3 className="mb-6 font-serif text-h3-mob text-crema md:text-h3">Brand</h3>
+              <ul className="space-y-2.5 text-p1 text-crema/80 md:text-p2">
                 {tr.wayItems2.map((item) => (
-                  <div key={item} className="flex items-center gap-2.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-butter flex-shrink-0" />
-                    <span>{item}</span>
-                  </div>
+                  <li key={item} className="flex items-center gap-2.5">
+                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-butter" />
+                    {item}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-          </motion.div>
+          </Reveal>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
-          >
+          <Reveal className="mx-auto mt-12 max-w-3xl">
             <p
-              className="text-night/80 text-p1 md:text-p2 leading-relaxed text-center"
+              className="text-center text-p1 leading-relaxed text-night/80 md:text-p2 [&_strong]:font-semibold [&_strong]:text-blue"
               dangerouslySetInnerHTML={{ __html: tr.wayBody }}
             />
-          </motion.div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── Timeline ── Crema bg ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-crema">
-        <div className="container max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12 md:mb-16"
-          >
-            <p className="text-blue font-mono font-medium text-xs uppercase tracking-[0.3em] mb-4">{tr.timelineTag}</p>
-            <h2 className="text-h2-mob md:text-h2 font-serif text-night mb-4 leading-tight">{tr.timelineH2}</h2>
-            <p className="text-night/70 text-p1 md:text-p2 leading-relaxed">{tr.timelineBody}</p>
-          </motion.div>
+      {/* ── Timeline ── Butter bg · numbered rows ── */}
+      <section className="bg-butter py-20 md:py-32">
+        <div className="mx-auto max-w-[1200px] px-5 md:px-8">
+          <Reveal className="max-w-3xl">
+            <Eyebrow className="text-blue">{tr.timelineTag}</Eyebrow>
+            <h2 className="mt-4 font-serif text-[clamp(2rem,4.4vw,3.75rem)] leading-[1.02] text-blue">{tr.timelineH2}</h2>
+            <p className="mt-5 text-p2 leading-relaxed text-night/75 md:text-p3">{tr.timelineBody}</p>
+          </Reveal>
 
-          <div className="relative">
-            {/* Vertical line — desktop */}
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-blue/20 hidden md:block" />
-            <div className="space-y-8 md:space-y-12">
-              {tr.timelineSteps.map((step, i) => (
-                <motion.div
-                  key={step.num}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.5 }}
-                  className="relative md:pl-20 pl-8 border-l-2 border-blue/20 md:border-0"
+          <ol className="mt-12 border-t-[1.5px] border-blue md:mt-16">
+            {tr.timelineSteps.map((step, i) => (
+              <li key={step.num} className="border-b-[1.5px] border-blue">
+                <Reveal
+                  delay={i * 0.04}
+                  className="grid gap-4 py-8 md:grid-cols-[110px_minmax(0,1fr)_minmax(0,1.4fr)] md:gap-10 md:py-12"
                 >
-                  {/* Circle — desktop */}
-                  <div className={`absolute left-0 top-0 w-12 h-12 rounded-full flex items-center justify-center font-serif text-base shadow-md hidden md:flex ${
-                    i <= 2 ? "bg-butter text-blue" :
-                    i <= 4 ? "bg-[#FF8231] text-white" :
-                    "bg-blue text-crema"
-                  }`}>
-                    {step.num}
+                  <p className="font-serif text-[3rem] leading-none text-blue md:text-[4.5rem]">{step.num}</p>
+                  <div>
+                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-blue">{step.tag}</p>
+                    <h3 className="mt-2 font-serif text-[1.75rem] leading-tight text-blue md:text-[2.25rem]">{step.title}</h3>
                   </div>
-                  {/* Dot — mobile */}
-                  <div className={`absolute -left-[9px] top-1 w-4 h-4 rounded-full md:hidden ${
-                    i <= 2 ? "bg-butter" :
-                    i <= 4 ? "bg-[#FF8231]" :
-                    "bg-blue"
-                  }`} />
-                  <p className="text-blue font-mono text-xs uppercase tracking-widest mb-1">{step.tag}</p>
-                  <h3 className="text-h3-mob md:text-h3 font-serif text-night mb-3 leading-tight">{step.title}</h3>
                   <div
-                    className="text-night/75 text-p1 md:text-p2 leading-relaxed"
+                    className="text-p1 leading-relaxed text-night/80 md:text-p2 [&_strong]:font-semibold [&_strong]:text-blue"
                     dangerouslySetInnerHTML={{ __html: step.body }}
                   />
-                </motion.div>
-              ))}
-            </div>
-          </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
-      {/* ── CTA ── Blue bg + Butter btn ── */}
-      <section className="py-16 md:py-24 lg:py-32 bg-blue">
-        <div className="container max-w-6xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-h2-mob md:text-h2 font-serif text-crema mb-8 leading-tight">
-              {tr.ctaH2}
-            </h2>
-            <Button
-              asChild
-              size="lg"
-              className="w-full sm:w-auto bg-butter text-blue hover:bg-orange hover:text-blue hover:-translate-y-px rounded-pill px-10 py-6 text-sm font-medium transition-all duration-200"
-            >
-              <Link to="/contact">{tr.ctaBtn} <ArrowRight className="ml-2" size={16} /></Link>
-            </Button>
-          </motion.div>
+      {/* ── CTA ── Blue bg + Butter button ── */}
+      <section className="bg-blue py-20 text-center text-crema md:py-32">
+        <div className="mx-auto max-w-[1000px] px-5 md:px-8">
+          <Reveal>
+            <Eyebrow className="text-butter">{tr.ctaTag}</Eyebrow>
+            <h2 className="mt-5 font-serif text-statement uppercase">{tr.ctaH2}</h2>
+            <div className="mt-10">
+              <CtaLink to="/contact" variant="primary" size="lg">
+                {tr.ctaBtn}
+              </CtaLink>
+            </div>
+          </Reveal>
         </div>
       </section>
     </Layout>
