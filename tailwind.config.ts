@@ -20,9 +20,9 @@ export default {
     extend: {
       fontFamily: {
         serif:  ["'Instrument Serif'", "Georgia", "serif"],
-        sans:   ["'Arsenal'", "'DM Sans'", "system-ui", "sans-serif"],
+        sans:   ["'DM Sans'", "system-ui", "sans-serif"],
         mono:   ["'Roboto Mono'", "'Courier New'", "monospace"],
-        biro:   ["'Biro Script'", "cursive"],
+        script: ["'Loved by the King'", "cursive"],
       },
       colors: {
         /* ── shadcn semantic tokens ─────────────────────── */

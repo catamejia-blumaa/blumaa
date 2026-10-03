@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
    Shared building blocks for the redesigned pages. They encode the
    Design System rules so pages can't drift:
    · pill buttons only · cards 8px · no shadows · Crema instead of white
-   · Roboto Mono labels always UPPERCASE · Biro Script as accent only
+   · Roboto Mono labels always UPPERCASE · handwritten script as accent only
    ───────────────────────────────────────────────────────────── */
 
 /** Roboto Mono label — always UPPERCASE + spaced */
@@ -16,7 +16,7 @@ export const Eyebrow = ({ children, className }: { children: React.ReactNode; cl
   <p className={cn("font-mono font-medium text-xs uppercase tracking-[0.3em]", className)}>{children}</p>
 );
 
-/** Biro Script accent — handwritten, as-is, never CAPS, never body text */
+/** Handwritten script accent (Loved by the King) — as-is, never CAPS, never body text */
 export const Script = ({
   children,
   className,
@@ -27,7 +27,7 @@ export const Script = ({
   className?: string;
   as?: "span" | "p" | "div";
 } & Pick<React.HTMLAttributes<HTMLElement>, "aria-hidden" | "style">) => (
-  <Tag className={cn("font-biro normal-case select-none", className)} {...rest}>
+  <Tag className={cn("font-script normal-case select-none", className)} {...rest}>
     {children}
   </Tag>
 );
@@ -158,7 +158,7 @@ export const Polaroid = ({
       className="block w-full h-full object-cover rounded-[4px]"
       style={{ aspectRatio: aspect, objectPosition }}
     />
-    {caption && <figcaption className="mt-2 text-center font-biro text-blue text-lg md:text-xl leading-tight">{caption}</figcaption>}
+    {caption && <figcaption className="mt-2 text-center font-script text-blue text-lg md:text-xl leading-tight">{caption}</figcaption>}
   </figure>
 );
 

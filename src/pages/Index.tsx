@@ -108,7 +108,7 @@ const Index = () => {
       </section>
 
       {/* ── Hello ── Crema bg · oversized script behind the intro ── */}
-      <section className="relative overflow-hidden bg-crema py-20 md:py-32">
+      <section className="relative overflow-hidden bg-crema pb-20 pt-32 md:py-32">
         <Script
           as="p"
           aria-hidden="true"
