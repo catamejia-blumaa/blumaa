@@ -33,11 +33,11 @@ const Index = () => {
   return (
     <Layout>
       {/* ── Hero ── Blue bg + Crema text · same layout as the Contact title band: copy left, photos right ── */}
-      <section className="relative bg-blue pb-20 pt-14 md:pb-40 md:pt-24">
+      <section className="relative bg-blue pb-24 pt-14 md:pb-44 md:pt-24">
         {/* Two loose line icons (DS: max 2–3 per section) */}
         <Icon
           name="sunshine"
-          className="absolute right-[6%] top-8 hidden h-16 w-16 animate-float text-butter motion-reduce:animate-none md:block lg:h-20 lg:w-20"
+          className="absolute right-[6%] top-8 hidden h-14 w-14 animate-float text-butter motion-reduce:animate-none md:block lg:h-16 lg:w-16"
         />
         <Icon
           name="water-glass"
@@ -53,8 +53,8 @@ const Index = () => {
             <p className="mt-6 max-w-xl text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroSub}</p>
           </motion.div>
 
-          {/* Portrait with two small Polaroids on its lower corners, sitting a little low in the band like the Contact hero */}
-          <div className="relative z-10 mx-auto w-[230px] sm:w-[260px] md:ml-auto md:mr-0 md:w-[280px] md:translate-y-28">
+          {/* Portrait with two larger Polaroids hanging off its lower corners, so the portrait stays clear */}
+          <div className="relative z-10 mx-auto w-[230px] sm:w-[260px] md:ml-auto md:mr-0 md:w-[280px] md:translate-y-8">
             <Polaroid
               src="/photos/hero-cata.jpg"
               alt="Catalina Mejia, founder of Blumaa"
@@ -68,7 +68,7 @@ const Index = () => {
               rotate={-7}
               aspect="1 / 1"
               delay={0.25}
-              className="absolute -bottom-6 -left-12 w-[104px] md:-left-20 md:w-[140px]"
+              className="absolute -bottom-12 -left-8 w-[132px] md:-bottom-20 md:-left-16 md:w-[160px] lg:-bottom-24 lg:-left-20 lg:w-[190px]"
             />
             <Polaroid
               src="/photos/hero-ipad.jpg"
@@ -76,7 +76,7 @@ const Index = () => {
               rotate={8}
               aspect="1 / 1"
               delay={0.5}
-              className="absolute -bottom-6 -right-6 w-[92px] md:-bottom-4 md:w-[120px]"
+              className="absolute -bottom-10 -right-6 w-[118px] md:-bottom-16 md:-right-4 md:w-[140px] lg:-bottom-20 lg:w-[165px]"
             />
           </div>
         </div>
