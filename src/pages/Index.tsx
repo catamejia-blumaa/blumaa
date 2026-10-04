@@ -32,19 +32,29 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* ── Hero ── Blue bg + Crema text · same layout as the Contact title band: copy left, photos right ── */}
-      <section className="relative bg-blue pb-24 pt-14 md:pb-44 md:pt-24">
-        {/* Two loose line icons (DS: max 2–3 per section) */}
+      {/* ── Hero ── Blue bg + Crema text · Contact-style layout from xl up (copy left, photos right), stacked below ── */}
+      <section className="relative bg-blue pb-24 pt-14 md:pt-20 xl:pb-44 xl:pt-24">
+        {/* Loose line icons from the Blumaa set, kept to the margins so the photos have room */}
         <Icon
           name="sunshine"
-          className="absolute right-[6%] top-8 hidden h-14 w-14 animate-float text-butter motion-reduce:animate-none md:block lg:h-16 lg:w-16"
+          className="absolute right-5 top-4 h-10 w-10 animate-float text-butter motion-reduce:animate-none md:right-[6%] md:top-8 md:h-14 md:w-14 xl:h-16 xl:w-16"
         />
         <Icon
           name="water-glass"
-          className="absolute bottom-10 left-[5%] hidden h-20 w-20 animate-float text-butter motion-reduce:animate-none md:block"
+          className="absolute bottom-10 left-[5%] hidden h-20 w-20 animate-float text-butter motion-reduce:animate-none xl:block"
           style={{ animationDelay: "1.5s" }}
         />
-        <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[1.5fr_1fr] md:px-8">
+        <Icon
+          name="candle"
+          className="absolute bottom-20 left-[31%] hidden h-14 w-14 animate-float text-butter motion-reduce:animate-none xl:block"
+          style={{ animationDelay: "0.8s" }}
+        />
+        <Icon
+          name="books-standing"
+          className="absolute bottom-6 right-[2.5%] hidden h-16 w-16 animate-float text-butter motion-reduce:animate-none xl:block"
+          style={{ animationDelay: "2.2s" }}
+        />
+        <div className="mx-auto grid max-w-[1200px] gap-12 px-5 md:px-8 xl:grid-cols-[1.5fr_1fr] xl:items-center">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <h1 className="font-serif text-headline uppercase text-crema">
               <span className="block">{tr.heroLead1}</span>
@@ -53,14 +63,14 @@ const Index = () => {
             <p className="mt-6 max-w-xl text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroSub}</p>
           </motion.div>
 
-          {/* Portrait with two larger Polaroids hanging off its lower corners, so the portrait stays clear */}
-          <div className="relative z-10 mx-auto w-[230px] sm:w-[260px] md:ml-auto md:mr-0 md:w-[280px] md:translate-y-8">
+          {/* Portrait with two Polaroids flanking its lower edge. Offsets are % of the portrait so the trio scales together */}
+          <div className="relative z-10 mx-auto w-[230px] sm:w-[260px] md:w-[290px] xl:ml-auto xl:mr-0 xl:w-[280px] xl:translate-y-8">
             <Polaroid
               src="/photos/hero-cata.jpg"
               alt="Catalina Mejia, founder of Blumaa"
               rotate={4}
               aspect="4 / 5"
-              tapes={[{ place: "tl", size: "lg" }, { place: "tr", size: "lg" }]}
+              tapes={[{ place: "tl", size: "lg" }]}
               priority
             />
             <Polaroid
@@ -70,16 +80,16 @@ const Index = () => {
               aspect="1 / 1"
               tapes={[{ place: "tl" }]}
               delay={0.25}
-              className="absolute -bottom-12 -left-8 w-[132px] md:-bottom-20 md:-left-16 md:w-[160px] lg:-bottom-24 lg:-left-20 lg:w-[190px]"
+              className="absolute left-[-22%] top-[72%] w-[48%] md:left-[-34%] md:w-[54%] xl:left-[-58%] xl:top-[66%] xl:w-[66%]"
             />
             <Polaroid
               src="/photos/hero-ipad.jpg"
               alt=""
               rotate={8}
               aspect="1 / 1"
-              tapes={[{ place: "tr" }]}
+              tapes={[{ place: "br" }]}
               delay={0.5}
-              className="absolute -bottom-10 -right-6 w-[118px] md:-bottom-16 md:-right-4 md:w-[140px] lg:-bottom-20 lg:w-[165px]"
+              className="absolute left-[62%] top-[66%] w-[46%] md:left-[60%] md:w-[48%] xl:left-[54%] xl:top-[60%] xl:w-[54%]"
             />
           </div>
         </div>
