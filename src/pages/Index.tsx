@@ -53,23 +53,30 @@ const Index = () => {
             <p className="mt-6 max-w-xl text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroSub}</p>
           </motion.div>
 
-          {/* Two Polaroids, sitting a little low in the band like the Contact hero */}
+          {/* Portrait with two small Polaroids on its lower corners, sitting a little low in the band like the Contact hero */}
           <div className="relative z-10 mx-auto w-[230px] sm:w-[260px] md:ml-auto md:mr-0 md:w-[280px] md:translate-y-28">
             <Polaroid
-              src="/photos/hero-wink.jpg"
+              src="/photos/hero-cata.jpg"
               alt="Catalina Mejia, founder of Blumaa"
               rotate={4}
               aspect="4 / 5"
-              objectPosition="50% 40%"
               priority
             />
             <Polaroid
-              src="/photos/hero-plate.jpg"
+              src="/photos/hero-flatlay.jpg"
               alt=""
               rotate={-7}
               aspect="1 / 1"
               delay={0.25}
               className="absolute -bottom-6 -left-12 w-[104px] md:-left-20 md:w-[140px]"
+            />
+            <Polaroid
+              src="/photos/hero-ipad.jpg"
+              alt=""
+              rotate={8}
+              aspect="1 / 1"
+              delay={0.5}
+              className="absolute -bottom-6 -right-6 w-[92px] md:-bottom-4 md:w-[120px]"
             />
           </div>
         </div>
