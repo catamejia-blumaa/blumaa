@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Marquee from "@/components/Marquee";
-import { CtaLink, Eyebrow, Polaroid, Reveal, Script } from "@/components/design";
+import PhotoStrip from "@/components/PhotoStrip";
+import { CtaLink, Eyebrow, Icon, Polaroid, Reveal, Script, type IconName } from "@/components/design";
+import { stagger } from "@/lib/animations";
+import { serviceIcons } from "@/lib/icons";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -13,6 +16,13 @@ import { t } from "@/lib/translations";
  * Hero (Blue) → Statement (Butter) → Hello (Crema) → Services list (Butter)
  * → Strategy-first band (Blue) → Pain cards (Crema) → Method (Butter) → CTA (Blue)
  */
+const painIcons: IconName[] = ["photo-b", "kindle", "phone"];
+const stripPhotos = [
+  "/photos/gal-sea.jpg", "/photos/gal-cafe.jpg", "/photos/gal-candy.jpg", "/photos/gal-greenhouse.jpg",
+  "/photos/gal-plane.jpg", "/photos/gal-terrace.jpg", "/photos/gal-house.jpg", "/photos/gal-flatlay.jpg",
+  "/photos/gal-watermelon.jpg",
+];
+
 const Index = () => {
   const { lang } = useLang();
   const tr = t[lang].index;
@@ -22,73 +32,83 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* ── Hero ── Blue bg · oversized logo · photos straddle into the Butter band ── */}
-      <section className="relative overflow-hidden bg-blue">
-        <div className="mx-auto max-w-[1280px] px-5 pt-10 text-center md:px-8 md:pt-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mx-auto w-[88%] max-w-[800px] sm:w-[72%] md:w-[64%]"
-          >
-            <img src="/Main_logo_cream_pink.png" alt="Blumaa" className="h-auto w-full" />
-            <p className="mt-1 text-right font-serif text-[clamp(1.4rem,4.2vw,3.5rem)] italic leading-none text-butter">
-              {tr.agencyTag.toLowerCase()}
-            </p>
+      {/* ── Hero ── Blue bg + Crema text · left: eyebrow, headline, copy, CTA and a handwritten note · right: portrait with a
+          second Polaroid hanging off its lower-right corner (two columns from xl, stacked below) ── */}
+      <section className="relative bg-blue pb-24 pt-14 md:pt-20 xl:pb-28 xl:pt-24">
+        {/* Loose line icons from the Blumaa set, kept to the margins so the photos have room */}
+        <Icon
+          name="sunshine"
+          className="absolute right-5 top-2 h-9 w-9 animate-float text-butter motion-reduce:animate-none md:right-[6%] md:top-8 md:h-14 md:w-14 xl:h-16 xl:w-16"
+        />
+        <Icon
+          name="water-glass"
+          className="absolute left-[47%] top-6 hidden h-16 w-16 animate-float text-butter motion-reduce:animate-none xl:block"
+          style={{ animationDelay: "1.5s" }}
+        />
+        <Icon
+          name="candle"
+          className="absolute bottom-10 left-[46%] hidden h-14 w-14 animate-float text-butter motion-reduce:animate-none xl:block"
+          style={{ animationDelay: "0.8s" }}
+        />
+        <div className="mx-auto grid max-w-[1320px] gap-14 px-5 md:px-8 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-center xl:gap-12">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+            <Eyebrow className="text-butter">{tr.heroTag}</Eyebrow>
+            <h1 className="mt-5 font-serif text-headline uppercase text-crema">
+              <span className="block">{tr.heroLead1}</span>
+              <span className="block italic text-butter">{tr.heroLead2}</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroSub}</p>
+            <div className="mt-8">
+              <CtaLink to="/contact" variant="primary" size="lg">
+                {tr.heroCta}
+              </CtaLink>
+            </div>
+            <Script as="p" className="mt-5 -rotate-2 text-script-md leading-none text-orange">
+              <ArrowUp aria-hidden="true" strokeWidth={2.5} className="mr-1 inline-block h-5 w-5 -rotate-6 align-[-0.1em]" />
+              {tr.marquee.join(". ").toLowerCase()}.
+            </Script>
           </motion.div>
-        </div>
 
-        <div className="relative mt-8 md:mt-12">
-          {/* Butter band — same colour as the next section, so the photos bridge the two */}
-          <div className="absolute inset-x-0 bottom-0 h-[55%] bg-butter" aria-hidden="true" />
-          <div className="relative mx-auto flex max-w-[1100px] items-end justify-center gap-3 px-5 md:gap-6 md:px-8">
+          {/* Offsets are % of the portrait so the pair scales together; the right margin leaves room for the overhang */}
+          <div className="relative z-10 mx-auto w-[230px] -translate-x-[13%] sm:w-[260px] md:w-[300px] xl:ml-auto xl:mr-[92px] xl:w-[340px] xl:translate-x-0 2xl:mr-[108px] 2xl:w-[400px]">
             <Polaroid
-              src="/Cata_skyline.jpg"
-              alt=""
-              rotate={-4}
-              aspect="1 / 1"
-              priority
-              className="mb-6 hidden w-[24%] flex-shrink-0 sm:block md:mb-10"
-            />
-            <motion.img
-              src="/Cata_landscape.jpg"
+              src="/photos/hero-cata.jpg"
               alt="Catalina Mejia, founder of Blumaa"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="aspect-[4/3] w-full rounded-lg object-cover sm:w-[56%]"
-              style={{ objectPosition: "50% 30%" }}
+              rotate={-2.5}
+              aspect="4 / 5"
+              tapes={[{ place: "tl", size: "lg" }]}
+              priority
             />
-            <img
-              src="/Favicon_Blumaa_.png"
+            <Polaroid
+              src="/photos/hero-ipad.jpg"
               alt=""
-              aria-hidden="true"
-              className="mb-8 hidden w-[15%] max-w-[150px] flex-shrink-0 animate-float motion-reduce:animate-none sm:block md:mb-14"
+              rotate={3}
+              aspect="1 / 1"
+              tapes={[{ place: "br", size: "lg" }]}
+              delay={0.25}
+              className="absolute left-[66%] top-[55%] w-[61%]"
             />
           </div>
         </div>
       </section>
 
       {/* ── Statement ── Butter bg + Blue text ── */}
-      <section className="relative overflow-hidden bg-butter pb-20 pt-14 md:pb-32 md:pt-20">
-        <img
-          src="/Favicon_blue.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute right-[5%] top-8 w-12 animate-float motion-reduce:animate-none md:top-14 md:w-20"
+      <section className="relative overflow-hidden bg-butter pb-20 pt-20 md:pb-32 md:pt-28">
+        {/* Two loose line icons (DS: max 2–3 per section) */}
+        <Icon
+          name="sparkle"
+          className="absolute bottom-14 right-[5%] hidden h-16 w-16 animate-float text-blue motion-reduce:animate-none md:block"
         />
-        <img
-          src="/Favicon_blue.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-10 left-[4%] hidden w-10 animate-float motion-reduce:animate-none md:block"
+        <Icon
+          name="coffee-mug"
+          className="absolute bottom-10 left-[4%] hidden h-20 w-20 animate-float text-blue motion-reduce:animate-none md:block"
           style={{ animationDelay: "1.5s" }}
         />
         <div className="mx-auto max-w-[1280px] px-5 md:px-8">
           <div className="relative mx-auto max-w-[1240px] text-center">
-            <h1 className="font-serif text-statement uppercase text-blue [text-wrap:balance]">
+            <h2 className="font-serif text-statement uppercase text-blue [text-wrap:balance]">
               {tr.heroH1a} <em>{tr.heroH1b}</em> {tr.heroH1c} <em>{tr.heroH1d}</em>
-            </h1>
+            </h2>
             <Script
               as="p"
               className="pointer-events-none relative z-10 mt-1 -rotate-3 text-script-lg leading-none text-orange md:mt-0"
@@ -98,11 +118,6 @@ const Index = () => {
           </div>
           <Reveal className="mx-auto mt-10 max-w-xl text-center md:mt-14">
             <p className="text-p2 leading-relaxed text-night/80 md:text-p3">{tr.heroBody}</p>
-            <div className="mt-8">
-              <CtaLink to="/contact" variant="dark" size="lg">
-                {tr.heroCta}
-              </CtaLink>
-            </div>
           </Reveal>
         </div>
       </section>
@@ -112,20 +127,20 @@ const Index = () => {
         <Script
           as="p"
           aria-hidden="true"
-          className="pointer-events-none absolute right-[4%] top-4 text-script-xl text-pink md:top-8"
+          className="pointer-events-none absolute right-[4%] top-4 text-script-xl text-orange md:top-8"
         >
           {tr.helloScript}
         </Script>
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[5fr_6fr] md:gap-16 md:px-8">
-          <Reveal>
+          <Reveal y={40}>
             <img
-              src="/Cata_portrait.jpg"
+              src="/photos/hello-sunset.jpg"
               alt={about.founderName}
               loading="lazy"
               className="aspect-[4/5] w-full max-w-md rounded-lg object-cover md:max-w-none"
             />
           </Reveal>
-          <Reveal delay={0.12}>
+          <Reveal delay={0.25}>
             <Eyebrow className="mb-4 text-blue">{about.founderTag1}</Eyebrow>
             <h2 className="font-serif text-[clamp(2rem,3.8vw,3.4rem)] leading-[1.02] text-night">{tr.aboutTeaserH2}</h2>
             <p className="mt-6 max-w-lg text-p2 leading-relaxed text-night/80 md:text-p3">{tr.aboutTeaserBody}</p>
@@ -151,14 +166,15 @@ const Index = () => {
               <li key={s.title} className="border-b-[1.5px] border-blue">
                 <Link
                   to={`/services#service-${i + 1}`}
-                  className="group flex items-center gap-4 py-6 text-blue transition-colors duration-300 hover:bg-blue hover:text-butter md:-mx-4 md:gap-8 md:px-4 md:py-9"
+                  className="group flex items-center gap-4 py-6 text-blue transition-colors duration-500 hover:bg-blue hover:text-butter md:-mx-4 md:gap-8 md:px-4 md:py-9"
                 >
                   <span className="w-9 flex-shrink-0 font-mono text-xs tracking-[0.2em] md:w-12 md:text-sm">0{i + 1}.</span>
                   <span className="flex-1 font-serif text-row">{s.title}</span>
                   <span className="hidden max-w-[260px] text-right text-sm leading-snug lg:block">{s.tagline}</span>
+                  <Icon name={serviceIcons[i]} className="hidden h-12 w-12 flex-shrink-0 sm:block md:h-16 md:w-16" />
                   <ArrowUpRight
                     size={28}
-                    className="flex-shrink-0 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                    className="flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1"
                   />
                 </Link>
               </li>
@@ -198,10 +214,10 @@ const Index = () => {
 
           <div className="mt-20 grid gap-x-6 gap-y-20 md:mt-28 md:grid-cols-3">
             {tr.pains.map((pain, i) => (
-              <Reveal key={pain.title} delay={i * 0.1} className="h-full">
+              <Reveal key={pain.title} delay={stagger(i, tr.pains.length)} className="h-full">
                 <div className="relative h-full rounded-lg bg-blue px-6 pb-8 pt-16 text-crema md:px-8 md:pb-10 md:pt-20">
                   <div className="absolute left-1/2 top-0 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-butter md:h-28 md:w-28">
-                    <img src="/Favicon_blue.png" alt="" aria-hidden="true" className="h-12 w-12 object-contain md:h-14 md:w-14" />
+                    <Icon name={painIcons[i]} className="h-12 w-12 text-blue md:h-14 md:w-14" />
                   </div>
                   <p className="mb-3 text-center font-mono text-xs uppercase tracking-[0.3em] text-butter">0{i + 1}</p>
                   <h3 className="text-center font-serif text-h3-mob leading-tight md:text-[1.9rem]">{pain.title}</h3>
@@ -245,7 +261,7 @@ const Index = () => {
         <div className="mx-auto max-w-[1280px] px-5 pb-20 pt-14 md:px-8 md:pb-32 md:pt-20">
           <div className="grid gap-12 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
             {tr.methodSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 0.08}>
+              <Reveal key={step.num} delay={stagger(i, tr.methodSteps.length)}>
                 <p className="font-mono text-xs uppercase tracking-[0.3em] text-blue">{step.num}</p>
                 <h3 className="mt-3 font-serif text-[2rem] leading-none text-blue md:text-[2.25rem]">{step.title}</h3>
                 <div className="my-5 h-[1.5px] w-full bg-blue" />
@@ -261,11 +277,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── CTA ── Blue bg · Pink accent script · Butter button ── */}
+      {/* ── Moments ── Crema bg · slow photo drift (summer, travel, coffee: the brand's mood) ── */}
+      <section className="bg-crema py-10 md:py-16">
+        <PhotoStrip photos={stripPhotos} />
+      </section>
+
+      {/* ── CTA ── Blue bg · Orange accent script · Butter button ── */}
       <section className="relative overflow-hidden bg-blue py-20 text-crema md:py-32">
         <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 md:grid-cols-[6fr_5fr] md:gap-16 md:px-8">
           <Reveal>
-            <Script as="p" className="mb-2 -rotate-3 text-script-lg text-pink">
+            <Script as="p" className="mb-2 -rotate-3 text-script-lg text-orange">
               {tr.ctaScript}
             </Script>
             <h2 className="font-serif text-headline uppercase text-crema">
@@ -278,9 +299,9 @@ const Index = () => {
               </CtaLink>
             </div>
           </Reveal>
-          <Reveal delay={0.15} className="flex justify-center">
+          <Reveal y={40} delay={0.25} className="flex justify-center">
             <img
-              src="/Secondary_cream_pink.png"
+              src="/Secondary_cream_orange.png"
               alt="Blumaa"
               loading="lazy"
               className="h-auto w-[70%] max-w-[360px] animate-float motion-reduce:animate-none"

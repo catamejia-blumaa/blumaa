@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
-import { Eyebrow, Polaroid, Reveal, Script } from "@/components/design";
+import { Eyebrow, Icon, Polaroid, Reveal, Script } from "@/components/design";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -76,14 +76,14 @@ const Contact = () => {
       {/* ── Title band ── Butter bg + Blue text · photo straddles into the form section ── */}
       <section className="relative bg-butter pb-28 pt-14 md:pb-40 md:pt-24">
         <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[1.5fr_1fr] md:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Eyebrow className="text-blue">{tr.tag}</Eyebrow>
             <h1 className="mt-5 font-serif text-headline uppercase text-blue">{tr.heroH1}</h1>
             <p className="mt-6 max-w-xl text-p2 leading-relaxed text-night/80 md:text-p3">{tr.heroBody}</p>
           </motion.div>
           <div className="relative z-10 hidden md:block">
             <Polaroid
-              src="/Cata_portrait.jpg"
+              src="/photos/contact-stripes.jpg"
               alt="Catalina Mejia"
               rotate={4}
               aspect="4 / 5"
@@ -99,21 +99,24 @@ const Contact = () => {
       <section className="relative bg-crema pb-20 md:pb-32">
         <div className="relative mx-auto max-w-[1200px] px-5 md:px-8">
           {/* Script straddles the Butter band above, like Tuesday Co's "Say hello" */}
-          <Script
-            as="p"
-            aria-hidden="true"
-            className="pointer-events-none relative z-10 -mt-[0.55em] mb-8 text-[clamp(4rem,12vw,10rem)] leading-none text-pink md:mb-12"
-          >
-            {tr.scriptHello}
-          </Script>
+          <div className="relative z-10 -mt-[0.55em] mb-8 flex items-end gap-4 md:mb-12">
+            <Script
+              as="p"
+              aria-hidden="true"
+              className="pointer-events-none text-[clamp(4rem,12vw,10rem)] leading-none text-orange"
+            >
+              {tr.scriptHello}
+            </Script>
+            <Icon name="coffee-mug" className="mb-2 hidden h-24 w-24 text-blue sm:block md:h-32 md:w-32" />
+          </div>
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
             {/* ── Form ── */}
             <motion.form
               onSubmit={handleSubmit}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
               className="lg:col-span-2 space-y-5 md:space-y-6"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
@@ -200,7 +203,7 @@ const Contact = () => {
             </motion.form>
 
             {/* ── Sidebar ── */}
-            <Reveal delay={0.1} className="space-y-6 md:space-y-8">
+            <Reveal delay={0.5} className="space-y-6 md:space-y-8">
               {/* What to expect — Blue card on Crema */}
               <div className="rounded-lg bg-blue p-6 md:p-8">
                 <h3 className="mb-5 font-serif text-h3-mob text-crema md:text-h3">{tr.sidebarTitle}</h3>

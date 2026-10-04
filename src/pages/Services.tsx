@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import Marquee from "@/components/Marquee";
-import { CtaLink, Eyebrow, Reveal, Script, StarBullet } from "@/components/design";
+import { CtaLink, Eyebrow, Icon, Reveal, Script, StarBullet } from "@/components/design";
+import { serviceIcons } from "@/lib/icons";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -26,16 +27,16 @@ const Services = () => {
           className="absolute right-[6%] top-8 w-12 animate-float motion-reduce:animate-none md:top-16 md:w-20"
         />
         <div className="mx-auto max-w-[1100px] px-5 text-center md:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Eyebrow className="text-butter">{tr.tag}</Eyebrow>
             <h1 className="mt-5 font-serif text-headline uppercase">{tr.heroH1}</h1>
           </motion.div>
-          <Reveal delay={0.15} className="mx-auto mt-6 max-w-2xl md:mt-8">
+          <Reveal delay={0.25} className="mx-auto mt-6 max-w-2xl md:mt-8">
             <p className="text-p2 leading-relaxed text-crema/80 md:text-p3">{tr.heroBody}</p>
           </Reveal>
 
           {/* Quick jump to each service */}
-          <Reveal delay={0.25} className="mt-10 flex flex-wrap justify-center gap-3 md:mt-12">
+          <Reveal delay={0.5} className="mt-10 flex flex-wrap justify-center gap-3 md:mt-12">
             {tr.services.map((s, i) => (
               <a
                 key={s.title}
@@ -63,6 +64,7 @@ const Services = () => {
             <div className="mx-auto grid max-w-[1200px] items-start gap-12 px-5 md:grid-cols-2 md:gap-16 md:px-8 lg:gap-24">
               {/* Pitch */}
               <Reveal className={flip ? "md:order-2" : ""}>
+                <Icon name={serviceIcons[i]} className="mb-5 h-16 w-16 text-blue md:h-20 md:w-20" />
                 <p className="font-mono text-xs uppercase tracking-[0.3em] text-blue">0{i + 1}</p>
                 <h2 className="mt-3 font-serif text-headline leading-[0.95] text-blue">{s.title}</h2>
                 <p className="mt-4 font-serif text-[clamp(1.25rem,2vw,1.75rem)] italic leading-snug text-blue">{s.tagline}</p>
@@ -75,8 +77,8 @@ const Services = () => {
               </Reveal>
 
               {/* What's included + who it's for */}
-              <Reveal delay={0.12} className={flip ? "md:order-1" : ""}>
-                <Script as="p" className={`-rotate-2 text-script-lg ${onButter ? "text-orange" : "text-pink"}`}>
+              <Reveal delay={0.25} className={flip ? "md:order-1" : ""}>
+                <Script as="p" className="-rotate-2 text-script-lg text-orange">
                   {tr.included}
                 </Script>
                 <ul className="mt-6 border-t-[1.5px] border-blue">

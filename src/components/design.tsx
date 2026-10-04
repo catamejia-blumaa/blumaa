@@ -47,12 +47,15 @@ export const Multiline = ({ text }: { text: string }) => {
   );
 };
 
-/** Fade-up on scroll. Renders static content when the user prefers reduced motion. */
+/**
+ * Entrance on scroll — Tuesday Co's `fadeIn`, 0.5s. Pass `y={40}` for the `slideInUp` variant used on photos.
+ * Renders static content when the user prefers reduced motion.
+ */
 export const Reveal = ({
   children,
   className,
   delay = 0,
-  y = 28,
+  y = 0,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -67,7 +70,7 @@ export const Reveal = ({
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -60px 0px" }}
-      transition={{ duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {children}
     </motion.div>
@@ -124,7 +127,43 @@ export const CtaLink = ({ children, variant = "dark", size = "md", arrow = true,
 
 /* ── Photo frame ─────────────────────────────────────────── */
 
-/** Crema photo frame. No shadow (DS). Pass `ring` on Butter sections so Crema never melts into the bg. */
+/* ── Masking tape ────────────────────────────────────────── */
+
+export type TapePlace = "tl" | "tr" | "bl" | "br";
+export type TapeSpec = { place: TapePlace; size?: "sm" | "lg" };
+
+/* Slightly torn ends, like a strip ripped off the roll */
+const TAPE_CLIP =
+  "polygon(0 0, 100% 0, 96% 20%, 100% 40%, 96% 60%, 100% 80%, 96% 100%, 0 100%, 4% 80%, 0 60%, 4% 40%, 0 20%)";
+
+/* Each strip is centred on a corner of the photo and tilted across it */
+const tapePlace: Record<TapePlace, { pos: string; transform: string }> = {
+  tl: { pos: "left-1 top-1", transform: "translate(-50%, -50%) rotate(-32deg)" },
+  tr: { pos: "right-1 top-1", transform: "translate(30%, -50%) rotate(32deg)" },
+  bl: { pos: "bottom-1 left-1", transform: "translate(-50%, 50%) rotate(32deg)" },
+  br: { pos: "bottom-1 right-1", transform: "translate(30%, 50%) rotate(-32deg)" },
+};
+
+const tapeSize = {
+  sm: "h-4 w-12 md:h-5 md:w-16 lg:h-[22px] lg:w-[72px]",
+  lg: "h-5 w-16 md:h-6 md:w-20 lg:h-7 lg:w-24",
+};
+
+/** Translucent Butter masking tape holding a photo to the page. Flat colour, no shadow (DS). */
+const Tape = ({ place, size = "sm" }: TapeSpec) => (
+  <span
+    aria-hidden="true"
+    className={cn("pointer-events-none absolute z-10 bg-butter/85", tapePlace[place].pos, tapeSize[size])}
+    style={{ clipPath: TAPE_CLIP, transform: tapePlace[place].transform }}
+  />
+);
+
+/**
+ * Instant-photo frame: thin Crema border with a wider "chin" below, near-square corners and a hairline
+ * around the picture. No shadow (DS). Pass `ring` on Butter sections so Crema never melts into the bg;
+ * pass `tapes` to stick it down with masking tape at its corners.
+ * Slides up into place when it enters the screen (Tuesday Co `slideInUp`, 0.5s).
+ */
 export const Polaroid = ({
   src,
   alt,
@@ -134,7 +173,9 @@ export const Polaroid = ({
   objectPosition,
   ring = false,
   caption,
+  tapes,
   priority = false,
+  delay = 0,
 }: {
   src: string;
   alt: string;
@@ -144,23 +185,91 @@ export const Polaroid = ({
   objectPosition?: string;
   ring?: boolean;
   caption?: React.ReactNode;
+  tapes?: TapeSpec[];
   priority?: boolean;
-}) => (
-  <figure
-    className={cn("bg-crema p-2 md:p-3 rounded-lg", ring && "ring-[1.5px] ring-blue", className)}
-    style={rotate ? { transform: `rotate(${rotate}deg)` } : undefined}
-  >
-    <img
-      src={src}
-      alt={alt}
-      loading={priority ? "eager" : "lazy"}
-      decoding="async"
-      className="block w-full h-full object-cover rounded-[4px]"
-      style={{ aspectRatio: aspect, objectPosition }}
+  delay?: number;
+}) => {
+  const reduce = useReducedMotion();
+  const classes = cn(
+    "relative rounded-[3px] bg-crema px-1.5 pb-5 pt-1.5 md:px-2 md:pb-7 md:pt-2",
+    ring && "ring-[1.5px] ring-blue",
+    className,
+  );
+  const content = (
+    <>
+      <div className="relative">
+        <img
+          src={src}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          className="block h-full w-full rounded-[2px] object-cover"
+          style={{ aspectRatio: aspect, objectPosition }}
+        />
+        {/* hairline edge, like the bevel on instant film */}
+        <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-[2px] ring-1 ring-inset ring-night/10" />
+      </div>
+      {caption && (
+        <figcaption className="mt-1.5 text-center font-script text-blue text-lg md:text-xl leading-tight">{caption}</figcaption>
+      )}
+      {tapes?.map((tape) => (
+        <Tape key={tape.place} {...tape} />
+      ))}
+    </>
+  );
+
+  if (reduce) {
+    return (
+      <figure className={classes} style={rotate ? { transform: `rotate(${rotate}deg)` } : undefined}>
+        {content}
+      </figure>
+    );
+  }
+  /* `rotate` lives in the animation target so framer composes it with the slide */
+  return (
+    <motion.figure
+      className={classes}
+      initial={{ opacity: 0, y: 40, rotate }}
+      whileInView={{ opacity: 1, y: 0, rotate }}
+      viewport={{ once: true, margin: "0px 0px -60px 0px" }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      {content}
+    </motion.figure>
+  );
+};
+
+/* ── Hand-drawn icons ────────────────────────────────────── */
+
+export type IconName =
+  | "books-standing" | "candle" | "coffee-cup" | "coffee-mug" | "ipad" | "kindle" | "macbook" | "phone"
+  | "photo-b" | "sparkle" | "stack-books" | "star-photo" | "star-pointy" | "sunshine" | "water-glass";
+
+/**
+ * Blumaa line icon, drawn as a CSS mask so it always takes the surrounding text colour:
+ * one colour per piece, always contrasting with its background (DS illustration rules).
+ * Size it with h-* / w-*; colour it with text-*.
+ */
+export const Icon = ({ name, className, style }: { name: IconName; className?: string; style?: React.CSSProperties }) => {
+  const url = `url(/icons/${name}.png)`;
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("inline-block bg-current", className)}
+      style={{
+        WebkitMaskImage: url,
+        maskImage: url,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        ...style,
+      }}
     />
-    {caption && <figcaption className="mt-2 text-center font-script text-blue text-lg md:text-xl leading-tight">{caption}</figcaption>}
-  </figure>
-);
+  );
+};
 
 /* ── Star bullet ─────────────────────────────────────────── */
 
