@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
-import { Eyebrow, Polaroid, Reveal, Script } from "@/components/design";
+import { Eyebrow, Icon, Polaroid, Reveal, Script } from "@/components/design";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -83,7 +83,7 @@ const Contact = () => {
           </motion.div>
           <div className="relative z-10 hidden md:block">
             <Polaroid
-              src="/Cata_portrait.jpg"
+              src="/photos/contact-stripes.jpg"
               alt="Catalina Mejia"
               rotate={4}
               aspect="4 / 5"
@@ -99,13 +99,16 @@ const Contact = () => {
       <section className="relative bg-crema pb-20 md:pb-32">
         <div className="relative mx-auto max-w-[1200px] px-5 md:px-8">
           {/* Script straddles the Butter band above, like Tuesday Co's "Say hello" */}
-          <Script
-            as="p"
-            aria-hidden="true"
-            className="pointer-events-none relative z-10 -mt-[0.55em] mb-8 text-[clamp(4rem,12vw,10rem)] leading-none text-pink md:mb-12"
-          >
-            {tr.scriptHello}
-          </Script>
+          <div className="relative z-10 -mt-[0.55em] mb-8 flex items-end gap-4 md:mb-12">
+            <Script
+              as="p"
+              aria-hidden="true"
+              className="pointer-events-none text-[clamp(4rem,12vw,10rem)] leading-none text-pink"
+            >
+              {tr.scriptHello}
+            </Script>
+            <Icon name="coffee-mug" className="mb-2 hidden h-24 w-24 text-blue sm:block md:h-32 md:w-32" />
+          </div>
 
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
             {/* ── Form ── */}

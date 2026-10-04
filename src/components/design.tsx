@@ -193,6 +193,38 @@ export const Polaroid = ({
   );
 };
 
+/* ── Hand-drawn icons ────────────────────────────────────── */
+
+export type IconName =
+  | "books-standing" | "candle" | "coffee-cup" | "coffee-mug" | "ipad" | "kindle" | "macbook" | "phone"
+  | "photo-b" | "sparkle" | "stack-books" | "star-photo" | "star-pointy" | "sunshine" | "water-glass";
+
+/**
+ * Blumaa line icon, drawn as a CSS mask so it always takes the surrounding text colour:
+ * one colour per piece, always contrasting with its background (DS illustration rules).
+ * Size it with h-* / w-*; colour it with text-*.
+ */
+export const Icon = ({ name, className, style }: { name: IconName; className?: string; style?: React.CSSProperties }) => {
+  const url = `url(/icons/${name}.png)`;
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("inline-block bg-current", className)}
+      style={{
+        WebkitMaskImage: url,
+        maskImage: url,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        ...style,
+      }}
+    />
+  );
+};
+
 /* ── Star bullet ─────────────────────────────────────────── */
 
 /** The real Blumaa star (never recreated with a glyph) */

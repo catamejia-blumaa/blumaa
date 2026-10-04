@@ -60,7 +60,7 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
             {/* Top bar */}
             <div className="flex h-16 flex-shrink-0 items-center justify-between">
               <Link to="/" onClick={onClose} className="flex items-center">
-                <img src="/Main_loco_blue_pink.png" alt="Blumaa" className="h-7 md:h-8 w-auto" />
+                <img src="/Main_logo_blue_orange.png" alt="Blumaa" className="h-7 md:h-8 w-auto" />
               </Link>
               <button
                 ref={closeRef}
@@ -76,7 +76,7 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
               {/* Photo */}
               <div className="hidden md:block">
                 <Polaroid
-                  src="/Cata_portrait.jpg"
+                  src="/photos/menu-mug.jpg"
                   alt=""
                   rotate={-4}
                   aspect="4 / 5"

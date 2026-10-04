@@ -1,16 +1,19 @@
 import { motion } from "framer-motion";
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import Layout from "@/components/Layout";
-import { CtaLink, Eyebrow, Polaroid, Reveal, Script } from "@/components/design";
+import { CtaLink, Eyebrow, Icon, Polaroid, Reveal, Script, type IconName } from "@/components/design";
 import { stagger } from "@/lib/animations";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
 const socials = [
-  { label: "Instagram", href: "https://www.instagram.com/blumaa_branding/", Icon: Instagram, external: true },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/blumaa-growth", Icon: Linkedin, external: true },
-  { label: "Email", href: "mailto:catalina@blumaagrowth.com", Icon: Mail, external: false },
+  { label: "Instagram", href: "https://www.instagram.com/blumaa_branding/", Glyph: Instagram, external: true },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/blumaa-growth", Glyph: Linkedin, external: true },
+  { label: "Email", href: "mailto:catalina@blumaagrowth.com", Glyph: Mail, external: false },
 ];
+
+/* One line icon per step of the timeline (phone call → questionnaire → north star → two looks → build → ready) */
+const timelineIcons: IconName[] = ["phone", "stack-books", "star-pointy", "ipad", "macbook", "sunshine"];
 
 /**
  * About — Tuesday Co "about" + "team" layout, Blumaa identity.
@@ -45,23 +48,23 @@ const About = () => {
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-crema" aria-hidden="true" />
           <div className="relative mx-auto flex max-w-[1000px] items-end justify-center gap-3 px-5 md:gap-6 md:px-8">
             <Polaroid
-              src="/Cata_skyline.jpg"
+              src="/photos/about-cafe.jpg"
               alt=""
               rotate={-5}
               aspect="1 / 1"
               className="mb-6 hidden w-[26%] flex-shrink-0 sm:block md:mb-10"
             />
             <motion.img
-              src="/Cata_landscape.jpg"
+              src="/photos/about-hero.jpg"
               alt="Catalina Mejia"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
               className="aspect-[4/3] w-full rounded-lg object-cover sm:w-[50%]"
-              style={{ objectPosition: "50% 30%" }}
+              style={{ objectPosition: "50% 40%" }}
             />
             <img
-              src="/Favicon_Blumaa_.png"
+              src="/Favicon_Blumaa_orange.png"
               alt=""
               aria-hidden="true"
               className="mb-8 hidden w-[16%] max-w-[150px] flex-shrink-0 animate-float motion-reduce:animate-none sm:block md:mb-14"
@@ -73,7 +76,10 @@ const About = () => {
       {/* ── Meet Cata ── Crema bg ── */}
       <section className="relative overflow-hidden bg-crema py-20 md:py-32">
         <div className="mx-auto max-w-[1200px] px-5 md:px-8">
-          <Reveal className="text-center">
+          <Reveal className="relative text-center">
+            {/* Two loose line icons flank the greeting (DS: max 2–3 per section) */}
+            <Icon name="coffee-mug" className="absolute left-0 top-0 hidden h-20 w-20 text-blue md:block lg:left-[10%]" />
+            <Icon name="stack-books" className="absolute right-0 top-2 hidden h-20 w-20 text-blue md:block lg:right-[10%]" />
             <Script as="p" className="-rotate-2 text-script-lg text-pink">
               {tr.founderTag1}
             </Script>
@@ -82,12 +88,23 @@ const About = () => {
 
           <div className="mt-12 grid items-start gap-10 md:mt-16 md:grid-cols-[5fr_6fr] md:gap-16">
             <Reveal y={40} className="md:sticky md:top-24">
-              <img
-                src="/Cata_portrait.jpg"
-                alt={tr.founderName}
-                loading="lazy"
-                className="aspect-[4/5] w-full max-w-md rounded-lg object-cover md:max-w-none"
-              />
+              <div className="relative max-w-md md:max-w-none">
+                <img
+                  src="/photos/meet-kitchen.jpg"
+                  alt={tr.founderName}
+                  loading="lazy"
+                  className="aspect-[4/5] w-full rounded-lg object-cover"
+                />
+                <Polaroid
+                  src="/photos/meet-ipad.jpg"
+                  alt=""
+                  rotate={5}
+                  aspect="4 / 5"
+                  ring
+                  delay={0.25}
+                  className="absolute -bottom-6 right-[-6%] hidden w-[34%] sm:block"
+                />
+              </div>
             </Reveal>
             <Reveal delay={0.25}>
               <h2 className="font-serif text-[clamp(2rem,3.8vw,3.4rem)] leading-[1.02] text-night">{tr.founderH2}</h2>
@@ -101,7 +118,7 @@ const About = () => {
               <div className="mt-10 flex flex-wrap items-center justify-between gap-5 border-y-[1.5px] border-blue py-5">
                 <p className="font-serif text-[clamp(1.5rem,2.6vw,2.25rem)] leading-none text-blue">{tr.founderName}</p>
                 <div className="flex gap-3">
-                  {socials.map(({ label, href, Icon, external }) => (
+                  {socials.map(({ label, href, Glyph, external }) => (
                     <a
                       key={label}
                       href={href}
@@ -109,7 +126,7 @@ const About = () => {
                       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="grid h-11 w-11 place-items-center rounded-full border-[1.5px] border-blue text-blue transition-colors hover:bg-blue hover:text-crema"
                     >
-                      <Icon size={18} />
+                      <Glyph size={18} />
                     </a>
                   ))}
                 </div>
@@ -224,7 +241,7 @@ const About = () => {
             {tr.timelineSteps.map((step, i) => (
               <li key={step.num} className="border-b-[1.5px] border-blue">
                 <Reveal
-                  className="grid gap-4 py-8 md:grid-cols-[110px_minmax(0,1fr)_minmax(0,1.4fr)] md:gap-10 md:py-12"
+                  className="grid gap-4 py-8 md:grid-cols-[110px_minmax(0,1fr)_minmax(0,1.4fr)] md:gap-10 md:py-12 lg:grid-cols-[110px_minmax(0,1fr)_minmax(0,1.4fr)_72px]"
                 >
                   <p className="font-serif text-[3rem] leading-none text-blue md:text-[4.5rem]">{step.num}</p>
                   <div>
@@ -235,6 +252,7 @@ const About = () => {
                     className="text-p1 leading-relaxed text-night/80 md:text-p2 [&_strong]:font-semibold [&_strong]:text-blue"
                     dangerouslySetInnerHTML={{ __html: step.body }}
                   />
+                  <Icon name={timelineIcons[i]} className="hidden h-[72px] w-[72px] self-center justify-self-end text-blue lg:block" />
                 </Reveal>
               </li>
             ))}

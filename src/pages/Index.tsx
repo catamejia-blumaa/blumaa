@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Marquee from "@/components/Marquee";
-import { CtaLink, Eyebrow, Polaroid, Reveal, Script } from "@/components/design";
+import PhotoStrip from "@/components/PhotoStrip";
+import { CtaLink, Eyebrow, Icon, Polaroid, Reveal, Script, type IconName } from "@/components/design";
 import { stagger } from "@/lib/animations";
+import { serviceIcons } from "@/lib/icons";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -14,6 +16,13 @@ import { t } from "@/lib/translations";
  * Hero (Blue) → Statement (Butter) → Hello (Crema) → Services list (Butter)
  * → Strategy-first band (Blue) → Pain cards (Crema) → Method (Butter) → CTA (Blue)
  */
+const painIcons: IconName[] = ["photo-b", "kindle", "phone"];
+const stripPhotos = [
+  "/photos/gal-sea.jpg", "/photos/gal-cafe.jpg", "/photos/gal-candy.jpg", "/photos/gal-greenhouse.jpg",
+  "/photos/gal-plane.jpg", "/photos/gal-terrace.jpg", "/photos/gal-house.jpg", "/photos/gal-flatlay.jpg",
+  "/photos/gal-watermelon.jpg",
+];
+
 const Index = () => {
   const { lang } = useLang();
   const tr = t[lang].index;
@@ -32,7 +41,7 @@ const Index = () => {
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="mx-auto w-[88%] max-w-[800px] sm:w-[72%] md:w-[64%]"
           >
-            <img src="/Main_logo_cream_pink.png" alt="Blumaa" className="h-auto w-full" />
+            <img src="/Main_logo_cream_orange.png" alt="Blumaa" className="h-auto w-full" />
             <p className="mt-1 text-right font-serif text-[clamp(1.4rem,4.2vw,3.5rem)] italic leading-none text-butter">
               {tr.agencyTag.toLowerCase()}
             </p>
@@ -44,7 +53,7 @@ const Index = () => {
           <div className="absolute inset-x-0 bottom-0 h-[55%] bg-butter" aria-hidden="true" />
           <div className="relative mx-auto flex max-w-[1100px] items-end justify-center gap-3 px-5 md:gap-6 md:px-8">
             <Polaroid
-              src="/Cata_skyline.jpg"
+              src="/photos/hero-plate.jpg"
               alt=""
               rotate={-4}
               aspect="1 / 1"
@@ -52,16 +61,16 @@ const Index = () => {
               className="mb-6 hidden w-[24%] flex-shrink-0 sm:block md:mb-10"
             />
             <motion.img
-              src="/Cata_landscape.jpg"
+              src="/photos/hero-wink.jpg"
               alt="Catalina Mejia, founder of Blumaa"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
               className="aspect-[4/3] w-full rounded-lg object-cover sm:w-[56%]"
-              style={{ objectPosition: "50% 30%" }}
+              style={{ objectPosition: "50% 40%" }}
             />
             <img
-              src="/Favicon_Blumaa_.png"
+              src="/Favicon_Blumaa_orange.png"
               alt=""
               aria-hidden="true"
               className="mb-8 hidden w-[15%] max-w-[150px] flex-shrink-0 animate-float motion-reduce:animate-none sm:block md:mb-14"
@@ -72,17 +81,14 @@ const Index = () => {
 
       {/* ── Statement ── Butter bg + Blue text ── */}
       <section className="relative overflow-hidden bg-butter pb-20 pt-14 md:pb-32 md:pt-20">
-        <img
-          src="/Favicon_blue.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute right-[5%] top-8 w-12 animate-float motion-reduce:animate-none md:top-14 md:w-20"
+        {/* Two loose line icons (DS: max 2–3 per section) */}
+        <Icon
+          name="sunshine"
+          className="absolute right-[5%] top-8 h-14 w-14 animate-float text-blue motion-reduce:animate-none md:top-14 md:h-24 md:w-24"
         />
-        <img
-          src="/Favicon_blue.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-10 left-[4%] hidden w-10 animate-float motion-reduce:animate-none md:block"
+        <Icon
+          name="coffee-mug"
+          className="absolute bottom-10 left-[4%] hidden h-20 w-20 animate-float text-blue motion-reduce:animate-none md:block"
           style={{ animationDelay: "1.5s" }}
         />
         <div className="mx-auto max-w-[1280px] px-5 md:px-8">
@@ -120,7 +126,7 @@ const Index = () => {
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[5fr_6fr] md:gap-16 md:px-8">
           <Reveal y={40}>
             <img
-              src="/Cata_portrait.jpg"
+              src="/photos/hello-sunset.jpg"
               alt={about.founderName}
               loading="lazy"
               className="aspect-[4/5] w-full max-w-md rounded-lg object-cover md:max-w-none"
@@ -157,6 +163,7 @@ const Index = () => {
                   <span className="w-9 flex-shrink-0 font-mono text-xs tracking-[0.2em] md:w-12 md:text-sm">0{i + 1}.</span>
                   <span className="flex-1 font-serif text-row">{s.title}</span>
                   <span className="hidden max-w-[260px] text-right text-sm leading-snug lg:block">{s.tagline}</span>
+                  <Icon name={serviceIcons[i]} className="hidden h-12 w-12 flex-shrink-0 sm:block md:h-16 md:w-16" />
                   <ArrowUpRight
                     size={28}
                     className="flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1"
@@ -202,7 +209,7 @@ const Index = () => {
               <Reveal key={pain.title} delay={stagger(i, tr.pains.length)} className="h-full">
                 <div className="relative h-full rounded-lg bg-blue px-6 pb-8 pt-16 text-crema md:px-8 md:pb-10 md:pt-20">
                   <div className="absolute left-1/2 top-0 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-butter md:h-28 md:w-28">
-                    <img src="/Favicon_blue.png" alt="" aria-hidden="true" className="h-12 w-12 object-contain md:h-14 md:w-14" />
+                    <Icon name={painIcons[i]} className="h-12 w-12 text-blue md:h-14 md:w-14" />
                   </div>
                   <p className="mb-3 text-center font-mono text-xs uppercase tracking-[0.3em] text-butter">0{i + 1}</p>
                   <h3 className="text-center font-serif text-h3-mob leading-tight md:text-[1.9rem]">{pain.title}</h3>
@@ -262,11 +269,16 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── Moments ── Crema bg · slow photo drift (summer, travel, coffee: the brand's mood) ── */}
+      <section className="bg-crema py-10 md:py-16">
+        <PhotoStrip photos={stripPhotos} />
+      </section>
+
       {/* ── CTA ── Blue bg · Pink accent script · Butter button ── */}
       <section className="relative overflow-hidden bg-blue py-20 text-crema md:py-32">
         <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 md:grid-cols-[6fr_5fr] md:gap-16 md:px-8">
           <Reveal>
-            <Script as="p" className="mb-2 -rotate-3 text-script-lg text-pink">
+            <Script as="p" className="mb-2 -rotate-3 text-script-lg text-orange">
               {tr.ctaScript}
             </Script>
             <h2 className="font-serif text-headline uppercase text-crema">
@@ -281,7 +293,7 @@ const Index = () => {
           </Reveal>
           <Reveal y={40} delay={0.25} className="flex justify-center">
             <img
-              src="/Secondary_cream_pink.png"
+              src="/Secondary_cream_orange.png"
               alt="Blumaa"
               loading="lazy"
               className="h-auto w-[70%] max-w-[360px] animate-float motion-reduce:animate-none"

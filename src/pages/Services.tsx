@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import Marquee from "@/components/Marquee";
-import { CtaLink, Eyebrow, Reveal, Script, StarBullet } from "@/components/design";
+import { CtaLink, Eyebrow, Icon, Reveal, Script, StarBullet } from "@/components/design";
+import { serviceIcons } from "@/lib/icons";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -63,6 +64,7 @@ const Services = () => {
             <div className="mx-auto grid max-w-[1200px] items-start gap-12 px-5 md:grid-cols-2 md:gap-16 md:px-8 lg:gap-24">
               {/* Pitch */}
               <Reveal className={flip ? "md:order-2" : ""}>
+                <Icon name={serviceIcons[i]} className="mb-5 h-16 w-16 text-blue md:h-20 md:w-20" />
                 <p className="font-mono text-xs uppercase tracking-[0.3em] text-blue">0{i + 1}</p>
                 <h2 className="mt-3 font-serif text-headline leading-[0.95] text-blue">{s.title}</h2>
                 <p className="mt-4 font-serif text-[clamp(1.25rem,2vw,1.75rem)] italic leading-snug text-blue">{s.tagline}</p>

@@ -42,7 +42,7 @@ const Footer = () => {
 
         <div className="mt-14 flex flex-col items-center text-center md:mt-20">
           <Link to="/" aria-label="Blumaa">
-            <img src="/Main_loco_blue_pink.png" alt="Blumaa" className="h-auto w-[78vw] max-w-[540px]" />
+            <img src="/Main_logo_blue_orange.png" alt="Blumaa" className="h-auto w-[78vw] max-w-[540px]" />
           </Link>
           <p className="mt-6 max-w-md text-base leading-relaxed text-night/75">{ft.tagline}</p>
 

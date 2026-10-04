@@ -145,7 +145,7 @@ const Header = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-blue">
         <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-5 md:px-8">
           <Link to="/" className="flex flex-shrink-0 items-center" aria-label="Blumaa">
-            <img src="/Main_logo_cream_pink.png" alt="Blumaa" className="h-7 md:h-8 w-auto" />
+            <img src="/Main_logo_cream_orange.png" alt="Blumaa" className="h-7 md:h-8 w-auto" />
           </Link>
 
           {/* Desktop nav */}
