@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Marquee from "@/components/Marquee";
 import PhotoStrip from "@/components/PhotoStrip";
@@ -13,7 +13,7 @@ import { t } from "@/lib/translations";
 /**
  * Home — Tuesday Co layout, Blumaa identity.
  * Section rhythm (Blue ↔ Butter hero pair, Crema as the rest):
- * Hero (Blue, Contact-style layout) → Statement (Butter) → Hello (Crema) → Services list (Butter)
+ * Hero (Blue) → Statement (Butter) → Hello (Crema) → Services list (Butter)
  * → Strategy-first band (Blue) → Pain cards (Crema) → Method (Butter) → CTA (Blue)
  */
 const painIcons: IconName[] = ["photo-b", "kindle", "phone"];
@@ -32,64 +32,61 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* ── Hero ── Blue bg + Crema text · Contact-style layout from xl up (copy left, photos right), stacked below ── */}
-      <section className="relative bg-blue pb-24 pt-14 md:pt-20 xl:pb-44 xl:pt-24">
+      {/* ── Hero ── Blue bg + Crema text · left: eyebrow, headline, copy, CTA and a handwritten note · right: portrait with a
+          second Polaroid hanging off its lower-right corner (two columns from xl, stacked below) ── */}
+      <section className="relative bg-blue pb-24 pt-14 md:pt-20 xl:pb-28 xl:pt-24">
         {/* Loose line icons from the Blumaa set, kept to the margins so the photos have room */}
         <Icon
           name="sunshine"
-          className="absolute right-5 top-4 h-10 w-10 animate-float text-butter motion-reduce:animate-none md:right-[6%] md:top-8 md:h-14 md:w-14 xl:h-16 xl:w-16"
+          className="absolute right-5 top-2 h-9 w-9 animate-float text-butter motion-reduce:animate-none md:right-[6%] md:top-8 md:h-14 md:w-14 xl:h-16 xl:w-16"
         />
         <Icon
           name="water-glass"
-          className="absolute bottom-10 left-[5%] hidden h-20 w-20 animate-float text-butter motion-reduce:animate-none xl:block"
+          className="absolute left-[47%] top-6 hidden h-16 w-16 animate-float text-butter motion-reduce:animate-none xl:block"
           style={{ animationDelay: "1.5s" }}
         />
         <Icon
           name="candle"
-          className="absolute bottom-20 left-[31%] hidden h-14 w-14 animate-float text-butter motion-reduce:animate-none xl:block"
+          className="absolute bottom-10 left-[46%] hidden h-14 w-14 animate-float text-butter motion-reduce:animate-none xl:block"
           style={{ animationDelay: "0.8s" }}
         />
-        <Icon
-          name="books-standing"
-          className="absolute bottom-6 right-[2.5%] hidden h-16 w-16 animate-float text-butter motion-reduce:animate-none xl:block"
-          style={{ animationDelay: "2.2s" }}
-        />
-        <div className="mx-auto grid max-w-[1200px] gap-12 px-5 md:px-8 xl:grid-cols-[1.5fr_1fr] xl:items-center">
+        <div className="mx-auto grid max-w-[1320px] gap-14 px-5 md:px-8 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-center xl:gap-12">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-            <h1 className="font-serif text-headline uppercase text-crema">
+            <Eyebrow className="text-butter">{tr.heroTag}</Eyebrow>
+            <h1 className="mt-5 font-serif text-headline uppercase text-crema">
               <span className="block">{tr.heroLead1}</span>
               <span className="block italic text-butter">{tr.heroLead2}</span>
             </h1>
             <p className="mt-6 max-w-xl text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroSub}</p>
+            <div className="mt-8">
+              <CtaLink to="/contact" variant="primary" size="lg">
+                {tr.heroCta}
+              </CtaLink>
+            </div>
+            <Script as="p" className="mt-5 -rotate-2 text-script-md leading-none text-orange">
+              <ArrowUp aria-hidden="true" strokeWidth={2.5} className="mr-1 inline-block h-5 w-5 -rotate-6 align-[-0.1em]" />
+              {tr.marquee.join(". ").toLowerCase()}.
+            </Script>
           </motion.div>
 
-          {/* Portrait with two Polaroids flanking its lower edge. Offsets are % of the portrait so the trio scales together */}
-          <div className="relative z-10 mx-auto w-[230px] sm:w-[260px] md:w-[290px] xl:ml-auto xl:mr-0 xl:w-[280px] xl:translate-y-8">
+          {/* Offsets are % of the portrait so the pair scales together; the right margin leaves room for the overhang */}
+          <div className="relative z-10 mx-auto w-[230px] -translate-x-[13%] sm:w-[260px] md:w-[300px] xl:ml-auto xl:mr-[92px] xl:w-[340px] xl:translate-x-0 2xl:mr-[108px] 2xl:w-[400px]">
             <Polaroid
               src="/photos/hero-cata.jpg"
               alt="Catalina Mejia, founder of Blumaa"
-              rotate={4}
+              rotate={-2.5}
               aspect="4 / 5"
               tapes={[{ place: "tl", size: "lg" }]}
               priority
             />
             <Polaroid
-              src="/photos/hero-flatlay.jpg"
-              alt=""
-              rotate={-7}
-              aspect="1 / 1"
-              tapes={[{ place: "tl" }]}
-              delay={0.25}
-              className="absolute left-[-22%] top-[72%] w-[48%] md:left-[-34%] md:w-[54%] xl:left-[-58%] xl:top-[66%] xl:w-[66%]"
-            />
-            <Polaroid
               src="/photos/hero-ipad.jpg"
               alt=""
-              rotate={8}
+              rotate={3}
               aspect="1 / 1"
-              tapes={[{ place: "br" }]}
-              delay={0.5}
-              className="absolute left-[62%] top-[66%] w-[46%] md:left-[60%] md:w-[48%] xl:left-[54%] xl:top-[60%] xl:w-[54%]"
+              tapes={[{ place: "br", size: "lg" }]}
+              delay={0.25}
+              className="absolute left-[66%] top-[55%] w-[61%]"
             />
           </div>
         </div>
@@ -121,11 +118,6 @@ const Index = () => {
           </div>
           <Reveal className="mx-auto mt-10 max-w-xl text-center md:mt-14">
             <p className="text-p2 leading-relaxed text-night/80 md:text-p3">{tr.heroBody}</p>
-            <div className="mt-8">
-              <CtaLink to="/contact" variant="dark" size="lg">
-                {tr.heroCta}
-              </CtaLink>
-            </div>
           </Reveal>
         </div>
       </section>

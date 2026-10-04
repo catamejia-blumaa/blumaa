@@ -17,6 +17,7 @@ export const t = {
       rights: "All rights reserved. Strategy over aesthetics, always.",
     },
     index: {
+      heroTag: "Strategic branding & growth",
       heroLead1: "Your brand already exists.",
       heroLead2: "I help you find it.",
       heroSub: "Brand strategy and identity for founders who want their business to look and feel like what it truly is.",
@@ -290,6 +291,7 @@ export const t = {
       rights: "Todos los derechos reservados. Estrategia antes que estética, siempre.",
     },
     index: {
+      heroTag: "Branding estratégico & growth",
       heroLead1: "Tu marca ya existe.",
       heroLead2: "Yo te ayudo a encontrarla.",
       heroSub: "Estrategia de marca e identidad para founders que quieren que su negocio se vea y se sienta como lo que realmente es.",
