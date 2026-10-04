@@ -13,7 +13,7 @@ import { t } from "@/lib/translations";
 /**
  * Home — Tuesday Co layout, Blumaa identity.
  * Section rhythm (Blue ↔ Butter hero pair, Crema as the rest):
- * Hero (Butter, Contact-style) → Statement (Blue) → Hello (Crema) → Services list (Butter)
+ * Hero (Blue, Contact-style layout) → Statement (Butter) → Hello (Crema) → Services list (Butter)
  * → Strategy-first band (Blue) → Pain cards (Crema) → Method (Butter) → CTA (Blue)
  */
 const painIcons: IconName[] = ["photo-b", "kindle", "phone"];
@@ -32,25 +32,25 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* ── Hero ── Butter bg + Blue text · same layout as the Contact title band: copy left, photos right ── */}
-      <section className="relative bg-butter pb-20 pt-14 md:pb-40 md:pt-24">
+      {/* ── Hero ── Blue bg + Crema text · same layout as the Contact title band: copy left, photos right ── */}
+      <section className="relative bg-blue pb-20 pt-14 md:pb-40 md:pt-24">
         {/* Two loose line icons (DS: max 2–3 per section) */}
         <Icon
           name="sunshine"
-          className="absolute right-[6%] top-8 hidden h-16 w-16 animate-float text-blue motion-reduce:animate-none md:block lg:h-20 lg:w-20"
+          className="absolute right-[6%] top-8 hidden h-16 w-16 animate-float text-butter motion-reduce:animate-none md:block lg:h-20 lg:w-20"
         />
         <Icon
           name="water-glass"
-          className="absolute bottom-10 left-[5%] hidden h-20 w-20 animate-float text-blue motion-reduce:animate-none md:block"
+          className="absolute bottom-10 left-[5%] hidden h-20 w-20 animate-float text-butter motion-reduce:animate-none md:block"
           style={{ animationDelay: "1.5s" }}
         />
         <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[1.5fr_1fr] md:px-8">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-            <h1 className="font-serif text-headline uppercase text-blue">
+            <h1 className="font-serif text-headline uppercase text-crema">
               <span className="block">{tr.heroLead1}</span>
-              <span className="block italic">{tr.heroLead2}</span>
+              <span className="block italic text-butter">{tr.heroLead2}</span>
             </h1>
-            <p className="mt-6 max-w-xl text-p2 leading-relaxed text-night/80 md:text-p3">{tr.heroSub}</p>
+            <p className="mt-6 max-w-xl text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroSub}</p>
           </motion.div>
 
           {/* Two Polaroids, sitting a little low in the band like the Contact hero */}
@@ -61,7 +61,6 @@ const Index = () => {
               rotate={4}
               aspect="4 / 5"
               objectPosition="50% 40%"
-              ring
               priority
             />
             <Polaroid
@@ -69,7 +68,6 @@ const Index = () => {
               alt=""
               rotate={-7}
               aspect="1 / 1"
-              ring
               delay={0.25}
               className="absolute -bottom-6 -left-12 w-[104px] md:-left-20 md:w-[140px]"
             />
@@ -77,23 +75,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Statement ── Blue bg + Crema text ── */}
-      <section className="relative overflow-hidden bg-blue pb-20 pt-20 text-crema md:pb-32 md:pt-28">
+      {/* ── Statement ── Butter bg + Blue text ── */}
+      <section className="relative overflow-hidden bg-butter pb-20 pt-20 md:pb-32 md:pt-28">
         {/* Two loose line icons (DS: max 2–3 per section) */}
         <Icon
           name="sparkle"
-          className="absolute bottom-14 right-[5%] hidden h-16 w-16 animate-float text-butter motion-reduce:animate-none md:block"
+          className="absolute bottom-14 right-[5%] hidden h-16 w-16 animate-float text-blue motion-reduce:animate-none md:block"
         />
         <Icon
           name="coffee-mug"
-          className="absolute bottom-10 left-[4%] hidden h-20 w-20 animate-float text-butter motion-reduce:animate-none md:block"
+          className="absolute bottom-10 left-[4%] hidden h-20 w-20 animate-float text-blue motion-reduce:animate-none md:block"
           style={{ animationDelay: "1.5s" }}
         />
         <div className="mx-auto max-w-[1280px] px-5 md:px-8">
           <div className="relative mx-auto max-w-[1240px] text-center">
-            <h2 className="font-serif text-statement uppercase text-crema [text-wrap:balance]">
-              {tr.heroH1a} <em className="text-butter">{tr.heroH1b}</em> {tr.heroH1c}{" "}
-              <em className="text-butter">{tr.heroH1d}</em>
+            <h2 className="font-serif text-statement uppercase text-blue [text-wrap:balance]">
+              {tr.heroH1a} <em>{tr.heroH1b}</em> {tr.heroH1c} <em>{tr.heroH1d}</em>
             </h2>
             <Script
               as="p"
@@ -103,9 +100,9 @@ const Index = () => {
             </Script>
           </div>
           <Reveal className="mx-auto mt-10 max-w-xl text-center md:mt-14">
-            <p className="text-p2 leading-relaxed text-crema/85 md:text-p3">{tr.heroBody}</p>
+            <p className="text-p2 leading-relaxed text-night/80 md:text-p3">{tr.heroBody}</p>
             <div className="mt-8">
-              <CtaLink to="/contact" variant="primary" size="lg">
+              <CtaLink to="/contact" variant="dark" size="lg">
                 {tr.heroCta}
               </CtaLink>
             </div>
