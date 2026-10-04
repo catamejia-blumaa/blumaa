@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Marquee from "@/components/Marquee";
 import PhotoStrip from "@/components/PhotoStrip";
-import { CtaLink, Eyebrow, Icon, Polaroid, Reveal, Script, type IconName } from "@/components/design";
+import { CtaLink, Eyebrow, Icon, PatternBg, Polaroid, Reveal, Script, type IconName } from "@/components/design";
 import { stagger } from "@/lib/animations";
 import { serviceIcons } from "@/lib/icons";
 import { useLang } from "@/lib/LanguageContext";
@@ -32,23 +32,29 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* ── Hero ── Blue bg · oversized logo · photos straddle into the Butter band ── */}
+      {/* ── Hero ── Blue bg · headline + subtitle · photos straddle into the Butter band ── */}
       <section className="relative overflow-hidden bg-blue">
-        <div className="mx-auto max-w-[1280px] px-5 pt-10 text-center md:px-8 md:pt-16">
-          <motion.div
+        <div className="mx-auto max-w-[1280px] px-5 pt-14 text-center md:px-8 md:pt-24">
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mx-auto w-[88%] max-w-[800px] sm:w-[72%] md:w-[64%]"
+            className="mx-auto max-w-[1100px] font-serif text-statement uppercase text-crema"
           >
-            <img src="/Main_logo_cream_orange.png" alt="Blumaa" className="h-auto w-full" />
-            <p className="mt-1 text-right font-serif text-[clamp(1.4rem,4.2vw,3.5rem)] italic leading-none text-butter">
-              {tr.agencyTag.toLowerCase()}
-            </p>
-          </motion.div>
+            <span className="block">{tr.heroLead1}</span>
+            <span className="block italic text-butter">{tr.heroLead2}</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mx-auto mt-6 max-w-2xl text-p2 leading-relaxed text-crema/85 md:mt-8 md:text-p3"
+          >
+            {tr.heroSub}
+          </motion.p>
         </div>
 
-        <div className="relative mt-8 md:mt-12">
+        <div className="relative mt-10 md:mt-16">
           {/* Butter band — same colour as the next section, so the photos bridge the two */}
           <div className="absolute inset-x-0 bottom-0 h-[55%] bg-butter" aria-hidden="true" />
           <div className="relative mx-auto flex max-w-[1100px] items-end justify-center gap-3 px-5 md:gap-6 md:px-8">
@@ -93,9 +99,9 @@ const Index = () => {
         />
         <div className="mx-auto max-w-[1280px] px-5 md:px-8">
           <div className="relative mx-auto max-w-[1240px] text-center">
-            <h1 className="font-serif text-statement uppercase text-blue [text-wrap:balance]">
+            <h2 className="font-serif text-statement uppercase text-blue [text-wrap:balance]">
               {tr.heroH1a} <em>{tr.heroH1b}</em> {tr.heroH1c} <em>{tr.heroH1d}</em>
-            </h1>
+            </h2>
             <Script
               as="p"
               className="pointer-events-none relative z-10 mt-1 -rotate-3 text-script-lg leading-none text-orange md:mt-0"
@@ -119,18 +125,24 @@ const Index = () => {
         <Script
           as="p"
           aria-hidden="true"
-          className="pointer-events-none absolute right-[4%] top-4 text-script-xl text-pink md:top-8"
+          className="pointer-events-none absolute right-[4%] top-4 text-script-xl text-orange md:top-8"
         >
           {tr.helloScript}
         </Script>
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[5fr_6fr] md:gap-16 md:px-8">
           <Reveal y={40}>
-            <img
-              src="/photos/hello-sunset.jpg"
-              alt={about.founderName}
-              loading="lazy"
-              className="aspect-[4/5] w-full max-w-md rounded-lg object-cover md:max-w-none"
-            />
+            {/* Blue checker peeks out behind the photo, like an offset frame */}
+            <div className="relative max-w-md md:max-w-none">
+              <div className="absolute inset-0 translate-x-4 translate-y-4 overflow-hidden rounded-lg md:translate-x-8 md:translate-y-8">
+                <PatternBg name="blue" />
+              </div>
+              <img
+                src="/photos/hello-sunset.jpg"
+                alt={about.founderName}
+                loading="lazy"
+                className="relative aspect-[4/5] w-full rounded-lg object-cover"
+              />
+            </div>
           </Reveal>
           <Reveal delay={0.25}>
             <Eyebrow className="mb-4 text-blue">{about.founderTag1}</Eyebrow>
@@ -197,8 +209,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Pain points ── Crema bg → Blue cards (DS card-contrast rule) ── */}
-      <section className="bg-crema py-20 md:py-32">
+      {/* ── Pain points ── Pool bg → Blue cards (DS card-contrast rule) ── */}
+      <section className="bg-pool py-20 md:py-32">
         <div className="mx-auto max-w-[1200px] px-5 md:px-8">
           <Reveal className="text-center">
             <h2 className="font-serif text-headline uppercase text-night">{tr.painTitle}</h2>
@@ -269,12 +281,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Moments ── Crema bg · slow photo drift (summer, travel, coffee: the brand's mood) ── */}
-      <section className="bg-crema py-10 md:py-16">
-        <PhotoStrip photos={stripPhotos} />
+      {/* ── Moments ── hand-drawn checker backdrop · slow photo drift (summer, travel, coffee: the brand's mood) ── */}
+      <section className="relative overflow-hidden py-10 md:py-16">
+        <PatternBg name="pink" />
+        <div className="relative">
+          <PhotoStrip photos={stripPhotos} />
+        </div>
       </section>
 
-      {/* ── CTA ── Blue bg · Pink accent script · Butter button ── */}
+      {/* ── CTA ── Blue bg · Orange accent script · Butter button ── */}
       <section className="relative overflow-hidden bg-blue py-20 text-crema md:py-32">
         <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 md:grid-cols-[6fr_5fr] md:gap-16 md:px-8">
           <Reveal>

@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
-import { Eyebrow, Icon, Polaroid, Reveal, Script } from "@/components/design";
+import { Eyebrow, Icon, PatternBg, Polaroid, Reveal, Script } from "@/components/design";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -75,7 +75,8 @@ const Contact = () => {
     <Layout>
       {/* ── Title band ── Butter bg + Blue text · photo straddles into the form section ── */}
       <section className="relative bg-butter pb-28 pt-14 md:pb-40 md:pt-24">
-        <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[1.5fr_1fr] md:px-8">
+        <PatternBg name="butter" />
+        <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[1.5fr_1fr] md:px-8">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             <Eyebrow className="text-blue">{tr.tag}</Eyebrow>
             <h1 className="mt-5 font-serif text-headline uppercase text-blue">{tr.heroH1}</h1>
@@ -103,7 +104,7 @@ const Contact = () => {
             <Script
               as="p"
               aria-hidden="true"
-              className="pointer-events-none text-[clamp(4rem,12vw,10rem)] leading-none text-pink"
+              className="pointer-events-none text-[clamp(4rem,12vw,10rem)] leading-none text-orange"
             >
               {tr.scriptHello}
             </Script>

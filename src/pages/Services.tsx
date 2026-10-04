@@ -78,7 +78,7 @@ const Services = () => {
 
               {/* What's included + who it's for */}
               <Reveal delay={0.25} className={flip ? "md:order-1" : ""}>
-                <Script as="p" className={`-rotate-2 text-script-lg ${onButter ? "text-orange" : "text-pink"}`}>
+                <Script as="p" className="-rotate-2 text-script-lg text-orange">
                   {tr.included}
                 </Script>
                 <ul className="mt-6 border-t-[1.5px] border-blue">

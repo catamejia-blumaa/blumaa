@@ -47,8 +47,8 @@
     --muted: 33 40% 93%;
     --muted-foreground: 348 5% 45%;
 
-    --accent: 335.9 100% 69.2%;          /* Pink */
-    --accent-foreground: 31.8 100% 96.7%;
+    --accent: 23.6 100% 59.6%;           /* Orange — the default accent (Pink is the secondary) */
+    --accent-foreground: 348 5% 13%;
 
     --destructive: 335.9 100% 69.2%;     /* Pink as error */
     --destructive-foreground: 31.8 100% 96.7%;
@@ -125,8 +125,8 @@
     --secondary-foreground: 348 5% 13%;
     --muted: 348 5% 20%;
     --muted-foreground: 33 30% 65%;
-    --accent: 335.9 100% 69.2%;
-    --accent-foreground: 31.8 100% 96.7%;
+    --accent: 23.6 100% 59.6%;
+    --accent-foreground: 348 5% 13%;
     --destructive: 0 72% 55%;
     --destructive-foreground: 31.8 100% 96.7%;
     --border: 348 5% 22%;

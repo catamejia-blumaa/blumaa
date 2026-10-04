@@ -80,7 +80,7 @@ const About = () => {
             {/* Two loose line icons flank the greeting (DS: max 2–3 per section) */}
             <Icon name="coffee-mug" className="absolute left-0 top-0 hidden h-20 w-20 text-blue md:block lg:left-[10%]" />
             <Icon name="stack-books" className="absolute right-0 top-2 hidden h-20 w-20 text-blue md:block lg:right-[10%]" />
-            <Script as="p" className="-rotate-2 text-script-lg text-pink">
+            <Script as="p" className="-rotate-2 text-script-lg text-orange">
               {tr.founderTag1}
             </Script>
             <Eyebrow className="mt-4 text-blue">{tr.founderTag2}</Eyebrow>
@@ -183,8 +183,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* ── The way it works ── Crema bg ── */}
-      <section className="bg-crema py-20 md:py-32">
+      {/* ── The way it works ── Pool bg ── */}
+      <section className="bg-pool py-20 md:py-32">
         <div className="mx-auto max-w-[1100px] px-5 md:px-8">
           <Reveal className="text-center">
             <Eyebrow className="text-blue">{tr.wayTag}</Eyebrow>
