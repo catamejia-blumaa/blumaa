@@ -60,6 +60,7 @@ const Index = () => {
               alt="Catalina Mejia, founder of Blumaa"
               rotate={4}
               aspect="4 / 5"
+              tapes={[{ place: "tl", size: "lg" }, { place: "tr", size: "lg" }]}
               priority
             />
             <Polaroid
@@ -67,6 +68,7 @@ const Index = () => {
               alt=""
               rotate={-7}
               aspect="1 / 1"
+              tapes={[{ place: "tl" }]}
               delay={0.25}
               className="absolute -bottom-12 -left-8 w-[132px] md:-bottom-20 md:-left-16 md:w-[160px] lg:-bottom-24 lg:-left-20 lg:w-[190px]"
             />
@@ -75,6 +77,7 @@ const Index = () => {
               alt=""
               rotate={8}
               aspect="1 / 1"
+              tapes={[{ place: "tr" }]}
               delay={0.5}
               className="absolute -bottom-10 -right-6 w-[118px] md:-bottom-16 md:-right-4 md:w-[140px] lg:-bottom-20 lg:w-[165px]"
             />
