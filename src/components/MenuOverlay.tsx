@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Instagram, Linkedin, Mail, X } from "lucide-react";
-import { Eyebrow, CtaLink, PatternBg, Polaroid } from "@/components/design";
+import { Eyebrow, CtaLink, Polaroid } from "@/components/design";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
@@ -56,9 +56,7 @@ const MenuOverlay = ({ open, onClose }: { open: boolean; onClose: () => void }) 
           exit={offscreen}
           transition={{ duration: reduceMotion ? 0 : 0.5 }}
         >
-          {/* Fixed so the checker stays put while a short screen scrolls the menu */}
-          <PatternBg name="butter" className="fixed" />
-          <div className="relative mx-auto flex min-h-full max-w-[1280px] flex-col px-5 md:px-8">
+          <div className="mx-auto flex min-h-full max-w-[1280px] flex-col px-5 md:px-8">
             {/* Top bar */}
             <div className="flex h-16 flex-shrink-0 items-center justify-between">
               <Link to="/" onClick={onClose} className="flex items-center">

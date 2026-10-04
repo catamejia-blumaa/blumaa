@@ -183,8 +183,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* ── The way it works ── Pool bg ── */}
-      <section className="bg-pool py-20 md:py-32">
+      {/* ── The way it works ── Crema bg ── */}
+      <section className="bg-crema py-20 md:py-32">
         <div className="mx-auto max-w-[1100px] px-5 md:px-8">
           <Reveal className="text-center">
             <Eyebrow className="text-blue">{tr.wayTag}</Eyebrow>

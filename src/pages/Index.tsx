@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import Marquee from "@/components/Marquee";
 import PhotoStrip from "@/components/PhotoStrip";
-import { CtaLink, Eyebrow, Icon, PatternBg, Polaroid, Reveal, Script, type IconName } from "@/components/design";
+import { CtaLink, Eyebrow, Icon, Polaroid, Reveal, Script, type IconName } from "@/components/design";
 import { stagger } from "@/lib/animations";
 import { serviceIcons } from "@/lib/icons";
 import { useLang } from "@/lib/LanguageContext";
@@ -131,18 +131,12 @@ const Index = () => {
         </Script>
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-10 px-5 md:grid-cols-[5fr_6fr] md:gap-16 md:px-8">
           <Reveal y={40}>
-            {/* Blue checker peeks out behind the photo, like an offset frame */}
-            <div className="relative max-w-md md:max-w-none">
-              <div className="absolute inset-0 translate-x-4 translate-y-4 overflow-hidden rounded-lg md:translate-x-8 md:translate-y-8">
-                <PatternBg name="blue" />
-              </div>
-              <img
-                src="/photos/hello-sunset.jpg"
-                alt={about.founderName}
-                loading="lazy"
-                className="relative aspect-[4/5] w-full rounded-lg object-cover"
-              />
-            </div>
+            <img
+              src="/photos/hello-sunset.jpg"
+              alt={about.founderName}
+              loading="lazy"
+              className="aspect-[4/5] w-full max-w-md rounded-lg object-cover md:max-w-none"
+            />
           </Reveal>
           <Reveal delay={0.25}>
             <Eyebrow className="mb-4 text-blue">{about.founderTag1}</Eyebrow>
@@ -209,8 +203,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Pain points ── Pool bg → Blue cards (DS card-contrast rule) ── */}
-      <section className="bg-pool py-20 md:py-32">
+      {/* ── Pain points ── Crema bg → Blue cards (DS card-contrast rule) ── */}
+      <section className="bg-crema py-20 md:py-32">
         <div className="mx-auto max-w-[1200px] px-5 md:px-8">
           <Reveal className="text-center">
             <h2 className="font-serif text-headline uppercase text-night">{tr.painTitle}</h2>
@@ -281,12 +275,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── Moments ── hand-drawn checker backdrop · slow photo drift (summer, travel, coffee: the brand's mood) ── */}
-      <section className="relative overflow-hidden py-10 md:py-16">
-        <PatternBg name="pink" />
-        <div className="relative">
-          <PhotoStrip photos={stripPhotos} />
-        </div>
+      {/* ── Moments ── Crema bg · slow photo drift (summer, travel, coffee: the brand's mood) ── */}
+      <section className="bg-crema py-10 md:py-16">
+        <PhotoStrip photos={stripPhotos} />
       </section>
 
       {/* ── CTA ── Blue bg · Orange accent script · Butter button ── */}

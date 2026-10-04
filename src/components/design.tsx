@@ -225,26 +225,6 @@ export const Icon = ({ name, className, style }: { name: IconName; className?: s
   );
 };
 
-/* ── Hand-drawn checker patterns ─────────────────────────── */
-
-export type PatternName = "butter" | "blue" | "pink" | "pool";
-
-/**
- * Blumaa's hand-drawn checkerboard as a section backdrop. Light cells are Crema (never white);
- * the stripe colour is the pattern's name. Use it as the first child of a `relative overflow-hidden`
- * section and keep the rest of the content `relative` so it stacks above.
- */
-export const PatternBg = ({ name, className }: { name: PatternName; className?: string }) => (
-  <img
-    src={`/patterns/${name}.jpg`}
-    alt=""
-    aria-hidden="true"
-    loading="lazy"
-    decoding="async"
-    className={cn("pointer-events-none absolute inset-0 h-full w-full select-none object-cover", className)}
-  />
-);
-
 /* ── Star bullet ─────────────────────────────────────────── */
 
 /** The real Blumaa star (never recreated with a glyph) */

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail } from "lucide-react";
-import { CtaLink, PatternBg } from "@/components/design";
+import { CtaLink } from "@/components/design";
 import { useLang } from "@/lib/LanguageContext";
 import { t } from "@/lib/translations";
 
@@ -27,10 +27,6 @@ const Footer = () => {
   return (
     /* Crema bg + Blue text — the oversized logo closes the page like Tuesday Co's wordmark */
     <footer className="bg-crema text-blue">
-      {/* Hand-drawn checker ribbon closes the page above the wordmark */}
-      <div className="relative h-24 overflow-hidden md:h-36" aria-hidden="true">
-        <PatternBg name="pool" />
-      </div>
       <div className="mx-auto max-w-[1280px] px-5 pb-8 pt-12 md:px-8 md:pt-16">
         <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:justify-between md:px-10">
           {navLinks.map((link) => (

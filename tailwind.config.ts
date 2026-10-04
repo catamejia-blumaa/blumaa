@@ -116,10 +116,6 @@ export default {
           DEFAULT:    "hsl(var(--pool-blue))",
           foreground: "hsl(var(--pool-blue-foreground))",
         },
-        pool: {
-          DEFAULT:    "hsl(var(--pool-blue))",
-          foreground: "hsl(var(--pool-blue-foreground))",
-        },
       },
       fontSize: {
         /* ── Blumaa type scale ─────────────────────────────
