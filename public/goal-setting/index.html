@@ -1,0 +1,1187 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0}</style></head><body><title>Goal Setting Playbook Blumaa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@500;700&family=Roboto+Mono:wght@500;700&family=Space+Mono:wght@400;700&family=Loved+by+the+King&family=Inter+Tight:wght@400;500;600&display=swap">
+<style>
+/* Layout: una sola columna de lectura, la tabla 9x9 en su propio contenedor con scroll horizontal. */
+:root{
+  --bg:#FFF7EE; --surface:#FFFDF9; --ink:#231F20; --muted:#5C5456; --line:#EADFCF;
+  --pri:#2644FF; --on-pri:#FFFFFF; --pri-soft:#B6ECFF; --accent:#FF8231; --on-accent:#231F20;
+  --accent-ink:#B84A06; --lemon:#FFF3C4; --sand:#FFF3C4; --pink:#FF62A1;
+  --f-display:"Instrument Serif",Georgia,serif;
+  --f-body:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Space Mono",ui-monospace,Menlo,monospace; --f-script:"Loved by the King","Segoe Script",cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:860px;margin-inline:auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,7vw,3.4rem);font-weight:700;letter-spacing:-0.02em}
+h2{font-size:clamp(1.5rem,4.5vw,2rem);font-weight:700;letter-spacing:-0.01em}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:20px;min-width:0}
+.lead{font-size:1.1rem;max-width:62ch}
+.goal{background:var(--pri);color:var(--on-pri);padding:24px;border-radius:6px;display:flex;flex-direction:column;gap:12px}
+.goal .eyebrow{color:inherit;opacity:.8}
+.goal p.big{font-family:var(--f-display);font-size:clamp(1.25rem,4vw,1.7rem);font-weight:500;line-height:1.25;text-wrap:balance}
+.levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.level{border:1px solid var(--line);background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:2px;border-radius:4px}
+.level b{font-family:var(--f-display);font-size:1.5rem}
+.level.main{border-color:var(--accent);border-width:2px}
+.level span{font-size:.9rem;color:var(--muted)}
+.islands{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.islands li{display:grid;grid-template-columns:92px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);align-items:baseline}
+.islands li:last-child{border-bottom:1px solid var(--line)}
+.islands .date{font-family:var(--f-mono);font-size:13px;color:var(--accent)}
+.islands b{font-family:var(--f-display)}
+.islands span{color:var(--muted);display:block;font-size:.95rem}
+.quads{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.quad{background:var(--surface);border:1px solid var(--line);padding:18px;border-radius:4px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.quad ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.quad h3{font-size:1rem}
+.tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+/* Mandala */
+.scroll{overflow-x:auto;border:1px solid var(--line);background:var(--surface);padding:12px;border-radius:4px}
+.mandala{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;min-width:1080px}
+.cell.act{flex-direction:column;align-items:flex-start;justify-content:flex-start;text-align:left;gap:4px;padding:7px 8px;font-size:10.5px;line-height:1.3;hyphens:manual}
+.cell.act b{font-weight:700;font-size:11px;line-height:1.2}
+.cell.act .full{font-weight:400}
+.cell.act .when{font-style:normal;font-family:var(--f-mono);font-size:9.5px;opacity:.7;margin-top:auto}
+.blk{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.cell{font-size:10.5px;line-height:1.2;text-align:center;padding:4px 3px;min-height:58px;display:flex;align-items:center;justify-content:center;background:var(--pri-soft);color:var(--ink);overflow-wrap:anywhere;hyphens:auto}
+.cell.p{background:var(--pri);color:var(--on-pri);font-weight:600}
+.cell.goal-c{background:var(--accent);color:var(--on-accent);font-weight:700;font-size:11px}
+.cell.pc{background:var(--pri);color:var(--on-pri);font-weight:600}
+.hint{font-size:.85rem;color:var(--muted)}
+/* Acciones */
+.pillar{border-top:2px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.pillar-head{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.pillar-head .n{font-family:var(--f-mono);color:var(--accent);font-size:13px}
+.pillar .desc{color:var(--muted);font-size:.95rem}
+.acts{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column}
+.acts li{border-top:1px solid var(--line)}
+.acts label{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:10px 0;cursor:pointer;align-items:start}
+.acts input{width:18px;height:18px;margin-top:3px;accent-color:var(--pri)}
+.acts .when{font-family:var(--f-mono);font-size:12px;color:var(--accent);display:block}
+.acts input:checked ~ div{opacity:.55;text-decoration:line-through}
+.acts input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.progress{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.routines{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.routines .quad ul{gap:8px}
+footer{font-size:.85rem;color:var(--muted)}
+@media (max-width:480px){.islands li{grid-template-columns:1fr;gap:2px}}
+/* Agenda por fechas */
+:root{--c1:#2644FF;--c2:#FF8231;--c3:#FF62A1;--c4:#6EC9EE;--c5:#231F20;--c6:#E8B923;--c7:#8EA0FF;--c8:#FFB48A}
+.view{display:flex;flex-direction:column;gap:56px;min-width:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab,.chip,.seg{font:inherit;font-weight:600;font-size:.92rem;padding:8px 16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;cursor:pointer}
+.tab[aria-pressed="true"],.seg[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab:focus-visible,.chip:focus-visible,.seg:focus-visible,.mc:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.controls{display:flex;flex-direction:column;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-weight:500;font-size:.85rem;padding:5px 12px;display:inline-flex;align-items:center;gap:7px}
+.chip[aria-pressed="false"]{opacity:.45}
+.row-ctl{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.row-ctl label{display:inline-flex;gap:8px;align-items:center;font-size:.92rem;cursor:pointer}
+.hoy{background:var(--surface);border:2px solid var(--accent);border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.hoy h3{font-size:1.25rem}
+.grp-title{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pri);margin:0 0 2px}
+.rows{list-style:none;margin:0;padding:0}
+.row{border-top:1px solid var(--line)}
+.row label{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:10px 0;cursor:pointer}
+.row input{width:18px;height:18px;margin-top:3px;accent-color:var(--pri)}
+.row input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.row .meta{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:center;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.row .t{font-weight:600}
+.row .det{color:var(--muted);font-size:.92rem}
+.row.ms{background:var(--pri-soft);border-top-color:transparent;border-radius:4px}
+.row.ms label{padding-inline:12px}
+.row.pub .t{font-weight:500}
+.row.is-done .t,.row.is-done .det{opacity:.55;text-decoration:line-through}
+.hide-done .row.is-done{display:none}
+.weeks{display:flex;flex-direction:column;gap:12px}
+.wk{border:1px solid var(--line);background:var(--surface);border-radius:4px}
+.wk.now{border:2px solid var(--accent)}
+.wk summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;padding:14px 16px}
+.wk summary::-webkit-details-marker{display:none}
+.wk summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.wk .wt{font-family:var(--f-display);font-weight:700;font-size:1.05rem}
+.pill{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--pri);color:var(--on-pri);padding:2px 8px;border-radius:999px}
+.pill.now{background:var(--accent);color:var(--on-accent)}
+.cnt{margin-left:auto;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.wk .body{padding:0 16px 14px;display:flex;flex-direction:column;gap:14px}
+.strip{font-size:.88rem;color:var(--muted);background:var(--bg);padding:10px 12px;border-radius:4px}
+.dayh{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pri);margin:0 0 2px}
+.dayh.tday{color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
+.months{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.month{display:flex;flex-direction:column;gap:8px;min-width:0}
+.mgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.mh{font-family:var(--f-mono);font-size:11px;color:var(--muted);text-align:center}
+.mc{min-height:44px;font:inherit;font-size:13px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;padding:4px 0;border-radius:4px;border:1px solid transparent;background:transparent;color:var(--ink)}
+.mc.off{opacity:.35}
+button.mc{cursor:pointer;background:var(--surface);border-color:var(--line)}
+button.mc.today{border:2px solid var(--accent)}
+button.mc.sel{background:var(--pri);color:var(--on-pri);border-color:var(--pri)}
+.mc.alldone .dn{text-decoration:line-through;opacity:.6}
+.dots{display:flex;flex-wrap:wrap;gap:2px;justify-content:center;max-width:36px;min-height:6px}
+.dots i{width:6px;height:6px;border-radius:50%;display:block}
+.dayp{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:8px}
+/* Progreso */
+.prog{display:flex;flex-direction:column;gap:10px;min-width:0}
+.prog-top{display:flex;flex-wrap:wrap;gap:2px 16px;align-items:baseline}
+.prog-big{font-family:var(--f-display);font-weight:700;font-size:1.9rem;line-height:1}
+.tl-barwrap{position:relative;display:flex;gap:3px;padding-top:18px}
+.tl-bar{height:14px;min-width:0;background:var(--pri-soft);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.tl-fill{height:100%;width:0;background:var(--pri)}
+.tl-now{position:absolute;top:12px;bottom:0;width:2px;background:var(--accent);z-index:1}
+.tl-now span{position:absolute;top:-14px;left:-10px;font-family:var(--f-mono);font-size:11px;color:var(--ink)}
+.tl-labs{display:flex;gap:3px}
+.tl-lab{min-width:0;font-family:var(--f-mono);font-size:11px;line-height:1.4;color:var(--muted)}
+.tl-lab b{color:var(--ink);font-weight:500}
+.cell.done{opacity:.5;text-decoration:line-through}
+@media (prefers-reduced-motion:no-preference){.cell{transition:transform .15s}.cell:hover{transform:scale(1.04)}}
+/* Paleta: azul marino principal, naranja acento, cielo y mantequilla secundarios, cream de fondo
+   Fuentes: Righteous (título), Cal Sans (subtítulos), Inter Tight (texto), Caveat Brush (detalles) */
+/* */
+h1,h2,h3,.wk .wt,.prog-big,.level b{color:var(--pri);font-weight:400}
+.goal h1,.goal h2,.goal h3{color:var(--on-pri)}
+.goal p.big,.islands b{font-weight:400}
+.islands .date,.pillar-head .n,.acts .when{color:var(--accent-ink)}
+.eyebrow,.tag,.islands .date,.pillar-head .n,.acts .when,.progress,.grp-title,.row .meta,.pill,.cnt,.dayh,.mh,.tl-lab,.tl-now span{text-transform:none;letter-spacing:.01em;font-size:16px;line-height:1.3}
+.mh,.tl-lab,.tl-now span,.row .meta{font-size:15px}
+.tab[aria-pressed="true"],.seg[aria-pressed="true"]{background:var(--pri);border-color:var(--pri);color:var(--on-pri)}
+.row.ms{background:var(--lemon)}
+.strip{background:var(--pri-soft)}
+.level{background:var(--sand)}
+.hoy,.wk.now,button.mc.today{border-color:var(--accent-ink)}
+.tl-now{background:var(--accent-ink)}
+.level.main{background:var(--lemon)}
+.cell.goal-c{background:var(--accent)}
+.cell.p,.cell.pc{background:var(--pri)}
+.tl-bar{background:var(--sand)}
+.dayh.tday{color:var(--pri)}
+/* Cajas: esquinas de 30px e interior cream más claro */
+.goal,.level,.quad,.scroll,.hoy,.wk,.dayp{border-radius:30px}
+.goal{padding:30px}
+.level{padding:18px 24px;background:var(--surface)}
+.level.main{background:var(--lemon)}
+.quad{padding:24px 26px}
+.scroll{padding:18px}
+.hoy,.dayp{padding:24px}
+.wk summary{padding-inline:24px}
+.wk .body{padding-inline:24px}
+.row.ms,.strip,.mc{border-radius:16px}
+.tl-bar{border-radius:999px}
+/* Diseño Blumaa: serif condensada en títulos, mono en etiquetas, manuscrita naranja en acentos */
+h1,h2{text-transform:uppercase}
+h1{font-size:clamp(2.6rem,10vw,4rem);line-height:1}
+h2{font-size:clamp(2rem,7vw,2.8rem);line-height:1.02}
+h3{font-size:1.7rem}
+.wk .wt{font-size:1.45rem}.level b{font-size:2rem}.prog-big{font-size:2.8rem}.islands b{font-size:1.3rem}
+.goal p.big{font-size:clamp(1.6rem,5.2vw,2.2rem);line-height:1.12}
+.eyebrow,.tag,.progress,.grp-title,.row .meta,.pill,.cnt,.dayh,.mh,.tl-lab,.islands .date,.pillar-head .n,.acts .when{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.07em;font-size:11px;line-height:1.45}
+.mh,.tl-lab,.tl-now span{font-size:10.5px}
+.eyebrow{color:#FF8231;font-weight:700;font-size:12px}
+.goal .eyebrow{color:inherit}
+.pillar-head .n,.islands .date{font-family:var(--f-script);text-transform:none;letter-spacing:0;font-size:26px;color:var(--accent-ink);line-height:1}
+.acts .when{color:var(--accent-ink)}
+.tab,.chip,.seg{font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:.04em}
+.row.ms,.strip,.level.main{background:var(--lemon)}
+.level{background:var(--surface)}
+.tl-bar{background:var(--lemon)}
+.pill{background:var(--pri)}
+.pill.now{background:var(--accent)}
+/* Fechas en naranja */
+.islands .date,.acts .when,.dayh,.row .meta .dt{color:#FF8231}
+.dayh.tday{color:var(--pri)}
+.tl-lab,.tl-now span{font-family:var(--f-script);text-transform:none;letter-spacing:0;font-size:17px;line-height:1.2}
+.tl-lab b{color:#FF8231;font-weight:400}
+.tag{color:var(--pri)}
+.islands b{color:var(--pri)}
+h1 em{font-style:italic}
+.tl-now span{font-family:"DM Sans",system-ui,sans-serif;font-weight:700;font-size:13px;text-transform:none;letter-spacing:0}
+.goal p.big em{font-style:italic;color:#FFF3C4}
+.quad{border:1.5px solid var(--pri)}
+.pillar-head .n{color:var(--pri)}
+.tab[aria-pressed="true"]{background:#FF8231;border-color:#FF8231;color:#231F20}
+.tab[aria-pressed="true"]{color:#FFF3C4}
+#tab-agenda[aria-pressed="true"]{background:var(--pri);border-color:var(--pri);color:#FFF3C4}
+.cell{background:#FFF3C4}
+.cell{border-radius:15px}
+.cell.p,.cell.pc{background:#FF62A1;color:#231F20}
+.cell.p,.cell.pc{border-radius:5px}
+.cell.goal-c{border-radius:5px}
+.cell.pc{background:var(--pri);color:#FFFFFF}
+h2 .or{color:#FF8231}
+h2 em{font-style:italic}
+.pillar-head .n{color:#FF8231}
+.acts .when{color:#FF62A1;font-weight:700}
+.cell.p{background:var(--pri);color:#FFFFFF}
+.cell.pc{background:#FF62A1;color:#231F20}
+#pillars > div.pillar{border-top:0;border-radius:30px;padding:26px 24px}
+#pillars > div.pillar:nth-of-type(odd){background:var(--surface)}
+#pillars > div.pillar:nth-of-type(even){background:#FFF3C4}
+#rutinas h3{font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-weight:700;font-size:1.05rem;letter-spacing:0;text-transform:none}
+.tl-lab b{font-family:"Roboto Mono",ui-monospace,Menlo,monospace;font-weight:700;font-size:13px;letter-spacing:0}
+.tl-lab{font-family:"DM Sans",system-ui,sans-serif;font-size:14px;font-weight:500}
+#view-agenda > section:first-of-type{border:2px solid var(--pri);border-radius:30px;padding:24px;background:var(--surface)}
+#view-agenda .hoy,#view-agenda .wk,#view-agenda .dayp,#view-agenda button.mc,#view-agenda .tab,#view-agenda .chip,#view-agenda .seg{border:1.5px solid var(--pri)}
+#view-agenda .wk.now,#view-agenda .hoy,#view-agenda button.mc.today{border-width:3px}
+#view-agenda .wk.now,#view-agenda button.mc.today{border-color:var(--pri)}
+#view-agenda .row,#view-agenda .acts li{border-top-color:#FFF3C4}
+#view-agenda .dayh,#view-agenda .dayh.tday,#view-agenda .row .meta .dt,#view-agenda .dayp h3{color:#FF8231}
+/* Color por isla: 1 celeste, 2 rosa, 3 naranja */
+.tl-barwrap .tl-bar:nth-child(1) .tl-fill,.pill.isl1{background:#B6ECFF}
+.tl-barwrap .tl-bar:nth-child(2) .tl-fill,.pill.isl2{background:#FF62A1}
+.tl-barwrap .tl-bar:nth-child(3) .tl-fill,.pill.isl3{background:#FF8231}
+.pill.isl1,.pill.isl2,.pill.isl3{color:#231F20}
+.tl-labs .tl-lab b{display:inline-block;color:#231F20;padding:1px 8px;border-radius:999px;margin-bottom:2px}
+.tl-labs .tl-lab:nth-child(1) b{background:#B6ECFF}
+.tl-labs .tl-lab:nth-child(2) b{background:#FF62A1}
+.tl-labs .tl-lab:nth-child(3) b{background:#FF8231}
+#view-agenda .wk,#view-agenda .wk.now{border-color:#FFF7EE;background:#FFF3C4}
+/* Agenda con el mismo diseño que el mandala: cajas alternando cream y mantequilla, esquinas de 30px */
+#view-agenda .wk{border:0;border-radius:30px}
+#view-agenda .wk:nth-of-type(odd){background:var(--surface)}
+#view-agenda .wk:nth-of-type(even){background:#FFF3C4}
+#view-agenda .wk.now{border:3px solid var(--pri)}
+#view-agenda .wk summary{padding:20px 26px}
+#view-agenda .wk .body{padding:0 26px 22px}
+#view-agenda .strip{background:var(--pri-soft);border-radius:16px}
+#view-agenda .hoy,#view-agenda .dayp{border:1.5px solid var(--pri);border-radius:30px;background:var(--surface);padding:24px 26px}
+#view-agenda .row.ms{background:#FFF3C4}
+#view-agenda .wk:nth-of-type(even) .row.ms{background:var(--surface)}
+#view-agenda .month{background:var(--surface);border:1.5px solid var(--pri);border-radius:30px;padding:20px}
+.save-btn{margin-left:auto;font-family:var(--f-mono);font-weight:700;font-size:13px;padding:8px 22px;border-radius:999px;border:0;background:var(--pri);color:#FFF3C4;cursor:pointer}
+.save-btn:hover{background:#FF8231;color:#231F20}
+.save-btn:focus-visible{outline:2px solid #FF8231;outline-offset:2px}
+.cell.done{background:var(--pri-soft);opacity:1;text-decoration:line-through;text-decoration-color:rgba(35,31,32,.55)}
+
+#view-arranque > section:first-of-type{border:2px solid var(--pri);border-radius:30px;padding:24px;background:var(--surface)}
+#view-arranque .wk{border:1.5px solid var(--pri);background:#FFF3C4;border-color:#FFF7EE}
+#view-arranque .wk.now{border:3px solid var(--pri)}
+#view-arranque .row{border-top-color:#FFF3C4}
+#view-arranque .pill:not(.now){background:#B6ECFF;color:#231F20}
+#view-arranque .row .meta{color:#FF8231}
+.view[hidden]{display:none}
+
+.pr-row{display:grid;grid-template-columns:130px 1fr auto;gap:12px;align-items:center;margin-bottom:8px}
+.pr-l{font-family:var(--f-mono);font-size:13px;font-weight:700}
+.pr-bar{height:14px;background:#FFF3C4;border:1.5px solid var(--pri);border-radius:999px;overflow:hidden}
+.pr-fill{height:100%;width:0;background:#FF8231}
+.pr-t{font-size:.9rem;color:var(--muted);white-space:nowrap}
+.pr-bot{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+@media (max-width:520px){.pr-row{grid-template-columns:1fr auto}.pr-l{grid-column:1/-1}}
+#view-agenda > section:nth-of-type(2){border:2px solid var(--pri);border-radius:30px;padding:24px;background:var(--surface)}
+
+#tab-mapa[aria-pressed="true"]{background:var(--pri);border-color:var(--pri);color:#FFF3C4}
+.mapsum{border:2px solid var(--pri);border-radius:30px;padding:24px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.scenew{overflow-x:auto;background:#E3F6FF;padding:72px 0;width:100vw;margin-left:calc(50% - 50vw)}.scene{min-width:720px;max-width:1500px;margin:0 auto}.scene svg{width:100%;height:auto;display:block}
+body{overflow-x:hidden}
+#view-mapa{gap:32px}
+.islas{display:grid;grid-template-columns:1fr;gap:28px}
+@media (min-width:900px){.islas{grid-template-columns:repeat(3,1fr)}}
+.isla{display:flex;flex-direction:column;gap:14px;min-width:0;border:2px solid var(--pri);border-radius:30px;padding:20px;background:var(--surface)}
+.isla.now{box-shadow:6px 6px 0 var(--pri)}
+.isla.done{background:#FFF3C4}
+.isl-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.isl-h h3{margin:0}
+.isla svg{width:100%;height:auto;display:block;border-radius:22px;border:2px solid #231F20}
+.pill.okp{background:#FF8231;color:#231F20}.pill.nowp{background:#2644FF;color:#FFF3C4}.pill.lockp{background:#FFF3C4;color:#231F20}
+.stops{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.stop{display:flex;gap:10px;align-items:center;font-size:.92rem}
+.stop .sn{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid #FF62A1;background:#fff;display:grid;place-items:center;font-weight:800;font-size:12px}
+.stop.d .sn{background:#FF8231;border-color:#231F20;color:#fff}
+.stop.c .sn{background:#2644FF;border-color:#231F20;color:#fff}
+.stop.c{font-weight:700}.stop.d .st b{text-decoration:line-through;text-decoration-color:rgba(35,31,32,.5)}
+.stop .st{display:flex;flex-direction:column;min-width:0}.stop .st small{color:var(--muted)}
+.isla.locked .stops{opacity:.6}
+@media (prefers-reduced-motion:no-preference){.pulse{animation:pls 1.6s ease-out infinite;transform-origin:center;transform-box:fill-box}@keyframes pls{0%{opacity:1;transform:scale(.9)}100%{opacity:0;transform:scale(1.5)}}}
+h1 em{color:#FF8231;font-weight:700}
+</style><style>
+#importar{margin-top:8px;max-width:640px;margin-inline:auto;display:flex;flex-direction:column;gap:16px}
+#importar textarea{width:100%;min-height:200px;font-family:var(--f-mono);font-size:13px;line-height:1.5;padding:14px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);resize:vertical}
+#importar textarea:focus{outline:2px solid var(--pri);outline-offset:1px}
+.imp-row .save-btn{margin-left:0}
+.imp-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.imp-err{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:8px;background:#FDECEA;color:#8A1C12;font-size:.92rem}
+.ghost-btn{font-family:var(--f-body);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:9px 18px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.ghost-btn:hover{background:var(--ink);color:var(--bg)}
+.ghost-btn.danger{border-color:#B3261E;color:#B3261E}
+.ghost-btn.danger:hover{background:#B3261E;color:#fff}
+.demo-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:12px 16px;border-radius:8px;background:var(--lemon);color:var(--ink);font-size:.92rem;margin-bottom:24px}
+.demo-btns{display:flex;flex-wrap:wrap;gap:8px}
+.isl-bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.isl-bar i{display:block;height:100%;background:var(--pri);border-radius:999px;transition:width .3s}
+#app{display:flex;flex-direction:column;gap:56px}
+[hidden]{display:none!important}
+footer .reset{margin-top:12px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+</style>
+
+
+<div class="wrap">
+
+<header style="display:flex;flex-direction:column;gap:14px">
+  <p class="eyebrow" id="hd-eyebrow">Goal Setting · @blumaa_branding</p>
+  <h1>Goal Setting <em>Playbook Blumaa</em></h1>
+  <p class="lead" id="hd-lead"></p>
+</header>
+
+<section id="importar" hidden>
+  <p class="eyebrow">Último paso</p>
+  <h2>Pega tu plan</h2>
+  <p class="lead">Al terminar la entrevista recibes un bloque de texto que empieza con { y termina con }. Pégalo aquí y tu página se arma sola.</p>
+  <textarea id="imp-txt" rows="10" spellcheck="false" autocomplete="off" placeholder='{ "v": 1, "inicio": "2026-10-10", ... }' aria-label="Bloque de datos de tu plan"></textarea>
+  <p class="imp-err" id="imp-err" role="alert" hidden></p>
+  <div class="imp-row"><button class="save-btn" id="imp-go" type="button">Crear mi página</button><button class="ghost-btn" id="imp-demo" type="button">Ver un ejemplo</button></div>
+  <p class="hint" id="imp-status"></p>
+</section>
+
+<div id="app" hidden>
+<div class="demo-bar" id="demo-bar" hidden><span>Estás viendo un ejemplo. No se guarda nada.</span><span class="demo-btns"><button class="ghost-btn" id="demo-paste" type="button">Pegar mi plan</button><button class="ghost-btn" id="demo-keep" type="button">Usar este ejemplo como mío</button></span></div>
+
+<nav class="tabs" aria-label="Vistas">
+  <button class="tab" type="button" id="tab-mapa" aria-pressed="true">Mapa de islas</button>
+  <button class="tab" type="button" id="tab-mandala" aria-pressed="false">Goal Setting</button>
+  <button class="tab" type="button" id="tab-agenda" aria-pressed="false">Seguimiento</button>
+</nav>
+
+<section class="prog" id="progreso" aria-label="Progreso"></section>
+
+<div class="view" id="view-mapa"></div>
+
+<div class="view" id="view-mandala" hidden>
+<section id="meta"></section>
+<section id="hitos"></section>
+<section id="proposito"></section>
+
+<section id="tabla">
+  <h2>Tabla de Goal Setting</h2>
+  <p class="hint">Al centro la meta y los 8 pilares. Alrededor, cada pilar con sus 8 acciones. En el móvil se desliza hacia los lados.</p>
+  <div class="scroll"><div class="mandala" id="mandala" role="table" aria-label="Tabla de Goal Setting 9 por 9"></div></div>
+</section>
+
+<section id="acciones">
+  <h2>Las <em><span class="or">64</span> acciones</em></h2>
+  <p class="progress" id="total-progress">0 de 64 hechas</p>
+  <div id="pillars" style="display:flex;flex-direction:column;gap:36px"></div>
+</section>
+
+<section id="rutinas"></section>
+<section id="autoridad" hidden></section>
+<section id="resiliencia" hidden></section>
+</section>
+</div>
+
+<div class="view" id="view-agenda" hidden></div>
+
+<footer><p id="foot-txt"></p><div class="reset" id="reset-box"></div></footer>
+</div>
+</div>
+
+<script>
+var TH={"c00": "#8A5A2B", "c01": "#1F9D63", "c02": "#231F20", "c03": "#FF8231", "c04": "#231F20", "c05": "#231F20", "c06": "#4CB8F2", "c07": "#2A98D8", "c08": "#8ED3F8", "c09": "#FF62A1", "c10": "#E0447F", "c11": "#FF9CC4", "c12": "#FF8231", "c13": "#E0651A", "c14": "#FFB27A", "c15": "#9AA6FF", "c16": "#B8C0FF", "c17": "#231F20", "c18": "#FFF3C4", "c19": "#B6ECFF", "c20": "#FFF3C4", "c21": "#231F20", "c22": "#C9EDB8", "c23": "#E3F6FF", "c24": "#B6ECFF", "c25": "#231F20", "c26": "#FF8231", "c27": "#FF8231", "c28": "#231F20", "c29": "#FF8231", "c30": "#231F20", "c31": "#231F20", "c32": "#2644FF", "c33": "#FF8231", "c34": "#2644FF", "c35": "#231F20", "c36": "#FF62A1", "c37": "#FF8231", "c38": "#2644FF", "c39": "#FFF3C4", "c40": "#231F20", "c41": "#231F20", "c42": "#231F20", "c43": "#231F20", "c44": "#231F20", "c45": "#231F20", "c46": "#FF8231", "parada": "parada"};
+var EJEMPLO={"v": 1, "inicio": "2026-10-10", "fin": "2026-12-31", "meta": {"texto": "Para el **31 de diciembre** de 2026, habré completado la Isla 3 de **Cata Bandicoot: 1.000 USD ganados** con un producto digital propio.", "corta": "Isla 3: 1.000 USD"}, "niveles": [{"n": "Mínima", "v": "100 USD", "d": "Isla 2 completa"}, {"n": "Meta", "v": "1.000 USD", "d": "Isla 3 completa"}, {"n": "Soñada", "v": "3.000 USD", "d": "Isla 4"}], "hitos": [{"f": "31 oct", "t": "Isla 1: primer dólar", "d": "Romper el bloqueo de que no puedo ganar plata por redes."}, {"f": "15 nov", "t": "Revisión de mitad de camino", "d": "Decido si la meta de 1.000 USD se mantiene o se ajusta."}, {"f": "30 nov", "t": "Isla 2: 100 USD", "d": "Unas 4 a 11 ventas según el precio."}, {"f": "31 dic", "t": "Isla 3: 1.000 USD", "d": "Unas 21 ventas a 47 USD o 10 a 97 USD."}, {"f": "ene a feb 2027", "t": "Isla 4: 3.000 USD", "d": "Candidata para después del cierre de la Isla 3."}], "proposito": {"mi_tangible": ["Con cada venta pavimento el camino para dejar mi trabajo actual y dedicarme a lo mío.", "Un día a la semana grabo todo el contenido. Otros días fijos los uso para editar y publicar.", "Dedico un rato a analizar qué se vende, cómo se vende y qué puedo mejorar o agregar.", "Con lo que gano pago mi crédito de estudio y alimento mi cuenta de libertad financiera."], "mi_intangible": ["Paso de sentirme contra una pared a tener una puerta abierta y un mundo de posibilidades.", "Al revisar mis ventas siento alivio, libertad y esperanza. Termino el día satisfecha.", "Me demuestro que yo también puedo, que puedo ser constante y terminar lo que empiezo.", "Elimino el bloqueo mental de que ganar plata por redes es imposible para mí.", "Paso de analizar a hacer, y pruebo sin esperar a sentirme lista."], "otros_tangible": ["Cada persona que me compra se lleva algo concreto en la mano, según el producto: orden para planear su contenido del mes, un siguiente paso claro o una estructura que seguir."], "otros_intangible": ["Mis clientas pasan del bloqueo, la poca claridad y el desorden a sentir alivio, claridad, tranquilidad y compañía.", "Más adelante guío a mi hermana y a mi hermano para que repliquen lo que hago, porque quiero verlos salir adelante.", "Reinis comparte conmigo el avance."]}, "pilares": [{"n": "Producto y oferta", "d": "Decidir qué vendo, a qué precio y cómo se presenta.", "a": [["Elegir producto", "Escribir 3 ideas de producto pequeño que pueda crear en un fin de semana (roadmap diario, template de Notion, quiz de arquetipos u otra), elegir una (1 a 9 USD) y escribir para quién es y qué resuelve.", "18 y 20 oct"], ["Crear versión 1", "Crear la primera versión del producto.", "24 y 25 oct"], ["Precio y descripción", "Ponerle precio y escribir su descripción.", "26 oct"], ["Publicar", "Producto publicado y listo para comprar.", "27 oct"], ["Hablar con mi público", "Hablar cada semana con 1 persona de mi público para saber qué le cuesta y qué compraría. Las 5 primeras antes del 13 nov; después sigo.", "cada semana desde 2 nov"], ["Mejora semanal", "Cada semana, una mejora al producto según lo que pregunten o digan quienes lo compran o lo prueban.", "cada semana desde 2 nov"], ["Producto Isla 2", "Decidir el producto de la Isla 2 (19 a 47 USD) con esas conversaciones y mis ventas.", "16 nov"], ["Producto Isla 3", "Decidir el producto y el precio de la Isla 3 con mis ventas y conversaciones.", "30 nov"]]}, {"n": "Contenido", "d": "El sistema semanal de Cata Bandicoot.", "a": [["Identidad visual", "Definir colores, 2 tipografías, estilo del texto en pantalla, subtítulos y portada, partiendo de mis 3 reels actuales.", "12 oct"], ["Plantillas", "Armar la plantilla de CapCut para los reels y la de Canva para los carruseles con esa identidad, y probarlas con contenido que ya publiqué.", "15 oct"], ["Una idea a la semana", "Elegir una idea central cada semana. De ella salen los reels, los carruseles, el post de LinkedIn y las stories.", "cada semana desde 12 oct"], ["Guiones de la semana", "Un bloque de 1 hora entre lunes y jueves: guiones de los 3 reels con 3 versiones de gancho, y texto de los carruseles y del post de LinkedIn.", "cada semana desde 12 oct"], ["3 reels", "Grabar, editar con la plantilla y publicar 3 reels por semana (lunes, miércoles y viernes), cada uno con una invitación concreta al final. Lanzamiento el 28 oct y cierre de la Isla 1 el 31 oct.", "cada semana desde 16 oct"], ["2 carruseles", "Publicar 2 carruseles por semana (martes y jueves) con la misma idea de la semana y una invitación al final.", "martes y jueves desde 20 oct"], ["Post de LinkedIn", "Publicar 1 post de LinkedIn por semana (miércoles) contando lo que aprendo construyendo Cata Bandicoot.", "miércoles desde 21 oct"], ["Stories", "Publicar 3 a 5 stories por semana (detrás de cámara, encuestas, preguntas) y usar una para preguntar algo a mi audiencia.", "cada semana desde 14 oct"]]}, {"n": "Audiencia", "d": "Primeros seguidores, primeros comentarios y entender quién es mi audiencia.", "a": [["10 cuentas de referencia", "Elegir 10 cuentas del nicho. Decido si las sigo o solo las guardo en una lista.", "12 oct"], ["Borrador de audiencia", "Escribir mi audiencia en 5 líneas: quién es, qué le cuesta, qué quiere lograr y dónde pasa el tiempo. Lo reviso el 15 nov.", "15 oct"], ["Bio y palabras clave", "Mejorar la bio y definir 3 palabras clave del nicho para el texto de cada reel.", "16 oct"], ["Analizar 3 reels", "Mirar 3 reels del nicho que hayan funcionado y anotar cómo empiezan y qué formato usan.", "cada semana desde 18 oct"], ["Responder", "Responder todos los comentarios y mensajes de la semana y, a partir de ahí, en menos de 24 horas.", "cada semana"], ["Quién interactúa", "Cada semana, anotar quién comentó, guardó o compartió mis piezas y qué tienen en común, para saber a quién le hablo.", "cada semana desde 18 oct"], ["Preguntar bloqueo", "Preguntar a mi audiencia qué es lo que más le bloquea, en stories o al final de un reel, y anotar las respuestas.", "2 al 13 nov"], ["Lista de frases", "Guardar las frases y preguntas que dejen mis seguidores, para elegir el producto de la Isla 2.", "cada semana desde 18 oct"]]}, {"n": "Ventas y plataforma", "d": "Dónde vendo, cómo cobro y cómo lanzo.", "a": [["Qué va dónde", "Decidir qué se vende en Beacons y qué en Squarespace, revisar comisión e IVA, y decidir si el curso va en el Squarespace actual o en uno aparte.", "17 oct"], ["Cobro y página", "Configurar el cobro en Beacons y hacer una compra de prueba. Armar la página del producto con una frase de qué resuelve, 3 beneficios, el precio y el botón de comprar, con el link en la bio.", "22 y 26 oct"], ["Consulta al gestor", "Enviar a mi gestor la pregunta sobre cómo declarar estos ingresos (IVA, autónomos y mi trabajo actual).", "16 oct"], ["Waitlist y embudo", "Crear la página de waitlist en Beacons con una frase de qué es, 3 beneficios y un campo de correo, más una pregunta: ¿qué meta quieres lograr? Mencionarla en una pieza por semana. Meta: 30 personas apuntadas y 10 respuestas el 15 nov.", "22 oct · revisión 15 nov"], ["Reel de lanzamiento", "Publicar el reel de lanzamiento con el link en la bio.", "28 oct"], ["Mostrar el producto", "Cada semana, mencionar el producto o la waitlist en al menos 1 reel o carrusel con una invitación clara, y poner el link en una story.", "cada semana desde 2 nov"], ["Producto Isla 2", "Preparar el producto de la Isla 2 con su página de venta. Venta abierta el 23 nov.", "17 al 22 nov"], ["Campaña Isla 3", "Campaña de 4 semanas con una oferta y un recordatorio por semana.", "1 al 31 dic"]]}, {"n": "Análisis y mejora", "d": "Revisar con límite de tiempo y mejorar haciendo.", "a": [["Hoja de seguimiento", "Crear la hoja con fecha, canal, pieza, vistas, comentarios, guardados, seguidores nuevos y ventas.", "14 oct"], ["Revisión semanal", "Revisión de 30 minutos con cronómetro: qué funcionó, qué no y un solo cambio para la semana siguiente. Al sonar, cierro la hoja.", "cada semana desde 18 oct"], ["Canal que funciona", "En la revisión semanal, comparar reels, carruseles, LinkedIn y stories, y repetir esa semana el formato que más movió (guardados, comentarios, seguidores).", "cada semana desde 18 oct"], ["Una mejora por semana", "Probar una sola mejora en los reels (gancho, corte, cierre) y anotar el resultado.", "desde 19 oct"], ["Reciclar mi mejor pieza", "Cada semana, convertir mi mejor reel en un carrusel o en un post de LinkedIn.", "cada semana desde 19 oct"], ["2 horas de aprendizaje", "Dos horas al mes para aprender algo que mejore la cuenta (CapCut, Edits, el curso u otro tema) y aplicarlo.", "30 oct · 27 nov · 18 dic"], ["Cierres de isla", "Revisión de 1 hora al cerrar cada isla. La revisión de mitad de camino es el 15 nov, para decidir si la meta de 1.000 USD se mantiene.", "31 oct · 15 nov · 30 nov · 31 dic"], ["Mejor y peor pieza", "En cada cierre de isla, elegir mi mejor y mi peor pieza (reel, carrusel o post) y anotar qué haría distinto.", "cada cierre de isla"]]}, {"n": "Mentalidad", "d": "Impostor, inseguridad y pasar de analizar a hacer.", "a": [["Frases del impostor", "Escribir las 3 frases del impostor que más se repiten y una respuesta corta para cada una. Las releo antes de grabar.", "11 oct"], ["Se publica lo que grabo", "Lo que grabo se publica esa semana, aunque tenga 0 vistas. Solo puedo regrabar una vez.", "desde 17 oct"], ["Gancho en 10 minutos", "En cada sesión de grabación, 10 minutos con cronómetro para elegir el gancho. Al sonar, grabo el que tengo.", "cada grabación"], ["3 cosas hechas", "Anotar 3 cosas que hice esa semana, sin mirar resultados.", "cada semana desde 11 oct"], ["Delulu semanal", "Una acción que me incomoda y que mi yo futura haría normalmente. La elijo yo y la hago antes del cierre de semana. La primera la elijo hoy y la hago antes del 18 oct.", "cada semana"], ["Versión de 5 minutos", "Cuando aparezca la parálisis, hacer la versión de 5 minutos de la tarea: abrir el archivo, escribir una línea, grabar una toma.", "desde hoy"], ["Sin métricas al publicar", "El día que publico no miro métricas. Las miro solo en la revisión semanal.", "cada semana desde 19 oct"], ["Releer cuadrantes", "Releer mis cuatro cuadrantes del propósito durante 10 minutos. En el cierre de la Isla 1, además, escribirme una carta corta sobre lo que demostré.", "31 oct · 30 nov · 31 dic"]]}, {"n": "Constancia y energía", "d": "Terminar lo que empiezo y cuidar mi tiempo junto al trabajo actual.", "a": [["Horarios en calendario", "Bloquear en el calendario los horarios fijos de la semana, dentro de mis 10 a 15 horas.", "11 oct"], ["Tope y horas reales", "Tope de 15 horas por semana. Cada dos semanas comparo mis horas reales con las previstas y ajusto el plan. En una semana pesada, el mínimo es publicar 1 reel y 1 carrusel.", "cada semana · revisión cada 2 semanas"], ["Actualizar el tablero", "Cada semana, en la revisión, actualizo el tablero: marco lo hecho, veo en qué fase de la isla estoy y cuánto falta para el cierre.", "cada semana desde 18 oct"], ["Cerrar antes de abrir", "Cerrar lo que empiezo antes de abrir algo nuevo. Máximo 1 proyecto nuevo por isla.", "siempre"], ["Mover el cuerpo", "Mover el cuerpo 3 veces por semana (gimnasio u otra cosa).", "desde 12 oct"], ["Tarde libre", "Una tarde libre por semana sin tocar la cuenta.", "cada semana"], ["Semanas cumplidas", "Medir por semanas cumplidas. Si fallo una, retomo la siguiente sin recuperar lo que se quedó atrás.", "desde 18 oct"], ["Ritual de arranque", "Antes de cada bloque de contenido: café, mi canción de concentración y escritorio despejado (2 minutos). Durante el bloque, notificaciones en silencio y solo abierto lo que necesito.", "cada bloque"]]}, {"n": "Suerte y relaciones", "d": "Pedir feedback, ayudar y compartir el avance.", "a": [["Contarle a Reinis", "Contarle a Reinis en 2 minutos lo que hice esa semana, sin pedirle que mire ni siga la cuenta.", "cada semana desde 11 oct"], ["Feedback de un reel", "Pedir feedback sobre un reel a una persona de confianza, una vez al mes.", "8 nov y luego cada mes"], ["Ayudar a alguien", "Ayudar a alguien con un consejo de branding o contenido cuando me lo pida.", "cada semana"], ["Mensaje de gracias", "Enviar un mensaje de agradecimiento a alguien.", "cada semana desde 12 oct"], ["Ordenar", "Ordenar el escritorio y las carpetas del proyecto.", "cada semana desde 11 oct"], ["Conversación entre pares", "Conversar con una persona que construye algo parecido. La primera antes del 31 oct, luego una al mes.", "31 oct · nov · dic"], ["Hermana y hermano", "Una conversación al mes con mi hermana o mi hermano sobre lo que estoy aprendiendo.", "desde 1 dic"], ["Pruebas de que sí", "Guardar en una carpeta los comentarios y mensajes bonitos, y revisarla en cada cierre de isla.", "desde hoy"]]}], "rutinas": {"intro": "Ritmo fijo: publico reels lunes, miércoles y viernes, carruseles martes y jueves, y un post de LinkedIn el miércoles. Grabar y editar van en el día que elija cada semana. La revisión cae en un día de cierre, con el domingo como sugerencia.", "diarias": ["Responder comentarios y mensajes, 5 minutos. A partir de los primeros, en menos de 24 horas.", "Lunes, miércoles y viernes: publicar el reel del día. Martes y jueves: el carrusel. Miércoles: el post de LinkedIn.", "Una o dos stories al día, 3 a 5 por semana como mínimo.", "Antes de cada bloque de contenido: ritual de arranque (café, mi canción, escritorio despejado) y notificaciones en silencio.", "Cuando aparezca la parálisis: hacer la versión de 5 minutos de la tarea.", "Guardar en \"pruebas de que sí\" los comentarios y mensajes bonitos cuando lleguen."], "semanales": ["Elegir la idea de la semana.", "Un bloque de 1 hora entre lunes y jueves para los guiones de los 3 reels (3 versiones de gancho), los carruseles y el post de LinkedIn.", "Preparar los 2 carruseles y el post de LinkedIn (unas 2 horas).", "Un día a elegir para grabar 3 reels (unas 3 horas).", "Un día a elegir para editar con la plantilla y programar.", "Revisión de 30 minutos con cronómetro, un solo cambio para la semana siguiente y una mejora a probar. En la misma sesión actualizo el tablero y anoto quién interactuó con mis piezas.", "Anotar 3 cosas que hice, sin mirar resultados.", "Una acción Delulu, elegida por mí antes de que acabe la semana.", "Mover el cuerpo 3 veces y una tarde libre sin tocar la cuenta.", "Contarle a Reinis en 2 minutos lo que hice, ayudar a alguien si me lo pide y mandar un mensaje de agradecimiento.", "Analizar 3 reels del nicho, guardar frases y preguntas de mi audiencia, actualizar la lista de herramientas y ordenar el escritorio."], "mensuales": ["Dos horas de aprendizaje: 30 oct, 27 nov y 18 dic.", "Pedir feedback de un reel a una persona de confianza, la primera vez el 8 nov.", "Conversar con alguien que construye algo parecido y, desde diciembre, con mi hermana o mi hermano.", "Cada dos semanas: comparar mis horas reales con las previstas (25 oct, 8 nov, 22 nov, 6 dic y 20 dic).", "Cierres de isla el 31 oct, 30 nov y 31 dic: revisión de 1 hora, mejor y peor pieza, y releer mis cuatro cuadrantes.", "Revisión de mitad de camino el 15 nov."], "nota": "Total estimado: 10 a 12 horas por semana, dentro de mis 10 a 15. Tope de 15. En una semana pesada de trabajo, el mínimo es publicar 1 reel y 1 carrusel."}, "islas": [{"t": "Isla 1", "goal": "Primer dólar", "when": "10 al 31 oct", "nodes": [{"k": "setup"}, {"k": "week", "s": "2026-10-12"}, {"k": "ms", "id": "p0a0-2", "l": "Elegir producto", "d": "20 oct"}, {"k": "ms", "id": "p3a3-1", "l": "Crear la waitlist", "d": "22 oct"}, {"k": "week", "s": "2026-10-19"}, {"k": "ms", "id": "p0a3", "l": "Publicar el producto", "d": "27 oct"}, {"k": "ms", "id": "p3a4", "l": "Reel de lanzamiento", "d": "28 oct"}, {"k": "week", "s": "2026-10-26"}, {"k": "ms", "id": "x-c1", "l": "Cierre de la Isla 1: primer dólar", "d": "31 oct", "end": true}], "hasta": "2026-10-31", "cartel": "$1"}, {"t": "Isla 2", "goal": "100 USD", "when": "1 al 30 nov", "nodes": [{"k": "week", "s": "2026-11-02"}, {"k": "week", "s": "2026-11-09"}, {"k": "ms", "id": "p3a3-2", "l": "Revisión de la waitlist", "d": "15 nov"}, {"k": "week", "s": "2026-11-16"}, {"k": "ms", "id": "x-venta2", "l": "Abrir la venta", "d": "23 nov"}, {"k": "week", "s": "2026-11-23"}, {"k": "ms", "id": "x-c2", "l": "Cierre de la Isla 2: 100 USD", "d": "30 nov", "end": true}], "hasta": "2026-11-30", "cartel": "$100"}, {"t": "Isla 3", "goal": "1.000 USD", "when": "1 al 31 dic", "nodes": [{"k": "ms", "id": "p3a7", "l": "Campaña de 4 semanas", "d": "1 dic"}, {"k": "week", "s": "2026-11-30"}, {"k": "week", "s": "2026-12-07"}, {"k": "week", "s": "2026-12-14"}, {"k": "week", "s": "2026-12-21"}, {"k": "week", "s": "2026-12-28"}, {"k": "ms", "id": "x-c3", "l": "Cierre de la Isla 3: 1.000 USD", "d": "31 dic", "end": true}], "hasta": "2026-12-31", "cartel": "$1.000"}, {"t": "Isla 4", "goal": "3.000 USD", "when": "ene a feb 2027", "nodes": [], "future": true, "cartel": ""}], "arranque": [{"k": "ics1", "d": "2026-10-11", "t": "Importar cata-bandicoot.ics en Google Calendar", "det": "Si ya tenías la versión anterior, bórrala antes para no duplicar."}, {"k": "ics2", "d": "2026-10-11", "t": "Importar bloques-contenido.ics", "det": "Los bloques de guiones, grabación, edición y carruseles de la mañana."}, {"k": "notion", "d": "2026-10-11", "t": "Abrir el tracker de Notion y borrar la fila sobrante \"Carta Isla 1\"", "det": "Comprobar que se ven las vistas por isla y por pilar."}, {"k": "ritual", "d": "2026-10-12", "t": "Elegir mi canción y mi ritual de arranque", "det": "Café, canción de concentración y escritorio despejado."}, {"k": "pruebas", "d": "2026-10-12", "t": "Crear la carpeta \"pruebas de que sí\"", "det": "Para guardar comentarios y mensajes bonitos."}, {"k": "tools", "d": "2026-10-14", "t": "Dejar CapCut y Canva listos", "det": "Cuentas abiertas, fuentes y colores a mano."}, {"k": "espacio", "d": "2026-10-15", "t": "Dejar el espacio de grabación listo", "det": "Luz, fondo y soporte del celular."}, {"k": "linkedin", "d": "2026-10-18", "t": "Revisar mi perfil personal de LinkedIn", "det": "Foto, titular y enlace, antes del primer post del 21 oct."}, {"k": "beacons", "d": "2026-10-19", "t": "Crear la cuenta en Beacons", "det": "Para la waitlist y la página de producto."}], "habitos": [{"k": "idea", "g": "Contenido", "from": "2026-10-12", "t": "Elegir la idea de la semana", "det": "De ella salen los reels, los carruseles, el post de LinkedIn y las stories."}, {"k": "guiones", "g": "Contenido", "from": "2026-10-12", "t": "Guiones de la semana", "det": "1 hora entre lunes y jueves: 3 reels con 3 ganchos, carruseles y LinkedIn."}, {"k": "grabar", "g": "Contenido", "from": "2026-10-12", "t": "Grabar y editar", "det": "Una sesión de grabación y otra de edición con la plantilla."}, {"k": "reels", "g": "Contenido", "from": "2026-10-19", "pub": "pub-", "t": "reels", "det": "Lunes, miércoles y viernes, con una invitación al final."}, {"k": "carr", "g": "Contenido", "from": "2026-10-19", "pub": "car-", "t": "carruseles", "det": "Martes y jueves, con la idea de la semana."}, {"k": "li", "g": "Contenido", "from": "2026-10-19", "pub": "li-", "t": "post de LinkedIn", "det": "Miércoles, desde mi perfil personal."}, {"k": "stories", "g": "Contenido", "from": "2026-10-12", "t": "3 a 5 stories", "det": "Detrás de cámara, encuestas o preguntas."}, {"k": "reciclar", "g": "Contenido", "from": "2026-10-19", "t": "Reciclar mi mejor pieza", "det": "Mi mejor reel, convertido en carrusel o post de LinkedIn."}, {"k": "prod", "g": "Producto", "from": "2026-10-26", "t": "Mencionar el producto o la waitlist", "det": "En 1 reel o carrusel, y el link en una story."}, {"k": "hablar", "g": "Producto", "from": "2026-11-02", "t": "Hablar con 1 persona de mi público", "det": "Qué le cuesta y qué compraría."}, {"k": "mejora", "g": "Producto", "from": "2026-11-02", "t": "Una mejora al producto", "det": "Según lo que digan quienes lo compran o lo prueban."}, {"k": "revision", "g": "Revisión", "from": "2026-10-12", "t": "Revisión de 30 minutos", "det": "Cronómetro, un solo cambio para la semana siguiente, canal que funciona, tablero actualizado y quién interactuó."}, {"k": "cosas", "g": "Revisión", "from": "2026-10-12", "t": "Anotar 3 cosas que hice", "det": "Sin mirar resultados."}, {"k": "delulu", "g": "Yo", "from": "2026-10-12", "t": "Acción Delulu", "det": "La elijo yo y la hago antes del cierre de semana."}, {"k": "cuerpo", "g": "Yo", "from": "2026-10-12", "t": "Mover el cuerpo 3 veces", "det": "Gimnasio u otra cosa."}, {"k": "libre", "g": "Yo", "from": "2026-10-12", "t": "Una tarde libre", "det": "Sin tocar la cuenta."}, {"k": "reinis", "g": "Yo", "from": "2026-10-12", "t": "Contarle a Reinis lo que hice", "det": "En 2 minutos, sin pedirle que mire la cuenta."}, {"k": "gracias", "g": "Yo", "from": "2026-10-12", "t": "Mensaje de agradecimiento", "det": "A alguien que me ayudó o me escribió."}], "tareas": [["2026-10-10", 5, 4, {"id": "p5a4-1", "nopar": true, "t": "Elegir mi primera acción Delulu", "det": "Algo que mi yo de hoy no haría y mi yo futura haría sin pensarlo. La hago antes del 18 oct."}], ["2026-10-11", 6, 0, {}], ["2026-10-11", 5, 0, {}], ["2026-10-12", 1, 0, {}], ["2026-10-12", 2, 0, {}], ["2026-10-14", 4, 0, {}], ["2026-10-15", 1, 1, {}], ["2026-10-15", 2, 1, {}], ["2026-10-16", 0, null, {"id": "x-herr", "t": "Lista de herramientas", "det": "Anotar todo lo que uso para crear la cuenta (herramientas, plantillas, procesos). La actualizo cada semana."}], ["2026-10-16", 2, 2, {}], ["2026-10-16", 3, 2, {}], ["2026-10-17", 3, 0, {}], ["2026-10-18", 0, 0, {"id": "p0a0-1", "t": "3 ideas de producto", "det": "Escribir 3 ideas de producto pequeño que pueda crear en un fin de semana: roadmap diario, template de Notion, quiz de arquetipos u otra."}], ["2026-10-18", 5, 4, {"id": "p5a4-2", "nopar": true, "t": "Hacer mi primera acción Delulu", "det": "La que elegí el 10 oct."}], ["2026-10-20", 0, 0, {"id": "p0a0-2", "t": "Elegir producto", "det": "Elegir el primer producto (1 a 9 USD) y escribir para quién es y qué resuelve."}], ["2026-10-22", 3, 1, {"t": "Cobro de prueba", "det": "Configurar el cobro en Beacons y hacer una compra de prueba."}], ["2026-10-22", 3, 3, {"id": "p3a3-1", "t": "Crear la waitlist", "det": "Página en Beacons con una frase de qué es, 3 beneficios y un campo de correo, más la pregunta: ¿qué meta quieres lograr?"}], ["2026-10-24", 0, 1, {"t": "Crear versión 1 · día 1"}], ["2026-10-25", 0, 1, {"id": "p0a1-2", "t": "Crear versión 1 · día 2"}], ["2026-10-25", 6, 1, {"id": "p6a1-1", "t": "Comparar horas reales con las previstas", "det": "Comparo mis horas reales con las previstas y ajusto el plan."}], ["2026-10-26", 0, 2, {}], ["2026-10-26", 3, 1, {"id": "p3a1-2", "t": "Página de producto", "det": "Página en Beacons con una frase de qué resuelve, 3 beneficios, el precio y el botón de comprar. Link en la bio."}], ["2026-10-27", 0, 3, {}], ["2026-10-28", 3, 4, {"ms": true}], ["2026-10-30", 4, 5, {"id": "p4a5-1"}], ["2026-10-31", 4, null, {"id": "x-c1", "parents": ["p4a6", "p4a7"], "t": "Cierre de la Isla 1: primer dólar", "det": "Revisión de 1 hora: qué mini pasos completé, qué aprendí y qué cambio. Mejor y peor pieza. Celebro con algo pequeño.", "ms": true}], ["2026-10-31", 1, null, {"id": "x-reel1", "t": "Publicar el reel de cierre de la Isla 1", "det": ""}], ["2026-10-31", 5, 7, {"id": "p5a7-1", "det": "Releo mis cuatro cuadrantes (10 minutos) y me escribo una carta corta sobre lo que demostré."}], ["2026-10-31", 2, null, {"id": "p2a5-1", "t": "Meta: 20 seguidores", "det": "Es una guía para medir si el contenido conecta."}], ["2026-10-31", 7, 5, {"id": "p7a5-1", "note": "antes del 31 oct"}], ["2026-11-02", 0, 4, {"note": "las 5 primeras hasta el 13 nov"}], ["2026-11-02", 2, 6, {"note": "hasta el 13 nov"}], ["2026-11-02", 7, 5, {"id": "p7a5-2", "note": "este mes"}], ["2026-11-08", 7, 1, {}], ["2026-11-08", 6, 1, {"id": "p6a1-2", "t": "Comparar horas reales con las previstas", "det": "Comparo mis horas reales con las previstas y ajusto el plan."}], ["2026-11-15", 3, 3, {"id": "p3a3-2", "t": "Revisar la waitlist", "det": "Meta: 30 personas apuntadas y 10 respuestas a la pregunta de la meta. Si no se llega, ajusto el mensaje o el producto."}], ["2026-11-15", 4, null, {"id": "x-mid", "parents": ["p4a6"], "t": "Revisión de mitad de camino", "det": "Reviso mi borrador de audiencia, qué se vende y qué no, y decido si la meta de 1.000 USD se mantiene o se ajusta.", "ms": true}], ["2026-11-16", 0, 6, {}], ["2026-11-17", 3, 6, {"note": "hasta el 22 nov"}], ["2026-11-22", 6, 1, {"id": "p6a1-3", "t": "Comparar horas reales con las previstas", "det": "Comparo mis horas reales con las previstas y ajusto el plan."}], ["2026-11-23", 3, null, {"id": "x-venta2", "t": "Abrir la venta del producto de la Isla 2", "det": "Queda una semana de ventas antes del cierre de la isla."}], ["2026-11-27", 4, 5, {"id": "p4a5-2"}], ["2026-11-30", 4, null, {"id": "x-c2", "parents": ["p4a6", "p4a7"], "t": "Cierre de la Isla 2: 100 USD", "det": "Revisión de 1 hora, mejor y peor pieza. Decido el producto y el precio de la Isla 3.", "ms": true}], ["2026-11-30", 0, 7, {}], ["2026-11-30", 5, 7, {"id": "p5a7-2", "det": "Releo mis cuatro cuadrantes durante 10 minutos."}], ["2026-11-30", 2, null, {"id": "p2a5-2", "t": "Meta: 75 seguidores", "det": "Es una guía para medir si el contenido conecta."}], ["2026-12-01", 3, 7, {"note": "1 al 31 dic"}], ["2026-12-01", 7, 6, {}], ["2026-12-01", 7, 5, {"id": "p7a5-3", "note": "este mes"}], ["2026-12-06", 6, 1, {"id": "p6a1-4", "t": "Comparar horas reales con las previstas", "det": "Comparo mis horas reales con las previstas y ajusto el plan."}], ["2026-12-08", 7, 1, {"id": "p7a1-2", "note": "feedback mensual"}], ["2026-12-18", 4, 5, {"id": "p4a5-3"}], ["2026-12-20", 6, 1, {"id": "p6a1-5", "t": "Comparar horas reales con las previstas", "det": "Comparo mis horas reales con las previstas y ajusto el plan."}], ["2026-12-31", 4, null, {"id": "x-c3", "parents": ["p4a6", "p4a7"], "t": "Cierre de la Isla 3: 1.000 USD", "det": "Revisión de 1 hora, mejor y peor pieza. Defino la Isla 4, con 3.000 USD como candidata.", "ms": true}], ["2026-12-31", 5, 7, {"id": "p5a7-3", "det": "Releo mis cuatro cuadrantes durante 10 minutos."}], ["2026-12-31", 2, null, {"id": "p2a5-3", "t": "Meta: 200 seguidores", "det": "Es una guía para medir si el contenido conecta."}]], "publicaciones": [{"pre": "pub-", "t": "Publicar reel", "dias": [1, 3, 5], "desde": "2026-10-19", "excepto": ["2026-10-28"]}, {"pre": "car-", "t": "Publicar carrusel", "dias": [2, 4], "desde": "2026-10-19"}, {"pre": "li-", "t": "Publicar post de LinkedIn", "dias": [3], "desde": "2026-10-19"}], "textos": {"lead": "Cuatro islas hasta fin de año. Cada una se cierra con un número y una revisión, y la siguiente se abre sola.", "creado": "10 de octubre de 2026", "semana_nota": "En una semana pesada el mínimo es 1 reel y 1 carrusel. Si falla una semana, sigo con la siguiente sin recuperar.", "final": "Revisa el cierre de la Isla 3 y define la Isla 4.", "isla_futura": "Se define en el cierre de la Isla 3, con 3.000 USD como candidata.", "ya_metodo": {"texto": "Ya en el método (identidad visual, plantillas, hoja de seguimiento y waitlist)", "ids": ["p1a0", "p1a1", "p4a0", "p3a3"]}}};
+var LS_PLAN='goalsetting-plan-v1', LS_KEY='mandala-cata-bandicoot-v1';
+function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,v); return true; }catch(e){ return false; } }
+function lsDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function el(tag,cls,txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!==undefined)e.textContent=txt; return e;}
+function rich(node,str){ String(str==null?'':str).split('**').forEach(function(part,i){ if(!part){return;} if(i%2){ var e=document.createElement('em'); e.textContent=part; node.appendChild(e); } else { node.appendChild(document.createTextNode(part)); } }); return node; }
+var MESC=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+function pad2(n){return (n<10?'0':'')+n;}
+function isoD(d){return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());}
+function parseD(s){var a=s.split('-');return new Date(+a[0],+a[1]-1,+a[2]);}
+function addD(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);}
+function shortD(d){return d.getDate()+' '+MESC[d.getMonth()];}
+// Semanas del plan: la primera llega hasta el primer domingo; las demás van de lunes a domingo.
+function weekList(inicio,fin){
+  var S=parseD(inicio), E=parseD(fin), out=[], e0=addD(S,(7-S.getDay())%7); if(e0>E){e0=E;}
+  out.push({s:S,e:e0});
+  for(var m=addD(e0,1); m<=E; m=addD(m,7)){ var we=addD(m,6); if(we>E){we=E;} out.push({s:m,e:we}); }
+  return out;
+}
+function islandOfWeek(islas,w){
+  var mid=addD(w.s,3); if(mid>w.e){mid=w.e;} var k=isoD(mid), last=0;
+  for(var i=0;i<islas.length;i++){ if(islas[i].future){continue;} last=i; if(k<=islas[i].hasta){return i;} }
+  return last;
+}
+
+// ---- Validación del bloque de datos. Devuelve {plan} o {errors:[...]} con mensajes en español.
+function normalize(raw){
+  var errs=[], P;
+  try{ P=JSON.parse(JSON.stringify(raw)); }catch(e){ return {errors:['No pude leer el bloque.']}; }
+  if(!P||typeof P!=='object'||Array.isArray(P)){ return {errors:['El bloque no tiene el formato esperado. Tiene que empezar con { y terminar con }.']}; }
+  function str(x){ return typeof x==='string'&&x.trim().length>0; }
+  function iso(x){ return typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)&&!isNaN(parseD(x).getTime())&&isoD(parseD(x))===x; }
+  var ID=/^[A-Za-z0-9_.-]{1,40}$/;
+  if(!iso(P.inicio)){ errs.push('Falta "inicio" con formato AAAA-MM-DD.'); }
+  if(!iso(P.fin)){ errs.push('Falta "fin" con formato AAAA-MM-DD.'); }
+  if(iso(P.inicio)&&iso(P.fin)){
+    var days=(parseD(P.fin)-parseD(P.inicio))/86400000;
+    if(days<14){ errs.push('El plan tiene que durar al menos 2 semanas.'); }
+    if(days>155){ errs.push('Por ahora la página admite planes de hasta 5 meses. Este dura '+Math.round(days/30)+'.'); }
+  }
+  if(!P.meta||!str(P.meta.texto)||!str(P.meta.corta)){ errs.push('Falta la meta ("meta" con "texto" y "corta").'); }
+  if(!Array.isArray(P.niveles)||P.niveles.length!==3||P.niveles.some(function(n){return !n||!str(n.n)||!str(n.v);})){ errs.push('"niveles" tiene que traer 3 niveles: mínima, meta y soñada.'); }
+  if(!Array.isArray(P.hitos)||!P.hitos.length){ errs.push('Faltan los hitos ("hitos").'); }
+  var pr=P.proposito;
+  ['mi_tangible','mi_intangible','otros_tangible','otros_intangible'].forEach(function(k){ if(!pr||!Array.isArray(pr[k])){ errs.push('En "proposito" falta la lista "'+k+'".'); } });
+  if(!Array.isArray(P.pilares)||P.pilares.length!==8){ errs.push('La tabla 9×9 lleva 8 pilares y encontré '+(Array.isArray(P.pilares)?P.pilares.length:0)+'.'); }
+  else { P.pilares.forEach(function(pl,i){
+    if(!pl||!str(pl.n)){ errs.push('El pilar '+(i+1)+' no tiene nombre.'); return; }
+    if(!Array.isArray(pl.a)||pl.a.length!==8){ errs.push('El pilar '+(i+1)+' ("'+pl.n+'") tiene '+(Array.isArray(pl.a)?pl.a.length:0)+' acciones y cada pilar lleva 8 (8 pilares por 8 acciones son las 64).'); return; }
+    pl.a.forEach(function(a,j){ if(!Array.isArray(a)||!str(a[0])||!str(a[1])){ errs.push('La acción '+(j+1)+' del pilar '+(i+1)+' está incompleta.'); }
+      else { if(!str(a[2])){ a[2]=''; } if(a[3]!==undefined&&(!Array.isArray(a[3])||a[3].some(function(x){return !iso(x);}))){ errs.push('Las fechas de la acción '+(j+1)+' del pilar '+(i+1)+' tienen que ser AAAA-MM-DD.'); } } });
+    if(typeof pl.d!=='string'){ pl.d=''; }
+  }); }
+  var ru=P.rutinas;
+  if(!ru||['diarias','semanales','mensuales'].some(function(k){return !Array.isArray(ru[k]);})){ errs.push('Faltan las rutinas ("rutinas" con "diarias", "semanales" y "mensuales").'); }
+  else { if(typeof ru.intro!=='string'){ ru.intro=''; } if(typeof ru.nota!=='string'){ ru.nota=''; } }
+  if(P.autoridad!==undefined){ var au=P.autoridad; if(!au||!str(au.declaracion)){ errs.push('En "autoridad" falta la "declaracion".'); } else { if(!Array.isArray(au.frases)){ au.frases=[]; } au.frases=au.frases.filter(function(f){return Array.isArray(f)&&str(f[0])&&str(f[1]);}); } }
+  if(P.resiliencia!==undefined){ var re=P.resiliencia; if(!re||!Array.isArray(re.minimos)||!re.minimos.length||re.minimos.some(function(x){return !x||!str(x.p)||!str(x.m);})){ errs.push('En "resiliencia" faltan los "minimos" (cada uno con "p" y "m").'); } else if(typeof re.revision!=='string'){ re.revision=''; } }
+  if(!Array.isArray(P.islas)||P.islas.length<3){ errs.push('Necesito 3 islas ("islas") con nombre, meta, fecha de cierre y cartel.'); }
+  else { P.islas.forEach(function(is,i){
+    if(!is||!str(is.t)||!str(is.goal)){ errs.push('La isla '+(i+1)+' necesita "t" y "goal".'); return; }
+    if(!is.future&&(!iso(is.hasta)||(iso(P.fin)&&is.hasta>P.fin)||(iso(P.inicio)&&is.hasta<P.inicio))){ errs.push('La isla '+(i+1)+' necesita "hasta" con una fecha dentro del plan.'); }
+    if(!is.future&&i>0&&P.islas[i-1]&&iso(P.islas[i-1].hasta)&&iso(is.hasta)&&is.hasta<=P.islas[i-1].hasta){ errs.push('Las fechas de cierre de las islas tienen que ir en orden.'); }
+    if(typeof is.when!=='string'){ is.when=''; } if(typeof is.cartel!=='string'){ is.cartel=''; }
+  }); }
+  ['tareas','arranque','habitos','publicaciones'].forEach(function(k){ if(P[k]!==undefined&&!Array.isArray(P[k])){ errs.push('"'+k+'" tiene que ser una lista.'); } });
+  (P.arranque||[]).forEach(function(x){ if(!x||!ID.test(x.k||'')||!iso(x.d)||!str(x.t)){ errs.push('Hay una tarea de "arranque" incompleta (k, d, t).'); } });
+  (P.habitos||[]).forEach(function(x){ if(!x||!ID.test(x.k||'')||!str(x.g)||!iso(x.from)||!str(x.t)){ errs.push('Hay un hábito incompleto (k, g, from, t).'); } });
+  (P.tareas||[]).forEach(function(r){ if(!Array.isArray(r)||!iso(r[0])||typeof r[1]!=='number'||r[1]<0||r[1]>7){ errs.push('Hay una tarea con fecha o pilar inválido.'); } else if(r[3]&&r[3].id&&!ID.test(r[3].id)){ errs.push('Hay una tarea con identificador inválido.'); } });
+  (P.publicaciones||[]).forEach(function(x){ if(!x||!ID.test(x.pre||'')||!str(x.t)||!Array.isArray(x.dias)){ errs.push('Hay una publicación recurrente incompleta.'); } });
+  if(errs.length){ return {errors:errs.slice(0,6)}; }
+
+  // ---- Relleno de lo que falte
+  P.arranque=P.arranque||[]; P.habitos=P.habitos||[]; P.publicaciones=P.publicaciones||[];
+  var tx=P.textos=(P.textos&&typeof P.textos==='object')?P.textos:{};
+  if(typeof tx.lead!=='string'){ tx.lead=''; }
+  if(typeof tx.creado!=='string'||!tx.creado){ tx.creado=P.creado||''; }
+  if(typeof tx.semana_nota!=='string'){ tx.semana_nota='Si falla una semana, sigo con la siguiente sin recuperar lo que se quedó atrás.'; }
+  if(typeof tx.final!=='string'||!tx.final){ tx.final='El plan terminó. Revisa el último cierre y define lo que sigue.'; }
+  if(typeof tx.isla_futura!=='string'){ tx.isla_futura=''; }
+  if(!Array.isArray(P.tareas)){
+    P.tareas=[];
+    P.pilares.forEach(function(pl,pi){ pl.a.forEach(function(a,ai){
+      var f=Array.isArray(a[3])?a[3]:[];
+      f.forEach(function(d,k){
+        var o={}; if(f.length>1){ o.id='p'+pi+'a'+ai+'-'+(k+1); o.t=a[0]+' · '+(k+1)+' de '+f.length; o.det=a[1]; }
+        P.tareas.push([d,pi,ai,o]);
+      });
+    }); });
+  }
+  var haveId={}; P.tareas.forEach(function(r){ var o=r[3]||{}; haveId[o.id||('p'+r[1]+'a'+r[2])]=1; });
+  var wk=weekList(P.inicio,P.fin);
+  P.islas.forEach(function(is,i){
+    if(is.future||Array.isArray(is.nodes)){ return; }
+    var nodes=[]; if(i===0&&P.arranque.length){ nodes.push({k:'setup'}); }
+    wk.forEach(function(w,wi){ if(wi===0&&P.arranque.length){return;} if(islandOfWeek(P.islas,w)===i){ nodes.push({k:'week',s:isoD(w.s)}); } });
+    var cid='x-c'+(i+1);
+    nodes.push({k:'ms',id:cid,l:'Cierre de '+is.t+': '+is.goal,d:shortD(parseD(is.hasta)),end:true});
+    if(!haveId[cid]){ P.tareas.push([is.hasta,0,null,{id:cid,t:'Cierre de '+is.t+': '+is.goal,det:'Revisión de 1 hora: qué completé, qué aprendí y qué cambio.',ms:true,note:'cierre de isla'}]); haveId[cid]=1; }
+    is.nodes=nodes;
+  });
+  P.islas.forEach(function(is){ if(!Array.isArray(is.nodes)){ is.nodes=[]; } });
+  return {plan:P};
+}
+// Acepta el bloque tal como llega: con o sin ```json, con texto alrededor.
+function parseBlock(text){
+  if(!text||text.length>300000){ return {errors:['El texto está vacío o es demasiado largo.']}; }
+  var a=text.indexOf('{'), b=text.lastIndexOf('}');
+  if(a<0||b<=a){ return {errors:['No encuentro el bloque. Tiene que empezar con { y terminar con }.']}; }
+  var raw; try{ raw=JSON.parse(text.slice(a,b+1)); }catch(e){ return {errors:['El bloque está cortado o tiene un error de formato ('+String(e.message||'').slice(0,80)+'). Pídele a la herramienta que lo vuelva a escribir completo.']}; }
+  return normalize(raw);
+}
+
+function boot(PLAN,mode){
+var META = PLAN.meta.corta;
+var PILLARS = PLAN.pilares;
+var TX = PLAN.textos||{};
+(function renderStatic(){
+  var hd=document.getElementById('hd-eyebrow'); hd.textContent='Goal Setting · @blumaa_branding · inicio '+shortD(parseD(PLAN.inicio))+' '+parseD(PLAN.inicio).getFullYear();
+  var hl=document.getElementById('hd-lead'); if(TX.lead){ hl.textContent=TX.lead; } else { hl.hidden=true; }
+  var m=document.getElementById('meta'); m.appendChild(el('p','eyebrow','Meta central'));
+  var g=el('div','goal'); g.appendChild(rich(el('p','big'),PLAN.meta.texto)); g.appendChild(el('p','eyebrow','Mínima, meta y soñada')); m.appendChild(g);
+  var lv=el('div','levels'); PLAN.niveles.forEach(function(n,i){ var d=el('div','level'+(i===1?' main':'')); d.appendChild(el('span','',n.n)); d.appendChild(el('b','',n.v)); d.appendChild(el('span','',n.d||'')); lv.appendChild(d); }); m.appendChild(lv);
+  var h=document.getElementById('hitos'); h.appendChild(el('h2','','Hitos')); var ul=el('ul','islands');
+  PLAN.hitos.forEach(function(x){ var li=el('li'); li.appendChild(el('span','date',x.f||'')); var dv=el('div'); dv.appendChild(el('b','',x.t||'')); dv.appendChild(el('span','',x.d||'')); li.appendChild(dv); ul.appendChild(li); }); h.appendChild(ul);
+  var p=document.getElementById('proposito'); p.appendChild(el('h2','','Propósito')); var q=el('div','quads');
+  [['Para mí · tangible','mi_tangible'],['Para mí · intangible','mi_intangible'],['Para otros · tangible','otros_tangible'],['Para otros · intangible','otros_intangible']].forEach(function(t){
+    var d=el('div','quad'); d.appendChild(el('span','tag',t[0])); var u=el('ul'); (PLAN.proposito[t[1]]||[]).forEach(function(x){ u.appendChild(el('li','',x)); }); d.appendChild(u); q.appendChild(d); });
+  p.appendChild(q);
+  var r=document.getElementById('rutinas'); r.appendChild(el('h2','','Rutinas'));
+  if(PLAN.rutinas.intro){ r.appendChild(el('p','lead',PLAN.rutinas.intro)); }
+  var rt=el('div','routines');
+  [['Diarias','diarias'],['Semanales','semanales'],['Mensuales y de cierre','mensuales']].forEach(function(t){
+    var d=el('div','quad'); d.appendChild(el('h3','',t[0])); var u=el('ul'); (PLAN.rutinas[t[1]]||[]).forEach(function(x){ u.appendChild(el('li','',x)); }); d.appendChild(u); rt.appendChild(d); });
+  r.appendChild(rt); if(PLAN.rutinas.nota){ r.appendChild(el('p','hint',PLAN.rutinas.nota)); }
+  if(PLAN.autoridad){ var au=document.getElementById('autoridad'); au.hidden=false; au.appendChild(el('p','eyebrow','Autoridad')); au.appendChild(el('h2','','Mi declaración'));
+    var ag=el('div','goal'); rich(ag.appendChild(el('p','big')),PLAN.autoridad.declaracion); au.appendChild(ag);
+    if(PLAN.autoridad.frases.length){ au.appendChild(el('p','hint','Lo que dejo de decir y lo que digo en su lugar.')); var fq=el('div','quads');
+      PLAN.autoridad.frases.forEach(function(f){ var d=el('div','quad'); d.appendChild(el('span','tag','Dejo de decir')); d.appendChild(el('p','',f[0])); d.appendChild(el('span','tag','Digo')); d.appendChild(el('p','',f[1])); fq.appendChild(d); }); au.appendChild(fq); } }
+  if(PLAN.resiliencia){ var rs=document.getElementById('resiliencia'); rs.hidden=false; rs.appendChild(el('p','eyebrow','Resiliencia')); rs.appendChild(el('h2','','Mi plan de rescate'));
+    rs.appendChild(el('p','lead','Si una semana se me cae un pilar, hago solo esto y sigo con la siguiente.')); var rq=el('div','quads');
+    PLAN.resiliencia.minimos.forEach(function(x){ var d=el('div','quad'); d.appendChild(el('span','tag',x.p)); d.appendChild(el('p','',x.m)); rq.appendChild(d); }); rs.appendChild(rq);
+    if(PLAN.resiliencia.revision){ rs.appendChild(el('p','hint',PLAN.resiliencia.revision)); } }
+  document.getElementById('foot-txt').textContent=(TX.creado?'Plan creado el '+TX.creado+'. ':'')+(mode==='demo'?'Esto es un ejemplo: no se guarda nada.':'Las casillas se guardan en este navegador y, si tienes acceso de colaboradora, también en tu cuenta.');
+})();
+
+(function(){
+  // Tabla 9x9: el bloque central lleva la meta y los pilares; cada bloque exterior, un pilar y sus acciones.
+  var pos = [0,1,2,3,null,4,5,6,7]; // posición en la grilla 3x3 -> índice de pilar
+  var m = document.getElementById('mandala');
+  function el(tag, cls, txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!==undefined)e.textContent=txt; return e;}
+  pos.forEach(function(pi){
+    var blk = el('div','blk'); blk.setAttribute('role','row');
+    if(pi===null){
+      pos.forEach(function(pj){
+        if(pj===null){ blk.appendChild(el('div','cell goal-c',META)); }
+        else { var pc0=el('div','cell p',(pj+1)+'. '+PILLARS[pj].n); pc0.setAttribute('data-pil',pj); blk.appendChild(pc0); }
+      });
+    } else {
+      var P = PILLARS[pi], k = 0;
+      pos.forEach(function(pj){
+        if(pj===null){ var pc1=el('div','cell pc',(pi+1)+'. '+P.n); pc1.setAttribute('data-pil',pi); blk.appendChild(pc1); }
+        else { var ac=el('div','cell act'); ac.appendChild(el('b','',P.a[k][0])); ac.appendChild(el('span','full',P.a[k][1])); ac.appendChild(el('i','when',P.a[k][2])); ac.setAttribute('data-act','p'+pi+'a'+k); blk.appendChild(ac); k++; }
+      });
+    }
+    m.appendChild(blk);
+  });
+
+  // Lista de acciones con casillas guardadas solo en este navegador.
+  var KEY='mandala-cata-bandicoot-v1', saved=window.SAVED={};
+  if(mode!=='demo'){ try{ var s0=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; for(var k0 in s0){ saved[k0]=s0[k0]; } }catch(e){} }
+  function persist(){ if(mode==='demo'||window.__RESET){return;} try{ localStorage.setItem(KEY, JSON.stringify(saved)); }catch(e){} }
+  var host = document.getElementById('pillars'), total = document.getElementById('total-progress');
+  function refresh(){
+    var all=0;
+    PILLARS.forEach(function(P,i){
+      var done=0; P.a.forEach(function(_,j){ if(saved['p'+i+'a'+j]) done++; });
+      all+=done;
+      var s=document.getElementById('prog-'+i); if(s) s.textContent = done+' de 8 hechas';
+      document.querySelectorAll('[data-pil="'+i+'"]').forEach(function(c){ c.textContent=(i+1)+'. '+P.n+' · '+done+'/8'; });
+    });
+    total.textContent = all+' de 64 hechas';
+    document.querySelectorAll('[data-act]').forEach(function(c){ c.classList.toggle('done',!!saved[c.getAttribute('data-act')]); });
+  }
+  PILLARS.forEach(function(P,i){
+    var sec = el('div','pillar');
+    var head = el('div','pillar-head');
+    head.appendChild(el('span','n','Pilar '+(i+1)));
+    head.appendChild(el('h3','',P.n));
+    var pr = el('span','progress'); pr.id='prog-'+i; head.appendChild(pr);
+    sec.appendChild(head);
+    sec.appendChild(el('p','desc',P.d));
+    var ul = el('ul','acts');
+    P.a.forEach(function(a,j){
+      var id='p'+i+'a'+j;
+      var li=el('li'); var lb=document.createElement('label'); lb.htmlFor='c-'+id;
+      var cb=document.createElement('input'); cb.type='checkbox'; cb.id='c-'+id; cb.checked=!!saved[id];
+      cb.addEventListener('change',function(){ if(window.APPLY){ window.APPLY(id,cb.checked); } else { if(cb.checked) saved[id]=1; else delete saved[id]; persist(); refresh(); } });
+      var box=el('div'); box.appendChild(el('span','when',a[2])); box.appendChild(document.createTextNode(a[1]));
+      lb.appendChild(cb); lb.appendChild(box); li.appendChild(lb); ul.appendChild(li);
+    });
+    sec.appendChild(ul); host.appendChild(sec);
+  });
+  window.REFRESH_MANDALA=refresh;
+  refresh();
+})();
+
+// Arranque y hábitos semanales: se muestran dentro de la vista Seguimiento. Comparten las casillas guardadas con el resto.
+(function(){
+  var SAVED=window.SAVED||{};
+  var pad=function(n){return (n<10?'0':'')+n;};
+  var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var DOW=['dom','lun','mar','mié','jue','vie','sáb'];
+  function iso(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+  function parse(s){var a=s.split('-');return new Date(+a[0],+a[1]-1,+a[2]);}
+  function fmt(d){return DOW[d.getDay()]+' '+d.getDate()+' '+MES[d.getMonth()];}
+  function el(tag,cls,txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!==undefined)e.textContent=txt; return e;}
+  function apply(id,val){ if(!!SAVED[id]===val){return;} if(window.APPLY){window.APPLY(id,val);} else { if(val){SAVED[id]=1;}else{delete SAVED[id];} } }
+  var SETUP=PLAN.arranque||[];
+  var YM=(PLAN.textos||{}).ya_metodo;
+  var WEEK=PLAN.habitos||[];
+  var setupRows=[], weekRows={}, gridLine=null;
+  function mkRow(ids,title,det,meta){
+    var li=el('li','row'); var lb=document.createElement('label');
+    var cb=document.createElement('input'); cb.type='checkbox';
+    cb.addEventListener('change',function(){ var v=cb.checked; ids.forEach(function(x){ apply(x,v); }); });
+    var box=el('div'); if(meta){ var mt=el('div','meta'); mt.appendChild(el('span','',meta)); box.appendChild(mt); }
+    var tt=el('div','t',title); box.appendChild(tt); if(det){ box.appendChild(el('div','det',det)); }
+    lb.appendChild(cb); lb.appendChild(box); li.appendChild(lb);
+    return {cb:cb,li:li,ids:ids,tt:tt,title:title,n:ids.length};
+  }
+  var ARR={};
+  ARR.setup=function(container){
+    if(!SETUP.length){ return; }
+    container.appendChild(el('h3','','Arranque'));
+    if(YM){ gridLine=el('p','hint'); container.appendChild(gridLine); }
+    var ul=el('ul','rows');
+    SETUP.forEach(function(x){ var r=mkRow(['a-'+x.k],x.t,x.det,'para el '+fmt(parse(x.d))); setupRows.push(r); ul.appendChild(r.li); });
+    container.appendChild(ul);
+  };
+  ARR.habits=function(w,body){
+    var E=window.AGENDA_E||[], lo=iso(w.s), hi=iso(w.e), key=lo;
+    var groups={}, order=[], rows=[];
+    WEEK.forEach(function(it){
+      if(key<it.from){return;}
+      var ids, title=it.t;
+      if(it.pub){
+        ids=E.filter(function(e){ return e.pub&&e.id.indexOf(it.pub)===0&&e.d>=lo&&e.d<=hi; }).map(function(e){return e.id;});
+        if(!ids.length){return;}
+        title='Publicar '+ids.length+' '+it.t;
+      } else { ids=['w-'+key+'-'+it.k]; }
+      if(!groups[it.g]){ groups[it.g]=el('ul','rows'); order.push(it.g); }
+      var r=mkRow(ids,title,it.det,null); groups[it.g].appendChild(r.li); rows.push(r);
+    });
+    weekRows[key]=rows;
+    order.forEach(function(g){ var box=el('div'); box.appendChild(el('p','grp-title',g)); box.appendChild(groups[g]); body.appendChild(box); });
+  };
+  function paint(r){
+    var n=0; r.ids.forEach(function(x){ if(SAVED[x]){n++;} });
+    var all=n===r.ids.length;
+    r.cb.checked=all; r.li.classList.toggle('is-done',all);
+    if(r.n>1){ r.tt.textContent=r.title+(n&&!all?' · '+n+' de '+r.n:''); }
+  }
+  ARR.refresh=function(){
+    setupRows.forEach(paint);
+    Object.keys(weekRows).forEach(function(k){ weekRows[k].forEach(paint); });
+    if(gridLine&&YM){ var g=YM.ids||[], gd=0; g.forEach(function(k){ if(SAVED[k]){gd++;} }); gridLine.textContent=YM.texto+': '+gd+' de '+g.length+' hechas.'; }
+  };
+  ARR.weekCount=function(w){ var r=weekRows[iso(w.s)]||[], d=0; r.forEach(function(x){ if(x.ids.every(function(i){return !!SAVED[i];})){d++;} }); return [d,r.length]; };
+  ARR.setupCount=function(){ var d=0; SETUP.forEach(function(x){ if(SAVED['a-'+x.k]){d++;} }); return [d,SETUP.length]; };
+  window.ARR=ARR; window.REFRESH_ARRANQUE=ARR.refresh;
+})();
+
+
+// Agenda por fechas: mismas casillas que el mandala, ordenadas por día. El avance se guarda en la base de datos de la página.
+(function(){
+  var P=PILLARS, KEY='mandala-cata-bandicoot-v1', SAVED=window.SAVED||{};
+  var pad=function(n){return (n<10?'0':'')+n;};
+  var DOW=['dom','lun','mar','mié','jue','vie','sáb'];
+  var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var MESL=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  function iso(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+  function parse(s){var a=s.split('-');return new Date(+a[0],+a[1]-1,+a[2]);}
+  function add(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);}
+  function fmt(d){return DOW[d.getDay()]+' '+d.getDate()+' '+MES[d.getMonth()];}
+  function fmtS(d){return d.getDate()+' '+MES[d.getMonth()];}
+  function el(tag,cls,txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!==undefined)e.textContent=txt; return e;}
+  var START=parse(PLAN.inicio), END=parse(PLAN.fin);
+
+  // ---- Datos: cada tarea con fecha. "parents" son las acciones del mandala a las que pertenece.
+  var E=[], byDay={}, ENT={}, CHILDREN={};
+  function A(d,p,a,o){
+    o=o||{}; var hasA=(a!==null&&a!==undefined); var b=hasA?P[p].a[a]:null;
+    var e={d:d,p:p,id:o.id||('p'+p+'a'+a),t:o.t||(b?b[0]:''),det:(o.det!==undefined)?o.det:(b?b[1]:''),note:o.note||'',ms:!!o.ms,pub:!!o.pub,parents:[]};
+    if(hasA&&!o.nopar){ e.parents.push('p'+p+'a'+a); }
+    (o.parents||[]).forEach(function(x){ e.parents.push(x); });
+    E.push(e); ENT[e.id]=e;
+    e.parents.forEach(function(pid){ (CHILDREN[pid]=CHILDREN[pid]||[]).push(e.id); });
+    (byDay[d]=byDay[d]||[]).push(e);
+  }
+  (PLAN.tareas||[]).forEach(function(r){ A(r[0],r[1],r[2],r[3]); });
+  (PLAN.publicaciones||[]).forEach(function(pb){
+    for(var pd=parse(pb.desde||iso(START)); pd<=END; pd=add(pd,1)){
+      var pk=iso(pd);
+      if(pb.dias.indexOf(pd.getDay())>=0&&(pb.excepto||[]).indexOf(pk)<0){ A(pk,(typeof pb.p==='number'?pb.p:1),null,{id:pb.pre+pk,t:pb.t,det:'',pub:true}); }
+    }
+  });
+  window.AGENDA_E=E;
+  function rank(e){return e.ms?0:(e.pub?2:1);}
+  Object.keys(byDay).forEach(function(k){ byDay[k].sort(function(a,b){return rank(a)-rank(b);}); });
+
+  var weeks=weekList(PLAN.inicio,PLAN.fin);
+  weeks.forEach(function(w){ w.entries=[]; for(var d=w.s; d<=w.e; d=add(d,1)){ (byDay[iso(d)]||[]).forEach(function(x){w.entries.push(x);}); } });
+  function island(w){ return PLAN.islas[islandOfWeek(PLAN.islas,w)].t; }
+
+  var today=parse(iso(new Date())), tIso=iso(today);
+  var active=[true,true,true,true,true,true,true,true];
+  var selDay=(today>=START&&today<=END)?tIso:iso(START);
+  weeks.forEach(function(w,i){
+    if(today>=START&&today<=END){ w.open=(w.s<=today&&today<=w.e)||(w.s>today&&w.s<=add(today,7)); }
+    else if(today<START){ w.open=i<2; } else { w.open=false; }
+  });
+
+  // ---- Estado compartido: una sola función aplica cada casilla, en el mandala y en la agenda.
+  function setS(id,val){ if(val){SAVED[id]=1;}else{delete SAVED[id];} }
+  function recompute(pid){
+    var k=CHILDREN[pid]; if(!k){return;}
+    setS(pid,k.every(function(c){return !!SAVED[c];}));
+  }
+  function APPLY(id,val,src){
+    setS(id,val);
+    var parents={}, kids=CHILDREN[id];
+    if(kids){ kids.forEach(function(c){ setS(c,val); var ce=ENT[c]; if(ce){ ce.parents.forEach(function(p2){ if(p2!==id){parents[p2]=1;} }); } }); }
+    var e=ENT[id]; if(e){ e.parents.forEach(function(p2){parents[p2]=1;}); }
+    Object.keys(parents).forEach(recompute);
+    persistAll(); syncAll(!!(src&&hoyEl.contains(src)));
+  }
+  window.APPLY=APPLY;
+  function syncAll(skipHoy){
+    document.querySelectorAll('[data-sid]').forEach(function(i){ var v=!!SAVED[i.getAttribute('data-sid')]; i.checked=v; var li=i.closest('li'); if(li){li.classList.toggle('is-done',v);} });
+    document.querySelectorAll('#view-mandala input[type=checkbox]').forEach(function(i){ if(i.id.indexOf('c-')===0){ i.checked=!!SAVED[i.id.slice(2)]; } });
+    if(window.REFRESH_MANDALA){window.REFRESH_MANDALA();}
+    if(window.REFRESH_ARRANQUE){window.REFRESH_ARRANQUE();}
+    updateCounts(); renderGrid(); if(!skipHoy){renderHoy();}
+  }
+
+  // ---- Guardado: copia local y base de datos de la página (sobrevive entre días y dispositivos).
+  var dbRef=null, dirty=false, writing=false, timer=null, statusEl=null;
+  function setStatus(t){ if(statusEl){statusEl.textContent=t;} }
+  function saveLocal(){ if(mode==='demo'||window.__RESET){return;} try{localStorage.setItem(KEY,JSON.stringify(SAVED));}catch(x){} }
+  function persistAll(){ saveLocal(); dirty=true; setStatus('Guardando...'); clearTimeout(timer); timer=setTimeout(flush,500); }
+  function hhmm(){ var d=new Date(); return pad(d.getHours())+':'+pad(d.getMinutes()); }
+  function saveNow(){ clearTimeout(timer); saveLocal(); if(!dbRef){ setStatus('Guardado en este navegador a las '+hhmm()+'.'); return; } dirty=true; setStatus('Guardando...'); flush(); }
+  document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='hidden'){ saveLocal(); if(dirty){ clearTimeout(timer); flush(); } } });
+  window.addEventListener('pagehide',function(){ saveLocal(); if(dirty){ flush(); } });
+  function flush(){
+    if(!dbRef||writing||!dirty||window.__RESET){return;}
+    writing=true; dirty=false;
+    var copy={}; Object.keys(SAVED).forEach(function(k){ if(SAVED[k]){copy[k]=1;} });
+    dbRef.set({done:copy,plan:(mode==='plan'?JSON.stringify(PLAN):''),updated:new Date().toISOString()}).then(function(){
+      writing=false; if(dirty){flush();} else { setStatus('Guardado en la nube a las '+hhmm()+'.'); }
+    }).catch(function(){
+      writing=false; dirty=true; setStatus('No se pudo guardar en la nube. Tu avance sigue en este navegador y se reintenta al marcar la siguiente casilla.');
+    });
+  }
+  function applyRemote(d){
+    var rk=Object.keys(d).filter(function(k){return d[k];}), lk=Object.keys(SAVED);
+    var same=rk.length===lk.length&&rk.every(function(k){return SAVED[k];});
+    if(same){return;}
+    lk.forEach(function(k){delete SAVED[k];}); rk.forEach(function(k){SAVED[k]=1;});
+    saveLocal(); syncAll();
+  }
+  function connectDb(){
+    var local='Tu avance se guarda solo en este navegador.';
+    if(mode==='demo'){ setStatus('Es un ejemplo: no se guarda nada.'); return; }
+    if(!window.claude||!window.claude.use){ setStatus(local); return; }
+    Promise.all([window.claude.use('db'),window.claude.use('user')]).then(function(r){
+      var db=r[0], user=r[1];
+      if(!db||!user){ setStatus(local); return; }
+      return Promise.resolve(user.id()).then(function(uid){
+        if(!uid){ setStatus(local); return; }
+        return Promise.resolve(user.can?user.can('data.write'):null).then(function(cw){
+          if(cw===false){ setStatus(local+' Para guardar también en la nube hace falta acceso de colaboradora.'); return; }
+          dbRef=db.collection('data/users/'+uid).doc('goalsetting'); window.CLOUD_REF=dbRef;
+          if(dirty){flush();}
+          dbRef.onSnapshot(function(snap){
+            if(dirty||writing){return;}
+            if(snap.exists){ var dd=snap.data(); applyRemote((dd&&dd.done)||{}); setStatus('Tu avance se guarda en la nube y se sincroniza entre dispositivos.'); }
+            else if(!snap.metadata.fromCache){
+              if(Object.keys(SAVED).length){ persistAll(); }
+              else if(mode==='legacy'){
+                Promise.resolve(user.isOwner()).then(function(own){ if(!own){return;} return db.doc('progress/main').get().then(function(o){ if(o&&o.exists){ var od=o.data(); if(od&&od.done){ applyRemote(od.done); persistAll(); } } }); }).catch(function(){});
+              }
+              setStatus('Tu avance se guarda en la nube y se sincroniza entre dispositivos.');
+            }
+          },function(){ setStatus('No se pudo conectar con la nube. '+local); });
+        });
+      });
+    }).catch(function(){ setStatus(local); });
+  }
+
+  // ---- Progreso: arranque y acciones del método
+  var progEl=document.getElementById('progreso');
+  function prow(label){
+    var r=el('div','pr-row'); r.appendChild(el('span','pr-l',label));
+    var bar=el('div','pr-bar'); bar.setAttribute('role','progressbar'); bar.setAttribute('aria-label',label); bar.setAttribute('aria-valuemin','0'); bar.setAttribute('aria-valuemax','100');
+    var f=el('div','pr-fill'); bar.appendChild(f); r.appendChild(bar);
+    var t=el('span','pr-t'); r.appendChild(t); progEl.appendChild(r);
+    return {bar:bar,fill:f,txt:t};
+  }
+  var prA=prow('Arranque'), prM=prow('Goal Setting');
+  var pBot=el('div','pr-bot'); var saveBtn=el('button','save-btn','Guardar'); saveBtn.type='button'; saveBtn.addEventListener('click',saveNow);
+  statusEl=el('p','hint'); statusEl.id='sync-status'; statusEl.textContent='Conectando para guardar tu avance...';
+  pBot.appendChild(statusEl); pBot.appendChild(saveBtn); progEl.appendChild(pBot);
+  function setPr(o,d,t){ var p=t?Math.round(d/t*100):0; o.fill.style.width=p+'%'; o.bar.setAttribute('aria-valuenow',String(p)); o.txt.textContent=d+' de '+t+' · '+p+' %'; }
+  function renderProgress(){
+    var c=window.ARR?window.ARR.setupCount():[0,0], m64=0; prA.bar.parentNode.hidden=!c[1];
+    Object.keys(SAVED).forEach(function(k){ if(/^p\d+a\d+$/.test(k)){m64++;} });
+    setPr(prA,c[0],c[1]); setPr(prM,m64,64);
+  }
+
+  // ---- Vista
+  function row(e,showDate){
+    var li=el('li','row'+(e.ms?' ms':'')+(e.pub?' pub':'')+(SAVED[e.id]?' is-done':''));
+    var lb=document.createElement('label');
+    var cb=document.createElement('input'); cb.type='checkbox'; cb.checked=!!SAVED[e.id]; cb.setAttribute('data-sid',e.id);
+    cb.addEventListener('change',function(){ APPLY(e.id,cb.checked,cb); });
+    var box=el('div');
+    var meta=el('div','meta'); var dot=el('span','dot'); dot.style.background='var(--c'+(e.p+1)+')';
+    meta.appendChild(dot); meta.appendChild(el('span','',P[e.p].n));
+    if(showDate){ meta.appendChild(el('span','dt',fmt(parse(e.d)))); }
+    if(e.note){ meta.appendChild(el('span','',e.note)); }
+    box.appendChild(meta); box.appendChild(el('div','t',e.t));
+    if(e.det){ box.appendChild(el('div','det',e.det)); }
+    lb.appendChild(cb); lb.appendChild(box); li.appendChild(lb); return li;
+  }
+  var root=document.getElementById('view-agenda');
+  var intro=el('section'); intro.appendChild(el('h2','','Seguimiento'));
+  intro.appendChild(el('p','lead','Lo que dejo listo para empezar y lo que hago cada semana. Las casillas son las mismas que en la tabla: marcar una aquí la marca allá y al revés.'));
+  var hoyEl=el('div','hoy'); intro.appendChild(hoyEl);
+  root.appendChild(intro);
+
+  var arrSec=el('section'); if(window.ARR){ window.ARR.setup(arrSec); } if(!arrSec.childNodes.length){ arrSec.hidden=true; } root.appendChild(arrSec);
+  var ctl=el('section','controls');
+  ctl.appendChild(el('h3','','Semana a semana'));
+  if(TX.semana_nota){ ctl.appendChild(el('p','hint',TX.semana_nota)); }
+  var segs=el('div','row-ctl');
+  var bW=el('button','seg','Por semanas'); bW.type='button'; bW.setAttribute('aria-pressed','true');
+  var bM=el('button','seg','Calendario mensual'); bM.type='button'; bM.setAttribute('aria-pressed','false');
+  segs.appendChild(bW); segs.appendChild(bM);
+  var hl=el('label'); var hcb=document.createElement('input'); hcb.type='checkbox'; hcb.id='hide-done'; hcb.style.accentColor='var(--pri)';
+  hl.htmlFor='hide-done'; hl.appendChild(hcb); hl.appendChild(document.createTextNode('Ocultar hechas')); segs.appendChild(hl);
+  ctl.appendChild(segs);
+  root.appendChild(ctl);
+
+  var weeksEl=el('section','weeks'); root.appendChild(weeksEl);
+  var monthSec=el('section'); monthSec.hidden=true;
+  var dayEl=el('div','dayp'); var gridEl=el('div','months');
+  monthSec.appendChild(dayEl); monthSec.appendChild(gridEl); root.appendChild(monthSec);
+
+  bW.addEventListener('click',function(){ bW.setAttribute('aria-pressed','true'); bM.setAttribute('aria-pressed','false'); weeksEl.hidden=false; monthSec.hidden=true; });
+  bM.addEventListener('click',function(){ bM.setAttribute('aria-pressed','true'); bW.setAttribute('aria-pressed','false'); weeksEl.hidden=true; monthSec.hidden=false; });
+  hcb.addEventListener('change',function(){ root.classList.toggle('hide-done',hcb.checked); });
+
+  function group(title,list,showDate){
+    var g=el('div'); g.appendChild(el('p','grp-title',title));
+    var ul=el('ul','rows'); list.forEach(function(e){ ul.appendChild(row(e,showDate)); }); g.appendChild(ul); return g;
+  }
+  function renderHoy(){
+    hoyEl.textContent='';
+    var h=el('h3'); hoyEl.appendChild(h);
+    if(today<START){
+      h.textContent='El plan empieza el '+fmt(START);
+      hoyEl.appendChild(group('Primeros días',E.filter(function(e){return e.d<=iso(add(START,6))&&!e.pub;}),true));
+    } else if(today>END){
+      h.textContent='El plan terminó el '+fmt(END);
+      hoyEl.appendChild(el('p','',TX.final));
+    } else {
+      h.textContent='Hoy · '+fmt(today);
+      var td=byDay[tIso]||[];
+      if(td.length){ hoyEl.appendChild(group('Hoy',td,false)); } else { hoyEl.appendChild(el('p','hint','Nada con fecha para hoy. Lo de la rutina está en la lista de esta semana.')); }
+      var late=E.filter(function(e){return e.d<tIso&&!SAVED[e.id]&&!e.pub;});
+      if(late.length){ hoyEl.appendChild(group('Atrasadas',late,true)); }
+    }
+  }
+  function renderWeeks(){
+    weeksEl.textContent='';
+    weeks.forEach(function(w){
+      var det=el('details','wk'); if(w.open){det.open=true;}
+      var isNow=(today>=w.s&&today<=w.e);
+      if(isNow){det.classList.add('now');}
+      det.addEventListener('toggle',function(){ w.open=det.open; });
+      var sm=el('summary');
+      var first=(iso(w.s)===iso(START)&&(PLAN.arranque||[]).length>0);
+      sm.appendChild(el('span','wt',first?'Arranque · '+fmtS(w.s)+' y '+fmtS(w.e):'Semana del '+fmtS(w.s)+' al '+fmtS(w.e)));
+      sm.appendChild(el('span','pill isl'+Math.min(islandOfWeek(PLAN.islas,w)+1,3),island(w)));
+      if(isNow){ sm.appendChild(el('span','pill now','Esta semana')); }
+      w.cnt=el('span','cnt'); sm.appendChild(w.cnt); det.appendChild(sm);
+      var body=el('div','body');
+      if(!first&&window.ARR){ window.ARR.habits(w,body); }
+      var any=false;
+      for(var d=w.s; d<=w.e; d=add(d,1)){
+        var k=iso(d), list=(byDay[k]||[]).filter(function(e){return active[e.p]&&!e.pub;});
+        if(!list.length){continue;}
+        any=true;
+        var g=el('div'); g.appendChild(el('p','dayh'+(k===tIso?' tday':''),fmt(d)+(k===tIso?' · hoy':'')));
+        var ul=el('ul','rows'); list.forEach(function(e){ ul.appendChild(row(e,false)); }); g.appendChild(ul); body.appendChild(g);
+      }
+      if(!any&&first){ body.appendChild(el('p','hint','Sin tareas con fecha.')); }
+      det.appendChild(body); weeksEl.appendChild(det);
+    });
+    updateCounts();
+  }
+  function updateCounts(){
+    weeks.forEach(function(w){ if(w.cnt){ var n=0, t=0; w.entries.forEach(function(e){ if(e.pub){return;} t++; if(SAVED[e.id]){n++;} }); var hc=window.ARR?window.ARR.weekCount(w):[0,0]; w.cnt.textContent=(n+hc[0])+' de '+(t+hc[1]); } });
+    renderProgress(); renderMap();
+  }
+  function renderDay(){
+    dayEl.textContent='';
+    dayEl.appendChild(el('h3','',fmt(parse(selDay))));
+    var list=(byDay[selDay]||[]).filter(function(e){return active[e.p];});
+    if(!list.length){ dayEl.appendChild(el('p','hint','Sin tareas con fecha ese día.')); return; }
+    var ul=el('ul','rows'); list.forEach(function(e){ ul.appendChild(row(e,false)); }); dayEl.appendChild(ul);
+  }
+  function monthsOf(a,b){ var o=[], y=a.getFullYear(), m=a.getMonth(); while(y<b.getFullYear()||(y===b.getFullYear()&&m<=b.getMonth())){ o.push([y,m]); m++; if(m>11){m=0;y++;} } return o; }
+  function renderGrid(){
+    gridEl.textContent='';
+    monthsOf(START,END).forEach(function(ym){
+      var box=el('div','month'); box.appendChild(el('h3','',MESL[ym[1]]));
+      var g=el('div','mgrid');
+      ['L','M','X','J','V','S','D'].forEach(function(x){ g.appendChild(el('span','mh',x)); });
+      var lead=(new Date(ym[0],ym[1],1).getDay()+6)%7;
+      for(var i=0;i<lead;i++){ g.appendChild(el('span','mc')); }
+      var nd=new Date(ym[0],ym[1]+1,0).getDate();
+      for(var dn=1; dn<=nd; dn++){
+        var dt=new Date(ym[0],ym[1],dn), k=iso(dt);
+        if(dt<START||dt>END){ g.appendChild(el('span','mc off',dn)); continue; }
+        var b=el('button','mc'); b.type='button'; b.setAttribute('aria-label',fmt(dt));
+        var ents=(byDay[k]||[]).filter(function(e){return active[e.p];});
+        b.appendChild(el('span','dn',dn));
+        var dots=el('span','dots'); var seen={};
+        ents.forEach(function(e){ if(!seen[e.p]){ seen[e.p]=1; var i2=el('i'); i2.style.background='var(--c'+(e.p+1)+')'; dots.appendChild(i2); } });
+        b.appendChild(dots);
+        if(k===tIso){b.classList.add('today');}
+        if(k===selDay){b.classList.add('sel');}
+        if(ents.length&&ents.every(function(e){return SAVED[e.id];})){b.classList.add('alldone');}
+        (function(kk){ b.addEventListener('click',function(){ selDay=kk; renderGrid(); renderDay(); }); })(k);
+        g.appendChild(b);
+      }
+      box.appendChild(g); gridEl.appendChild(box);
+    });
+  }
+  // ---- Mapa de islas: cada isla es una vuelta con paradas (arranque, semanas, hitos y cierre). El avance sale de las casillas.
+  var mapRoot=document.getElementById('view-mapa');
+  var NS='http://www.w3.org/2000/svg';
+  function sv(tag,at,par){ var n=document.createElementNS(NS,tag); if(at){ for(var k in at){ n.setAttribute(k,at[k]); } } if(par){par.appendChild(n);} return n; }
+  var ISL=PLAN.islas;
+  function weekByStart(s){ for(var i=0;i<weeks.length;i++){ if(iso(weeks[i].s)===s){return weeks[i];} } return null; }
+  function nodeInfo(sp){
+    if(sp.k==='setup'){ var c=window.ARR?window.ARR.setupCount():[0,0]; var lastS=''; (PLAN.arranque||[]).forEach(function(x){ if(x.d>lastS){lastS=x.d;} }); return {l:'Arranque',d:lastS?'hasta el '+fmtS(parse(lastS)):'',n:c[0],tot:c[1],done:c[1]>0&&c[0]===c[1]}; }
+    if(sp.k==='week'){
+      var w=weekByStart(sp.s); if(!w){ return {l:'Semana',d:'',n:0,tot:0,done:false}; }
+      var n=0,t=0; w.entries.forEach(function(e){ if(e.pub){return;} t++; if(SAVED[e.id]){n++;} });
+      var hc=window.ARR?window.ARR.weekCount(w):[0,0]; n+=hc[0]; t+=hc[1];
+      return {l:'Semana del '+fmtS(w.s)+' al '+fmtS(w.e),d:'',n:n,tot:t,done:t>0&&n===t};
+    }
+    var dn=!!SAVED[sp.id]; return {l:sp.l,d:sp.d,n:dn?1:0,tot:1,done:dn,end:!!sp.end,ms:true};
+  }
+  function palm(g,x,y,sc){
+    var p=sv('g',{transform:'translate('+x+' '+y+') scale('+sc+')'},g);
+    sv('path',{d:'M0 0 C2 -14 -2 -26 3 -38',stroke:TH.c00,'stroke-width':'4',fill:'none','stroke-linecap':'round'},p);
+    [[-26,-6],[-14,-20],[10,-20],[26,-4],[0,-26]].forEach(function(o){ sv('path',{d:'M3 -38 Q'+(3+o[0]/2)+' '+(-38+o[1]-8)+' '+(3+o[0])+' '+(-38+o[1]+14),stroke:TH.c01,'stroke-width':'7','stroke-linecap':'round',fill:'none'},p); });
+  }
+  function hut(g,x,y,sc){
+    var h=sv('g',{transform:'translate('+x+' '+y+') scale('+sc+')'},g);
+    sv('rect',{x:-16,y:-14,width:32,height:16,rx:2,fill:'#FFFFFF',stroke:TH.c02,'stroke-width':'1.5'},h);
+    sv('path',{d:'M-22 -14 L0 -32 L22 -14 Z',fill:TH.c03,stroke:TH.c04,'stroke-width':'1.5','stroke-linejoin':'round'},h);
+    sv('rect',{x:-4,y:-9,width:8,height:11,fill:TH.c05},h);
+  }
+  function mountain(g,i){
+    var C=[[TH.c06,TH.c07,TH.c08],[TH.c09,TH.c10,TH.c11],[TH.c12,TH.c13,TH.c14]][i]||[TH.c15,C[2],TH.c16];
+    function pa(d,fill){ sv('path',{d:d,fill:fill,stroke:TH.c17,'stroke-width':'2.5','stroke-linejoin':'round'},g); }
+    pa('M18 298 C70 316 110 288 170 306 S270 328 330 310 S450 294 585 298 L585 330 C520 352 440 336 380 350 S240 352 170 342 S60 345 18 332 Z',TH.c18);
+    if(i<2){
+      pa('M40 304 L284 56 Q300 38 318 56 L342 104 Q372 80 402 104 L560 296 C440 322 380 296 300 316 C200 296 120 320 40 304 Z',C[0]);
+      pa('M318 56 L342 104 L372 200 L340 298 L300 314 L296 160 Z',C[1]);
+      pa('M258 86 L284 56 Q300 38 318 56 L340 102 Q326 92 316 106 Q304 90 292 106 Q278 92 258 86 Z','#FFFFFF');
+    } else {
+      pa('M90 304 L140 112 Q152 96 164 116 L240 304 Z',C[2]);
+      pa('M360 304 L438 116 Q450 96 462 116 L520 304 Z',C[2]);
+      pa('M150 306 L282 64 Q300 42 318 64 L450 306 C350 322 250 322 150 306 Z',C[0]);
+      pa('M318 64 L450 306 L330 314 L300 150 Z',C[1]);
+      pa('M254 108 L282 64 Q300 42 318 64 L346 112 Q330 100 318 116 Q304 98 292 116 Q276 100 254 108 Z','#FFFFFF');
+    }
+  }
+  function drawIsland(svg,i,locked){
+    sv('rect',{x:0,y:0,width:600,height:430,fill:TH.c19},svg);
+    [[40,40,90],[470,70,70],[60,380,70],[500,370,90],[530,200,50]].forEach(function(o){ sv('path',{d:'M'+o[0]+' '+o[1]+' q'+o[2]/4+' -8 '+o[2]/2+' 0 t'+o[2]/2+' 0',stroke:'#FFFFFF','stroke-width':'3',fill:'none','stroke-linecap':'round'},svg); });
+    sv('ellipse',{cx:300,cy:300,rx:275,ry:122,fill:TH.c20,stroke:TH.c21,'stroke-width':'2'},svg);
+    sv('ellipse',{cx:300,cy:290,rx:225,ry:92,fill:TH.c22},svg);
+    return sv('g',{},svg);
+  }
+  function wob(a){ return 5*Math.sin(a*6); }
+  function ptAt(a){ return [300+262*Math.cos(a), 266+80*Math.sin(a)+wob(a)]; }
+  function trail(a0,a1){ var d='',st=Math.max(10,Math.round(Math.abs(a1-a0)/0.05)); for(var s=0;s<=st;s++){ var a=a0+(a1-a0)*s/st, p=ptAt(a); d+=(s?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)+' '; } return d; }
+  var A0=188*Math.PI/180, A1=-8*Math.PI/180, GOALS=PLAN.islas.map(function(x){return x.cartel||'';});
+  var PLACE=[{x:300,y:335,s:1},{x:840,y:385,s:.62},{x:1195,y:405,s:.5}], PK=[300,300,300];
+  function renderMap(){
+    if(!mapRoot||!mapRoot.getAttribute('data-ready')){ return; }
+    var host=mapRoot.querySelector('.islas'), sum=mapRoot.querySelector('.mapsum'), sceneBox=mapRoot.querySelector('.scene');
+    host.textContent=''; sum.textContent=''; sceneBox.textContent='';
+    var cur=null, firstOpen=-1;
+    var infos=ISL.map(function(isl){ return isl.nodes.map(nodeInfo); });
+    var pcts=infos.map(function(a){ if(!a.length){return 0;} var t=0; a.forEach(function(x){ t+=x.done?1:(x.tot?x.n/x.tot:0); }); return Math.round(t/a.length*100); });
+    var nAll=0, tAll=0; infos.forEach(function(a,ii){ if(ISL[ii].future){return;} a.forEach(function(x){ nAll++; tAll+=x.done?1:(x.tot?x.n/x.tot:0); }); });
+    var pctAll=nAll?Math.round(tAll/nAll*100):0;
+    ISL.forEach(function(isl,i){ if(firstOpen<0&&!isl.future&&!infos[i].every(function(x){return x.done;})){ firstOpen=i; } });
+    var svg=sv('svg',{viewBox:'0 0 1380 590',role:'img','aria-label':'Mapa de las tres islas: '+GOALS.slice(0,3).join(', ')});
+    sv('rect',{x:0,y:0,width:1380,height:590,fill:TH.c23},svg);
+    [[40,60,110],[560,40,90],[1000,60,100],[60,540,100],[640,560,90],[1250,540,100],[470,250,70]].forEach(function(o){ sv('path',{d:'M'+o[0]+' '+o[1]+' q'+o[2]/4+' -9 '+o[2]/2+' 0 t'+o[2]/2+' 0',stroke:TH.c24,'stroke-width':'4',fill:'none','stroke-linecap':'round'},svg); });
+    var big=(firstOpen>=0?firstOpen:2), PL=[], gap=70, wd=0, sc=[];
+    for(var z=0;z<3;z++){ sc.push(z===big?1:.5); wd+=600*sc[z]; }
+    wd+=gap*2; var xx=(1380-wd)/2;
+    for(var z2=0;z2<3;z2++){ PL.push({s:sc[z2],x:xx+300*sc[z2],y:535-135*sc[z2]}); xx+=600*sc[z2]+gap; }
+    var bridge=sv('g',{},svg), lastEnd=null;
+    ISL.forEach(function(isl,i){
+      if(i>2){return;}
+      var inf=infos[i], done=inf.every(function(x){return x.done;}), locked=(firstOpen>=0&&i>firstOpen);
+      var curIdx=-1; if(i===firstOpen){ for(var q=0;q<inf.length;q++){ if(!inf[q].done){curIdx=q;break;} } if(curIdx>=0){ cur={i:i,q:curIdx}; } }
+      var pl=PL[i], n=inf.length, nr=Math.max(16,11/pl.s);
+      var g=sv('g',{transform:'translate('+(pl.x-300*pl.s)+' '+(pl.y-215*pl.s)+') scale('+pl.s+')',opacity:locked?'.6':'1'},svg);
+      var land=sv('g',{},g);
+      mountain(land,i);
+      var P0=ptAt(A0), P1=ptAt(A1);
+      var full=trail(A1,A0-2*Math.PI+0.0001); // vuelta completa; la parte de atrás queda detrás de la montaña
+      sv('path',{d:trail(A0,A1),stroke:TH.c25,'stroke-width':'13','stroke-linecap':'round',fill:'none'},g);
+      sv('path',{d:trail(A0,A1),stroke:'#FFFFFF','stroke-width':'10','stroke-linecap':'round',fill:'none'},g);
+      sv('path',{d:trail(A0,A1),stroke:TH.c26,'stroke-width':'10','stroke-dasharray':'14 14',fill:'none'},g);
+      var angs=[]; for(var j=0;j<n;j++){ angs.push(A0+(A1-A0)*(n>1?j/(n-1):0)); }
+      var upto=done?n-1:(curIdx>0?curIdx:0);
+      if(upto>0){ sv('path',{d:trail(A0,angs[upto]),stroke:TH.c27,'stroke-width':'10','stroke-linecap':'round',fill:'none'},g); }
+      // cartel de meta sobre la cima
+      var sg=sv('g',{},land);
+      sv('line',{x1:PK[i],y1:-8,x2:PK[i],y2:42,stroke:TH.c28,'stroke-width':'4'},sg);
+      sv('rect',{x:PK[i]-90,y:-70,width:180,height:62,rx:8,fill:done?TH.c29:'#FFFFFF',stroke:TH.c30,'stroke-width':'4'},sg);
+      sv('text',{x:PK[i],y:-26,'text-anchor':'middle','font-size':'40','font-weight':'800',fill:TH.c31},sg).textContent=GOALS[i];
+      sv('text',{x:PK[i],y:-84,'text-anchor':'middle','font-size':'30','font-weight':'800',fill:TH.c31},sg).textContent=pcts[i]+' %';
+      var nodes=sv('g',{},g);
+      inf.forEach(function(x,j){
+        var p=ptAt(angs[j]), isCur=(i===firstOpen&&j===curIdx), end=!!x.end;
+        var gn=sv('g',{transform:'translate('+p[0].toFixed(1)+' '+p[1].toFixed(1)+')'},nodes);
+        sv('title',{},gn).textContent=(j+1)+'. '+x.l+(x.d?' · '+x.d:'')+(x.tot>1?' · '+x.n+' de '+x.tot:'');
+        var R=end?nr*1.35:nr;
+        if(isCur){ sv('circle',{r:R+nr*.6,fill:'none',stroke:TH.c32,'stroke-width':'3',class:'pulse'},gn); }
+        var fill=x.done?TH.c33:(isCur?TH.c34:'#FFFFFF'), stroke=x.done||isCur?TH.c35:TH.c36;
+        if(end){ sv('polygon',{points:starPts(0,0,R*1.45,R*.8,5),fill:x.done?TH.c37:(isCur?TH.c38:TH.c39),stroke:TH.c40,'stroke-width':'2.5','stroke-linejoin':'round'},gn); }
+        else { sv('circle',{r:R,fill:fill,stroke:stroke,'stroke-width':'3'},gn); }
+        if(!end&&!x.done&&x.tot>1&&x.n>0){ var cf=2*Math.PI*R, fr=x.n/x.tot; sv('circle',{r:R,fill:'none',stroke:TH.c35,'stroke-width':'6','stroke-dasharray':(cf*fr).toFixed(1)+' '+cf.toFixed(1),transform:'rotate(-90)'},gn); }
+        sv('text',{y:nr*.35,'text-anchor':'middle','font-size':String(nr*.95),'font-weight':'800',fill:(x.done||isCur)?'#FFFFFF':TH.c41},gn).textContent=x.done?'✓':String(j+1);
+        if(isCur){
+          var pin=sv('g',{transform:'translate(0 '+(-R-nr*.9)+') scale('+(nr/14)+')'},gn);
+          sv('rect',{x:-44,y:-20,width:88,height:22,rx:11,fill:TH.c42},pin);
+          sv('path',{d:'M-6 2 L0 9 L6 2 Z',fill:TH.c43},pin);
+          sv('text',{y:-5,'text-anchor':'middle','font-size':'12','font-weight':'700',fill:'#FFFFFF'},pin).textContent='Estás aquí';
+        }
+      });
+      if(locked){ var lk=sv('g',{transform:'translate(540 20)'},g); sv('rect',{x:-16,y:-8,width:32,height:24,rx:5,fill:TH.c44},lk); sv('path',{d:'M-9 -8 v-8 a9 9 0 0 1 18 0 v8',fill:'none',stroke:TH.c45,'stroke-width':'4'},lk); }
+      // camino entre islas
+      var sp=[pl.x-300*pl.s+P0[0]*pl.s, pl.y-215*pl.s+P0[1]*pl.s], ep=[pl.x-300*pl.s+P1[0]*pl.s, pl.y-215*pl.s+P1[1]*pl.s];
+      if(lastEnd){ sv('path',{d:'M'+lastEnd[0]+' '+lastEnd[1]+' Q'+((lastEnd[0]+sp[0])/2)+' '+(Math.max(lastEnd[1],sp[1])+40)+' '+sp[0]+' '+sp[1],stroke:TH.c46,'stroke-width':'6','stroke-dasharray':'3 12','stroke-linecap':'round',fill:'none'},bridge); }
+      lastEnd=ep;
+    });
+    sceneBox.appendChild(svg);
+    // Listas por isla
+    ISL.forEach(function(isl,i){
+      var inf=infos[i], done=!isl.future&&inf.every(function(x){return x.done;}), locked=isl.future||(firstOpen>=0&&i>firstOpen);
+      var curIdx=-1; if(i===firstOpen){ for(var q=0;q<inf.length;q++){ if(!inf[q].done){curIdx=q;break;} } }
+      var card=el('article','isla'+(locked?' locked':'')+(done?' done':'')+(i===firstOpen?' now':''));
+      var hd=el('div','isl-h'); var hl=el('div'); hl.appendChild(el('p','eyebrow',isl.t+' · '+isl.when)); hl.appendChild(el('h3','',isl.goal)); hd.appendChild(hl);
+      hd.appendChild(el('span','pill '+(done?'okp':(i===firstOpen?'nowp':'lockp')),done?'Completada':(i===firstOpen?'Estás aquí':(isl.future?'Después':'Se abre al cerrar la Isla '+i))));
+      card.appendChild(hd);
+      if(inf.length){
+        var ib=el('div','isl-bar'); ib.setAttribute('role','progressbar'); ib.setAttribute('aria-valuemin','0'); ib.setAttribute('aria-valuemax','100'); ib.setAttribute('aria-valuenow',String(pcts[i])); var ibi=el('i'); ibi.style.width=pcts[i]+'%'; ib.appendChild(ibi); card.appendChild(ib);
+        card.appendChild(el('p','hint',pcts[i]+' % de la isla'));
+        var ol=el('ol','stops');
+        inf.forEach(function(x,j){
+          var li=el('li','stop'+(x.done?' d':'')+((i===firstOpen&&j===curIdx)?' c':''));
+          li.appendChild(el('span','sn',x.done?'✓':String(j+1)));
+          var tb=el('span','st'); tb.appendChild(el('b','',x.l)); var sub=[]; if(x.d){sub.push(x.d);} if(x.tot>1){sub.push(x.n+' de '+x.tot);} if(sub.length){ tb.appendChild(el('small','',sub.join(' · '))); }
+          li.appendChild(tb); ol.appendChild(li);
+        });
+        card.appendChild(ol);
+      } else { if(TX.isla_futura){ card.appendChild(el('p','hint',TX.isla_futura)); } }
+      host.appendChild(card);
+    });
+    sum.appendChild(el('p','eyebrow','Dónde estoy'));
+    if(cur){
+      var ci=infos[cur.i][cur.q], isl0=ISL[cur.i];
+      sum.appendChild(el('h2','',isl0.t+' · '+TH.parada+' '+(cur.q+1)+' de '+isl0.nodes.length));
+      sum.appendChild(el('p','lead',ci.l+(ci.d?' · '+ci.d:'')+(ci.tot>1?' · '+ci.n+' de '+ci.tot+' hechas':'')));
+      if(cur.q+1<isl0.nodes.length){ var nx=infos[cur.i][cur.q+1]; sum.appendChild(el('p','hint','Sigue: '+nx.l+(nx.d?' · '+nx.d:''))); }
+      var tot=0,dn=0; infos.forEach(function(a){ a.forEach(function(x){ tot++; if(x.done){dn++;} }); });
+      sum.appendChild(el('p','hint','Recorrido total: '+dn+' de '+tot+' paradas completadas · '+pctAll+' %.'));
+      var sb=el('div','isl-bar'); var sbi=el('i'); sbi.style.width=pctAll+'%'; sb.appendChild(sbi); sum.appendChild(sb);
+    } else { sum.appendChild(el('h2','','Las tres islas están completas')); sum.appendChild(el('p','lead','Toca definir la Isla 4.')); }
+    var go=el('button','save-btn','Marcar en Seguimiento'); go.type='button'; go.addEventListener('click',function(){ show('a'); }); sum.appendChild(go);
+  }
+  function starPts(cx,cy,ro,ri,n){ var p=[]; for(var k=0;k<n*2;k++){ var r=k%2?ri:ro, a=-Math.PI/2+k*Math.PI/n; p.push((cx+r*Math.cos(a)).toFixed(1)+','+(cy+r*Math.sin(a)).toFixed(1)); } return p.join(' '); }
+  (function(){ if(!mapRoot){return;} var scw=el('div','scenew'); scw.appendChild(el('div','scene')); mapRoot.appendChild(scw); mapRoot.appendChild(el('section','mapsum')); var hs=el('p','hint','Cada isla es una vuelta con su meta en la cima. Cada parada es una semana cumplida o un hito, y se marcan solas con tus casillas. Al cerrar la isla, se abre la siguiente.'); mapRoot.appendChild(hs); mapRoot.appendChild(el('div','islas')); mapRoot.setAttribute('data-ready','1'); })();
+
+  renderHoy(); renderWeeks(); renderGrid(); renderDay();
+  if(window.REFRESH_MANDALA){window.REFRESH_MANDALA();}
+
+  var tM=document.getElementById('tab-mandala'), tA=document.getElementById('tab-agenda'), tI=document.getElementById('tab-mapa');
+  var vM=document.getElementById('view-mandala');
+  function show(w){
+    mapRoot.hidden=(w!=='i'); vM.hidden=(w!=='m'); root.hidden=(w!=='a');
+    tI.setAttribute('aria-pressed',String(w==='i')); tM.setAttribute('aria-pressed',String(w==='m')); tA.setAttribute('aria-pressed',String(w==='a'));
+    try{ window.scrollTo(0,0); }catch(e){}
+  }
+  tI.addEventListener('click',function(){show('i');});
+  tM.addEventListener('click',function(){show('m');});
+  tA.addEventListener('click',function(){show('a');});
+  renderMap();
+  connectDb();
+})();
+
+// ---- Barra de ejemplo, cambio de plan
+(function(){
+  var bar=document.getElementById('demo-bar');
+  if(mode==='demo'){
+    bar.hidden=false;
+    document.getElementById('demo-paste').addEventListener('click',function(){ try{ location.reload(); }catch(e){} });
+    document.getElementById('demo-keep').addEventListener('click',function(){ lsSet(LS_PLAN,JSON.stringify(PLAN)); try{ location.reload(); }catch(e){} });
+    return;
+  }
+  var box=document.getElementById('reset-box');
+  function idle(){
+    box.textContent='';
+    var b=el('button','ghost-btn','Cambiar de plan'); b.type='button';
+    b.addEventListener('click',function(){
+      box.textContent='';
+      box.appendChild(el('p','hint','Se borra este plan y tu avance, en este navegador y en tu cuenta. No se puede deshacer.'));
+      var y=el('button','ghost-btn danger','Sí, borrar y empezar de nuevo'); y.type='button';
+      var n=el('button','ghost-btn','Cancelar'); n.type='button';
+      n.addEventListener('click',idle);
+      y.addEventListener('click',function(){
+        window.__RESET=true; lsDel(LS_PLAN); lsDel(LS_KEY);
+        var done=function(){ try{ location.reload(); }catch(e){ box.textContent='Listo. Actualiza la página para empezar de nuevo.'; } };
+        var ref=window.CLOUD_REF; if(ref&&ref.delete){ ref.delete().then(done,done); } else { done(); }
+      });
+      var row=el('div','imp-row'); row.appendChild(y); row.appendChild(n); box.appendChild(row);
+    });
+    box.appendChild(b);
+  }
+  idle();
+})();
+}
+
+// ================= Arranque =================
+(function(){
+  var booted=false;
+  function start(plan,mode){ if(booted){return;} booted=true; document.getElementById('importar').hidden=true; document.getElementById('app').hidden=false; boot(plan,mode); }
+  function fresh(){ return normalize(EJEMPLO).plan; }
+  var stored=lsGet(LS_PLAN), plan=null;
+  if(stored){ try{ var r0=normalize(JSON.parse(stored)); if(!r0.errors){ plan=r0.plan; } }catch(e){} }
+  if(plan){ start(plan,'plan'); return; }
+  var legacy=false; try{ var sv0=JSON.parse(lsGet(LS_KEY)||'{}')||{}; legacy=Object.keys(sv0).some(function(k){return sv0[k];}); }catch(e){}
+  if(legacy){ start(fresh(),'legacy'); return; }
+
+  // Sin plan: pantalla de importación
+  var imp=document.getElementById('importar'); imp.hidden=false;
+  var txt=document.getElementById('imp-txt'), err=document.getElementById('imp-err'), st=document.getElementById('imp-status');
+  function showErr(list){ err.textContent=''; err.hidden=!list; if(!list){return;} list.forEach(function(m){ err.appendChild(el('span','',m)); }); }
+  document.getElementById('imp-go').addEventListener('click',function(){
+    var r=parseBlock(txt.value);
+    if(r.errors){ showErr(r.errors); return; }
+    showErr(null); lsSet(LS_PLAN,JSON.stringify(r.plan)); start(r.plan,'plan');
+  });
+  document.getElementById('imp-demo').addEventListener('click',function(){ start(fresh(),'demo'); });
+  // Si ya tenía un plan guardado en su cuenta, se recupera solo
+  if(window.claude&&window.claude.use){
+    st.textContent='Buscando un plan guardado en tu cuenta...';
+    Promise.all([window.claude.use('db'),window.claude.use('user')]).then(function(r){
+      if(!r[0]||!r[1]){ st.textContent=''; return; }
+      return Promise.resolve(r[1].id()).then(function(uid){
+        if(!uid){ st.textContent=''; return; }
+        return r[0].collection('data/users/'+uid).doc('goalsetting').get().then(function(snap){
+          st.textContent='';
+          if(booted||!snap||!snap.exists){return;}
+          var d=snap.data(); if(!d||!d.plan){return;}
+          var pr=normalize(JSON.parse(d.plan)); if(pr.errors){return;}
+          lsSet(LS_PLAN,JSON.stringify(pr.plan)); start(pr.plan,'plan');
+        });
+      });
+    }).catch(function(){ st.textContent=''; });
+  }
+})();
+
+</script>
+</body></html>
