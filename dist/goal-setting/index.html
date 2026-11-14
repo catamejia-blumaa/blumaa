@@ -595,6 +595,12 @@ body.menu-open,body.panel-open{overflow:hidden}
 #view-inicio .hero h2::after{content:" ·";font-weight:400}
 #view-inicio .hero .save-btn{background:transparent;color:var(--pri);border:0;padding:0;min-height:0;font-family:var(--f-mono);font-size:12px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;margin-left:auto}
 #view-inicio .hero .save-btn::after{content:" ▾"}
+
+.p-steps .st{display:flex;flex-direction:column;gap:2px;min-width:0}
+.p-steps .st b{font-weight:600}
+.p-steps .st small{font-size:12px;color:var(--muted)}
+.p-steps .st .sd{font-size:13px;color:var(--ink);line-height:1.4}
+.p-steps .is-done .st b{text-decoration:line-through;opacity:.7}
 </style>
 <div class="wrap">
 
@@ -1558,7 +1564,23 @@ var TX = PLAN.textos||{};
     if(a[2]){ pbody.appendChild(el('span','p-when',a[2])); }
     var bt=el('button','save-btn p-done',done?'Hecha · deshacer':'Marcar como hecha'); bt.type='button'; bt.setAttribute('aria-pressed',String(done));
     bt.addEventListener('click',function(){ window.APPLY(id,!done); openAct(pi,k,true); var nb=pbody.querySelector('.p-done'); if(nb){ nb.focus(); } });
-    pbody.appendChild(bt); pbody.appendChild(bar(doneN(pi),P.a.length));
+    pbody.appendChild(bt);
+    var steps=(window.AGENDA_E||[]).filter(function(e){ return e.id!==id&&e.parents&&e.parents.indexOf(id)>=0; }).sort(sortE);
+    if(steps.length){
+      var sd=0; steps.forEach(function(e){ if(S()[e.id]){ sd++; } });
+      pbody.appendChild(el('p','p-sub','Pasos de esta acción · '+sd+' de '+steps.length));
+      var su=el('ul','p-list p-steps');
+      steps.forEach(function(e){
+        var li=el('li'), sb=el('button',S()[e.id]?'is-done':''); sb.type='button'; sb.setAttribute('aria-pressed',String(!!S()[e.id]));
+        sb.appendChild(el('span','chk',S()[e.id]?'✓':''));
+        var tx=el('span','st'); tx.appendChild(el('b','',e.t)); tx.appendChild(el('small','',fmtD(e.d)+(e.ms?' · hito':''))); if(e.det){ tx.appendChild(el('span','sd',e.det)); } if(e.note){ tx.appendChild(el('span','sd',e.note)); }
+        sb.appendChild(tx);
+        sb.addEventListener('click',function(){ var y=pbody.scrollTop; window.APPLY(e.id,!S()[e.id]); openAct(pi,k,true); pbody.scrollTop=y; });
+        li.appendChild(sb); su.appendChild(li);
+      });
+      pbody.appendChild(su);
+    }
+    pbody.appendChild(bar(doneN(pi),P.a.length));
     pbody.appendChild(el('p','p-sub','Todas las acciones del pilar')); pbody.appendChild(actList(pi,k));
     pbody.scrollTop=0; openPanel(null);
     if(!keep){ document.getElementById('panel-x').focus(); }
