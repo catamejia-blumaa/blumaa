@@ -1,5 +1,5 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><link rel="icon" href="/Favicon_Blumaa_.png"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0}</style></head><body><title>Goal Setting Playbook Blumaa</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@500;700&family=Roboto+Mono:wght@500;700&family=Space+Mono:wght@400;700&family=Loved+by+the+King&family=Inter+Tight:wght@400;500;600&display=swap">
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><link rel="icon" href="/favicon.ico?v=2" sizes="48x48"><link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=2"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2"><style>*,*::before,*::after{box-sizing:border-box}body{margin:0}</style></head><body><title>Goal Setting Playbook Blumaa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&family=Inter+Tight:wght@400;500;600&display=swap">
 <style>
 /* Layout: una sola columna de lectura, la tabla 9x9 en su propio contenedor con scroll horizontal. */
 :root{
@@ -321,6 +321,107 @@ footer .reset{margin-top:12px;display:flex;flex-direction:column;gap:10px;align-
 </style>
 
 
+<style id="ux2">
+:root{--accent-ink:#FF8231}
+/* ===== UX v2: ritmo, navegación, contraste, táctil, tipografía ===== */
+.wrap{gap:28px}
+#app{gap:20px}
+.view{gap:40px}
+header{gap:10px!important}
+
+/* Botones y pestañas con un solo estilo */
+.save-btn,.ghost-btn{font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:none;min-height:44px;padding:10px 22px;line-height:1.2}
+.ghost-btn{border-width:1.5px}
+.linkish{font:inherit;font-family:var(--f-mono);font-size:12px;font-weight:700;color:var(--pri);background:none;border:0;padding:8px 2px;min-height:44px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.linkish:hover{color:var(--accent-ink)}
+
+/* Barra de navegación siempre visible, abajo */
+body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+.tabs{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:50;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(255,253,249,.97);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 -1px 0 var(--line),0 -10px 24px rgba(35,31,32,.07)}
+.tabs .tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:56px;padding:8px 4px;border:0;border-radius:18px;background:transparent;color:var(--muted);font-family:var(--f-mono);font-size:11px;font-weight:700;letter-spacing:.02em}
+.tabs .tab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+nav.tabs .tab[aria-pressed="true"]{background:var(--pri);border:0;color:#FFF3C4}
+.tabs .tab:focus-visible{outline:2px solid var(--accent-ink);outline-offset:-2px}
+@media (min-width:640px){
+  .tabs{left:50%;right:auto;transform:translateX(-50%);bottom:16px;width:min(440px,calc(100vw - 32px));padding:8px;border-radius:26px;border:1.5px solid var(--line);box-shadow:0 12px 32px rgba(35,31,32,.14)}
+}
+
+/* Aviso de ejemplo: un solo mensaje, botones en una fila */
+.demo-bar{margin-bottom:0}
+.demo-btns{width:100%;flex-wrap:nowrap}
+.demo-btns .ghost-btn{flex:1}
+@media (min-width:640px){.demo-btns{width:auto}.demo-btns .ghost-btn{flex:none}}
+body.is-demo .pr-bot{display:none}
+
+/* Progreso: pista clara para que 0 % se vea vacío */
+.pr-bar{background:var(--surface);height:12px}
+.pr-row{margin-bottom:6px}
+
+/* Contraste: el naranja de texto pequeño pasa a naranja oscuro */
+.eyebrow,.islands .date,.acts .when,.dayh,.row .meta .dt,#view-agenda .dayh,#view-agenda .dayh.tday,#view-agenda .row .meta .dt,#view-arranque .row .meta,.pillar-head .n,#view-agenda .dayp h3{color:var(--accent-ink)}
+.goal .eyebrow{color:inherit}
+.dayh.tday,#view-agenda .dayh.tday{color:var(--pri)}
+.eyebrow,.tag,.progress,.grp-title,.row .meta,.pill,.cnt,.dayh,.pillar-head .n,.islands .date,.acts .when{font-size:12px}
+.mh{font-size:11px}
+/* Fechas de hitos y número de pilar en la misma mono que el resto */
+.islands .date,.pillar-head .n{font-family:var(--f-mono);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;line-height:1.3}
+/* Menos familias tipográficas */
+.tl-lab,.tl-now span{font-family:var(--f-body)}
+.tl-lab b,#rutinas h3{font-family:var(--f-mono)}
+
+/* Casillas más grandes para el dedo */
+.acts label,.row label{grid-template-columns:28px 1fr;gap:12px;padding:12px 0;min-height:48px}
+.acts input,.row input{width:24px;height:24px;margin-top:1px}
+
+/* Atrasadas plegadas */
+.late{margin-top:10px}
+.late>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:44px;padding:10px 18px;border:1.5px solid var(--pri);border-radius:999px;font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pri)}
+.late>summary::-webkit-details-marker{display:none}
+.late>summary::after{content:"Ver ▾";font-weight:400}
+.late[open]>summary::after{content:"Ocultar ▴"}
+.late>summary:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+.late .grp-title:empty{display:none}
+.late .rows{margin-top:6px}
+
+/* Pantalla de pegar plan */
+#importar{max-width:640px;gap:14px;padding-block:8px 24px}
+#importar textarea{min-height:160px;font-size:14px}
+.imp-steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;gap:10px}
+.imp-steps li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:center;line-height:1.35}
+.imp-steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--pri);color:#FFF3C4;display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:13px}
+.imp-demo-line{font-size:.92rem;color:var(--muted)}
+.only-sm{display:none}
+
+/* Tabla 9x9 */
+.cell.p,.cell.pc{cursor:pointer}
+@media (min-width:1000px){
+  #tabla{width:min(1180px,calc(100vw - 64px));margin-left:calc((100% - min(1180px,100vw - 64px))/2)}
+  #tabla>h2,#tabla>.hint{max-width:860px}
+}
+@media (max-width:760px){
+  .only-sm{display:block}
+  #tabla .scroll{overflow:visible;padding:12px}
+  .mandala{min-width:0;gap:8px}
+  .blk{gap:3px}
+  .cell,.cell.act,.cell.p,.cell.pc,.cell.goal-c{min-height:0;aspect-ratio:1/1;padding:0;font-size:0;line-height:0;border-radius:5px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(35,31,32,.12)}
+  .cell.act>*{display:none}
+  .cell.act{pointer-events:none}
+  .cell.act.done{background:var(--ink);text-decoration:none;box-shadow:none}
+  .cell.p::before,.cell.pc::before{content:attr(data-n);font-family:var(--f-display);font-size:22px;line-height:1;font-weight:400}
+  .cell.goal-c::before{content:"★";font-size:20px;line-height:1}
+}
+
+/* Mapa de islas en móvil */
+.swipe{display:none}
+@media (max-width:640px){
+  .scenew{padding:24px 0}
+  .scene{min-width:620px}
+  .swipe{display:block;text-align:right}
+}
+#pillars > .pillar{scroll-margin-top:20px}
+@media (min-width:641px){.scenew{padding:40px 0}}
+
+</style>
 <div class="wrap">
 
 <header style="display:flex;flex-direction:column;gap:14px">
@@ -330,22 +431,28 @@ footer .reset{margin-top:12px;display:flex;flex-direction:column;gap:10px;align-
 </header>
 
 <section id="importar" hidden>
-  <p class="eyebrow">Último paso</p>
+  <p class="eyebrow">Paso final</p>
   <h2>Pega tu plan</h2>
-  <p class="lead">Al terminar la entrevista recibes un bloque de texto que empieza con { y termina con }. Pégalo aquí y tu página se arma sola.</p>
-  <textarea id="imp-txt" rows="10" spellcheck="false" autocomplete="off" placeholder='{ "v": 1, "inicio": "2026-10-10", ... }' aria-label="Bloque de datos de tu plan"></textarea>
+  <p class="lead">Al terminar la entrevista, el chat te entrega tu plan listo para pegar en tu página. Pégalo aquí y la página se arma sola.</p>
+  <ol class="imp-steps">
+    <li>Haz la entrevista con Claude o ChatGPT.</li>
+    <li>Copia el plan final que te entrega. Empieza con { y termina con }.</li>
+    <li>Pégalo aquí y toca «Crear mi página».</li>
+  </ol>
+  <textarea id="imp-txt" rows="8" spellcheck="false" autocomplete="off" placeholder="Pega aquí tu plan" aria-label="Tu plan"></textarea>
   <p class="imp-err" id="imp-err" role="alert" hidden></p>
-  <div class="imp-row"><button class="save-btn" id="imp-go" type="button">Crear mi página</button><button class="ghost-btn" id="imp-demo" type="button">Ver un ejemplo</button></div>
+  <div class="imp-row"><button class="save-btn" id="imp-go" type="button">Crear mi página</button><button class="ghost-btn" id="imp-paste" type="button">Pegar del portapapeles</button></div>
   <p class="hint" id="imp-status"></p>
+  <p class="imp-demo-line">¿Quieres ver cómo se ve antes? <button class="linkish" id="imp-demo" type="button">Abrir un ejemplo</button></p>
 </section>
 
 <div id="app" hidden>
-<div class="demo-bar" id="demo-bar" hidden><span>Estás viendo un ejemplo. No se guarda nada.</span><span class="demo-btns"><button class="ghost-btn" id="demo-paste" type="button">Pegar mi plan</button><button class="ghost-btn" id="demo-keep" type="button">Usar este ejemplo como mío</button></span></div>
+<div class="demo-bar" id="demo-bar" hidden><span>Estás viendo un ejemplo. No se guarda nada.</span><span class="demo-btns"><button class="ghost-btn" id="demo-paste" type="button">Pegar mi plan</button><button class="ghost-btn" id="demo-keep" type="button">Usar como mío</button></span></div>
 
 <nav class="tabs" aria-label="Vistas">
-  <button class="tab" type="button" id="tab-mapa" aria-pressed="true">Mapa de islas</button>
-  <button class="tab" type="button" id="tab-mandala" aria-pressed="false">Goal Setting</button>
-  <button class="tab" type="button" id="tab-agenda" aria-pressed="false">Seguimiento</button>
+  <button class="tab" type="button" id="tab-mapa" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span>Mapa</span></button>
+  <button class="tab" type="button" id="tab-mandala" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9.3 4v16M14.7 4v16M4 9.3h16M4 14.7h16"/></svg><span>Tabla</span></button>
+  <button class="tab" type="button" id="tab-agenda" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg><span>Seguimiento</span></button>
 </nav>
 
 <section class="prog" id="progreso" aria-label="Progreso"></section>
@@ -359,7 +466,8 @@ footer .reset{margin-top:12px;display:flex;flex-direction:column;gap:10px;align-
 
 <section id="tabla">
   <h2>Tabla de Goal Setting</h2>
-  <p class="hint">Al centro la meta y los 8 pilares. Alrededor, cada pilar con sus 8 acciones. En el móvil se desliza hacia los lados.</p>
+  <p class="hint">Al centro, la meta y los 8 pilares. Alrededor, las 8 acciones de cada pilar. Toca un pilar para ir a sus acciones.</p>
+  <p class="hint only-sm">Cada cuadro es una acción. Los oscuros ya están hechas.</p>
   <div class="scroll"><div class="mandala" id="mandala" role="table" aria-label="Tabla de Goal Setting 9 por 9"></div></div>
 </section>
 
@@ -412,8 +520,8 @@ function islandOfWeek(islas,w){
 // ---- Validación del bloque de datos. Devuelve {plan} o {errors:[...]} con mensajes en español.
 function normalize(raw){
   var errs=[], P;
-  try{ P=JSON.parse(JSON.stringify(raw)); }catch(e){ return {errors:['No pude leer el bloque.']}; }
-  if(!P||typeof P!=='object'||Array.isArray(P)){ return {errors:['El bloque no tiene el formato esperado. Tiene que empezar con { y terminar con }.']}; }
+  try{ P=JSON.parse(JSON.stringify(raw)); }catch(e){ return {errors:['No pude leer el plan.']}; }
+  if(!P||typeof P!=='object'||Array.isArray(P)){ return {errors:['El plan no tiene el formato esperado. Tiene que empezar con { y terminar con }.']}; }
   function str(x){ return typeof x==='string'&&x.trim().length>0; }
   function iso(x){ return typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)&&!isNaN(parseD(x).getTime())&&isoD(parseD(x))===x; }
   var ID=/^[A-Za-z0-9_.-]{1,40}$/;
@@ -492,8 +600,8 @@ function normalize(raw){
 function parseBlock(text){
   if(!text||text.length>300000){ return {errors:['El texto está vacío o es demasiado largo.']}; }
   var a=text.indexOf('{'), b=text.lastIndexOf('}');
-  if(a<0||b<=a){ return {errors:['No encuentro el bloque. Tiene que empezar con { y terminar con }.']}; }
-  var raw; try{ raw=JSON.parse(text.slice(a,b+1)); }catch(e){ return {errors:['El bloque está cortado o tiene un error de formato ('+String(e.message||'').slice(0,80)+'). Pídele a la herramienta que lo vuelva a escribir completo.']}; }
+  if(a<0||b<=a){ return {errors:['No encuentro el plan. Tiene que empezar con { y terminar con }.']}; }
+  var raw; try{ raw=JSON.parse(text.slice(a,b+1)); }catch(e){ return {errors:['El plan está cortado o tiene un error de formato ('+String(e.message||'').slice(0,80)+'). Pídele a la herramienta que lo vuelva a escribir completo.']}; }
   return normalize(raw);
 }
 
@@ -866,7 +974,7 @@ var TX = PLAN.textos||{};
       var td=byDay[tIso]||[];
       if(td.length){ hoyEl.appendChild(group('Hoy',td,false)); } else { hoyEl.appendChild(el('p','hint','Nada con fecha para hoy. Lo de la rutina está en la lista de esta semana.')); }
       var late=E.filter(function(e){return e.d<tIso&&!SAVED[e.id]&&!e.pub;});
-      if(late.length){ hoyEl.appendChild(group('Atrasadas',late,true)); }
+      if(late.length){ var det=el('details','late'); det.open=!!window.__lateOpen; det.appendChild(el('summary','','Atrasadas · '+late.length)); det.appendChild(group('',late,true)); det.addEventListener('toggle',function(){ window.__lateOpen=det.open; }); hoyEl.appendChild(det); }
     }
   }
   function renderWeeks(){
@@ -1115,7 +1223,7 @@ var TX = PLAN.textos||{};
 (function(){
   var bar=document.getElementById('demo-bar');
   if(mode==='demo'){
-    bar.hidden=false;
+    bar.hidden=false; document.body.classList.add('is-demo');
     document.getElementById('demo-paste').addEventListener('click',function(){ try{ location.reload(); }catch(e){} });
     document.getElementById('demo-keep').addEventListener('click',function(){ lsSet(LS_PLAN,JSON.stringify(PLAN)); try{ location.reload(); }catch(e){} });
     return;
@@ -1180,6 +1288,48 @@ var TX = PLAN.textos||{};
         });
       });
     }).catch(function(){ st.textContent=''; });
+  }
+})();
+
+</script>
+<script>
+(function(){
+  // Tabla: número de pilar visible en móvil y salto a sus acciones
+  var m=document.getElementById('mandala');
+  function tag(){
+    var cells=m.querySelectorAll('.cell.p:not([data-n]),.cell.pc:not([data-n])');
+    for(var i=0;i<cells.length;i++){
+      var c=cells[i], n=parseInt(c.textContent,10); if(!n){continue;}
+      c.setAttribute('data-n',String(n)); c.setAttribute('role','button'); c.setAttribute('tabindex','0');
+      c.setAttribute('aria-label','Ir a las acciones del pilar '+n);
+      (function(n,c){
+        function go(){ var p=document.querySelectorAll('#pillars > .pillar')[n-1]; if(p){ try{ p.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){ p.scrollIntoView(); } } }
+        c.addEventListener('click',go);
+        c.addEventListener('keydown',function(ev){ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); go(); } });
+      })(n,c);
+    }
+  }
+  if(m){ new MutationObserver(tag).observe(m,{childList:true,subtree:true}); tag(); }
+
+  // Mapa: pista para deslizar en móvil
+  var vm=document.getElementById('view-mapa');
+  if(vm){
+    new MutationObserver(function(){
+      var sc=vm.querySelector('.scenew');
+      if(sc&&!vm.querySelector('.swipe')){ var p=document.createElement('p'); p.className='hint swipe'; p.textContent='Desliza el mapa para ver las demás islas →'; sc.parentNode.insertBefore(p,sc.nextSibling); }
+    }).observe(vm,{childList:true});
+  }
+
+  // Pegar del portapapeles
+  var btn=document.getElementById('imp-paste'), txt=document.getElementById('imp-txt'), st=document.getElementById('imp-status');
+  if(btn){
+    btn.addEventListener('click',function(){
+      var fail=function(){ st.textContent='No pude leer el portapapeles. Mantén pulsado en el cuadro y elige Pegar.'; };
+      try{
+        if(!navigator.clipboard||!navigator.clipboard.readText){ fail(); return; }
+        navigator.clipboard.readText().then(function(t){ if(t&&t.trim()){ txt.value=t; st.textContent='Plan pegado. Toca «Crear mi página».'; } else { st.textContent='El portapapeles está vacío.'; } },fail);
+      }catch(e){ fail(); }
+    });
   }
 })();
 
