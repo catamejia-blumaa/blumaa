@@ -1197,8 +1197,7 @@ var TX = PLAN.textos||{};
 
   var arrSec=el('section'); if(window.ARR){ window.ARR.setup(arrSec); } if(!arrSec.childNodes.length){ arrSec.hidden=true; } root.appendChild(arrSec);
   var ctl=el('section','controls');
-  ctl.appendChild(el('h3','','Semana a semana'));
-  if(TX.semana_nota){ ctl.appendChild(el('p','hint',TX.semana_nota)); }
+  ctl.appendChild(el('h3','','Calendario'));
   var segs=el('div','row-ctl');
   var bW=el('button','seg','Por semanas'); bW.type='button'; bW.setAttribute('aria-pressed','true');
   var bM=el('button','seg','Calendario mensual'); bM.type='button'; bM.setAttribute('aria-pressed','false');
@@ -1216,6 +1215,7 @@ var TX = PLAN.textos||{};
   bW.addEventListener('click',function(){ bW.setAttribute('aria-pressed','true'); bM.setAttribute('aria-pressed','false'); weeksEl.hidden=false; monthSec.hidden=true; });
   bM.addEventListener('click',function(){ bM.setAttribute('aria-pressed','true'); bW.setAttribute('aria-pressed','false'); weeksEl.hidden=true; monthSec.hidden=false; });
   hcb.addEventListener('change',function(){ root.classList.toggle('hide-done',hcb.checked); });
+  bM.click(); segs.removeChild(bW); segs.removeChild(bM);
 
   function group(title,list,showDate){
     var g=el('div'); g.appendChild(el('p','grp-title',title));
