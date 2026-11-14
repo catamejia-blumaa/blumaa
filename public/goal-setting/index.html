@@ -559,7 +559,7 @@ body.menu-open,body.panel-open{overflow:hidden}
 .isl-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media (max-width:900px){.isl-row{grid-template-columns:1fr}}
 .ic{gap:6px;padding:20px 22px 18px;border:0;border-radius:22px;background:var(--surface);box-shadow:0 8px 26px rgba(35,31,32,.09);font-family:"DM Sans",sans-serif;transition:transform .15s}
-.ic:hover{transform:translateY(-2px)}
+.ic{cursor:default}
 .ic.locked{opacity:1}
 .ic-d{font-size:14px;color:var(--muted);font-weight:500}
 .ic-t{font-family:"DM Sans",sans-serif;font-weight:700;font-size:1.3rem;line-height:1.15;color:var(--ink)}
@@ -625,7 +625,6 @@ body.menu-open,body.panel-open{overflow:hidden}
   <div class="sb-top"><div class="sb-brand"><p class="sb-eyebrow" id="sb-eyebrow"></p><p class="sb-title" id="sb-title"></p></div><button class="side-x" id="side-x" type="button" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <nav class="sb-nav" aria-label="Secciones">
     <button class="nav-item on" type="button" data-go="inicio" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 01-1 1h-4v-6H9v6H5a1 1 0 01-1-1z"/></svg><span>Inicio</span></button>
-    <button class="nav-item" type="button" data-go="islas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><span>Islas</span></button>
     <button class="nav-item" type="button" data-go="metas"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9.3 4v16M14.7 4v16M4 9.3h16M4 14.7h16"/></svg><span>Metas y pilares</span></button>
     <button class="nav-item" type="button" data-go="seg"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg><span>Seguimiento</span></button>
   </nav>
@@ -1507,13 +1506,12 @@ var TX = PLAN.textos||{};
       if(i<st||i>=st+3){ return; }
       var locked=c.classList.contains('locked'), done=c.classList.contains('done'), is=PLAN.islas[i]||{};
       var bar=c.querySelector('.isl-bar i'), pct=bar?(parseInt(bar.style.width,10)||0):0;
-      var b=el('button','ic i'+(Math.min(i,2)+1)+(locked?' locked':'')+(done?' done':'')); b.type='button';
+      var b=el('div','ic i'+(Math.min(i,2)+1)+(locked?' locked':'')+(done?' done':'')); 
       b.appendChild(el('span','ic-d',is.when||''));
       b.appendChild(el('span','ic-t',is.goal||'')); b.appendChild(el('span','ic-s',is.t||''));
       var pr=el('span','ic-pr'); pr.appendChild(el('span','','Progreso')); pr.appendChild(el('span','',pct+'%')); b.appendChild(pr);
       var bb=el('span','ic-bar'); var f=el('i'); f.style.width=pct+'%'; bb.appendChild(f); b.appendChild(bb);
-      var ft=el('span','ic-foot'); var go=el('span','ic-go'); go.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'; ft.appendChild(go); ft.appendChild(el('span','chip',chipText(i,done,locked,c))); b.appendChild(ft);
-      b.addEventListener('click',function(){ window.GS_SHOW('islas'); });
+      var ft=el('span','ic-foot'); var go=el('span','ic-go'); go.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'; ft.appendChild(el('span','chip',chipText(i,done,locked,c))); b.appendChild(ft);
       row.appendChild(b);
     });
   }
