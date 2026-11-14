@@ -684,6 +684,13 @@ body.menu-open,body.panel-open{overflow:hidden}
 .level.hi,.level.on,.level.mid{border:0!important}
 .isla.now{box-shadow:0 8px 26px rgba(35,31,32,.09)!important}
 .cal-wrap>.dayp{background:var(--surface)}
+
+.late.arr>summary{justify-content:flex-start}
+.late.arr>summary::after{margin-left:auto}
+.arr-st{font-family:var(--f-sans,'DM Sans',sans-serif);font-size:11px;font-weight:600;letter-spacing:0;text-transform:none;padding:3px 10px;border-radius:999px}
+.arr-st.st-todo{background:#F1ECE6;color:#6b6560}
+.arr-st.st-prog{background:#FFE7D3;color:#B5510C}
+.arr-st.st-done{background:#DDF5E6;color:#1C7A45}
 </style>
 <div class="wrap">
 
@@ -1012,7 +1019,7 @@ var TX = PLAN.textos||{};
     updSum();
   };
   var arrSum=null;
-  function updSum(){ if(!arrSum){return;} var c=ARR.setupCount(); var ok=c[1]>0&&c[0]===c[1]; arrSum.textContent=ok?'Arranque · completado ✓':'Arranque · '+c[0]+' de '+c[1]; arrSum.parentNode.classList.toggle('arr-done',ok); }
+  function updSum(){ if(!arrSum){return;} var c=ARR.setupCount(); var ok=c[1]>0&&c[0]===c[1]; var st=ok?'done':(c[0]>0?'prog':'todo'); var lbl=ok?'Completado ✓':(c[0]>0?'En progreso · '+c[0]+' de '+c[1]:'Sin empezar · 0 de '+c[1]); arrSum.innerHTML='<span>Arranque</span><span class="arr-st st-'+st+'">'+lbl+'</span>'; arrSum.parentNode.classList.toggle('arr-done',ok); }
   ARR.habits=function(w,body){
     var E=window.AGENDA_E||[], lo=iso(w.s), hi=iso(w.e), key=lo;
     var groups={}, order=[], rows=[];
