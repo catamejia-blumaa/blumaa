@@ -1210,7 +1210,7 @@ var TX = PLAN.textos||{};
   var weeksEl=el('section','weeks'); root.appendChild(weeksEl);
   var monthSec=el('section'); monthSec.hidden=true;
   var dayEl=el('div','dayp'); var gridEl=el('div','months');
-  monthSec.appendChild(gridEl); monthSec.appendChild(dayEl); monthSec.style.cssText='display:flex;flex-direction:column;gap:22px'; root.appendChild(monthSec);
+  monthSec.appendChild(dayEl); monthSec.appendChild(gridEl); monthSec.style.cssText='display:flex;flex-direction:column;gap:22px'; root.appendChild(monthSec);
 
   bW.addEventListener('click',function(){ bW.setAttribute('aria-pressed','true'); bM.setAttribute('aria-pressed','false'); weeksEl.hidden=false; monthSec.hidden=true; });
   bM.addEventListener('click',function(){ bM.setAttribute('aria-pressed','true'); bW.setAttribute('aria-pressed','false'); weeksEl.hidden=true; monthSec.hidden=false; });
