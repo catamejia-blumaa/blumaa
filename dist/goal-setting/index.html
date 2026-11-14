@@ -632,6 +632,36 @@ body.menu-open,body.panel-open{overflow:hidden}
 
 .panel .p-when{font-family:Roboto,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.04em;font-size:14px}
 .panel .p-when b{font-weight:400}
+
+/* Calendario mensual a lo grande */
+#view-agenda .month{max-width:none;margin:0;background:transparent;border:0;border-radius:0;padding:0;gap:14px}
+.mnav{align-items:flex-end}
+.mnav h3{flex:1;text-align:left;font-family:"DM Sans",sans-serif!important;font-weight:400;font-size:clamp(2rem,6vw,3.4rem);letter-spacing:.14em;text-transform:uppercase;color:var(--pri)!important;line-height:1}
+.mr{display:flex;align-items:center;gap:8px}
+.myear{font-family:"DM Sans",sans-serif;font-size:clamp(1.4rem,3.4vw,2.2rem);letter-spacing:.1em;color:var(--pri);padding:0 6px}
+#view-agenda .mgrid{gap:0;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface)}
+#view-agenda .mh{background:#E9EDFF;padding:14px 0;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:400;letter-spacing:.14em;color:var(--ink);text-transform:uppercase}
+#view-agenda .mh.wk-end{font-weight:700}
+#view-agenda .mc{min-height:112px;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;align-items:flex-start;justify-content:flex-start;padding:10px 12px;gap:6px;background:transparent;font-family:"DM Sans",sans-serif;text-align:left}
+#view-agenda .mc:nth-child(7n+1){}
+#view-agenda .mc .dn{font-size:18px;font-weight:400;color:var(--ink);line-height:1}
+#view-agenda .mc.off{opacity:.35}
+#view-agenda button.mc{background:transparent;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0}
+#view-agenda button.mc:hover{background:#F6F8FF}
+#view-agenda button.mc.today{border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+#view-agenda button.mc.today .dn{background:#FF8231;color:#fff;border-radius:99px;min-width:28px;height:28px;display:inline-grid;place-items:center;padding:0 6px;font-weight:600}
+#view-agenda button.mc.sel{background:#EEF1FF;color:var(--ink)}
+#view-agenda button.mc.sel .dn{color:var(--pri);font-weight:700}
+#view-agenda .mc .dots{max-width:none;justify-content:flex-start;gap:4px}
+#view-agenda .mc .dots i{width:8px;height:8px}
+@media (max-width:640px){
+  #view-agenda .mc{min-height:60px;padding:6px 6px}
+  #view-agenda .mc .dn{font-size:14px}
+  #view-agenda .mh{font-size:10px;letter-spacing:.06em;padding:10px 0}
+  .mnav h3{letter-spacing:.06em}
+}
+#view-agenda button.mc.sel.today .dn{color:#fff}
+#view-agenda .mc.filler{background:#FBF8F2}
 </style>
 <div class="wrap">
 
@@ -1179,7 +1209,7 @@ var TX = PLAN.textos||{};
   var weeksEl=el('section','weeks'); root.appendChild(weeksEl);
   var monthSec=el('section'); monthSec.hidden=true;
   var dayEl=el('div','dayp'); var gridEl=el('div','months');
-  monthSec.appendChild(dayEl); monthSec.appendChild(gridEl); root.appendChild(monthSec);
+  monthSec.appendChild(gridEl); monthSec.appendChild(dayEl); monthSec.style.cssText='display:flex;flex-direction:column;gap:22px'; root.appendChild(monthSec);
 
   bW.addEventListener('click',function(){ bW.setAttribute('aria-pressed','true'); bM.setAttribute('aria-pressed','false'); weeksEl.hidden=false; monthSec.hidden=true; });
   bM.addEventListener('click',function(){ bM.setAttribute('aria-pressed','true'); bW.setAttribute('aria-pressed','false'); weeksEl.hidden=true; monthSec.hidden=false; });
@@ -1259,11 +1289,12 @@ var TX = PLAN.textos||{};
       var nx=el('button','mnav-b','›'); nx.type='button'; nx.setAttribute('aria-label','Mes siguiente'); nx.disabled=(curM===ML.length-1);
       pv.addEventListener('click',function(){ curM--; renderGrid(); });
       nx.addEventListener('click',function(){ curM++; renderGrid(); });
-      var mt=el('h3','',MESL[ym[1]]+' '+ym[0]); mt.setAttribute('aria-live','polite');
-      nv.appendChild(pv); nv.appendChild(mt); nv.appendChild(nx); box.appendChild(nv);
+      var mt=el('h3','',MESL[ym[1]]); mt.setAttribute('aria-live','polite');
+      var mr=el('div','mr'); mr.appendChild(pv); mr.appendChild(el('span','myear',String(ym[0]))); mr.appendChild(nx);
+      nv.appendChild(mt); nv.appendChild(mr); box.appendChild(nv);
       var g=el('div','mgrid');
-      ['L','M','X','J','V','S','D'].forEach(function(x){ g.appendChild(el('span','mh',x)); });
-      var lead=(new Date(ym[0],ym[1],1).getDay()+6)%7;
+      ['DOM','LUN','MAR','MIÉ','JUE','VIE','SÁB'].forEach(function(x,ix){ g.appendChild(el('span','mh'+((ix===0||ix===6)?' wk-end':''),x)); });
+      var lead=new Date(ym[0],ym[1],1).getDay();
       for(var i=0;i<lead;i++){ g.appendChild(el('span','mc')); }
       var nd=new Date(ym[0],ym[1]+1,0).getDate();
       for(var dn=1; dn<=nd; dn++){
@@ -1281,6 +1312,7 @@ var TX = PLAN.textos||{};
         (function(kk){ b.addEventListener('click',function(){ selDay=kk; renderGrid(); renderDay(); }); })(k);
         g.appendChild(b);
       }
+      for(var fz=(lead+nd)%7; fz>0&&fz<7; fz++){ g.appendChild(el('span','mc filler')); }
       box.appendChild(g); gridEl.appendChild(box);
     });
   }
