@@ -691,6 +691,11 @@ body.menu-open,body.panel-open{overflow:hidden}
 .arr-st.st-todo{background:#F1ECE6;color:#6b6560}
 .arr-st.st-prog{background:#FFE7D3;color:#B5510C}
 .arr-st.st-done{background:#DDF5E6;color:#1C7A45}
+
+.quad.prop h3{font-family:'Instrument Serif',serif;font-size:1.6rem;font-weight:400;color:var(--pri)}
+.quad.prop .pcols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.quad.prop .pcol{display:flex;flex-direction:column;gap:10px;min-width:0}
+@media(max-width:560px){.quad.prop .pcols{grid-template-columns:1fr;gap:16px}}
 </style>
 <div class="wrap">
 
@@ -903,8 +908,10 @@ var TX = PLAN.textos||{};
   var h=document.getElementById('hitos'); h.appendChild(el('h2','','Hitos')); var ul=el('ul','islands');
   PLAN.hitos.forEach(function(x){ var li=el('li'); li.appendChild(el('span','date',x.f||'')); var dv=el('div'); dv.appendChild(el('b','',x.t||'')); dv.appendChild(el('span','',x.d||'')); li.appendChild(dv); ul.appendChild(li); }); h.appendChild(ul);
   var p=document.getElementById('proposito'); p.appendChild(el('h2','','Propósito')); var q=el('div','quads');
-  [['Para mí · tangible','mi_tangible'],['Para mí · intangible','mi_intangible'],['Para otros · tangible','otros_tangible'],['Para otros · intangible','otros_intangible']].forEach(function(t){
-    var d=el('div','quad'); d.appendChild(el('span','tag',t[0])); var u=el('ul'); (PLAN.proposito[t[1]]||[]).forEach(function(x){ u.appendChild(el('li','',x)); }); d.appendChild(u); q.appendChild(d); });
+  [['Para mí','mi'],['Para otros','otros']].forEach(function(t){
+    var d=el('div','quad prop'); d.appendChild(el('h3','',t[0])); var cols=el('div','pcols');
+    [['Tangible','_tangible'],['Intangible','_intangible']].forEach(function(c){ var col=el('div','pcol'); col.appendChild(el('span','tag',c[0])); var u=el('ul'); (PLAN.proposito[t[1]+c[1]]||[]).forEach(function(x){ u.appendChild(el('li','',x)); }); col.appendChild(u); cols.appendChild(col); });
+    d.appendChild(cols); q.appendChild(d); });
   p.appendChild(q);
   var r=document.getElementById('rutinas'); r.appendChild(el('h2','','Rutinas'));
   if(PLAN.rutinas.intro){ r.appendChild(el('p','lead',PLAN.rutinas.intro)); }
