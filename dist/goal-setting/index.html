@@ -736,6 +736,7 @@ body.menu-open,body.panel-open{overflow:hidden}
     <button class="nav-item on" type="button" data-go="inicio" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 01-1 1h-4v-6H9v6H5a1 1 0 01-1-1z"/></svg><span>Inicio</span></button>
     <button class="nav-item" type="button" data-go="metas"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9.3 4v16M14.7 4v16M4 9.3h16M4 14.7h16"/></svg><span>Metas y pilares</span></button>
     <button class="nav-item" type="button" data-go="seg"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12.5l2.6 2.6L16 9.5"/></svg><span>Seguimiento</span></button>
+    <button class="nav-item" type="button" id="nav-name" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.6-3.6 3.5-5.6 7-5.6s6.4 2 7 5.6"/></svg><span>Cambiar nombre</span></button>
   </nav>
   <div class="sb-foot" id="sb-foot"></div>
 </aside>
@@ -1560,9 +1561,11 @@ var TX = PLAN.textos||{};
   mb.addEventListener('click',openMenu);
   document.getElementById('side-x').addEventListener('click',function(){ closeMenu(true); });
   scrim.addEventListener('click',function(){ closeMenu(true); });
-  [].forEach.call(document.querySelectorAll('.nav-item'),function(b){ b.addEventListener('click',function(){ window.GS_SHOW(b.getAttribute('data-go')); }); });
+  [].forEach.call(document.querySelectorAll('.nav-item'),function(b){ if(b.getAttribute('data-go')){ b.addEventListener('click',function(){ window.GS_SHOW(b.getAttribute('data-go')); }); } });
+  window.GS_RENAME=function(){ window.GS_SHOW('inicio'); window.GS_RENAME_FN&&window.GS_RENAME_FN(); };
+  (function(){ var nb=document.getElementById('nav-name'); if(nb){ nb.addEventListener('click',function(){ window.GS_RENAME(); }); } })();
   window.GS_NAV=function(w){
-    [].forEach.call(document.querySelectorAll('.nav-item'),function(b){ var on=b.getAttribute('data-go')===w; b.classList.toggle('on',on); if(on){ b.setAttribute('aria-current','page'); } else { b.removeAttribute('aria-current'); } });
+    [].forEach.call(document.querySelectorAll('.nav-item'),function(b){ var on=b.getAttribute('data-go')===w; if(!b.getAttribute('data-go')){return;} b.classList.toggle('on',on); if(on){ b.setAttribute('aria-current','page'); } else { b.removeAttribute('aria-current'); } });
     tt.textContent=TITLES[w]; pt.textContent=TITLES[w]; pt.hidden=(w==='inicio');
     closePanel(); closeMenu(false);
   };
@@ -1582,6 +1585,7 @@ var TX = PLAN.textos||{};
     var h=el('h1'); h.appendChild(document.createTextNode(n?'Hola, '+n:'Hola')); hi.appendChild(h);
     hi.appendChild(el('p','hi-sub','¡Terminemos lo de hoy!'));
     dchip.textContent=fmtD(isoD(new Date()));
+    var nb=document.getElementById('nav-name'); if(nb){ nb.hidden=demo||!n; }
     if(demo){ return; }
     if(!n||edit){
       var f=el('form','name-form'); var lb=el('label','','¿Cómo te llamas?'); lb.htmlFor='nm'; var inp=document.createElement('input'); inp.id='nm'; inp.maxLength=40; inp.value=n; inp.autocomplete='given-name';
@@ -1590,9 +1594,9 @@ var TX = PLAN.textos||{};
       f.addEventListener('submit',function(ev){ ev.preventDefault(); var v=inp.value.trim(); if(v){ lsSet(NAMEKEY,v); } renderHi(false); });
       hi.appendChild(f);
     } else {
-      var c=el('button','linkish','Cambiar nombre'); c.type='button'; c.addEventListener('click',function(){ renderHi(true); }); hi.appendChild(c);
     }
   }
+  window.GS_RENAME_FN=function(){ renderHi(true); var i=document.getElementById('nm'); if(i){ i.focus(); } };
   function rank(e){ return e.ms?0:(e.pub?2:1); }
   function sortE(a,b){ return a.d<b.d?-1:a.d>b.d?1:rank(a)-rank(b); }
   var ART='<svg class="hero-art" viewBox="0 0 260 190" aria-hidden="true"><circle cx="208" cy="38" r="20" fill="#FF8231"/><rect x="20" y="30" width="62" height="54" rx="8" fill="#fff" stroke="#231F20" stroke-width="3"/><rect x="20" y="30" width="62" height="16" rx="8" fill="#FF62A1" stroke="#231F20" stroke-width="3"/><path d="M34 62h34M34 72h20" stroke="#231F20" stroke-width="3" stroke-linecap="round"/><path d="M12 168 L92 54 L138 108 L172 74 L248 168 Z" fill="#4CB8F2" stroke="#231F20" stroke-width="3" stroke-linejoin="round"/><path d="M92 54 L138 108 L116 168 L82 168 Z" fill="#2A98D8" opacity=".55"/><path d="M92 54 L112 82 L96 78 L84 86 L76 72 Z" fill="#fff" stroke="#231F20" stroke-width="3" stroke-linejoin="round"/><path d="M92 54V24" stroke="#231F20" stroke-width="3" stroke-linecap="round"/><path d="M92 24 L122 35 L92 46Z" fill="#FF62A1" stroke="#231F20" stroke-width="3" stroke-linejoin="round"/><rect x="4" y="162" width="252" height="18" rx="9" fill="#FFF3C4" stroke="#231F20" stroke-width="3"/></svg>';
