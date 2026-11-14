@@ -1613,7 +1613,6 @@ var TX = PLAN.textos||{};
     if(a[1]){ pbody.appendChild(el('p','p-det',a[1])); }
     var bt=el('button','save-btn p-done',done?'Hecha · deshacer':'Marcar como hecha'); bt.type='button'; bt.setAttribute('aria-pressed',String(done));
     bt.addEventListener('click',function(){ window.APPLY(id,!done); openAct(pi,k,true); var nb=pbody.querySelector('.p-done'); if(nb){ nb.focus(); } });
-    pbody.appendChild(bt);
     var steps=(window.AGENDA_E||[]).filter(function(e){ return e.id!==id&&e.parents&&e.parents.indexOf(id)>=0; }).sort(sortE);
     if(steps.length){
       var sd=0; steps.forEach(function(e){ if(S()[e.id]){ sd++; } });
