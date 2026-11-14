@@ -284,7 +284,7 @@ body{overflow-x:hidden}
 .islas{display:grid;grid-template-columns:1fr;gap:28px}
 @media (min-width:900px){.islas{grid-template-columns:repeat(3,1fr)}}
 .isla{display:flex;flex-direction:column;gap:14px;min-width:0;border:2px solid var(--pri);border-radius:30px;padding:20px;background:var(--surface)}
-.isla.now{box-shadow:6px 6px 0 var(--pri)}
+.isla.now{box-shadow:none}
 .isla.done{background:#FFF3C4}
 .isl-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
 .isl-h h3{margin:0}
@@ -547,7 +547,10 @@ body.menu-open,body.panel-open{overflow:hidden}
 .home-hi h1{text-transform:none;font-family:"DM Sans",sans-serif;font-weight:700;font-size:clamp(1.6rem,4vw,1.9rem);line-height:1.15;color:var(--ink);margin:0}
 .home-hi p.hi-sub{margin:4px 0 0;color:var(--pri);font-size:1.05rem;font-weight:500}
 .date-chip{flex:none;padding:8px 16px;border-radius:99px;background:var(--surface);border:1.5px solid var(--line);font-size:14px;font-weight:600;color:var(--ink);white-space:nowrap}
-.hero{border:0;border-radius:26px;padding:34px 40px;background:#E9EDFF;min-height:210px}
+.hero{display:block;border:0;border-radius:26px;padding:30px 36px;background:#E9EDFF}
+.hero-main{gap:10px}
+.hero-next{background:transparent!important;padding:0!important;border:0!important;max-width:none}
+.hero-next .dot{margin-top:7px}
 .hero h2{font-family:"DM Sans",sans-serif;font-weight:800;text-transform:none;font-size:clamp(2.1rem,5vw,2.9rem);line-height:1.05;color:var(--ink)}
 .hero-sub{color:var(--pri);font-weight:500;font-size:1.05rem}
 .hero-next{background:rgba(255,255,255,.75);border:0;border-radius:14px}
@@ -1473,7 +1476,7 @@ var TX = PLAN.textos||{};
     var main=el('div','hero-main'); main.appendChild(el('h2','','Tarea de hoy')); main.appendChild(el('p','hero-sub',sub));
     if(next){ var nx=el('div','hero-next'); var dt=el('span','dot'); dt.style.background='var(--c'+((next.p||0)+1)+')'; nx.appendChild(dt); var bx=el('div'); bx.appendChild(el('small','',label)); bx.appendChild(el('b','',next.t)); nx.appendChild(bx); main.appendChild(nx); }
     var go=el('button','save-btn','Agenda de hoy'); go.type='button'; go.addEventListener('click',function(){ try{ pHoy.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){ pHoy.scrollIntoView(); } }); main.appendChild(go);
-    hero.appendChild(main); var a=document.createElement('div'); a.innerHTML=ART; hero.appendChild(a.firstChild);
+    hero.appendChild(main);
   }
   var MES={ene:0,feb:1,mar:2,abr:3,may:4,jun:5,jul:6,ago:7,sep:8,sept:8,oct:9,nov:10,dic:11};
   function hitoDate(f){ var m=/(\d{1,2})\s+([a-záéíóú]+)/i.exec(f||''); if(!m){ return null; } var mo=MES[m[2].toLowerCase().slice(0,4)]; if(mo===undefined){ mo=MES[m[2].toLowerCase().slice(0,3)]; } if(mo===undefined){ return null; } var y=parseD(PLAN.inicio).getFullYear(); if(mo<parseD(PLAN.inicio).getMonth()){ y++; } return isoD(new Date(y,mo,+m[1])); }
