@@ -585,6 +585,16 @@ body.menu-open,body.panel-open{overflow:hidden}
 .hit-list li div span{display:block;font-size:14px;color:var(--muted);margin-top:2px}
 .hoy-card .hoy{border:0!important;padding:0!important;border-radius:0!important;background:transparent!important;box-shadow:none}
 .hoy-card .hoy>h3{display:none}
+
+/* Tarea de hoy con el mismo estilo que la tarjeta de Atrasadas */
+#view-inicio .hero{background:transparent;border:1.5px solid var(--pri);border-radius:999px;padding:10px 18px;min-height:44px}
+#view-inicio .hero-main{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 14px}
+#view-inicio .hero h2{font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--pri);line-height:1.4;margin:0}
+#view-inicio .hero-sub{font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pri);margin:0}
+#view-inicio .hero-next{display:none}
+#view-inicio .hero h2::after{content:" ·";font-weight:400}
+#view-inicio .hero .save-btn{background:transparent;color:var(--pri);border:0;padding:0;min-height:0;font-family:var(--f-mono);font-size:12px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;margin-left:auto}
+#view-inicio .hero .save-btn::after{content:" ▾"}
 </style>
 <div class="wrap">
 
