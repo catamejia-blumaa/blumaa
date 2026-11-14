@@ -664,6 +664,18 @@ body.menu-open,body.panel-open{overflow:hidden}
 #view-agenda button.mc.sel.today .dn{color:#fff}
 #view-agenda .mc.filler{background:#FBF8F2}
 #view-agenda .ic .chip{border:0!important}
+
+.cal-wrap{display:flex;flex-direction:column;gap:22px}
+.cal-wrap>.dayp{order:-1}
+@media (min-width:1100px){
+  .cal-wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:start}
+  .cal-wrap>.dayp{order:2;position:sticky;top:20px}
+  #view-agenda .cal-wrap .mc{min-height:84px;padding:8px 10px}
+  #view-agenda .cal-wrap .mc .dn{font-size:16px}
+  .cal-wrap .mnav h3{font-size:clamp(1.8rem,3vw,2.6rem)}
+  .cal-wrap .myear{font-size:clamp(1.2rem,2vw,1.6rem)}
+  .cal-wrap .mnav-b{width:40px;height:40px;font-size:22px}
+}
 </style>
 <div class="wrap">
 
@@ -1210,7 +1222,7 @@ var TX = PLAN.textos||{};
   var weeksEl=el('section','weeks'); root.appendChild(weeksEl);
   var monthSec=el('section'); monthSec.hidden=true;
   var dayEl=el('div','dayp'); var gridEl=el('div','months');
-  monthSec.appendChild(dayEl); monthSec.appendChild(gridEl); monthSec.style.cssText='display:flex;flex-direction:column;gap:22px'; root.appendChild(monthSec);
+  monthSec.appendChild(gridEl); monthSec.appendChild(dayEl); monthSec.classList.add('cal-wrap'); root.appendChild(monthSec);
 
   bW.addEventListener('click',function(){ bW.setAttribute('aria-pressed','true'); bM.setAttribute('aria-pressed','false'); weeksEl.hidden=false; monthSec.hidden=true; });
   bM.addEventListener('click',function(){ bM.setAttribute('aria-pressed','true'); bW.setAttribute('aria-pressed','false'); weeksEl.hidden=true; monthSec.hidden=false; });
