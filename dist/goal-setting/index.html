@@ -626,6 +626,9 @@ body.menu-open,body.panel-open{overflow:hidden}
 .p-list li.p-row .chk:focus-visible{outline:2px solid var(--pri);outline-offset:-3px}
 .p-list li.p-row .p-t{flex:1;min-width:0;border:0;border-radius:0;background:transparent;padding:10px 12px 10px 0;min-height:44px;width:auto;text-align:left;font:inherit;font-size:14px;line-height:1.3;color:var(--ink);cursor:pointer}
 .p-list li.p-row.is-done .p-t{text-decoration:line-through;opacity:.7}
+
+.panel .p-when{display:block;align-self:auto;border:0;border-radius:0;padding:0;margin:-8px 0 0;font-family:"DM Sans",sans-serif;font-size:15px;font-weight:500;color:var(--ink)}
+.panel .p-when b{font-weight:700;color:#FF8231}
 </style>
 <div class="wrap">
 
@@ -1603,8 +1606,8 @@ var TX = PLAN.textos||{};
     var P=PILLARS[pi], a=P.a[k], id='p'+pi+'a'+k, done=!!S()[id];
     cur={pi:pi,k:k}; setHead(pi); pbody.textContent='';
     var h=el('h2','',a[0]); h.id='panel-title'; pbody.appendChild(h);
+    if(a[2]){ var wn=el('p','p-when'); wn.appendChild(el('b','','Fecha: ')); wn.appendChild(document.createTextNode(a[2])); pbody.appendChild(wn); }
     if(a[1]){ pbody.appendChild(el('p','p-det',a[1])); }
-    if(a[2]){ pbody.appendChild(el('span','p-when',a[2])); }
     var bt=el('button','save-btn p-done',done?'Hecha · deshacer':'Marcar como hecha'); bt.type='button'; bt.setAttribute('aria-pressed',String(done));
     bt.addEventListener('click',function(){ window.APPLY(id,!done); openAct(pi,k,true); var nb=pbody.querySelector('.p-done'); if(nb){ nb.focus(); } });
     pbody.appendChild(bt);
