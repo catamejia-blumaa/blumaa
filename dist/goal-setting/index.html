@@ -603,8 +603,9 @@ body.menu-open,body.panel-open{overflow:hidden}
 .p-steps .st .sd{font-size:13px;color:var(--ink);line-height:1.4}
 .p-steps .is-done .st b{text-decoration:line-through;opacity:.7}
 
-#view-agenda>section:nth-of-type(2){border:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border-radius:0!important}
-#view-agenda>section:nth-of-type(2)>h2{display:none}
+#view-agenda>.seg-intro{border:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border-radius:0!important}
+#view-agenda>.seg-intro>h2{display:none}
+#view-agenda>.isl-row{border:0!important;padding:0!important;background:transparent!important;border-radius:0!important;box-shadow:none!important}
 
 .months{display:block}
 .month{max-width:520px;margin:0 auto}
@@ -662,6 +663,7 @@ body.menu-open,body.panel-open{overflow:hidden}
 }
 #view-agenda button.mc.sel.today .dn{color:#fff}
 #view-agenda .mc.filler{background:#FBF8F2}
+#view-agenda .ic .chip{border:0!important}
 </style>
 <div class="wrap">
 
@@ -1504,7 +1506,8 @@ var TX = PLAN.textos||{};
   var eb=document.getElementById('hd-eyebrow'); document.getElementById('sb-eyebrow').textContent=eb?(eb.textContent.split(' · ')[1]||''):'';
 
   // Reubicar secciones existentes en las vistas nuevas
-  var prog=document.getElementById('progreso'); if(prog){ agenda.insertBefore(prog,agenda.firstChild); }
+  var prog=document.getElementById('progreso'); if(prog){ agenda.insertBefore(prog,agenda.firstChild); prog.hidden=true; prog.style.display='none'; }
+  var row2=el('section','isl-row'); var segIntro=agenda.querySelector(':scope > section:not(#progreso)'); if(segIntro){ segIntro.classList.add('seg-intro'); agenda.insertBefore(row2,segIntro.nextSibling); } else { agenda.insertBefore(row2,agenda.firstChild); }
   var hitos=document.getElementById('hitos'); if(hitos){ mapRoot.appendChild(hitos); }
   var rut=document.getElementById('rutinas'); if(rut){ agenda.appendChild(rut); }
   var hoy=agenda.querySelector('.hoy'); var rb=document.getElementById('reset-box'); if(rb){ document.getElementById('sb-foot').appendChild(rb); }
@@ -1597,6 +1600,7 @@ var TX = PLAN.textos||{};
       var ft=el('span','ic-foot'); var go=el('span','ic-go'); go.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'; ft.appendChild(el('span','chip',chipText(i,done,locked,c))); b.appendChild(ft);
       row.appendChild(b);
     });
+    row2.innerHTML=row.innerHTML;
   }
   function chipText(i,done,locked,card){
     if(done){ return 'Completada'; }
